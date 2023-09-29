@@ -11,6 +11,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if parent.ship.attacked:
+		disable_button()
+	else:
+		enable_button()
 	pass
 
 func set_texture(texture):
@@ -18,7 +22,6 @@ func set_texture(texture):
 
 
 func _on_pressed():
-	print("Click on ability")
 	parent.ship.selected_projectile = ability
 	#parent.visible = false
 	#Signals.emit_signal("ship_menu_closed")
@@ -28,6 +31,12 @@ func _on_pressed():
 	#Global.camera.quaternion = Vector3(0,1,0)
 	pass # Replace with function body.
 
+func disable_button():
+	$lock.visible = true
+	disabled = true
+func enable_button():
+	$lock.visible = false
+	disabled = false
 
 func _on_mouse_entered():
 	parent.hover = true

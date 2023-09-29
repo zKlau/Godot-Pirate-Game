@@ -17,3 +17,4 @@ res://Prefabs/Ships/Placeholder/ship_light.tscn
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
 res://Scripts/Ship.gd
+res://Prefabs/User Interface/Buttons/normal_ability_button.gd
