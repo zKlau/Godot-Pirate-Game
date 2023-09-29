@@ -21,7 +21,7 @@ var cannon_ball : int = 0
 var attack_coords : Vector3
 var can_attack : bool = true
 var attack_stopped_for : int = 0
-
+var attacked : bool = false
 var on_fire : bool = false
 var stop_fire_r : bool = false
 var sleep : bool = false
@@ -110,7 +110,9 @@ func interact():
 		if user == 0:
 			
 			ship_menu.visible = true
-		if user == 0:
+		if user == 0 and attacked:
+			match_game.selected_player_ship  = null
+		if user == 0 and attacked == false:
 			match_game.selected_player_ship = self
 			print("select")
 		else:
@@ -131,6 +133,7 @@ func update_attack_stop():
 
 
 func new_round():
+	attacked = false
 	update_attack_stop()
 	if health > 0:
 		#print(_name)

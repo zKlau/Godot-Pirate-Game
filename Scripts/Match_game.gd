@@ -182,6 +182,7 @@ func add_ship(player : int, ship : Ship):
 func _on_attack_button_pressed():
 	if p1_round_attacks < player1_attacks:
 		attack(0)
+	
 	#Signals.emit_signal("player1_attack")
 	pass # Replace with function body.
 
@@ -255,6 +256,8 @@ func attack(current_p : int):
 					damage_multiplier = 1.1
 			var projectile = selected_player_ship.selected_projectile
 			selected_enemy_ship.take_damage(projectile.damage * damage_multiplier, enemy_ship_part-1, projectile, selected_player_ship)
+		selected_player_ship.attacked = true
+		selected_player_ship = null
 	pass
 
 
