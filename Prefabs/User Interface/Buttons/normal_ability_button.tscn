@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dee2x2640onv"]
+
+[ext_resource type="Texture2D" uid="uid://wacquabgr5ah" path="res://Assets/Textures/UI/Ship/Combat/Ship-slot.png" id="1_s1sus"]
+[ext_resource type="Script" path="res://Prefabs/User Interface/Buttons/normal_ability_button.gd" id="1_xyc7e"]
+[ext_resource type="Texture2D" uid="uid://cq72osne7ueua" path="res://Assets/Textures/UI/Ship/Combat/Abilities/fire-ball.png" id="3_5peuc"]
+
+[node name="Normal Ability Button" type="TextureButton"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_s1sus")
+texture_pressed = ExtResource("1_s1sus")
+texture_hover = ExtResource("1_s1sus")
+texture_disabled = ExtResource("1_s1sus")
+texture_focused = ExtResource("1_s1sus")
+stretch_mode = 4
+script = ExtResource("1_xyc7e")
+
+[node name="ability_texture" type="Sprite2D" parent="."]
+position = Vector2(19, 19)
+texture = ExtResource("3_5peuc")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

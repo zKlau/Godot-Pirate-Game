@@ -1,0 +1,35 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://m48vwm1pyiug"]
+
+[ext_resource type="Texture2D" uid="uid://bsjloxje2v2b3" path="res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co.jpg" id="1_pkn6f"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_flaqn"]
+panorama = ExtResource("1_pkn6f")
+
+[sub_resource type="Sky" id="Sky_bvofq"]
+sky_material = SubResource("PanoramaSkyMaterial_flaqn")
+
+[resource]
+background_mode = 1
+background_color = Color(0.0431373, 0.847059, 0.921569, 0.921569)
+sky = SubResource("Sky_bvofq")
+ambient_light_color = Color(0.0431373, 0.847059, 0.921569, 0.921569)
+tonemap_mode = 1
+tonemap_exposure = 0.5
+tonemap_white = 0.5
+sdfgi_use_occlusion = true
+sdfgi_min_cell_size = 0.498145
+sdfgi_cascade0_distance = 31.8813
+sdfgi_max_distance = 510.1
+sdfgi_energy = 0.5
+glow_enabled = true
+glow_intensity = 0.2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_albedo = Color(0.247059, 0.247059, 0.247059, 1)
+volumetric_fog_anisotropy = 0.44
+volumetric_fog_length = 320.0
+volumetric_fog_ambient_inject = 1.0
+volumetric_fog_temporal_reprojection_enabled = false
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_saturation = 1.5

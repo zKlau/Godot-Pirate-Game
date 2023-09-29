@@ -1,0 +1,61 @@
+[gd_scene load_steps=13 format=3 uid="uid://bwvpuyitqvwph"]
+
+[ext_resource type="Script" path="res://Scripts/Ship.gd" id="1_dixou"]
+[ext_resource type="Resource" uid="uid://c1yqbcmv0exjb" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres" id="2_jnrjn"]
+[ext_resource type="Resource" uid="uid://c0vhxameste02" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres" id="3_ixho5"]
+[ext_resource type="PackedScene" uid="uid://b62gpgcp55lat" path="res://Prefabs/part_fire.tscn" id="4_6cmw5"]
+[ext_resource type="PackedScene" uid="uid://8j2pej8wmupm" path="res://Prefabs/User Interface/Ship/ship_menu.tscn" id="5_rn511"]
+[ext_resource type="PackedScene" uid="uid://cjhrkmvrhorbs" path="res://Prefabs/destroyed_fire.tscn" id="6_2i3h4"]
+[ext_resource type="PackedScene" uid="uid://d1lqkc0r5kx3v" path="res://Prefabs/Ships/Placeholder/ship_dark.tscn" id="7_viv8k"]
+[ext_resource type="Script" path="res://Scenes/Ship_Cannonballs.gd" id="8_ssuqp"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fk8h6"]
+data = PackedVector3Array(-1, 2, 3, 1, 2, 3, -1, -2, 3, 1, 2, 3, 1, -2, 3, -1, -2, 3, 1, 2, -3, -1, 2, -3, 1, -2, -3, -1, 2, -3, -1, -2, -3, 1, -2, -3, 1, 2, 3, 1, 2, -3, 1, -2, 3, 1, 2, -3, 1, -2, -3, 1, -2, 3, -1, 2, -3, -1, 2, 3, -1, -2, -3, -1, 2, 3, -1, -2, 3, -1, -2, -3, 1, 2, 3, -1, 2, 3, 1, 2, -3, -1, 2, 3, -1, 2, -3, 1, 2, -3, -1, -2, 3, 1, -2, 3, -1, -2, -3, 1, -2, 3, 1, -2, -3, -1, -2, -3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pqd1g"]
+size = Vector3(2, 4, 6)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_lpq68"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ggjgs"]
+material = SubResource("ORMMaterial3D_lpq68")
+size = Vector3(2, 4, 2)
+
+[node name="Ship7" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -83, 1, 5)
+script = ExtResource("1_dixou")
+_name = "Walrus"
+id = 2
+ship_size = 2
+cannons = 2
+ship_rotation = 2
+ship_projectiles = Array[Resource]([ExtResource("2_jnrjn"), ExtResource("3_ixho5")])
+
+[node name="Part_Fire" parent="." instance=ExtResource("4_6cmw5")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_fk8h6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
+mesh = SubResource("BoxMesh_pqd1g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
+visible = false
+mesh = SubResource("BoxMesh_ggjgs")
+
+[node name="Ship_Menu" parent="." instance=ExtResource("5_rn511")]
+
+[node name="Destroyed_Fire" parent="." instance=ExtResource("6_2i3h4")]
+
+[node name="ship_dark" parent="." instance=ExtResource("7_viv8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9, 0)
+
+[node name="Ship_CannonBalls" type="Node" parent="."]
+script = ExtResource("8_ssuqp")

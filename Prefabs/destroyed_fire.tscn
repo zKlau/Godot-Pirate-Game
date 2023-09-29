@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjhrkmvrhorbs"]
+
+[ext_resource type="PackedScene" uid="uid://dk4a6jbrgjo3j" path="res://Prefabs/Particles/fire.tscn" id="1_y1agt"]
+
+[node name="Destroyed_Fire" type="Node3D"]
+visible = false
+
+[node name="Fire" parent="." instance=ExtResource("1_y1agt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.557651, 0.781576, 0)
+
+[node name="Fire2" parent="." instance=ExtResource("1_y1agt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125954, 0.781576, 1.29634)
+
+[node name="Fire3" parent="." instance=ExtResource("1_y1agt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.359116, 0.781576, 2.45509)
+
+[node name="Fire4" parent="." instance=ExtResource("1_y1agt")]
+transform = Transform3D(0.929918, 0.367768, -3.0634e-09, -0.367768, 0.929918, -1.60756e-08, -3.06339e-09, 1.60756e-08, 1, 0.0669594, 1.30406, -1.92204)

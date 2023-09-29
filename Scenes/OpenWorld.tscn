@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ejde2t7qoquk"]
+
+[ext_resource type="Script" path="res://Scripts/Match_game.gd" id="1_ju3ir"]
+[ext_resource type="Resource" uid="uid://bwrysr2w7ojkk" path="res://Data/Player/Player.tres" id="2_svw76"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_pq3tf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8fi0v"]
+size = Vector3(50, 1, 50)
+
+[node name="OpenWorld" type="Node"]
+
+[node name="MATCH GAME" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_ju3ir")
+player_data = ExtResource("2_svw76")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+script = ExtResource("3_pq3tf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.91027, 0)
+mesh = SubResource("BoxMesh_8fi0v")

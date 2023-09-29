@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Cannon_Balls_resource" load_steps=3 format=3 uid="uid://c1yqbcmv0exjb"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/Ship/Cannon_balls.gd" id="1_n2jal"]
+[ext_resource type="Texture2D" uid="uid://m1rpjp5nb3ny" path="res://Assets/Textures/UI/Ship/Combat/Abilities/cannon-ball.png" id="2_emwnv"]
+
+[resource]
+script = ExtResource("1_n2jal")
+texture = ExtResource("2_emwnv")
+name = "Cannon Ball"
+level = 1
+damage = 10

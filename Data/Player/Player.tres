@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Player_Data" load_steps=5 format=3 uid="uid://bwrysr2w7ojkk"]
+
+[ext_resource type="PackedScene" uid="uid://chjct63vspehy" path="res://Data/Player/Ships/Dutchman.tscn" id="1_3exy5"]
+[ext_resource type="Script" path="res://Data/Player/Player_data.gd" id="1_wbdtc"]
+[ext_resource type="PackedScene" path="res://Data/Player/Ships/Walrus.tscn" id="2_3qd1i"]
+[ext_resource type="PackedScene" uid="uid://8vfu0qpkbqyn" path="res://Data/Player/Ships/WhydahGally.tscn" id="3_x0dd1"]
+
+[resource]
+script = ExtResource("1_wbdtc")
+_name = "Joe"
+level = 0
+coins = 49981
+pearls = 0
+active_ships = Array[PackedScene]([ExtResource("1_3exy5"), ExtResource("2_3qd1i"), ExtResource("3_x0dd1")])

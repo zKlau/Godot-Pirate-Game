@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://obtjefhqm51v"]
+
+[ext_resource type="Script" path="res://Scripts/FloatingObject_action.gd" id="1_cmpmq"]
+[ext_resource type="PackedScene" uid="uid://bhr7u26sm5wrm" path="res://Prefabs/Particles/barrel_destroy_particles.tscn" id="2_8ffny"]
+[ext_resource type="Script" path="res://Scripts/Floating_Object.gd" id="2_rkfbs"]
+[ext_resource type="PackedScene" uid="uid://ct1rsqpme55ol" path="res://Models/Props/Barrel/barrel.gltf" id="3_dmn32"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_crpyg"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ojfks"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0ic42"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dkd2w"]
+
+[node name="FloatingObject" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.98127, 0, 1)
+script = ExtResource("1_cmpmq")
+destroy_particles = ExtResource("2_8ffny")
+
+[node name="Collider" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.189216, 0)
+collision_layer = 8388608
+collision_mask = 8388608
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_crpyg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_ojfks")
+
+[node name="FloatingObject" type="RigidBody3D" parent="."]
+input_ray_pickable = false
+constant_force = Vector3(-3, 0, 3)
+script = ExtResource("2_rkfbs")
+float_force = 2.0
+water_drag = 0.1
+water_angular_drag = 1.0
+
+[node name="barrel" parent="FloatingObject" instance=ExtResource("3_dmn32")]
+transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, 0.945931, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloatingObject"]
+shape = SubResource("ConcavePolygonShape3D_0ic42")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FloatingObject"]
+mesh = SubResource("BoxMesh_dkd2w")
+
+[node name="ProbeContainer" type="Node3D" parent="FloatingObject"]
+
+[node name="Probe1" type="Marker3D" parent="FloatingObject/ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26233, -0.621103, 0.376217)
+
+[node name="Probe2" type="Marker3D" parent="FloatingObject/ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26233, -0.621103, -0.419631)
+
+[node name="Probe3" type="Marker3D" parent="FloatingObject/ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.316971, -0.621103, 0.376217)
+
+[node name="Probe4" type="Marker3D" parent="FloatingObject/ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.316971, -0.621103, -0.419631)

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://kmhb7y2uwubn"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_kjrpn"]
+density = -8.0
+height_falloff = 0.0321366
+edge_fade = 0.90125
+
+[node name="Full Wind" type="FogVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0977702, -11.235, 54.9242)
+size = Vector3(86.8089, 102.858, 93.7622)
+shape = 2
+material = SubResource("FogMaterial_kjrpn")

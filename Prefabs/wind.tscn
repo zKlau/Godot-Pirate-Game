@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxmi67s1dcpsn"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_sh1wi"]
+density = -5.453
+edge_fade = 0.857417
+
+[node name="Wind" type="FogVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11687, 0, 8.2485)
+size = Vector3(50, 61.09, 50)
+shape = 0
+material = SubResource("FogMaterial_sh1wi")

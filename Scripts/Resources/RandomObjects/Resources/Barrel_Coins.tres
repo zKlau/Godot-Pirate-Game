@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Random_object_data_currency" load_steps=2 format=3 uid="uid://dbvfrxvxghykd"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/RandomObjects/RandomObjectResource_currency.gd" id="1_8legg"]
+
+[resource]
+script = ExtResource("1_8legg")
+_name = "Coins"
+reward_type = 0
+max_amount = 2500
+min_amount = 500
+chance = 95

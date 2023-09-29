@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Cannon_Balls_resource" load_steps=5 format=3 uid="uid://c0vhxameste02"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/Ship/Cannon_balls.gd" id="1_t52gd"]
+[ext_resource type="Script" path="res://Scripts/Resources/status_effect.gd" id="2_aq16t"]
+[ext_resource type="Texture2D" uid="uid://cpp6aimj6swou" path="res://Assets/Textures/UI/Ship/Combat/Abilities/sleeping-ball.png" id="3_rsxx6"]
+
+[sub_resource type="Resource" id="Resource_i5sbd"]
+script = ExtResource("2_aq16t")
+status = 1
+hit_stop_action = 2
+stop_action_for = 2
+
+[resource]
+script = ExtResource("1_t52gd")
+texture = ExtResource("3_rsxx6")
+name = "Sleep Ball"
+level = 1
+damage = 10
+status_effect = SubResource("Resource_i5sbd")

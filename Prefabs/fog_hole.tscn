@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhu45ga33n2v2"]
+
+[ext_resource type="Script" path="res://Scripts/fog_hole.gd" id="1_4xex3"]
+
+[sub_resource type="ImageTexture3D" id="ImageTexture3D_r1hrs"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_vb3x7"]
+density = -8.0
+albedo = Color(0.160784, 0.160784, 0.160784, 1)
+edge_fade = 0.414106
+density_texture = SubResource("ImageTexture3D_r1hrs")
+
+[sub_resource type="ImageTexture3D" id="ImageTexture3D_s37ay"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_bw06d"]
+density = -8.0
+albedo = Color(0, 0, 0, 1)
+edge_fade = 0.887655
+density_texture = SubResource("ImageTexture3D_s37ay")
+
+[node name="FogHole" type="FogVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.822365, 5.29, 2.36544)
+size = Vector3(6, 15, 6)
+shape = 2
+material = SubResource("FogMaterial_vb3x7")
+script = ExtResource("1_4xex3")
+
+[node name="FogHole2" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.03288, 0)
+size = Vector3(12, 15.7344, 12)
+shape = 2
+material = SubResource("FogMaterial_bw06d")
+script = ExtResource("1_4xex3")

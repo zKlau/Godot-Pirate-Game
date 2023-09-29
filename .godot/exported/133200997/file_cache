@@ -1,0 +1,10 @@
+res://Models/Exports/grid_cell.tres::31af71e8d438302490a910988d947df4::1690736679::res://.godot/exported/133200997/export-b8e7a3323d38f96b94b917a7bdeafc7f-grid_cell.res
+res://Prefabs/User Interface/Ship/option_button_ship_menu.tres::5fe3d084e1c2f34c1bedc3dd94499b82::1690933683::res://.godot/exported/133200997/export-ac88af1627301540ad816e28a2e5abe9-option_button_ship_menu.res
+res://Prefabs/User Interface/Ship/ship_menu.tscn::cfed83516ecb6e362aaa9890dd12ea9a::1690933733::res://.godot/exported/133200997/export-ee0dc8263dfc924bbad6915616dbb026-ship_menu.scn
+res://Prefabs/cube.tscn::d6386aa35c1407e38523e98ca69cb59b::1689987433::res://.godot/exported/133200997/export-4169e5a7826fc311a4b30cbb8781cd3c-cube.scn
+res://Prefabs/fog_hole.tscn::5c3da23f1ebd095687f935cc1fdb34a8::1690933733::res://.godot/exported/133200997/export-89542e73edcd5278bd3e7079220739be-fog_hole.scn
+res://Prefabs/full_wind.tscn::0e9f804fdd2df3f177d9d96f3ff8bbfe::1690235614::res://.godot/exported/133200997/export-b568492ef5c2bb22f4c024d80a4ddda1-full_wind.scn
+res://Prefabs/grid_cell.tscn::ba6a2dd3b69b94c0a52adb0574e4fc6c::1689899586::res://.godot/exported/133200997/export-176782cc20fee51e7311d48deb21a90e-grid_cell.scn
+res://Scenes/main.tres::1d05e067548085ebb0b93e9ffa688e09::1690924241::res://.godot/exported/133200997/export-196b4cee0cab6707b9b2191233635d0c-main.res
+res://Scenes/main.tscn::ed0fbcdc73f26ff29d66f7eacd327a9c::1690933733::res://.godot/exported/133200997/export-2ddd04d543d5858e7f20c9299a8b5096-main.scn
+res://Scenes/mark.tscn::71ccef433520f99f8b9c17749a22e348::1690933733::res://.godot/exported/133200997/export-4c4fd97249b565ae659d5a0ab6070c0a-mark.scn

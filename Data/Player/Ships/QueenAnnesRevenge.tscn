@@ -1,0 +1,93 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Ship.gd" id="1_3cisr"]
+[ext_resource type="Resource" uid="uid://c0vhxameste02" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres" id="2_0cddh"]
+[ext_resource type="PackedScene" uid="uid://8j2pej8wmupm" path="res://Prefabs/User Interface/Ship/ship_menu.tscn" id="3_e12a1"]
+[ext_resource type="Script" path="res://Scripts/ship_menu.gd" id="4_yrqcq"]
+[ext_resource type="PackedScene" uid="uid://b62gpgcp55lat" path="res://Prefabs/part_fire.tscn" id="5_ef37e"]
+[ext_resource type="Script" path="res://Prefabs/part_fire.gd" id="6_41m4b"]
+[ext_resource type="PackedScene" uid="uid://cjhrkmvrhorbs" path="res://Prefabs/destroyed_fire.tscn" id="7_0ay5n"]
+[ext_resource type="PackedScene" uid="uid://d1lqkc0r5kx3v" path="res://Prefabs/Ships/Placeholder/ship_dark.tscn" id="8_wbtbs"]
+[ext_resource type="Script" path="res://Scripts/Floating_Object.gd" id="9_ldss8"]
+[ext_resource type="Script" path="res://Scripts/Ship_Cannonballs.gd" id="10_l8tfe"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_63nxx"]
+data = PackedVector3Array(-1, 2, 3, 1, 2, 3, -1, -2, 3, 1, 2, 3, 1, -2, 3, -1, -2, 3, 1, 2, -3, -1, 2, -3, 1, -2, -3, -1, 2, -3, -1, -2, -3, 1, -2, -3, 1, 2, 3, 1, 2, -3, 1, -2, 3, 1, 2, -3, 1, -2, -3, 1, -2, 3, -1, 2, -3, -1, 2, 3, -1, -2, -3, -1, 2, 3, -1, -2, 3, -1, -2, -3, 1, 2, 3, -1, 2, 3, 1, 2, -3, -1, 2, 3, -1, 2, -3, 1, 2, -3, -1, -2, 3, 1, -2, 3, -1, -2, -3, 1, -2, 3, 1, -2, -3, -1, -2, -3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pqd1g"]
+size = Vector3(2, 4, 6)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_lpq68"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ggjgs"]
+material = SubResource("ORMMaterial3D_lpq68")
+size = Vector3(2, 4, 2)
+
+[node name="Ship 1764964663" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -93, 1, 11)
+script = ExtResource("1_3cisr")
+_name = "Queen Anne's Revenge"
+id = 1
+ship_level = 1
+user = 0
+ship_size = 2
+cannons = 1
+ship_rotation = 2
+health = 100
+ship_projectiles = Array[Resource]([ExtResource("2_0cddh")])
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_63nxx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
+mesh = SubResource("BoxMesh_pqd1g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
+visible = false
+mesh = SubResource("BoxMesh_ggjgs")
+
+[node name="Ship_Menu" type="Control" parent="." instance=ExtResource("3_e12a1")]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = 595.0
+offset_right = 2.0
+offset_bottom = 595.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+script = ExtResource("4_yrqcq")
+
+[node name="Part_Fire" type="Node3D" parent="." instance=ExtResource("5_ef37e")]
+script = ExtResource("6_41m4b")
+
+[node name="Destroyed_Fire" type="Node3D" parent="." instance=ExtResource("7_0ay5n")]
+visible = false
+
+[node name="ship_dark" type="RigidBody3D" parent="." instance=ExtResource("8_wbtbs")]
+transform = Transform3D(0.999896, -0.0144482, -0.000252324, 0.0144493, 0.999456, 0.0296446, -0.000176124, -0.0296451, 0.999561, 0, -1.12189, 0)
+linear_velocity = Vector3(0, -0.0172618, 0)
+angular_velocity = Vector3(0.00534813, 6.95158e-05, 0.00306158)
+script = ExtResource("9_ldss8")
+float_force = 1.0
+water_drag = 1.0
+water_angular_drag = 1.0
+speed = 0.01
+
+[node name="Ship_CannonBalls" type="Node" parent="."]
+script = ExtResource("10_l8tfe")
+cannon_ball_level = 1
+fireball_level = 1
+sleep_ball_level = 1

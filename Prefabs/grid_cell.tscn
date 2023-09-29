@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3age768ducsi"]
+
+[ext_resource type="PackedScene" uid="uid://cwhc70cnbe311" path="res://Models/Grid/Grid_cell.glb" id="1_lukl7"]
+
+[node name="Grid_cell" instance=ExtResource("1_lukl7")]
+
+[node name="MeshInstance3D3_003" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

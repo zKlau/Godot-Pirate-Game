@@ -1,0 +1,137 @@
+[gd_scene load_steps=19 format=3 uid="uid://dyum6bmhjijnf"]
+
+[ext_resource type="Shader" path="res://Scenes/fog.gdshader" id="1_gnh8l"]
+[ext_resource type="Script" path="res://Scenes/Camera.gd" id="2_dxqlf"]
+[ext_resource type="Shader" path="res://Scenes/water.gdshader" id="2_m5c1i"]
+[ext_resource type="Script" path="res://Scripts/Grid_follow_cursor.gd" id="3_4c5kg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwpdj"]
+shader = ExtResource("1_gnh8l")
+shader_parameter/density = 4.1677
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/emission = Color(0.694118, 0.694118, 0.694118, 1)
+shader_parameter/height_falloff = 0.0
+shader_parameter/edge_fade = 0.1
+
+[sub_resource type="FogMaterial" id="FogMaterial_i5qra"]
+density = -8.0
+
+[sub_resource type="Environment" id="Environment_thpst"]
+background_mode = 1
+background_color = Color(0.372549, 0.894118, 1, 0.47451)
+glow_enabled = true
+glow_intensity = 0.2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_temporal_reprojection_enabled = false
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_saturation = 1.5
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ng835"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vub08"]
+seamless = true
+noise = SubResource("FastNoiseLite_ng835")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_it16x"]
+seed = 5
+frequency = 0.1375
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mf6ba"]
+seamless = true
+noise = SubResource("FastNoiseLite_it16x")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_28jj3"]
+render_priority = 0
+shader = ExtResource("2_m5c1i")
+shader_parameter/speed = 0.01
+shader_parameter/color = Color(0.807843, 0.898039, 1, 1)
+shader_parameter/deep_water = Color(0, 0.396078, 0.698039, 1)
+shader_parameter/beer_law_factor = 2.0
+shader_parameter/_distance = 0.0
+shader_parameter/edge_color = Color(0.870588, 0.870588, 0.870588, 1)
+shader_parameter/edge_scale = 0.25
+shader_parameter/near = 0.1
+shader_parameter/far = 100.0
+shader_parameter/wave_strength = Vector2(0.5, 0.25)
+shader_parameter/wave_frequ = Vector2(11.67, 12.04)
+shader_parameter/time_factor = Vector2(1, 2)
+shader_parameter/noise1 = SubResource("NoiseTexture2D_vub08")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_mf6ba")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v4yco"]
+material = SubResource("ShaderMaterial_28jj3")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o46vp"]
+size = Vector3(1.995, 4.69, 4.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mxe1k"]
+render_priority = 0
+shader = ExtResource("2_m5c1i")
+shader_parameter/speed = 0.01
+shader_parameter/color = Color(0.4, 0.694118, 1, 1)
+shader_parameter/deep_water = Color(0, 0.396078, 0.698039, 1)
+shader_parameter/beer_law_factor = 2.0
+shader_parameter/_distance = 0.0
+shader_parameter/edge_color = Color(0.870588, 0.870588, 0.870588, 1)
+shader_parameter/edge_scale = 0.25
+shader_parameter/near = 0.1
+shader_parameter/far = 100.0
+shader_parameter/wave_strength = Vector2(0.5, 0.25)
+shader_parameter/wave_frequ = Vector2(11.67, 12.04)
+shader_parameter/time_factor = Vector2(1, 2)
+shader_parameter/noise1 = SubResource("NoiseTexture2D_vub08")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_mf6ba")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yyylp"]
+material = SubResource("ShaderMaterial_mxe1k")
+size = Vector2(100, 100)
+
+[sub_resource type="Gradient" id="Gradient_duv51"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bh00l"]
+gradient = SubResource("Gradient_duv51")
+
+[node name="Node" type="Node"]
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.124, 5.29, 17.749)
+visible = false
+size = Vector3(35.6742, 2, 49.0814)
+material = SubResource("ShaderMaterial_kwpdj")
+
+[node name="FogVolume2" type="FogVolume" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 1.27997, 3.02679, 4.01278)
+size = Vector3(3.59594, 12.8426, 2.78333)
+shape = 2
+material = SubResource("FogMaterial_i5qra")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_thpst")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.35, 20.5366, -0.189463)
+current = true
+fov = 90.0
+script = ExtResource("2_dxqlf")
+
+[node name="water1" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_v4yco")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5629, -1.52659, -3.28531)
+mesh = SubResource("BoxMesh_o46vp")
+
+[node name="water2" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PlaneMesh_yyylp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 1.63606, 0)
+texture = SubResource("GradientTexture2D_bh00l")
+script = ExtResource("3_4c5kg")

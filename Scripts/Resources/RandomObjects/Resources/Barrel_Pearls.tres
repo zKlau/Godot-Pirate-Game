@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Random_object_data_currency" load_steps=2 format=3 uid="uid://cmusfgsvd82ay"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/RandomObjects/RandomObjectResource_currency.gd" id="1_dbctw"]
+
+[resource]
+script = ExtResource("1_dbctw")
+_name = "Pearls"
+reward_type = 1
+max_amount = 10
+min_amount = 1
+chance = 5

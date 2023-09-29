@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b62gpgcp55lat"]
+
+[ext_resource type="Script" path="res://Prefabs/part_fire.gd" id="1_3bmse"]
+[ext_resource type="PackedScene" uid="uid://dk4a6jbrgjo3j" path="res://Prefabs/Particles/fire.tscn" id="1_vu7s0"]
+
+[node name="Part_Fire" type="Node3D"]
+script = ExtResource("1_3bmse")
+
+[node name="bot_part" parent="." instance=ExtResource("1_vu7s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.76837e-07, 2.03378)
+visible = false
+
+[node name="mid_part" parent="." instance=ExtResource("1_vu7s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.76837e-07, 0.033783)
+visible = false
+
+[node name="top_part" parent="." instance=ExtResource("1_vu7s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.76837e-07, -1.96622)
+visible = false

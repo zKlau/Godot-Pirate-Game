@@ -1,0 +1,294 @@
+[gd_scene load_steps=6 format=3 uid="uid://caiwl410gy684"]
+
+[ext_resource type="PackedScene" uid="uid://bepm0760nntva" path="res://Prefabs/Particles/cannon_fire.tscn" id="1_as7oy"]
+[ext_resource type="AudioStream" uid="uid://b5v0ydi5nwe58" path="res://Assets/Audio/Sound Effects/Combat/Ship/cannon_shot1.wav" id="1_ulj4j"]
+
+[sub_resource type="Animation" id="Animation_0tix0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire3:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire4:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire5:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire6:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire7:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire8:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qgkiw"]
+resource_name = "shooting"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire3:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire4:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire5:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire6:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire7:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Ship_Shooting_Animation/Shooting Particles/Cannon_Fire8:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Ship_Shooting_Animation/AudioStreamPlayer3D")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_ulj4j")
+}],
+"times": PackedFloat32Array(-0.1)
+}
+tracks/8/use_blend = true
+tracks/9/type = "audio"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Ship_Shooting_Animation/AudioStreamPlayer3D")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_ulj4j")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/9/use_blend = true
+tracks/10/type = "audio"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Ship_Shooting_Animation/AudioStreamPlayer3D")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_ulj4j")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/10/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p1nna"]
+_data = {
+"RESET": SubResource("Animation_0tix0"),
+"shooting": SubResource("Animation_qgkiw")
+}
+
+[node name="Ship_Shooting_Animation" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.24205, 0, -9.80032e-08)
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_p1nna")
+}
+
+[node name="Shooting Particles" type="Node3D" parent="."]
+
+[node name="Cannon_Fire" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.223378, 3.31072)
+
+[node name="Cannon_Fire2" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83191e-07, 0.224404, 4.19091)
+
+[node name="Cannon_Fire3" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19799e-07, 0.224404, 5.02841)
+
+[node name="Cannon_Fire4" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57628e-07, 0.250059, 5.87504)
+
+[node name="Cannon_Fire5" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56744e-07, -0.308258, 5.87362)
+
+[node name="Cannon_Fire6" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19393e-07, -0.32374, 5.01913)
+
+[node name="Cannon_Fire7" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83523e-07, -0.354705, 4.19852)
+
+[node name="Cannon_Fire8" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4444e-07, -0.354705, 3.30441)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = -10.0
+pitch_scale = 1.5
+max_distance = 5000.0

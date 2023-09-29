@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5v0ydi5nwe58"
+path="res://.godot/imported/cannon_shot1.wav-709a7f438ba1546c45a2a6cb763bb4e3.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Sound Effects/Combat/Ship/cannon_shot1.wav"
+dest_files=["res://.godot/imported/cannon_shot1.wav-709a7f438ba1546c45a2a6cb763bb4e3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

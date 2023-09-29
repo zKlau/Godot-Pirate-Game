@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Cannon_Balls_resource" load_steps=2 format=3 uid="uid://c54s30gc0wh3o"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/Ship/Cannon_balls.gd" id="1_liobq"]
+
+[resource]
+script = ExtResource("1_liobq")
+name = "Cannon Ball"
+level = 1
+damage = 10

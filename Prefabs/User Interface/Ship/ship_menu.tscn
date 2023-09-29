@@ -1,0 +1,173 @@
+[gd_scene load_steps=8 format=3 uid="uid://8j2pej8wmupm"]
+
+[ext_resource type="Script" path="res://Scripts/ship_menu.gd" id="1_mdeg3"]
+[ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="2_2ka52"]
+[ext_resource type="Texture2D" uid="uid://6puc7db2wbck" path="res://Assets/Textures/UI/Ship/Combat/Ship-menu2.png" id="2_468rh"]
+[ext_resource type="Script" path="res://Prefabs/User Interface/Ship/Debug.gd" id="3_t27l4"]
+[ext_resource type="Texture2D" uid="uid://mj2gwy4qv5py" path="res://Assets/Textures/UI/Ship/Combat/Ship_ui.png" id="3_ut8tp"]
+[ext_resource type="Script" path="res://Scripts/User Interface/Normal Projectiles.gd" id="4_r77rg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kb58"]
+size = Vector2(694.667, 236.667)
+
+[node name="Ship_Menu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = 595.0
+offset_right = 2.0
+offset_bottom = 595.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+mouse_default_cursor_shape = 6
+script = ExtResource("1_mdeg3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-28, 147.333)
+scale = Vector2(0.972928, 0.972928)
+texture = ExtResource("2_468rh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -642.0
+offset_top = -149.0
+offset_right = 642.0
+offset_bottom = -34.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(14.6667, -121.333)
+scale = Vector2(0.932762, 0.690957)
+texture = ExtResource("3_ut8tp")
+
+[node name="Close Menu Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 282.0
+offset_top = -224.667
+offset_right = 304.0
+offset_bottom = -193.667
+rotation = 0.132347
+text = "X"
+
+[node name="Cannon Buttons" type="OptionButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -624.0
+offset_top = -98.0
+offset_right = -558.0
+offset_bottom = -35.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("2_2ka52")
+
+[node name="Water_box" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 20.6666
+offset_top = -147.333
+offset_right = 95.6666
+offset_bottom = -116.333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Water"
+
+[node name="Health" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 202.667
+offset_top = -267.333
+offset_right = 231.667
+offset_bottom = -82.3333
+fill_mode = 3
+
+[node name="Ship Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = -332.667
+offset_top = -226.667
+offset_right = -82.6666
+offset_bottom = -200.667
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "name"
+vertical_alignment = 1
+
+[node name="Cannon Ball Buttons" type="OptionButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -568.0
+offset_top = -98.0
+offset_right = -428.0
+offset_bottom = -35.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("2_2ka52")
+
+[node name="Debug" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 9.0
+offset_top = -73.6667
+offset_right = 49.0
+offset_bottom = -33.6667
+script = ExtResource("3_t27l4")
+
+[node name="can_attack" type="Label" parent="Debug"]
+layout_mode = 0
+offset_left = -293.0
+offset_top = -545.0
+offset_right = -142.0
+offset_bottom = -522.0
+
+[node name="Normal Projectiles" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -299.333
+offset_top = -150.667
+offset_right = -21.3333
+offset_bottom = -112.667
+scale = Vector2(1.7, 1.7)
+script = ExtResource("4_r77rg")
+
+[node name="Cannon Usage Percentage" type="OptionButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -306.0
+offset_top = -114.667
+offset_right = -199.0
+offset_bottom = -71.6667
+theme = ExtResource("2_2ka52")
+theme_override_font_sizes/font_size = 25
+item_count = 4
+selected = 0
+popup/item_0/text = "25%"
+popup/item_0/id = 0
+popup/item_1/text = "50%"
+popup/item_1/id = 1
+popup/item_2/text = "75%"
+popup/item_2/id = 2
+popup/item_3/text = "100%"
+popup/item_3/id = 3
+
+[node name="MenuCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuCollision"]
+position = Vector2(-32, -108.333)
+shape = SubResource("RectangleShape2D_2kb58")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect" to="." method="_on_color_rect_mouse_exited"]
+[connection signal="pressed" from="Close Menu Button" to="." method="_on_close_menu_button_pressed"]
+[connection signal="item_selected" from="Cannon Buttons" to="." method="_on_cannon_buttons_item_selected"]
+[connection signal="pressed" from="Water_box" to="." method="_on_water_box_pressed"]
+[connection signal="item_selected" from="Cannon Ball Buttons" to="." method="_on_cannon_ball_buttons_item_selected"]
+[connection signal="mouse_entered" from="MenuCollision" to="." method="_on_menu_collision_mouse_entered"]
+[connection signal="mouse_exited" from="MenuCollision" to="." method="_on_menu_collision_mouse_exited"]

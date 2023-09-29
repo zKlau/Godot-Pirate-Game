@@ -1,0 +1,1716 @@
+[gd_scene load_steps=47 format=3 uid="uid://dyum6bmhjijnf"]
+
+[ext_resource type="Shader" path="res://Scenes/fog.gdshader" id="1_gnh8l"]
+[ext_resource type="Script" path="res://Scripts/Match_game.gd" id="1_ivjej"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_60cir"]
+[ext_resource type="Shader" path="res://Scenes/water.gdshader" id="2_m5c1i"]
+[ext_resource type="Script" path="res://Scripts/Grid_follow_cursor.gd" id="3_4c5kg"]
+[ext_resource type="Environment" uid="uid://m48vwm1pyiug" path="res://Scenes/main.tres" id="3_spmms"]
+[ext_resource type="Texture2D" uid="uid://cssp0feh80rbg" path="res://Assets/Textures/map-1.png" id="6_7e1fi"]
+[ext_resource type="Script" path="res://Scripts/Ship.gd" id="6_m7uf2"]
+[ext_resource type="Script" path="res://Scripts/Enemy_Map.gd" id="7_2rmx8"]
+[ext_resource type="Script" path="res://Scripts/UI_match.gd" id="7_n10c2"]
+[ext_resource type="PackedScene" uid="uid://cc11767o2k2al" path="res://Scenes/mark.tscn" id="8_h8jul"]
+[ext_resource type="Script" path="res://Scripts/Enemy_attack.gd" id="9_15e02"]
+[ext_resource type="Texture2D" uid="uid://dpearitenb2b4" path="res://Assets/Textures/spyglass.png" id="9_73pg8"]
+[ext_resource type="Script" path="res://Scripts/Player_attack_zone.gd" id="10_5yaar"]
+[ext_resource type="Texture2D" uid="uid://bwhof72vkp2l6" path="res://Assets/Textures/Empty_grid.png" id="14_yddt6"]
+[ext_resource type="PackedScene" uid="uid://8j2pej8wmupm" path="res://Prefabs/User Interface/Ship/ship_menu.tscn" id="19_5d1qs"]
+
+[sub_resource type="Animation" id="Animation_qwr0e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.35, 29.0576, -0.189)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../UI/Map_button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [120.0]
+}
+
+[sub_resource type="Animation" id="Animation_ap0qh"]
+resource_name = "go_to_enemy_camera"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-86.0213, 29.0576, -0.189), Vector3(0.846524, 29.0576, -0.189)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../UI/Map_button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [90.0, 120.0]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%MATCH GAME")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_enemy_turn"
+}, {
+"args": [true],
+"method": &"set_player_turn"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_a6s57"]
+resource_name = "go_to_player_camera"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.35, 29.0576, -0.189), Vector3(-0.35, 29.0576, -0.189), Vector3(-86.0213, 29.0576, -0.189)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../UI/Map_button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [120.0, 90.0]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%MATCH GAME")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_player_turn"
+}, {
+"args": [true],
+"method": &"set_enemy_turn"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ptb5"]
+_data = {
+"RESET": SubResource("Animation_qwr0e"),
+"go_to_enemy_camera": SubResource("Animation_ap0qh"),
+"go_to_player_camera": SubResource("Animation_a6s57")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dybl8"]
+render_priority = 127
+transparency = 4
+blend_mode = 3
+cull_mode = 2
+depth_draw_mode = 1
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+albedo_color = Color(0, 0, 0, 1)
+heightmap_scale = 16.0
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+billboard_keep_scale = true
+proximity_fade_enabled = true
+proximity_fade_distance = 4096.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_cpi8c"]
+lightmap_size_hint = Vector2i(5, 7)
+material = SubResource("StandardMaterial3D_dybl8")
+add_uv2 = true
+size = Vector3(0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_klhwe"]
+material = SubResource("StandardMaterial3D_dybl8")
+size = Vector3(1, 5, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1kl7g"]
+data = PackedVector3Array(-1, 2, 3, 1, 2, 3, -1, -2, 3, 1, 2, 3, 1, -2, 3, -1, -2, 3, 1, 2, -3, -1, 2, -3, 1, -2, -3, -1, 2, -3, -1, -2, -3, 1, -2, -3, 1, 2, 3, 1, 2, -3, 1, -2, 3, 1, 2, -3, 1, -2, -3, 1, -2, 3, -1, 2, -3, -1, 2, 3, -1, -2, -3, -1, 2, 3, -1, -2, 3, -1, -2, -3, 1, 2, 3, -1, 2, 3, 1, 2, -3, -1, 2, 3, -1, 2, -3, 1, 2, -3, -1, -2, 3, 1, -2, 3, -1, -2, -3, 1, -2, 3, 1, -2, -3, -1, -2, -3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pqd1g"]
+size = Vector3(2, 4, 6)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_lpq68"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ggjgs"]
+material = SubResource("ORMMaterial3D_lpq68")
+size = Vector3(2, 4, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jy7wp"]
+data = PackedVector3Array(-1, 2, 3, 1, 2, 3, -1, -2, 3, 1, 2, 3, 1, -2, 3, -1, -2, 3, 1, 2, -3, -1, 2, -3, 1, -2, -3, -1, 2, -3, -1, -2, -3, 1, -2, -3, 1, 2, 3, 1, 2, -3, 1, -2, 3, 1, 2, -3, 1, -2, -3, 1, -2, 3, -1, 2, -3, -1, 2, 3, -1, -2, -3, -1, 2, 3, -1, -2, 3, -1, -2, -3, 1, 2, 3, -1, 2, 3, 1, 2, -3, -1, 2, 3, -1, 2, -3, 1, 2, -3, -1, -2, 3, 1, -2, 3, -1, -2, -3, 1, -2, 3, 1, -2, -3, -1, -2, -3)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fk8h6"]
+data = PackedVector3Array(-1, 2, 3, 1, 2, 3, -1, -2, 3, 1, 2, 3, 1, -2, 3, -1, -2, 3, 1, 2, -3, -1, 2, -3, 1, -2, -3, -1, 2, -3, -1, -2, -3, 1, -2, -3, 1, 2, 3, 1, 2, -3, 1, -2, 3, 1, 2, -3, 1, -2, -3, 1, -2, 3, -1, 2, -3, -1, 2, 3, -1, -2, -3, -1, 2, 3, -1, -2, 3, -1, -2, -3, 1, 2, 3, -1, 2, 3, 1, 2, -3, -1, 2, 3, -1, 2, -3, 1, 2, -3, -1, -2, 3, 1, -2, 3, -1, -2, -3, 1, -2, 3, 1, -2, -3, -1, -2, -3)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_63nxx"]
+data = PackedVector3Array(-1, 2, 3, 1, 2, 3, -1, -2, 3, 1, 2, 3, 1, -2, 3, -1, -2, 3, 1, 2, -3, -1, 2, -3, 1, -2, -3, -1, 2, -3, -1, -2, -3, 1, -2, -3, 1, 2, 3, 1, 2, -3, 1, -2, 3, 1, 2, -3, 1, -2, -3, 1, -2, 3, -1, 2, -3, -1, 2, 3, -1, -2, -3, -1, 2, 3, -1, -2, 3, -1, -2, -3, 1, 2, 3, -1, 2, 3, 1, 2, -3, -1, 2, 3, -1, 2, -3, 1, 2, -3, -1, -2, 3, 1, -2, 3, -1, -2, -3, 1, -2, 3, 1, -2, -3, -1, -2, -3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_spbfi"]
+
+[sub_resource type="Animation" id="Animation_6c7e6"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_qe21a"]
+resource_name = "attack"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../UI/Enemy_map/Map")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"display_map"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_attack"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%MATCH GAME")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_to_player_after_attack"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hw1yi"]
+_data = {
+"RESET": SubResource("Animation_6c7e6"),
+"attack": SubResource("Animation_qe21a")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwpdj"]
+shader = ExtResource("1_gnh8l")
+shader_parameter/density = 7.3602
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/emission = Color(0.639216, 0.639216, 0.639216, 1)
+shader_parameter/height_falloff = 0.0
+shader_parameter/edge_fade = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lp0eg"]
+size = Vector2(40, 60)
+orientation = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pkcd2"]
+noise_type = 2
+frequency = 0.1106
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_hk3v3"]
+noise = SubResource("FastNoiseLite_pkcd2")
+
+[sub_resource type="FogMaterial" id="FogMaterial_s44ty"]
+density = 8.0
+emission = Color(0.305882, 0.305882, 0.305882, 1)
+edge_fade = 0.565685
+density_texture = SubResource("NoiseTexture3D_hk3v3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ng835"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vub08"]
+seamless = true
+noise = SubResource("FastNoiseLite_ng835")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_it16x"]
+seed = 5
+frequency = 0.1375
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mf6ba"]
+seamless = true
+noise = SubResource("FastNoiseLite_it16x")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_28jj3"]
+render_priority = 0
+shader = ExtResource("2_m5c1i")
+shader_parameter/speed = 0.01
+shader_parameter/color = Color(0.47451, 0.72549, 1, 1)
+shader_parameter/deep_water = Color(0, 0.396078, 0.698039, 1)
+shader_parameter/beer_law_factor = 2.0
+shader_parameter/_distance = 0.0
+shader_parameter/edge_color = Color(0.870588, 0.870588, 0.870588, 1)
+shader_parameter/edge_scale = 0.25
+shader_parameter/near = 0.1
+shader_parameter/far = 100.0
+shader_parameter/wave_strength = Vector2(0.5, 0.25)
+shader_parameter/wave_frequ = Vector2(11.67, 12.04)
+shader_parameter/time_factor = Vector2(1, 2)
+shader_parameter/noise1 = SubResource("NoiseTexture2D_vub08")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_mf6ba")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v4yco"]
+material = SubResource("ShaderMaterial_28jj3")
+size = Vector2(50, 50)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_y5jd3"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[node name="Game" type="Node"]
+
+[node name="MATCH GAME" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_ivjej")
+
+[node name="Cameras" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59094, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cameras"]
+libraries = {
+"": SubResource("AnimationLibrary_0ptb5")
+}
+
+[node name="Camera" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.35, 29.0576, -0.189)
+cull_mask = 524287
+current = true
+fov = 120.0
+size = 50.0
+script = ExtResource("2_60cir")
+
+[node name="Player_camera_position" type="Marker3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.0213, 29.0576, -0.189)
+gizmo_extents = 0.53
+
+[node name="Enemy_camera_position" type="Marker3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.846524, 29.0576, -0.189)
+gizmo_extents = 0.53
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, 0.844506, 0.535547, 0, -0.535547, 0.844506, -34.4221, 0.152838, -2.78144)
+shadow_enabled = true
+shadow_opacity = 0.83
+shadow_blur = 10.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Cameras"]
+environment = ExtResource("3_spmms")
+
+[node name="Cursor" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, -14, 1, -19)
+cast_shadow = 0
+lod_bias = 0.001
+gi_mode = 0
+mesh = SubResource("BoxMesh_cpi8c")
+script = ExtResource("3_4c5kg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cursor"]
+transform = Transform3D(1, 2.11758e-22, -4.37114e-08, -4.37114e-08, 3.55271e-15, -1, 0, 1, 3.55271e-15, 0, 0, -1.66011)
+visible = false
+mesh = SubResource("BoxMesh_klhwe")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_n10c2")
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+layout_mode = 0
+offset_left = -17.0
+offset_right = 907.0
+offset_bottom = 107.0
+
+[node name="Attack Button" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 21.0
+offset_right = 409.0
+offset_bottom = 78.0
+text = "Attack"
+
+[node name="Enemy_map" type="Node" parent="UI"]
+
+[node name="Map" type="Sprite2D" parent="UI/Enemy_map"]
+visible = false
+position = Vector2(455, 676)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_7e1fi")
+script = ExtResource("7_2rmx8")
+
+[node name="Marks" type="Node2D" parent="UI/Enemy_map/Map"]
+
+[node name="Mark-0" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, -1175)
+
+[node name="Mark-1" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, -1176)
+
+[node name="Mark-2" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, -1176)
+
+[node name="Mark-3" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, -1172)
+
+[node name="Mark-4" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, -1172)
+
+[node name="Mark-5" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, -1172)
+
+[node name="Mark-6" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, -1172)
+
+[node name="Mark-7" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, -1172)
+
+[node name="Mark-8" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, -1172)
+
+[node name="Mark-9" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, -1172)
+
+[node name="Mark-10" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, -1172)
+
+[node name="Mark-11" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, -1172)
+
+[node name="Mark-12" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, -1176)
+
+[node name="Mark-13" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, -1176)
+
+[node name="Mark-14" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, -1172)
+
+[node name="Mark-15" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, -1172)
+
+[node name="Mark-16" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, -1039)
+
+[node name="Mark-17" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, -1036)
+
+[node name="Mark-18" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, -1036)
+
+[node name="Mark-19" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, -1036)
+
+[node name="Mark-20" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, -1036)
+
+[node name="Mark-21" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, -1036)
+
+[node name="Mark-22" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, -1036)
+
+[node name="Mark-23" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, -1036)
+
+[node name="Mark-24" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, -1036)
+
+[node name="Mark-25" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, -1036)
+
+[node name="Mark-26" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, -1036)
+
+[node name="Mark-27" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, -1036)
+
+[node name="Mark-28" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, -1040)
+
+[node name="Mark-29" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, -1040)
+
+[node name="Mark-30" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, -1036)
+
+[node name="Mark-31" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, -1036)
+
+[node name="Mark-32" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, -895)
+
+[node name="Mark-33" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, -896)
+
+[node name="Mark-34" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, -896)
+
+[node name="Mark-35" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, -892)
+
+[node name="Mark-36" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, -892)
+
+[node name="Mark-37" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, -892)
+
+[node name="Mark-38" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, -892)
+
+[node name="Mark-39" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, -892)
+
+[node name="Mark-40" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, -892)
+
+[node name="Mark-41" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, -892)
+
+[node name="Mark-42" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, -892)
+
+[node name="Mark-43" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, -892)
+
+[node name="Mark-44" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, -896)
+
+[node name="Mark-45" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, -896)
+
+[node name="Mark-46" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, -892)
+
+[node name="Mark-47" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, -892)
+
+[node name="Mark-48" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, -759)
+
+[node name="Mark-49" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, -760)
+
+[node name="Mark-50" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, -760)
+
+[node name="Mark-51" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, -756)
+
+[node name="Mark-52" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, -756)
+
+[node name="Mark-53" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, -756)
+
+[node name="Mark-54" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, -756)
+
+[node name="Mark-55" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, -756)
+
+[node name="Mark-56" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, -756)
+
+[node name="Mark-57" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, -756)
+
+[node name="Mark-58" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, -756)
+
+[node name="Mark-59" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, -756)
+
+[node name="Mark-60" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, -760)
+
+[node name="Mark-61" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, -760)
+
+[node name="Mark-62" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, -756)
+
+[node name="Mark-63" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, -756)
+
+[node name="Mark-64" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, -619)
+
+[node name="Mark-65" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, -620)
+
+[node name="Mark-66" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, -620)
+
+[node name="Mark-67" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, -616)
+
+[node name="Mark-68" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, -616)
+
+[node name="Mark-69" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, -616)
+
+[node name="Mark-70" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, -616)
+
+[node name="Mark-71" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, -616)
+
+[node name="Mark-72" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, -616)
+
+[node name="Mark-73" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, -616)
+
+[node name="Mark-74" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, -616)
+
+[node name="Mark-75" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, -616)
+
+[node name="Mark-76" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, -620)
+
+[node name="Mark-77" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, -620)
+
+[node name="Mark-78" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, -616)
+
+[node name="Mark-79" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, -616)
+
+[node name="Mark-80" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, -483)
+
+[node name="Mark-81" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, -480)
+
+[node name="Mark-82" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, -480)
+
+[node name="Mark-83" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, -480)
+
+[node name="Mark-84" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, -480)
+
+[node name="Mark-85" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, -480)
+
+[node name="Mark-86" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, -480)
+
+[node name="Mark-87" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, -480)
+
+[node name="Mark-88" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, -480)
+
+[node name="Mark-89" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, -480)
+
+[node name="Mark-90" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, -480)
+
+[node name="Mark-91" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, -480)
+
+[node name="Mark-92" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, -484)
+
+[node name="Mark-93" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, -484)
+
+[node name="Mark-94" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, -480)
+
+[node name="Mark-95" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, -480)
+
+[node name="Mark-96" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, -339)
+
+[node name="Mark-97" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, -340)
+
+[node name="Mark-98" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, -340)
+
+[node name="Mark-99" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, -336)
+
+[node name="Mark-100" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, -336)
+
+[node name="Mark-101" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, -336)
+
+[node name="Mark-102" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, -336)
+
+[node name="Mark-103" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, -336)
+
+[node name="Mark-104" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, -336)
+
+[node name="Mark-105" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, -336)
+
+[node name="Mark-106" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, -336)
+
+[node name="Mark-107" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, -336)
+
+[node name="Mark-108" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, -340)
+
+[node name="Mark-109" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, -340)
+
+[node name="Mark-110" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, -336)
+
+[node name="Mark-111" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, -336)
+
+[node name="Mark-112" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, -203)
+
+[node name="Mark-113" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, -204)
+
+[node name="Mark-114" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, -204)
+
+[node name="Mark-115" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, -200)
+
+[node name="Mark-116" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, -200)
+
+[node name="Mark-117" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, -200)
+
+[node name="Mark-118" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, -200)
+
+[node name="Mark-119" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, -200)
+
+[node name="Mark-120" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, -200)
+
+[node name="Mark-121" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, -200)
+
+[node name="Mark-122" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, -200)
+
+[node name="Mark-123" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, -200)
+
+[node name="Mark-124" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, -204)
+
+[node name="Mark-125" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, -204)
+
+[node name="Mark-126" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, -200)
+
+[node name="Mark-127" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, -200)
+
+[node name="Mark-128" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, -63)
+
+[node name="Mark-129" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, -64)
+
+[node name="Mark-130" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, -64)
+
+[node name="Mark-131" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, -60)
+
+[node name="Mark-132" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, -60)
+
+[node name="Mark-133" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, -60)
+
+[node name="Mark-134" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, -60)
+
+[node name="Mark-135" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, -60)
+
+[node name="Mark-136" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, -60)
+
+[node name="Mark-137" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, -60)
+
+[node name="Mark-138" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, -60)
+
+[node name="Mark-139" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, -60)
+
+[node name="Mark-140" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, -64)
+
+[node name="Mark-141" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, -64)
+
+[node name="Mark-142" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, -60)
+
+[node name="Mark-143" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, -60)
+
+[node name="Mark-144" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, 73)
+
+[node name="Mark-145" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, 76)
+
+[node name="Mark-146" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, 76)
+
+[node name="Mark-147" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, 76)
+
+[node name="Mark-148" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, 76)
+
+[node name="Mark-149" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, 76)
+
+[node name="Mark-150" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, 76)
+
+[node name="Mark-151" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, 76)
+
+[node name="Mark-152" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, 76)
+
+[node name="Mark-153" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, 76)
+
+[node name="Mark-154" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, 76)
+
+[node name="Mark-155" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, 76)
+
+[node name="Mark-156" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, 72)
+
+[node name="Mark-157" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, 72)
+
+[node name="Mark-158" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, 76)
+
+[node name="Mark-159" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, 76)
+
+[node name="Mark-160" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, 217)
+
+[node name="Mark-161" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, 216)
+
+[node name="Mark-162" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, 216)
+
+[node name="Mark-163" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, 220)
+
+[node name="Mark-164" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, 220)
+
+[node name="Mark-165" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, 220)
+
+[node name="Mark-166" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, 220)
+
+[node name="Mark-167" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, 220)
+
+[node name="Mark-168" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, 220)
+
+[node name="Mark-169" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, 220)
+
+[node name="Mark-170" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, 220)
+
+[node name="Mark-171" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, 220)
+
+[node name="Mark-172" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, 216)
+
+[node name="Mark-173" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, 216)
+
+[node name="Mark-174" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, 220)
+
+[node name="Mark-175" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, 220)
+
+[node name="Mark-176" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, 353)
+
+[node name="Mark-177" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, 352)
+
+[node name="Mark-178" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, 352)
+
+[node name="Mark-179" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, 356)
+
+[node name="Mark-180" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, 356)
+
+[node name="Mark-181" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, 356)
+
+[node name="Mark-182" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, 356)
+
+[node name="Mark-183" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, 356)
+
+[node name="Mark-184" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, 356)
+
+[node name="Mark-185" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, 356)
+
+[node name="Mark-186" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, 356)
+
+[node name="Mark-187" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, 356)
+
+[node name="Mark-188" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, 352)
+
+[node name="Mark-189" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, 352)
+
+[node name="Mark-190" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, 356)
+
+[node name="Mark-191" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, 356)
+
+[node name="Mark-192" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, 493)
+
+[node name="Mark-193" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, 492)
+
+[node name="Mark-194" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, 492)
+
+[node name="Mark-195" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, 496)
+
+[node name="Mark-196" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, 496)
+
+[node name="Mark-197" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, 496)
+
+[node name="Mark-198" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, 496)
+
+[node name="Mark-199" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, 496)
+
+[node name="Mark-200" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, 496)
+
+[node name="Mark-201" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, 496)
+
+[node name="Mark-202" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, 496)
+
+[node name="Mark-203" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, 496)
+
+[node name="Mark-204" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, 492)
+
+[node name="Mark-205" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, 492)
+
+[node name="Mark-206" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, 496)
+
+[node name="Mark-207" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, 496)
+
+[node name="Mark-208" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, 629)
+
+[node name="Mark-209" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, 632)
+
+[node name="Mark-210" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, 632)
+
+[node name="Mark-211" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, 632)
+
+[node name="Mark-212" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, 632)
+
+[node name="Mark-213" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, 632)
+
+[node name="Mark-214" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, 632)
+
+[node name="Mark-215" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, 632)
+
+[node name="Mark-216" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, 632)
+
+[node name="Mark-217" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, 632)
+
+[node name="Mark-218" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, 632)
+
+[node name="Mark-219" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, 632)
+
+[node name="Mark-220" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, 628)
+
+[node name="Mark-221" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, 628)
+
+[node name="Mark-222" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, 632)
+
+[node name="Mark-223" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, 632)
+
+[node name="Mark-224" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, 773)
+
+[node name="Mark-225" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, 773)
+
+[node name="Mark-226" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, 772)
+
+[node name="Mark-227" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, 776)
+
+[node name="Mark-228" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, 776)
+
+[node name="Mark-229" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, 776)
+
+[node name="Mark-230" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, 776)
+
+[node name="Mark-231" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, 776)
+
+[node name="Mark-232" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, 776)
+
+[node name="Mark-233" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, 776)
+
+[node name="Mark-234" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, 776)
+
+[node name="Mark-235" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, 776)
+
+[node name="Mark-236" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, 772)
+
+[node name="Mark-237" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, 772)
+
+[node name="Mark-238" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, 776)
+
+[node name="Mark-239" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, 776)
+
+[node name="Mark-240" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, 909)
+
+[node name="Mark-241" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, 909)
+
+[node name="Mark-242" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, 908)
+
+[node name="Mark-243" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, 912)
+
+[node name="Mark-244" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, 912)
+
+[node name="Mark-245" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, 912)
+
+[node name="Mark-246" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, 912)
+
+[node name="Mark-247" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, 912)
+
+[node name="Mark-248" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, 912)
+
+[node name="Mark-249" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, 912)
+
+[node name="Mark-250" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, 912)
+
+[node name="Mark-251" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, 912)
+
+[node name="Mark-252" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, 908)
+
+[node name="Mark-253" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, 908)
+
+[node name="Mark-254" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, 912)
+
+[node name="Mark-255" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, 912)
+
+[node name="Mark-256" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, 1049)
+
+[node name="Mark-257" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, 1049)
+
+[node name="Mark-258" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, 1048)
+
+[node name="Mark-259" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, 1052)
+
+[node name="Mark-260" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, 1052)
+
+[node name="Mark-261" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, 1052)
+
+[node name="Mark-262" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, 1052)
+
+[node name="Mark-263" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, 1052)
+
+[node name="Mark-264" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, 1052)
+
+[node name="Mark-265" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, 1052)
+
+[node name="Mark-266" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, 1052)
+
+[node name="Mark-267" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, 1052)
+
+[node name="Mark-268" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, 1048)
+
+[node name="Mark-269" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, 1048)
+
+[node name="Mark-270" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, 1052)
+
+[node name="Mark-271" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, 1052)
+
+[node name="Mark-272" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, 1193)
+
+[node name="Mark-273" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, 1193)
+
+[node name="Mark-274" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, 1192)
+
+[node name="Mark-275" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, 1196)
+
+[node name="Mark-276" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, 1196)
+
+[node name="Mark-277" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, 1196)
+
+[node name="Mark-278" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, 1196)
+
+[node name="Mark-279" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, 1196)
+
+[node name="Mark-280" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, 1196)
+
+[node name="Mark-281" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, 1196)
+
+[node name="Mark-282" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, 1196)
+
+[node name="Mark-283" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, 1196)
+
+[node name="Mark-284" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, 1192)
+
+[node name="Mark-285" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, 1192)
+
+[node name="Mark-286" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, 1196)
+
+[node name="Mark-287" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, 1196)
+
+[node name="Mark-288" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-1060, 1329)
+
+[node name="Mark-289" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-924, 1329)
+
+[node name="Mark-290" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-788, 1328)
+
+[node name="Mark-291" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-644, 1332)
+
+[node name="Mark-292" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-508, 1332)
+
+[node name="Mark-293" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-368, 1332)
+
+[node name="Mark-294" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-228, 1332)
+
+[node name="Mark-295" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(-88, 1332)
+
+[node name="Mark-296" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(48, 1332)
+
+[node name="Mark-297" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(188, 1332)
+
+[node name="Mark-298" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(328, 1332)
+
+[node name="Mark-299" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(468, 1332)
+
+[node name="Mark-300" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(604, 1328)
+
+[node name="Mark-301" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(740, 1328)
+
+[node name="Mark-302" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(884, 1332)
+
+[node name="Mark-303" parent="UI/Enemy_map/Map/Marks" instance=ExtResource("8_h8jul")]
+position = Vector2(1020, 1332)
+
+[node name="Map_button" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 793.0
+offset_right = 877.0
+offset_bottom = 84.0
+icon = ExtResource("9_73pg8")
+flat = true
+expand_icon = true
+
+[node name="Enemy_area" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 34.0
+offset_right = 65.0
+offset_bottom = 69.0
+
+[node name="Current_Ship_Selected" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 695.0
+offset_top = 83.0
+offset_right = 735.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ID 0"
+
+[node name="Round" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 1.0
+offset_right = 528.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Round 1"
+
+[node name="Next Round" type="Button" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 264.0
+offset_top = 20.0
+offset_right = 408.0
+offset_bottom = 76.0
+text = "Next Round
+"
+
+[node name="Ship5" type="Node3D" parent="."]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 1, -1)
+script = ExtResource("6_m7uf2")
+_name = "Billy Rogers"
+user = 1
+ship_size = 2
+cannons = 3
+ship_rotation = 5
+Cannon_Ball = false
+Sleeping_Gas_Ball = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ship5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ship5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_1kl7g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ship5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_pqd1g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ship5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
+mesh = SubResource("BoxMesh_ggjgs")
+
+[node name="Ship_Menu" parent="Ship5" instance=ExtResource("19_5d1qs")]
+
+[node name="Ship6" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -91, 1, -11)
+script = ExtResource("6_m7uf2")
+_name = "Dutchman"
+ship_size = 2
+ship_rotation = 2
+Cannon_Ball = false
+Sleeping_Gas_Ball = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ship6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ship6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_jy7wp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ship6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_pqd1g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ship6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
+mesh = SubResource("BoxMesh_ggjgs")
+
+[node name="Ship_Menu" parent="Ship6" instance=ExtResource("19_5d1qs")]
+
+[node name="Ship7" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -83, 1, 5)
+script = ExtResource("6_m7uf2")
+_name = "Walrus"
+id = 2
+ship_size = 2
+cannons = 2
+ship_rotation = 2
+Cannon_Ball = false
+Sleeping_Gas_Ball = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ship7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ship7/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_fk8h6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ship7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_pqd1g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ship7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
+mesh = SubResource("BoxMesh_ggjgs")
+
+[node name="Ship_Menu" parent="Ship7" instance=ExtResource("19_5d1qs")]
+
+[node name="Ship8" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -93, 1, 11)
+script = ExtResource("6_m7uf2")
+_name = "Queen Anne;s Revenge"
+id = 1
+ship_size = 2
+ship_rotation = 2
+Cannon_Ball = false
+Sleeping_Gas_Ball = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ship8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ship8/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_63nxx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ship8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_pqd1g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ship8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
+mesh = SubResource("BoxMesh_ggjgs")
+
+[node name="Ship_Menu" parent="Ship8" instance=ExtResource("19_5d1qs")]
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Player_attack_zone" type="Node3D" parent="World"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.51658, 1.50634, 0)
+script = ExtResource("10_5yaar")
+
+[node name="Top_right" type="Marker3D" parent="World/Player_attack_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5166, -0.000339985, -19)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Player_attack_zone/Top_right"]
+mesh = SubResource("BoxMesh_spbfi")
+
+[node name="Bottom_right" type="Marker3D" parent="World/Player_attack_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48342, -0.000339985, 17)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Player_attack_zone/Bottom_right"]
+mesh = SubResource("BoxMesh_spbfi")
+
+[node name="Bottom_left" type="Marker3D" parent="World/Player_attack_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5166, -0.000339985, 17)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Player_attack_zone/Bottom_left"]
+mesh = SubResource("BoxMesh_spbfi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Player_attack_zone"]
+libraries = {
+"": SubResource("AnimationLibrary_hw1yi")
+}
+
+[node name="Top_left" type="Marker3D" parent="World/Player_attack_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48342, -0.000339985, -19)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Player_attack_zone/Top_left"]
+mesh = SubResource("BoxMesh_spbfi")
+
+[node name="Enemy_attack_zone" type="Node3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.6252, 1.50634, 0)
+script = ExtResource("9_15e02")
+
+[node name="Top_right" type="Marker3D" parent="World/Enemy_attack_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6252, 0, -19)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Enemy_attack_zone/Top_right"]
+mesh = SubResource("BoxMesh_spbfi")
+
+[node name="Bottom_right" type="Marker3D" parent="World/Enemy_attack_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37476, 0, 17)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Enemy_attack_zone/Bottom_right"]
+mesh = SubResource("BoxMesh_spbfi")
+
+[node name="Bottom_left" type="Marker3D" parent="World/Enemy_attack_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6252, 0, 17)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Enemy_attack_zone/Bottom_left"]
+mesh = SubResource("BoxMesh_spbfi")
+
+[node name="Top_left" type="Marker3D" parent="World/Enemy_attack_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37476, 0, -19)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Enemy_attack_zone/Top_left"]
+mesh = SubResource("BoxMesh_spbfi")
+
+[node name="FogVolume" type="FogVolume" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79616, -0.23338, -2.72982)
+size = Vector3(90.8892, 14.6937, 120.781)
+material = SubResource("ShaderMaterial_kwpdj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/FogVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.37814, 4.70395, 36.2353)
+visible = false
+mesh = SubResource("PlaneMesh_lp0eg")
+
+[node name="FogVolume2" type="FogVolume" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8179, -0.00442195, -2.72982)
+visible = false
+size = Vector3(90.8892, 14.6937, 195.574)
+material = SubResource("FogMaterial_s44ty")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/FogVolume2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.37814, 4.70395, 36.2353)
+visible = false
+mesh = SubResource("PlaneMesh_lp0eg")
+
+[node name="Enemy_Grid" type="Sprite3D" parent="World"]
+transform = Transform3D(1.42793, 3.35853e-09, -0.0768343, 0.0768343, -6.2417e-08, 1.42793, 0, -1.43, -6.25073e-08, 1.351, 1, -2.078)
+modulate = Color(1, 1, 1, 0.862745)
+no_depth_test = true
+texture = ExtResource("14_yddt6")
+
+[node name="Player_Grid" type="Sprite3D" parent="World"]
+transform = Transform3D(1.43, 0, 0, 0, -6.25073e-08, 1.43, 0, -1.43, -6.25073e-08, -85.6494, 1, -2.0784)
+modulate = Color(1, 1, 1, 0.862745)
+shaded = true
+texture = ExtResource("14_yddt6")
+
+[node name="Ocean" type="Node3D" parent="World"]
+
+[node name="water1" type="MeshInstance3D" parent="World/Ocean"]
+mesh = SubResource("PlaneMesh_v4yco")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean/water1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/water1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y5jd3")
+
+[node name="water3" type="MeshInstance3D" parent="World/Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.6355, 0, 0)
+mesh = SubResource("PlaneMesh_v4yco")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean/water3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/water3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y5jd3")
+
+[node name="water2" type="MeshInstance3D" parent="World/Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+mesh = SubResource("PlaneMesh_v4yco")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean/water2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/water2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y5jd3")
+
+[node name="water6" type="MeshInstance3D" parent="World/Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.6355, 0, -50)
+mesh = SubResource("PlaneMesh_v4yco")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean/water6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/water6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y5jd3")
+
+[node name="water4" type="MeshInstance3D" parent="World/Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 49.4242)
+mesh = SubResource("PlaneMesh_v4yco")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean/water4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/water4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y5jd3")
+
+[node name="water7" type="MeshInstance3D" parent="World/Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+mesh = SubResource("PlaneMesh_v4yco")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean/water7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/water7/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y5jd3")
+
+[node name="water8" type="MeshInstance3D" parent="World/Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -50)
+mesh = SubResource("PlaneMesh_v4yco")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean/water8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/water8/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y5jd3")
+
+[node name="water9" type="MeshInstance3D" parent="World/Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 49.4242)
+mesh = SubResource("PlaneMesh_v4yco")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean/water9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/water9/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y5jd3")
+
+[node name="water5" type="MeshInstance3D" parent="World/Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.6355, 0, 49.4242)
+mesh = SubResource("PlaneMesh_v4yco")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean/water5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/water5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y5jd3")
+
+[node name="water10" type="MeshInstance3D" parent="World/Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.6355, 0, 0)
+mesh = SubResource("PlaneMesh_v4yco")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean/water10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/water10/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y5jd3")
+
+[node name="water11" type="MeshInstance3D" parent="World/Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.6355, 0, -50)
+mesh = SubResource("PlaneMesh_v4yco")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean/water11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/water11/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y5jd3")
+
+[node name="water12" type="MeshInstance3D" parent="World/Ocean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.6355, 0, 49.4242)
+mesh = SubResource("PlaneMesh_v4yco")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean/water12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/water12/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y5jd3")
+
+[connection signal="pressed" from="UI/Attack Button" to="MATCH GAME" method="_on_attack_button_pressed"]
+[connection signal="pressed" from="UI/Map_button" to="UI/Enemy_map/Map" method="_on_map_button_pressed"]
+[connection signal="pressed" from="UI/Enemy_area" to="MATCH GAME" method="_on_enemy_area_pressed"]
+[connection signal="pressed" from="UI/Next Round" to="MATCH GAME" method="_on_next_round_pressed"]

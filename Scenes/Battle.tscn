@@ -1,0 +1,346 @@
+[gd_scene load_steps=36 format=3 uid="uid://c6jm72o6qy757"]
+
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_8jyy6"]
+[ext_resource type="Script" path="res://Scripts/Match_game.gd" id="1_oipmo"]
+[ext_resource type="PackedScene" uid="uid://d4fy7x6u1qact" path="res://Assets/water/water.tscn" id="2_7d4tc"]
+[ext_resource type="Texture2D" uid="uid://bsjloxje2v2b3" path="res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co.jpg" id="2_8kta6"]
+[ext_resource type="PackedScene" uid="uid://fgacajsj3cf3" path="res://Prefabs/User Interface/cursor.tscn" id="2_eabm1"]
+[ext_resource type="PackedScene" uid="uid://chjct63vspehy" path="res://Data/Player/Ships/Dutchman.tscn" id="3_c3tea"]
+[ext_resource type="PackedScene" uid="uid://bgbi2kruc1bxg" path="res://Data/Player/Ships/Walrus.tscn" id="4_hr5pd"]
+[ext_resource type="PackedScene" uid="uid://8vfu0qpkbqyn" path="res://Data/Player/Ships/WhydahGally.tscn" id="5_ty0ss"]
+[ext_resource type="Script" path="res://Scripts/Ship.gd" id="9_1j5d2"]
+[ext_resource type="Resource" uid="uid://c1yqbcmv0exjb" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres" id="10_kn8iu"]
+[ext_resource type="Resource" uid="uid://boa0urygxkl7l" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres" id="11_083tm"]
+[ext_resource type="Resource" uid="uid://c0vhxameste02" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres" id="12_mv25w"]
+[ext_resource type="PackedScene" uid="uid://8j2pej8wmupm" path="res://Prefabs/User Interface/Ship/ship_menu.tscn" id="13_lhhkl"]
+[ext_resource type="PackedScene" uid="uid://b62gpgcp55lat" path="res://Prefabs/part_fire.tscn" id="14_ifavg"]
+[ext_resource type="PackedScene" uid="uid://cjhrkmvrhorbs" path="res://Prefabs/destroyed_fire.tscn" id="15_btym1"]
+[ext_resource type="PackedScene" uid="uid://ce17ftvb8wfmj" path="res://Prefabs/Ships/Placeholder/ship_light.tscn" id="16_na353"]
+[ext_resource type="PackedScene" uid="uid://bnvjpk6edctrf" path="res://Prefabs/enemy_ai.tscn" id="17_k7o3q"]
+[ext_resource type="Script" path="res://Scripts/Ship_Cannonballs.gd" id="18_fhkk2"]
+[ext_resource type="Script" path="res://Scripts/UI_match.gd" id="19_d584t"]
+[ext_resource type="PackedScene" uid="uid://caiwl410gy684" path="res://Prefabs/Ships/Animations/ship_shooting_animation.tscn" id="19_mldb0"]
+[ext_resource type="PackedScene" uid="uid://b7c58lhlc68wd" path="res://Prefabs/Ships/Combat/hit_points.tscn" id="20_2sa55"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a4xew"]
+size = Vector3(32.6975, 2.55503, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b6ay6"]
+size = Vector3(4.657, 2, 0.1)
+
+[sub_resource type="Animation" id="Animation_in3of"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.449246, 1.80818, -23.2574)]
+}
+
+[sub_resource type="Animation" id="Animation_0ca13"]
+resource_name = "to_enemy_slow"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.449246, 1.80818, -23.2574), Vector3(-0.449246, 1.80818, -0.169945)]
+}
+
+[sub_resource type="Animation" id="Animation_ku0cw"]
+resource_name = "to_player_slow"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.449246, 1.80818, -0.169945), Vector3(-0.449246, 1.80818, -23.2574)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iov48"]
+_data = {
+"RESET": SubResource("Animation_in3of"),
+"to_enemy": SubResource("Animation_0ca13"),
+"to_player": SubResource("Animation_ku0cw")
+}
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yd8hf"]
+panorama = ExtResource("2_8kta6")
+
+[sub_resource type="Sky" id="Sky_x535p"]
+sky_material = SubResource("PanoramaSkyMaterial_yd8hf")
+
+[sub_resource type="Environment" id="Environment_kodso"]
+background_mode = 2
+background_color = Color(0.0431373, 0.847059, 0.921569, 0.921569)
+sky = SubResource("Sky_x535p")
+ambient_light_source = 3
+ambient_light_color = Color(0.0431373, 0.847059, 0.921569, 0.921569)
+ambient_light_sky_contribution = 0.25
+ambient_light_energy = 0.9
+tonemap_mode = 1
+tonemap_exposure = 0.5
+tonemap_white = 0.5
+sdfgi_use_occlusion = true
+sdfgi_min_cell_size = 0.498145
+sdfgi_cascade0_distance = 31.8813
+sdfgi_max_distance = 510.1
+sdfgi_energy = 0.5
+glow_enabled = true
+glow_intensity = 0.2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_albedo = Color(0.247059, 0.247059, 0.247059, 1)
+volumetric_fog_anisotropy = 0.44
+volumetric_fog_length = 320.0
+volumetric_fog_ambient_inject = 1.0
+volumetric_fog_temporal_reprojection_enabled = false
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_saturation = 1.6
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_44og2"]
+data = PackedVector3Array(-1, 2, 3, 1, 2, 3, -1, -2, 3, 1, 2, 3, 1, -2, 3, -1, -2, 3, 1, 2, -3, -1, 2, -3, 1, -2, -3, -1, 2, -3, -1, -2, -3, 1, -2, -3, 1, 2, 3, 1, 2, -3, 1, -2, 3, 1, 2, -3, 1, -2, -3, 1, -2, 3, -1, 2, -3, -1, 2, 3, -1, -2, -3, -1, 2, 3, -1, -2, 3, -1, -2, -3, 1, 2, 3, -1, 2, 3, 1, 2, -3, -1, 2, 3, -1, 2, -3, 1, 2, -3, -1, -2, 3, 1, -2, 3, -1, -2, -3, 1, -2, 3, 1, -2, -3, -1, -2, -3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kgxb4"]
+size = Vector3(2, 4, 6)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_lpq68"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7vxhl"]
+material = SubResource("ORMMaterial3D_lpq68")
+size = Vector3(2, 4, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_suaw8"]
+size = Vector3(150, 150, 1)
+
+[node name="Main" type="Node"]
+
+[node name="MATCH GAME" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_oipmo")
+
+[node name="Camera3D" type="Camera3D" parent="MATCH GAME"]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -0.449246, 1.80818, -23.2574)
+script = ExtResource("1_8jyy6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MATCH GAME/Camera3D"]
+transform = Transform3D(0.998754, -0.0499131, 3.16004e-09, 0.0499131, 0.998754, -1.26539e-07, 3.16004e-09, 1.26539e-07, 1, 1.37002, -2.85292, -4.07086)
+collision_layer = 8388608
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MATCH GAME/Camera3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.36871, 0)
+shape = SubResource("BoxShape3D_a4xew")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MATCH GAME/Camera3D/StaticBody3D"]
+transform = Transform3D(0.998196, 0.0600381, 4.57112e-09, -0.0600381, 0.998196, 1.52207e-07, 4.57339e-09, -1.52207e-07, 1, -1.30811, -3.62636, 3.8147e-06)
+mesh = SubResource("BoxMesh_b6ay6")
+
+[node name="Camera" type="AnimationPlayer" parent="MATCH GAME"]
+libraries = {
+"": SubResource("AnimationLibrary_iov48")
+}
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_kodso")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, -0.199436, 0.979911, 0, -0.979911, -0.199436, -34.4221, 7.3636, -2.78144)
+shadow_enabled = true
+shadow_opacity = 0.83
+shadow_blur = 10.0
+
+[node name="Cursor" parent="." instance=ExtResource("2_eabm1")]
+
+[node name="Water" parent="." instance=ExtResource("2_7d4tc")]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -2.17919, -5.14124, -15.6029)
+
+[node name="Player_Zone" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.45933, -11.7704)
+
+[node name="Position 1" type="Marker3D" parent="Player_Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301823, 0, 2.62579)
+
+[node name="Ship 1984155351" parent="Player_Zone/Position 1" instance=ExtResource("3_c3tea")]
+
+[node name="Position 2" type="Marker3D" parent="Player_Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.30873, 0, 0.259189)
+
+[node name="Ship 3539814563" parent="Player_Zone/Position 2" instance=ExtResource("4_hr5pd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.03, 0)
+health = 0
+
+[node name="Position 3" type="Marker3D" parent="Player_Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.64591, 0, -0.0729141)
+
+[node name="Ship 1731189470" parent="Player_Zone/Position 3" instance=ExtResource("5_ty0ss")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+health = 0
+
+[node name="Enemy_zone" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.45933, 36.3457)
+
+[node name="Position 1" type="Marker3D" parent="Enemy_zone"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -23.261)
+
+[node name="Ship6" type="Node3D" parent="Enemy_zone/Position 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03, 0)
+script = ExtResource("9_1j5d2")
+_name = "Billy Donger"
+user = 1
+ship_size = 2
+cannons = 3
+ship_rotation = 5
+ship_projectiles = Array[Resource]([ExtResource("10_kn8iu"), ExtResource("11_083tm"), ExtResource("12_mv25w")])
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Enemy_zone/Position 1/Ship6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy_zone/Position 1/Ship6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_44og2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy_zone/Position 1/Ship6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
+mesh = SubResource("BoxMesh_kgxb4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Enemy_zone/Position 1/Ship6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
+visible = false
+mesh = SubResource("BoxMesh_7vxhl")
+
+[node name="Ship_Menu" parent="Enemy_zone/Position 1/Ship6" instance=ExtResource("13_lhhkl")]
+
+[node name="Part_Fire" parent="Enemy_zone/Position 1/Ship6" instance=ExtResource("14_ifavg")]
+
+[node name="Destroyed_Fire" parent="Enemy_zone/Position 1/Ship6" instance=ExtResource("15_btym1")]
+
+[node name="ship_light" parent="Enemy_zone/Position 1/Ship6" instance=ExtResource("16_na353")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -1.9, 0)
+
+[node name="Enemy_AI" parent="Enemy_zone/Position 1/Ship6" instance=ExtResource("17_k7o3q")]
+
+[node name="Ship_CannonBalls" type="Node" parent="Enemy_zone/Position 1/Ship6"]
+script = ExtResource("18_fhkk2")
+
+[node name="Ship_Shooting_Animation" parent="Enemy_zone/Position 1/Ship6" instance=ExtResource("19_mldb0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.24205, -0.53117, 3.91451)
+
+[node name="Hit Points" parent="Enemy_zone/Position 1/Ship6" instance=ExtResource("20_2sa55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73176, -0.110388, 0.531019)
+
+[node name="Position 2" type="Marker3D" parent="Enemy_zone"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.1246, 0, -18.2773)
+
+[node name="Ship6" type="Node3D" parent="Enemy_zone/Position 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03, 0)
+script = ExtResource("9_1j5d2")
+_name = "Billy Bonger 2"
+user = 1
+ship_size = 2
+cannons = 3
+ship_rotation = 5
+ship_projectiles = Array[Resource]([ExtResource("10_kn8iu"), ExtResource("11_083tm"), ExtResource("12_mv25w")])
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Enemy_zone/Position 2/Ship6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy_zone/Position 2/Ship6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_44og2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy_zone/Position 2/Ship6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
+mesh = SubResource("BoxMesh_kgxb4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Enemy_zone/Position 2/Ship6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
+visible = false
+mesh = SubResource("BoxMesh_7vxhl")
+
+[node name="Ship_Menu" parent="Enemy_zone/Position 2/Ship6" instance=ExtResource("13_lhhkl")]
+
+[node name="Part_Fire" parent="Enemy_zone/Position 2/Ship6" instance=ExtResource("14_ifavg")]
+
+[node name="Destroyed_Fire" parent="Enemy_zone/Position 2/Ship6" instance=ExtResource("15_btym1")]
+
+[node name="ship_light" parent="Enemy_zone/Position 2/Ship6" instance=ExtResource("16_na353")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -1.9, 0)
+
+[node name="Enemy_AI" parent="Enemy_zone/Position 2/Ship6" instance=ExtResource("17_k7o3q")]
+
+[node name="Ship_CannonBalls" type="Node" parent="Enemy_zone/Position 2/Ship6"]
+script = ExtResource("18_fhkk2")
+
+[node name="Ship_Shooting_Animation" parent="Enemy_zone/Position 2/Ship6" instance=ExtResource("19_mldb0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.24205, -0.520951, 4.199)
+
+[node name="Hit Points" parent="Enemy_zone/Position 2/Ship6" instance=ExtResource("20_2sa55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69531, -0.300267, 0.500373)
+
+[node name="Position 3" type="Marker3D" parent="Enemy_zone"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.5074, 0, -19.7799)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("19_d584t")
+
+[node name="Attack Button" type="Button" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 625.0
+offset_top = 34.0
+offset_right = 823.0
+offset_bottom = 89.0
+text = "attack"
+
+[node name="Next Round" type="Button" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 848.0
+offset_top = 9.0
+offset_right = 1044.0
+offset_bottom = 85.0
+text = "Next Round"
+
+[node name="Switch Camera" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 86.0
+offset_right = 143.0
+offset_bottom = 143.0
+text = "Switch Camera"
+
+[node name="Barrier" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.73782, 0, 0)
+shape = SubResource("BoxShape3D_suaw8")
+
+[connection signal="pressed" from="UI/Attack Button" to="MATCH GAME" method="_on_attack_button_pressed"]
+[connection signal="pressed" from="UI/Next Round" to="MATCH GAME" method="_on_next_round_pressed"]
+[connection signal="pressed" from="UI/Switch Camera" to="UI" method="_on_switch_camera_pressed"]
