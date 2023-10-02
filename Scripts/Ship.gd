@@ -55,7 +55,7 @@ func _ready():
 	prepare_cannons()
 	#max_health = health
 	cannons += 1
-	ship_menu.pre_load(max_cannons,cannons)
+	#ship_menu.pre_load(max_cannons,cannons)
 	Signals.connect("new_round",new_round)
 	#print(cell_location,name)
 	#global_position = Vector3(cell_location.x,over_water_height,cell_location.y)
@@ -107,9 +107,8 @@ func interact():
 		print("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
 		Signals.emit_signal("ship_menu_opened")
 		ship_menu.update_info()
-		if user == 0:
-			
-			ship_menu.visible = true
+		#if user == 0:
+		ship_menu.visible = true
 		if user == 0 and attacked:
 			match_game.selected_player_ship  = null
 		if user == 0 and attacked == false:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c6jm72o6qy757"]
+[gd_scene load_steps=34 format=3 uid="uid://c6jm72o6qy757"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_8jyy6"]
 [ext_resource type="Script" path="res://Scripts/Match_game.gd" id="1_oipmo"]
@@ -21,12 +21,6 @@
 [ext_resource type="Script" path="res://Scripts/UI_match.gd" id="19_d584t"]
 [ext_resource type="PackedScene" uid="uid://caiwl410gy684" path="res://Prefabs/Ships/Animations/ship_shooting_animation.tscn" id="19_mldb0"]
 [ext_resource type="PackedScene" uid="uid://b7c58lhlc68wd" path="res://Prefabs/Ships/Combat/hit_points.tscn" id="20_2sa55"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a4xew"]
-size = Vector3(32.6975, 2.55503, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_b6ay6"]
-size = Vector3(4.657, 2, 0.1)
 
 [sub_resource type="Animation" id="Animation_in3of"]
 length = 0.001
@@ -142,18 +136,6 @@ script = ExtResource("1_oipmo")
 [node name="Camera3D" type="Camera3D" parent="MATCH GAME"]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -0.449246, 1.80818, -23.2574)
 script = ExtResource("1_8jyy6")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MATCH GAME/Camera3D"]
-transform = Transform3D(0.998754, -0.0499131, 3.16004e-09, 0.0499131, 0.998754, -1.26539e-07, 3.16004e-09, 1.26539e-07, 1, 1.37002, -2.85292, -4.07086)
-collision_layer = 8388608
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MATCH GAME/Camera3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.36871, 0)
-shape = SubResource("BoxShape3D_a4xew")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MATCH GAME/Camera3D/StaticBody3D"]
-transform = Transform3D(0.998196, 0.0600381, 4.57112e-09, -0.0600381, 0.998196, 1.52207e-07, 4.57339e-09, -1.52207e-07, 1, -1.30811, -3.62636, 3.8147e-06)
-mesh = SubResource("BoxMesh_b6ay6")
 
 [node name="Camera" type="AnimationPlayer" parent="MATCH GAME"]
 libraries = {

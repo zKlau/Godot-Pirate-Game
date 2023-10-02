@@ -8,5 +8,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$can_attack.text = str($"..".ship.can_attack)
+	$can_attack.text = str($"../..".ship.can_attack)
 	pass

@@ -2,13 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/ship_menu.gd" id="1_mdeg3"]
 [ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="2_2ka52"]
-[ext_resource type="Texture2D" uid="uid://6puc7db2wbck" path="res://Assets/Textures/UI/Ship/Combat/Ship-menu2.png" id="2_468rh"]
+[ext_resource type="Texture2D" uid="uid://b3eotnoaupsu" path="res://Assets/Textures/UI/Ship/Combat/Ship-menu-enemy.png" id="2_wvqhc"]
+[ext_resource type="Texture2D" uid="uid://6puc7db2wbck" path="res://Assets/Textures/UI/Ship/Combat/Ship-menu-player.png" id="2_x48cj"]
 [ext_resource type="Script" path="res://Prefabs/User Interface/Ship/Debug.gd" id="3_t27l4"]
 [ext_resource type="Texture2D" uid="uid://mj2gwy4qv5py" path="res://Assets/Textures/UI/Ship/Combat/Ship_ui.png" id="3_ut8tp"]
 [ext_resource type="Script" path="res://Scripts/User Interface/Normal Projectiles.gd" id="4_r77rg"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kb58"]
-size = Vector2(694.667, 236.667)
 
 [node name="Ship_Menu" type="Control"]
 visible = false
@@ -27,11 +25,13 @@ grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 mouse_default_cursor_shape = 6
 script = ExtResource("1_mdeg3")
+texture_normal = ExtResource("2_x48cj")
+texture_enemy = ExtResource("2_wvqhc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="menu_texture" type="Sprite2D" parent="."]
 position = Vector2(-28, 147.333)
 scale = Vector2(0.972928, 0.972928)
-texture = ExtResource("2_468rh")
+texture = ExtResource("2_x48cj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -56,7 +56,17 @@ offset_bottom = -193.667
 rotation = 0.132347
 text = "X"
 
-[node name="Cannon Buttons" type="OptionButton" parent="."]
+[node name="MenuCollision" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MenuCollision"]
+polygon = PackedVector2Array(0.666626, -65.3333, -154.667, -61.3333, -370, -61.3333, -374.667, -206, -356.667, -229.333, -114, -229.333, -92.6667, -208, 234, -205.333, 276, -239.333, 326.667, -242.667, 324.667, -58.6667, 276, -56)
+
+[node name="Player" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cannon Buttons" type="OptionButton" parent="Player"]
 visible = false
 layout_mode = 0
 offset_left = -624.0
@@ -66,7 +76,7 @@ offset_bottom = -35.0
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("2_2ka52")
 
-[node name="Water_box" type="CheckBox" parent="."]
+[node name="Water_box" type="CheckBox" parent="Player"]
 layout_mode = 0
 offset_left = 20.6666
 offset_top = -147.333
@@ -81,25 +91,14 @@ theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Water"
 
-[node name="Health" type="ProgressBar" parent="."]
+[node name="Health" type="ProgressBar" parent="Player"]
 layout_mode = 0
-offset_left = 202.667
-offset_top = -267.333
-offset_right = 231.667
-offset_bottom = -82.3333
-fill_mode = 3
+offset_left = -82.6667
+offset_top = -200.0
+offset_right = 233.333
+offset_bottom = -168.0
 
-[node name="Ship Name" type="Label" parent="."]
-layout_mode = 0
-offset_left = -332.667
-offset_top = -226.667
-offset_right = -82.6666
-offset_bottom = -200.667
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "name"
-vertical_alignment = 1
-
-[node name="Cannon Ball Buttons" type="OptionButton" parent="."]
+[node name="Cannon Ball Buttons" type="OptionButton" parent="Player"]
 visible = false
 layout_mode = 0
 offset_left = -568.0
@@ -109,7 +108,7 @@ offset_bottom = -35.0
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("2_2ka52")
 
-[node name="Debug" type="Control" parent="."]
+[node name="Debug" type="Control" parent="Player"]
 anchors_preset = 0
 offset_left = 9.0
 offset_top = -73.6667
@@ -117,14 +116,14 @@ offset_right = 49.0
 offset_bottom = -33.6667
 script = ExtResource("3_t27l4")
 
-[node name="can_attack" type="Label" parent="Debug"]
+[node name="can_attack" type="Label" parent="Player/Debug"]
 layout_mode = 0
 offset_left = -293.0
 offset_top = -545.0
 offset_right = -142.0
 offset_bottom = -522.0
 
-[node name="Normal Projectiles" type="HBoxContainer" parent="."]
+[node name="Normal Projectiles" type="HBoxContainer" parent="Player"]
 layout_mode = 0
 offset_left = -299.333
 offset_top = -150.667
@@ -133,7 +132,7 @@ offset_bottom = -112.667
 scale = Vector2(1.7, 1.7)
 script = ExtResource("4_r77rg")
 
-[node name="Cannon Usage Percentage" type="OptionButton" parent="."]
+[node name="Cannon Usage Percentage" type="OptionButton" parent="Player"]
 visible = false
 layout_mode = 0
 offset_left = -306.0
@@ -153,11 +152,27 @@ popup/item_2/id = 2
 popup/item_3/text = "100%"
 popup/item_3/id = 3
 
-[node name="MenuCollision" type="Area2D" parent="."]
+[node name="Enemy" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuCollision"]
-position = Vector2(-32, -108.333)
-shape = SubResource("RectangleShape2D_2kb58")
+[node name="Health" type="ProgressBar" parent="Enemy"]
+offset_left = -300.667
+offset_top = -149.333
+offset_right = 15.3333
+offset_bottom = -117.333
+
+[node name="Ship Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = -332.667
+offset_top = -226.667
+offset_right = -82.6667
+offset_bottom = -200.667
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "name"
+vertical_alignment = 1
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
@@ -166,8 +181,8 @@ shape = SubResource("RectangleShape2D_2kb58")
 [connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="ColorRect" to="." method="_on_color_rect_mouse_exited"]
 [connection signal="pressed" from="Close Menu Button" to="." method="_on_close_menu_button_pressed"]
-[connection signal="item_selected" from="Cannon Buttons" to="." method="_on_cannon_buttons_item_selected"]
-[connection signal="pressed" from="Water_box" to="." method="_on_water_box_pressed"]
-[connection signal="item_selected" from="Cannon Ball Buttons" to="." method="_on_cannon_ball_buttons_item_selected"]
 [connection signal="mouse_entered" from="MenuCollision" to="." method="_on_menu_collision_mouse_entered"]
 [connection signal="mouse_exited" from="MenuCollision" to="." method="_on_menu_collision_mouse_exited"]
+[connection signal="item_selected" from="Player/Cannon Buttons" to="." method="_on_cannon_buttons_item_selected"]
+[connection signal="pressed" from="Player/Water_box" to="." method="_on_water_box_pressed"]
+[connection signal="item_selected" from="Player/Cannon Ball Buttons" to="." method="_on_cannon_ball_buttons_item_selected"]

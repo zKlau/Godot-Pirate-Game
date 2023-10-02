@@ -1,16 +1,13 @@
 extends Control
 
-
-
-@onready var cannon_number_options : OptionButton = $"Cannon Buttons"
-@onready var cannon_ball_options : OptionButton = $"Cannon Ball Buttons"
 var cannons : int = 1
 
 var water : bool = false
 var hover : bool = false
 
 @onready var ship = get_parent()
-
+@export var texture_normal : Texture
+@export var texture_enemy : Texture
 @onready var background = $ColorRect
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,30 +16,29 @@ func _ready():
 	update_info()
 	
 	
-	for i in $"Normal Projectiles".get_children():
+	if ship.user == 1:
+		$Player.visible = false
+		$Enemy.visible = true
+		$menu_texture.texture = texture_enemy
+	
+	for i in $"Player/Normal Projectiles".get_children():
 		i.pressed.connect(ability_button)
 		print(i)
 		
-	$"Normal Projectiles".load_projectiles()
+	$"Player/Normal Projectiles".load_projectiles()
 	pass # Replace with function body.
 
 func ability_button():
 	print(get_parent().name)
 	pass
 
-func pre_load(max_cannons,ship_cannon):
-	$Health.max_value = ship.max_health
-	for i in range(max_cannons):
-		cannon_number_options.add_item(str(i+1),i)
-	cannon_number_options.selected = ship_cannon-1
-	ship.selected_projectile = ship.ship_projectiles[0]
-	for i in ship.ship_projectiles:
-		cannon_ball_options.add_item(i.name)
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if visible:
-		$Health.value = ship.health
+		if ship.user == 0:
+			$Player/Health.value = ship.health
+		else:
+			$Enemy/Health.value = ship.health
 	if get_viewport().get_mouse_position()[1] < background.global_position.y:
 		Global.cursor_click_ship = true
 	else:
@@ -51,8 +47,8 @@ func _process(delta):
 	pass
 
 func update_info():
-	
-	cannon_number_options.selected = ship.cannons-1
+	pass
+	#cannon_number_options.selected = ship.cannons-1
 	
 func close_menu():
 	Global.mouse_action = true

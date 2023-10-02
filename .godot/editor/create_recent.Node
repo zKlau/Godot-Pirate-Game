@@ -1,3 +1,9 @@
+FlowContainer
+Control
+Node
+CollisionPolygon2D
+Sprite3D
+Node3D
 Sprite2D
 Area2D
 StaticBody2D
@@ -8,14 +14,11 @@ CollisionShape3D
 StaticBody3D
 AnimationPlayer
 RigidBody3D
-Node3D
 GPUParticles3D
 Marker3D
 Button
 AudioStreamPlayer3D
-Control
 OptionButton
-Node
 WorldEnvironment
 DirectionalLight3D
 HBoxContainer
@@ -28,5 +31,3 @@ Ship_CannonBalls
 Label
 Decal
 AnimatedSprite3D
-GPUParticlesAttractorBox3D
-FogVolume

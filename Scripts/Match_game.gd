@@ -211,6 +211,7 @@ func hit_chance(chance):
 		
 func attack(current_p : int):
 	print(selected_player_ship._name)
+	Signals.emit_signal("ship_menu_opened")
 	var enemy_ship_part = randi_range(1,3)
 	var hit : bool
 	var damage_multiplier = false

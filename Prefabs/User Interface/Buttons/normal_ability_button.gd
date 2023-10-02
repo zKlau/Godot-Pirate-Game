@@ -1,7 +1,7 @@
 extends TextureButton
 
 @export var ability : Resource
-@onready var parent : Control = $"../.."
+@onready var parent : Control = $"../../.."
 var hover : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +23,7 @@ func set_texture(texture):
 
 func _on_pressed():
 	parent.ship.selected_projectile = ability
+	parent.close_menu()
 	#parent.visible = false
 	#Signals.emit_signal("ship_menu_closed")
 	#print(ability.name, ability.damage)
