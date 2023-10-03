@@ -43,6 +43,7 @@ var selected_enemy_ship : Ship = null
 @onready var camera_anim : AnimationPlayer = $Camera
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Signals.connect("attack_button",attack_button_pressed)
 	Global.m_game = self
 	#load_player()
 	pass # Replace with function body.
@@ -76,8 +77,8 @@ func _process(delta):
 				move_e_camera = false
 	if Input.is_action_pressed("1"):
 		save_player()
-	if selected_player_ship != null and selected_enemy_ship != null:
-		attack_button.visible = true
+	#if selected_player_ship != null and selected_enemy_ship != null:
+	#	attack_button.visible = true
 	pass
 
 func add_default_ships(player : int,ship : Ship):
@@ -179,10 +180,9 @@ func add_ship(player : int, ship : Ship):
 	#	new_round()
 		
 		
-func _on_attack_button_pressed():
+func attack_button_pressed():
 	if p1_round_attacks < player1_attacks:
 		attack(0)
-	
 	#Signals.emit_signal("player1_attack")
 	pass # Replace with function body.
 

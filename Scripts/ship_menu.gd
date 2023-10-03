@@ -125,3 +125,8 @@ func _on_menu_collision_mouse_exited():
 	print("mouse left")
 	Global.cursor.ship_menu_over = false
 	pass # Replace with function body.
+
+
+func _on_attack_button_pressed():
+	Signals.emit_signal("attack_button")
+	pass # Replace with function body.

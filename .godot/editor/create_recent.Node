@@ -1,3 +1,4 @@
+Button
 FlowContainer
 Control
 Node
@@ -16,7 +17,6 @@ AnimationPlayer
 RigidBody3D
 GPUParticles3D
 Marker3D
-Button
 AudioStreamPlayer3D
 OptionButton
 WorldEnvironment
@@ -30,4 +30,3 @@ Ship
 Ship_CannonBalls
 Label
 Decal
-AnimatedSprite3D
