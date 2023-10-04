@@ -94,7 +94,8 @@ func _ready():
 	selected_projectile = ship_projectiles[0]
 	#print(top_cell,mid_cell,bot_cell,name)
 	match_game.add_default_ships(user,self)
-	match_game.add_ship(user,self)
+	if health > 0:
+		match_game.add_ship(user,self)
 	pass # Replace with function body.
 
 func prepare_cannons():

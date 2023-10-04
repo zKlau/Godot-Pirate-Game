@@ -69,8 +69,14 @@ func _process(delta):
 				#var rnd_ship = randi_range(0,len(player2_ships)-1)
 				#print(player2_ships[rnd_en_ship]._name)
 					selected_player_ship = ship#player2_ships[rnd_en_ship]
-					var rnd_p_ship = randi_range(0,len(player1_ships)-1)
-					selected_enemy_ship = player1_ships[rnd_p_ship]
+					var iter_ships = 0
+					var rnd_p_ship = randi_range(0,len(default_ships_player1)-1)
+					while default_ships_player1[rnd_p_ship].health < 0 and iter_ships <= len(default_ships_player1):
+						iter_ships += 1
+						rnd_p_ship = randi_range(0,len(default_ships_player1)-1)
+					if iter_ships > len(default_ships_player1):
+						print("The ENEMY HAS WON")
+					selected_enemy_ship = default_ships_player1[rnd_p_ship]
 					attack(1)
 					ai_att_time = 0
 				player2_turn = false
@@ -91,8 +97,6 @@ func add_default_ships(player : int,ship : Ship):
 func new_round():
 	Global.rotate_camera(0)
 	#load_player()
-	Global.allow_ship_interaction = true
-	player2_turn = false
 	player1_ships = []
 	player2_ships = []
 	await Signals.emit_signal("new_round")
@@ -122,6 +126,12 @@ func new_round():
 			ship.id = player2_ships.find(ship)
 			player2_attacks += 1
 	#check_winning_conditions()
+	if player1_attacks == 0:
+		player2_turn = true
+		Global.allow_ship_interaction = false
+	else:
+		Global.allow_ship_interaction = true
+		player2_turn = false
 	round += 1
 	#$"../UI/Round".text = "Round : " + str(round)
 	########

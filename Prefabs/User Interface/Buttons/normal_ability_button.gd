@@ -11,7 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if parent.ship.attacked:
+	if parent.ship.attacked or !parent.ship.can_attack:
 		disable_button()
 	else:
 		enable_button()
