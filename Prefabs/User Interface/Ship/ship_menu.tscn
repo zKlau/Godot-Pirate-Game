@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://8j2pej8wmupm"]
+[gd_scene load_steps=13 format=3 uid="uid://8j2pej8wmupm"]
 
 [ext_resource type="Script" path="res://Scripts/ship_menu.gd" id="1_mdeg3"]
 [ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="2_2ka52"]
@@ -7,6 +7,20 @@
 [ext_resource type="Script" path="res://Prefabs/User Interface/Ship/Debug.gd" id="3_t27l4"]
 [ext_resource type="Texture2D" uid="uid://mj2gwy4qv5py" path="res://Assets/Textures/UI/Ship/Combat/Ship_ui.png" id="3_ut8tp"]
 [ext_resource type="Script" path="res://Scripts/User Interface/Normal Projectiles.gd" id="4_r77rg"]
+[ext_resource type="Texture2D" uid="uid://bbcubcjnt81a1" path="res://Assets/Textures/UI/button-ui.png" id="8_dwkfm"]
+[ext_resource type="Texture2D" uid="uid://d3utk1e2kn3ir" path="res://Assets/Textures/UI/button-ui-hover.png" id="9_edxy2"]
+[ext_resource type="FontFile" uid="uid://dfjqs1f82t7qc" path="res://Assets/Fonts/pixel_pirate.ttf" id="10_b71il"]
+
+[sub_resource type="Theme" id="Theme_imhql"]
+default_base_scale = 2.0
+default_font_size = 285
+
+[sub_resource type="LabelSettings" id="LabelSettings_xdvw2"]
+line_spacing = 0.0
+font = ExtResource("10_b71il")
+font_size = 12
+outline_size = 3
+outline_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 
 [node name="Ship_Menu" type="Control"]
 visible = false
@@ -165,13 +179,26 @@ offset_top = -149.333
 offset_right = 15.3333
 offset_bottom = -117.333
 
-[node name="Attack_button" type="Button" parent="Enemy"]
+[node name="Attack_button" type="TextureButton" parent="Enemy"]
 layout_mode = 0
-offset_left = 77.3333
-offset_top = -153.333
-offset_right = 178.333
-offset_bottom = -122.333
-text = "Attack"
+offset_left = 74.6666
+offset_top = -180.0
+offset_right = 179.667
+offset_bottom = -96.0
+texture_normal = ExtResource("8_dwkfm")
+texture_hover = ExtResource("9_edxy2")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Enemy/Attack_button"]
+layout_mode = 0
+offset_left = 10.0001
+offset_top = 32.6667
+offset_right = 126.0
+offset_bottom = 54.6667
+theme = SubResource("Theme_imhql")
+text = "ATTACK"
+label_settings = SubResource("LabelSettings_xdvw2")
+uppercase = true
 
 [node name="Ship Name" type="Label" parent="."]
 layout_mode = 0

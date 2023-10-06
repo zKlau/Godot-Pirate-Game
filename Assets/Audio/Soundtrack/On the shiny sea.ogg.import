@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b6ko3jdk6lbpn"
+path="res://.godot/imported/On the shiny sea.ogg-076a50c185f43499021b8369b4af38de.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Soundtrack/On the shiny sea.ogg"
+dest_files=["res://.godot/imported/On the shiny sea.ogg-076a50c185f43499021b8369b4af38de.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

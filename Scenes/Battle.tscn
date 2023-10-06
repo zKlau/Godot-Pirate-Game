@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c6jm72o6qy757"]
+[gd_scene load_steps=39 format=3 uid="uid://c6jm72o6qy757"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_8jyy6"]
 [ext_resource type="Script" path="res://Scripts/Match_game.gd" id="1_oipmo"]
@@ -21,6 +21,10 @@
 [ext_resource type="Script" path="res://Scripts/UI_match.gd" id="19_d584t"]
 [ext_resource type="PackedScene" uid="uid://caiwl410gy684" path="res://Prefabs/Ships/Animations/ship_shooting_animation.tscn" id="19_mldb0"]
 [ext_resource type="PackedScene" uid="uid://b7c58lhlc68wd" path="res://Prefabs/Ships/Combat/hit_points.tscn" id="20_2sa55"]
+[ext_resource type="AudioStream" uid="uid://cnvv5inbmi000" path="res://Assets/Audio/Soundtrack/Cloudy voyage.ogg" id="22_i453u"]
+[ext_resource type="Texture2D" uid="uid://bbcubcjnt81a1" path="res://Assets/Textures/UI/button-ui.png" id="22_jyfr7"]
+[ext_resource type="Texture2D" uid="uid://d3utk1e2kn3ir" path="res://Assets/Textures/UI/button-ui-hover.png" id="23_2vm7u"]
+[ext_resource type="FontFile" uid="uid://dfjqs1f82t7qc" path="res://Assets/Fonts/pixel_pirate.ttf" id="24_vwmyh"]
 
 [sub_resource type="Animation" id="Animation_in3of"]
 length = 0.001
@@ -123,6 +127,12 @@ albedo_color = Color(1, 1, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_7vxhl"]
 material = SubResource("ORMMaterial3D_lpq68")
 size = Vector3(2, 4, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ksw45"]
+font = ExtResource("24_vwmyh")
+font_size = 19
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_suaw8"]
 size = Vector3(150, 150, 1)
@@ -300,7 +310,7 @@ offset_right = 823.0
 offset_bottom = 89.0
 text = "attack"
 
-[node name="Next Round" type="Button" parent="UI"]
+[node name="Next Rounds" type="Button" parent="UI"]
 visible = false
 layout_mode = 0
 offset_left = 848.0
@@ -317,12 +327,42 @@ offset_right = 143.0
 offset_bottom = 143.0
 text = "Switch Camera"
 
+[node name="Next Round" type="TextureButton" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 866.0
+offset_top = -40.0
+offset_right = 1065.0
+offset_bottom = 132.0
+grow_horizontal = 2
+texture_normal = ExtResource("22_jyfr7")
+texture_hover = ExtResource("23_2vm7u")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="UI/Next Round"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 70.0
+offset_right = 164.0
+offset_bottom = 109.0
+text = "Continue"
+label_settings = SubResource("LabelSettings_ksw45")
+
 [node name="Barrier" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barrier"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.73782, 0, 0)
 shape = SubResource("BoxShape3D_suaw8")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_i453u")
+volume_db = -11.624
+autoplay = true
+bus = &"Music"
+
 [connection signal="pressed" from="UI/Attack Button" to="MATCH GAME" method="_on_attack_button_pressed"]
-[connection signal="pressed" from="UI/Next Round" to="MATCH GAME" method="_on_next_round_pressed"]
 [connection signal="pressed" from="UI/Switch Camera" to="UI" method="_on_switch_camera_pressed"]
+[connection signal="pressed" from="UI/Next Round" to="MATCH GAME" method="_on_next_round_pressed"]

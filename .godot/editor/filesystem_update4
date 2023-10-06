@@ -10,8 +10,7 @@ res://Scenes/fog.gdshader
 res://Scenes/water.gdshader
 res://Scenes/water2.gdshader
 res://Scenes/clouds.gdshader
-res://Prefabs/Ships/player_ship.tscn
+res://Scenes/fog2.gdshader
 res://Data/Player/Ships/Walrus.tscn
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
-res://Prefabs/User Interface/Buttons/normal_ability_button.gd

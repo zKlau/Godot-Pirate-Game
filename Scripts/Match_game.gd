@@ -54,7 +54,7 @@ var move_e_camera : bool = false
 func _process(delta):
 	
 	if p2_round_attacks == player2_attacks and p1_round_attacks == player1_attacks:
-		$"../UI/Attack Button".visible = false
+		#$"../UI/Attack Button".visible = false
 		$"../UI/Next Round".visible = true
 		#print("round complete") 
 	if Global.allow_ship_interaction == false and player2_turn:
@@ -203,11 +203,11 @@ func _on_enemy_area_pressed():
 	pass # Replace with function body.
 
 func prepare_next_round():
-	$"../UI/Attack Button".visible = false
+	#$"../UI/Attack Button".visible = false
 	$"../UI/Next Round".visible = true
 
 func _on_next_round_pressed():
-	$"../UI/Attack Button".visible = true
+	#$"../UI/Attack Button".visible = true
 	$"../UI/Next Round".visible = false
 	new_round()
 	pass # Replace with function body.
