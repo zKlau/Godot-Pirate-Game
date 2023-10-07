@@ -166,7 +166,7 @@ shadow_blur = 10.0
 [node name="Cursor" parent="." instance=ExtResource("2_eabm1")]
 
 [node name="Water" parent="." instance=ExtResource("2_7d4tc")]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -2.17919, -5.14124, -15.6029)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -2.17919, -5.14124, -15.6029)
 
 [node name="Player_Zone" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.45933, -11.7704)

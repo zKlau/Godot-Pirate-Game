@@ -7,13 +7,13 @@ res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres
 res://Prefabs/User Interface/Ship/option_button_ship_menu.tres
 res://Scenes/fog.gdshader
+res://Data/Player/Player.tres
 res://Scenes/water.gdshader
 res://Scenes/water2.gdshader
 res://Scenes/clouds.gdshader
 res://Scenes/fog2.gdshader
+res://Assets/water/water.gd
 res://Data/Player/Ships/Walrus.tscn
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
-res://Scenes/fps.gd
-res://Data/Player/Player.tres
 res://Scenes/main.tscn

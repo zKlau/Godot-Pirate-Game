@@ -95,7 +95,7 @@ func add_default_ships(player : int,ship : Ship):
 			default_ships_player2.append(ship)
 
 func new_round():
-	Global.rotate_camera(0)
+	#Global.rotate_camera(0)
 	#load_player()
 	player1_ships = []
 	player2_ships = []
