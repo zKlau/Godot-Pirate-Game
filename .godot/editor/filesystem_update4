@@ -15,3 +15,5 @@ res://Data/Player/Ships/Walrus.tscn
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
 res://Scenes/fps.gd
+res://Data/Player/Player.tres
+res://Scenes/main.tscn

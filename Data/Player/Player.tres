@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://chjct63vspehy" path="res://Data/Player/Ships/Dutchman.tscn" id="1_3exy5"]
 [ext_resource type="Script" path="res://Data/Player/Player_data.gd" id="1_wbdtc"]
-[ext_resource type="PackedScene" path="res://Data/Player/Ships/Walrus.tscn" id="2_3qd1i"]
+[ext_resource type="PackedScene" uid="uid://bgbi2kruc1bxg" path="res://Data/Player/Ships/Walrus.tscn" id="2_3qd1i"]
 [ext_resource type="PackedScene" uid="uid://8vfu0qpkbqyn" path="res://Data/Player/Ships/WhydahGally.tscn" id="3_x0dd1"]
 
 [resource]

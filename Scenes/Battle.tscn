@@ -105,7 +105,6 @@ sdfgi_max_distance = 510.1
 sdfgi_energy = 0.5
 glow_enabled = true
 glow_intensity = 0.2
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 volumetric_fog_albedo = Color(0.247059, 0.247059, 0.247059, 1)
 volumetric_fog_anisotropy = 0.44
@@ -167,7 +166,7 @@ shadow_blur = 10.0
 [node name="Cursor" parent="." instance=ExtResource("2_eabm1")]
 
 [node name="Water" parent="." instance=ExtResource("2_7d4tc")]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -2.17919, -5.14124, -15.6029)
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -2.17919, -5.14124, -15.6029)
 
 [node name="Player_Zone" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.45933, -11.7704)
@@ -352,10 +351,11 @@ offset_bottom = 109.0
 text = "Continue"
 label_settings = SubResource("LabelSettings_ksw45")
 
-[node name="Label" type="Label" parent="UI"]
+[node name="FPS" type="Label" parent="UI"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "FPS : 0"
 script = ExtResource("25_vay5e")
 
 [node name="Barrier" type="StaticBody3D" parent="."]
