@@ -162,6 +162,7 @@ add_uv2 = true
 size = Vector2(1.5, 1.5)
 
 [node name="Fire" type="Node3D"]
+process_mode = 3
 
 [node name="Fire" type="GPUParticles3D" parent="."]
 amount = 100

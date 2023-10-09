@@ -51,13 +51,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var ai_att_time = 0
 var move_e_camera : bool = false
+
 func _process(delta):
 	
 	if p2_round_attacks == player2_attacks and p1_round_attacks == player1_attacks:
 		#$"../UI/Attack Button".visible = false
 		$"../UI/Next Round".visible = true
 		#print("round complete") 
-	if Global.allow_ship_interaction == false and player2_turn:
+	if Global.allow_ship_interaction == false and player2_turn and !get_tree().paused:
 		ai_att_time += delta
 		if move_e_camera == false:
 			Global.rotate_camera(0)
@@ -125,7 +126,7 @@ func new_round():
 		if ship.attack_stopped_for == 0:
 			ship.id = player2_ships.find(ship)
 			player2_attacks += 1
-	#check_winning_conditions()
+	check_winning_conditions()
 	if player1_attacks == 0:
 		player2_turn = true
 		Global.allow_ship_interaction = false
@@ -139,8 +140,14 @@ func new_round():
 	pass
 func check_winning_conditions():
 	if len(player1_ships) == 0 :
+		get_tree().paused = true
+		$"../UI/Win Condi".visible = true
+		$"../UI/Win Condi".text = "Player 2 has won"
 		print("Player 2 won")
 	if len(player2_ships) == 0:
+		get_tree().paused = true
+		$"../UI/Win Condi".visible = true
+		$"../UI/Win Condi".text = "Player 1 has won"
 		print("Player 1 won")
 		
 func check_hit_zone(hit_coords : Vector2, player : int, damage: float, ball_type, ship : Ship):

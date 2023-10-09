@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c6jm72o6qy757"]
+[gd_scene load_steps=43 format=3 uid="uid://c6jm72o6qy757"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_8jyy6"]
 [ext_resource type="Script" path="res://Scripts/Match_game.gd" id="1_oipmo"]
@@ -133,6 +133,12 @@ size = Vector3(2, 4, 2)
 [sub_resource type="LabelSettings" id="LabelSettings_ksw45"]
 font = ExtResource("24_vwmyh")
 font_size = 19
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o442b"]
+font = ExtResource("24_vwmyh")
+font_size = 64
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
@@ -370,6 +376,16 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "FPS : 0"
 script = ExtResource("25_vay5e")
+
+[node name="Win Condi" type="Label" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 506.0
+offset_top = 302.0
+offset_right = 1346.0
+offset_bottom = 393.0
+text = "Player 1 has Won"
+label_settings = SubResource("LabelSettings_o442b")
 
 [node name="Barrier" type="StaticBody3D" parent="."]
 

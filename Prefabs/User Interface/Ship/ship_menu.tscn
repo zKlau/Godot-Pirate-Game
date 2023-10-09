@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://8j2pej8wmupm"]
+[gd_scene load_steps=14 format=3 uid="uid://8j2pej8wmupm"]
 
 [ext_resource type="Script" path="res://Scripts/ship_menu.gd" id="1_mdeg3"]
 [ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="2_2ka52"]
@@ -21,6 +21,11 @@ font = ExtResource("10_b71il")
 font_size = 12
 outline_size = 3
 outline_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iducc"]
+font = ExtResource("10_b71il")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Ship_Menu" type="Control"]
 visible = false
@@ -208,6 +213,7 @@ offset_right = -82.6667
 offset_bottom = -200.667
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "name"
+label_settings = SubResource("LabelSettings_iducc")
 vertical_alignment = 1
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
