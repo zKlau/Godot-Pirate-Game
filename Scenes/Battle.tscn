@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c6jm72o6qy757"]
+[gd_scene load_steps=42 format=3 uid="uid://c6jm72o6qy757"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_8jyy6"]
 [ext_resource type="Script" path="res://Scripts/Match_game.gd" id="1_oipmo"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://d3utk1e2kn3ir" path="res://Assets/Textures/UI/button-ui-hover.png" id="23_2vm7u"]
 [ext_resource type="FontFile" uid="uid://dfjqs1f82t7qc" path="res://Assets/Fonts/pixel_pirate.ttf" id="24_vwmyh"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="25_vay5e"]
+[ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="26_cxscp"]
+[ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="27_630tg"]
 
 [sub_resource type="Animation" id="Animation_in3of"]
 length = 0.001
@@ -301,6 +303,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("19_d584t")
 
+[node name="Menu Button" type="TextureButton" parent="UI"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -6.0
+offset_right = 145.0
+offset_bottom = 142.0
+texture_normal = ExtResource("26_cxscp")
+texture_hover = ExtResource("27_630tg")
+stretch_mode = 4
+
 [node name="Attack Button" type="Button" parent="UI"]
 visible = false
 layout_mode = 0
@@ -320,6 +332,7 @@ offset_bottom = 85.0
 text = "Next Round"
 
 [node name="Switch Camera" type="Button" parent="UI"]
+visible = false
 layout_mode = 0
 offset_left = -2.0
 offset_top = 86.0
