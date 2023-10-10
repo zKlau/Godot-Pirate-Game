@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://png4syy6q365"]
+[gd_scene load_steps=8 format=3 uid="uid://png4syy6q365"]
+
+[ext_resource type="Script" path="res://Prefabs/Particles/hit_particles.gd" id="1_omb84"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7e23i"]
 emission_shape = 6
@@ -45,6 +47,7 @@ lifetime = 0.2
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_7e23i")
 draw_pass_1 = SubResource("BoxMesh_vhswd")
+script = ExtResource("1_omb84")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 emitting = false

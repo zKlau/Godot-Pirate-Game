@@ -46,12 +46,13 @@ func get_cursor_position(event):
 		if event is InputEventMouseButton and event.pressed  and ship_menu_over == false:
 			if "Ship" in result.collider.get_parent().name:
 				if event.button_index == MOUSE_BUTTON_LEFT and selected_ship != result.collider.get_parent():
-					interact(result.collider.get_parent())
-					if result.collider.get_parent().attacked == false:
-						selected_ship = result.collider.get_parent()
-						#result.collider.get_parent().attacked = true
-						#print(result.collider.get_parent().name)
-							#get_selection()
+					if Global.allow_ship_interaction:
+						interact(result.collider.get_parent())
+						if result.collider.get_parent().attacked == false:
+							selected_ship = result.collider.get_parent()
+							#result.collider.get_parent().attacked = true
+							#print(result.collider.get_parent().name)
+								#get_selection()
 			if "FloatingObject" in result.collider.get_parent().name:
 				result.collider.get_parent().interact()
 	'''

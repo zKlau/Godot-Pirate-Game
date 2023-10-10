@@ -5,6 +5,7 @@ extends Node3D
 @export var id : int
 @export_range(1,100) var ship_level : int = 1
 @export_enum("Player 1","Player 2") var user : int = 0
+@export_enum("Player","Normal Enemy","Elite Enemy", "Boss Enemy") var type : int = 0
 @export_enum("1","2","3") var ship_size : int
 @export_enum("1","2","3") var cannons = 0
 var max_cannons : int = 3 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=43 format=3 uid="uid://c6jm72o6qy757"]
+[gd_scene load_steps=44 format=3 uid="uid://c6jm72o6qy757"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_8jyy6"]
 [ext_resource type="Script" path="res://Scripts/Match_game.gd" id="1_oipmo"]
 [ext_resource type="PackedScene" uid="uid://d4fy7x6u1qact" path="res://Assets/water/water.tscn" id="2_7d4tc"]
 [ext_resource type="Texture2D" uid="uid://bsjloxje2v2b3" path="res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co.jpg" id="2_8kta6"]
+[ext_resource type="Resource" uid="uid://bwrysr2w7ojkk" path="res://Data/Player/Player.tres" id="2_d7bs8"]
 [ext_resource type="PackedScene" uid="uid://fgacajsj3cf3" path="res://Prefabs/User Interface/cursor.tscn" id="2_eabm1"]
 [ext_resource type="PackedScene" uid="uid://chjct63vspehy" path="res://Data/Player/Ships/Dutchman.tscn" id="3_c3tea"]
 [ext_resource type="PackedScene" uid="uid://bgbi2kruc1bxg" path="res://Data/Player/Ships/Walrus.tscn" id="4_hr5pd"]
@@ -150,6 +151,7 @@ size = Vector3(150, 150, 1)
 [node name="MATCH GAME" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_oipmo")
+player_data = ExtResource("2_d7bs8")
 
 [node name="Camera3D" type="Camera3D" parent="MATCH GAME"]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -0.449246, 1.80818, -23.2574)
@@ -208,7 +210,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03, 0)
 script = ExtResource("9_1j5d2")
 _name = "Billy Donger"
+ship_level = 50
 user = 1
+type = 1
 ship_size = 2
 cannons = 3
 ship_rotation = 5
@@ -257,7 +261,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.12
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03, 0)
 script = ExtResource("9_1j5d2")
 _name = "Billy Bonger 2"
+ship_level = 60
 user = 1
+type = 1
 ship_size = 2
 cannons = 3
 ship_rotation = 5

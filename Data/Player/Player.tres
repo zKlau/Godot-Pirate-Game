@@ -8,7 +8,8 @@
 [resource]
 script = ExtResource("1_wbdtc")
 _name = "Joe"
-level = 0
-coins = 49981
+level = 1
+experience = 9458
+coins = 0
 pearls = 0
 active_ships = Array[PackedScene]([ExtResource("1_3exy5"), ExtResource("2_3qd1i"), ExtResource("3_x0dd1")])

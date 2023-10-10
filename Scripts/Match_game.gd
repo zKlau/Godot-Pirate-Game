@@ -51,7 +51,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var ai_att_time = 0
 var move_e_camera : bool = false
-
+func _input(event):
+	if event.is_action_pressed("3"):
+		print("add ex")
+		var experience = len(default_ships_player2) * enemy_ship_average_level() * enemy_ship_types()
+		print(experience)
+		player_data.experience += experience * 100
+		save_player()
 func _process(delta):
 	
 	if p2_round_attacks == player2_attacks and p1_round_attacks == player1_attacks:
@@ -148,8 +154,35 @@ func check_winning_conditions():
 		get_tree().paused = true
 		$"../UI/Win Condi".visible = true
 		$"../UI/Win Condi".text = "Player 1 has won"
+
+		player_won_battle()
+
 		print("Player 1 won")
 		
+func enemy_ship_average_level():
+	var i = 0
+	var level = -1
+	for s in default_ships_player2:
+			i += 1
+			if level == -1:
+				level = s.ship_level
+			else:
+				level = (level + s.ship_level) / i
+	return level
+
+func enemy_ship_types():
+	var diff = 0
+	for s in default_ships_player2:
+		if s.type == 3:
+			diff += 6
+		else:
+			diff += s.type
+	return diff * 0.05
+
+func player_won_battle():
+	var experience = len(default_ships_player2) * enemy_ship_average_level() * enemy_ship_types()
+	player_data.experience += experience * 100
+	save_player()
 func check_hit_zone(hit_coords : Vector2, player : int, damage: float, ball_type, ship : Ship):
 	#print(damage)
 	match player:
@@ -331,7 +364,7 @@ func add_currency(type : int , amount : int):
 	ResourceSaver.save(player_data,"res://Data/Player/Player.tres")
 
 func save_player():
-	
+	ResourceSaver.save(player_data,"res://Data/Player/Player.tres")
 	for i in player1_ships:
 		var scene = PackedScene.new()
 		scene.pack(i)
