@@ -54,9 +54,8 @@ var move_e_camera : bool = false
 func _input(event):
 	if event.is_action_pressed("3"):
 		print("add ex")
-		var experience = len(default_ships_player2) * enemy_ship_average_level() * enemy_ship_types()
-		print(experience)
-		player_data.experience += experience * 100
+		var experience = (len(default_ships_player2) * enemy_ship_average_level() * enemy_ship_types()) * 100
+		player_data.add_experience(experience) 
 		save_player()
 func _process(delta):
 	
@@ -180,8 +179,8 @@ func enemy_ship_types():
 	return diff * 0.05
 
 func player_won_battle():
-	var experience = len(default_ships_player2) * enemy_ship_average_level() * enemy_ship_types()
-	player_data.experience += experience * 100
+	var experience = (len(default_ships_player2) * enemy_ship_average_level() * enemy_ship_types()) * 100
+	player_data.add_experience(experience) 
 	save_player()
 func check_hit_zone(hit_coords : Vector2, player : int, damage: float, ball_type, ship : Ship):
 	#print(damage)

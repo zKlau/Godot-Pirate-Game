@@ -40,7 +40,7 @@ ship_level = 1
 user = 0
 type = 0
 ship_size = 2
-cannons = 10
+cannons = 12
 ship_rotation = 2
 health = 100
 ship_projectiles = Array[Resource]([ExtResource("2_xt28e"), ExtResource("3_prrig"), ExtResource("4_a5dch")])
@@ -88,9 +88,9 @@ script = ExtResource("10_pmdk2")
 visible = false
 
 [node name="ship_dark" type="RigidBody3D" parent="." instance=ExtResource("10_s6quj")]
-transform = Transform3D(0.999688, 0.0249644, 0.000789858, -0.0248962, 0.998501, -0.0487465, -0.0020056, 0.0487117, 0.998811, 0, -1.72856, 0)
-linear_velocity = Vector3(0, 0.0394129, 0)
-angular_velocity = Vector3(-0.0152787, 0.000282744, -0.00789835)
+transform = Transform3D(0.999638, 0.0268996, 0.000697289, -0.0268474, 0.998775, -0.0415728, -0.00181473, 0.041539, 0.999135, 0, -1.6914, 0)
+linear_velocity = Vector3(0, 0.0558019, 0)
+angular_velocity = Vector3(-0.00439935, 5.7468e-05, 0.000735654)
 script = ExtResource("13_s460o")
 float_force = 0.25
 water_drag = 1.0
