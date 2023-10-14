@@ -35,10 +35,11 @@ func ability_button():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if visible:
+		$Player/Health/Health_percentage.text = str($Player/Health.value) + "%"
 		if ship.user == 0:
-			$Player/Health.value = ship.health
+			$Player/Health.value = ship.max_health - ship.health
 		else:
-			$Enemy/Health.value = ship.health
+			$Enemy/Health.value = ship.max_health - ship.health
 	if get_viewport().get_mouse_position()[1] < background.global_position.y:
 		Global.cursor_click_ship = true
 	else:

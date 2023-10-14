@@ -40,6 +40,7 @@ ship_projectiles = Array[Resource]([ExtResource("2_jdy0i"), ExtResource("3_1ivwa
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95013, 0)
 shape = SubResource("ConcavePolygonShape3D_1kl7g")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

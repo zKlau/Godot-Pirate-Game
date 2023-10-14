@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://8j2pej8wmupm"]
+[gd_scene load_steps=17 format=3 uid="uid://8j2pej8wmupm"]
 
 [ext_resource type="Script" path="res://Scripts/ship_menu.gd" id="1_mdeg3"]
 [ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="2_2ka52"]
@@ -7,9 +7,16 @@
 [ext_resource type="Script" path="res://Prefabs/User Interface/Ship/Debug.gd" id="3_t27l4"]
 [ext_resource type="Texture2D" uid="uid://mj2gwy4qv5py" path="res://Assets/Textures/UI/Ship/Combat/Ship_ui.png" id="3_ut8tp"]
 [ext_resource type="Script" path="res://Scripts/User Interface/Normal Projectiles.gd" id="4_r77rg"]
+[ext_resource type="Texture2D" uid="uid://duloxtkkjthpc" path="res://Assets/Textures/UI/health-bar.png" id="6_m2tr0"]
+[ext_resource type="Texture2D" uid="uid://drhdweiex5v04" path="res://Assets/Textures/UI/health-bar-progress.png" id="7_6eypa"]
 [ext_resource type="Texture2D" uid="uid://bbcubcjnt81a1" path="res://Assets/Textures/UI/button-ui.png" id="8_dwkfm"]
 [ext_resource type="Texture2D" uid="uid://d3utk1e2kn3ir" path="res://Assets/Textures/UI/button-ui-hover.png" id="9_edxy2"]
 [ext_resource type="FontFile" uid="uid://dfjqs1f82t7qc" path="res://Assets/Fonts/pixel_pirate.ttf" id="10_b71il"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iwq40"]
+font = ExtResource("10_b71il")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_imhql"]
 default_base_scale = 2.0
@@ -110,7 +117,31 @@ theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Water"
 
-[node name="Health" type="ProgressBar" parent="Player"]
+[node name="Health" type="TextureProgressBar" parent="Player"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.052
+offset_left = -27.0
+offset_top = -217.0
+offset_right = 210.92
+offset_bottom = -175.0
+nine_patch_stretch = true
+texture_under = ExtResource("6_m2tr0")
+texture_progress = ExtResource("7_6eypa")
+radial_fill_degrees = 269.5
+
+[node name="Health_percentage" type="Label" parent="Player/Health"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 10.0
+offset_right = 236.0
+offset_bottom = 35.0
+text = "0%"
+label_settings = SubResource("LabelSettings_iwq40")
+horizontal_alignment = 1
+
+[node name="Healths" type="ProgressBar" parent="Player"]
+visible = false
 layout_mode = 0
 offset_left = -82.6667
 offset_top = -200.0
@@ -177,12 +208,28 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Health" type="ProgressBar" parent="Enemy"]
+[node name="Health" type="TextureProgressBar" parent="Enemy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.052
+offset_left = -27.0
+offset_top = -217.0
+offset_right = 210.92
+offset_bottom = -175.0
+nine_patch_stretch = true
+texture_under = ExtResource("6_m2tr0")
+texture_progress = ExtResource("7_6eypa")
+radial_fill_degrees = 269.5
+
+[node name="Health_percentage" type="Label" parent="Enemy/Health"]
 layout_mode = 0
-offset_left = -300.667
-offset_top = -149.333
-offset_right = 15.3333
-offset_bottom = -117.333
+offset_left = 4.0
+offset_top = 10.0
+offset_right = 236.0
+offset_bottom = 35.0
+text = "0%"
+label_settings = SubResource("LabelSettings_iwq40")
+horizontal_alignment = 1
 
 [node name="Attack_button" type="TextureButton" parent="Enemy"]
 layout_mode = 0
