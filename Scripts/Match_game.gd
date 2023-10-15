@@ -144,12 +144,21 @@ func new_round():
 	#print(p1_round_attacks)
 	pass
 func check_winning_conditions():
-	if len(player1_ships) == 0 :
+	var p1_left = len(default_ships_player1)
+	var p2_left = len((default_ships_player2))
+	for ps in default_ships_player1:
+		if ps.health <= 0:
+			p1_left -= 1
+	for ps in default_ships_player2:
+		if ps.health <= 0:
+			p2_round_attacks -= 1
+	
+	if p1_left == 0:
 		get_tree().paused = true
 		$"../UI/Win Condi".visible = true
 		$"../UI/Win Condi".text = "Player 2 has won"
 		print("Player 2 won")
-	if len(player2_ships) == 0:
+	if p2_left == 0:
 		get_tree().paused = true
 		$"../UI/Win Condi".visible = true
 		$"../UI/Win Condi".text = "Player 1 has won"
@@ -295,7 +304,7 @@ func attack(current_p : int):
 				damage_multiplier = hit_chance(25) #2
 			3: # tip
 				hit = hit_chance(60)
-				damage_multiplier = hit_chance(10)#1.1
+				damage_multiplier = hit_chance(10) #1.1
 		if hit:
 			match enemy_ship_part:
 				1: # back

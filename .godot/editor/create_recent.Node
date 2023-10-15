@@ -1,6 +1,8 @@
+HBoxContainer
+VBoxContainer
+TextureButton
 Label
 TextureProgressBar
-TextureButton
 AudioStreamPlayer
 FogVolume
 Sprite2D
@@ -25,8 +27,6 @@ AudioStreamPlayer3D
 OptionButton
 WorldEnvironment
 DirectionalLight3D
-HBoxContainer
 BoxContainer
 Camera3D
 Timer
-RayCast3D

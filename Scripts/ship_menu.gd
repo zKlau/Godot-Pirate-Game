@@ -36,6 +36,7 @@ func ability_button():
 func _process(delta):
 	if visible:
 		$Player/Health/Health_percentage.text = str($Player/Health.value) + "%"
+		$Enemy/Health/Health_percentage.text =  str($Enemy/Health.value) + "%"
 		if ship.user == 0:
 			$Player/Health.value = ship.max_health - ship.health
 		else:

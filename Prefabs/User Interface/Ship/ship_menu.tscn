@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://8j2pej8wmupm"]
+[gd_scene load_steps=20 format=3 uid="uid://8j2pej8wmupm"]
 
 [ext_resource type="Script" path="res://Scripts/ship_menu.gd" id="1_mdeg3"]
 [ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="2_2ka52"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bbcubcjnt81a1" path="res://Assets/Textures/UI/button-ui.png" id="8_dwkfm"]
 [ext_resource type="Texture2D" uid="uid://d3utk1e2kn3ir" path="res://Assets/Textures/UI/button-ui-hover.png" id="9_edxy2"]
 [ext_resource type="FontFile" uid="uid://dfjqs1f82t7qc" path="res://Assets/Fonts/pixel_pirate.ttf" id="10_b71il"]
+[ext_resource type="Texture2D" uid="uid://b8bmct638cq3r" path="res://Assets/Textures/UI/Ship/Combat/Ship-slot-special.png" id="12_cygns"]
+[ext_resource type="Texture2D" uid="uid://bc7hcps8x7oh7" path="res://Assets/Textures/UI/Ship/Combat/Ship-slot-special-hover.png" id="13_d72ua"]
+[ext_resource type="Texture2D" uid="uid://bebdjrb2pnhgq" path="res://Assets/Textures/UI/Ship/Combat/Abilities/water.png" id="14_57mxr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iwq40"]
 font = ExtResource("10_b71il")
@@ -104,10 +107,10 @@ theme = ExtResource("2_2ka52")
 
 [node name="Water_box" type="CheckBox" parent="Player"]
 layout_mode = 0
-offset_left = 20.6666
-offset_top = -147.333
-offset_right = 95.6666
-offset_bottom = -116.333
+offset_left = 114.0
+offset_top = -138.667
+offset_right = 189.0
+offset_bottom = -107.667
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -202,6 +205,25 @@ popup/item_2/id = 2
 popup/item_3/text = "100%"
 popup/item_3/id = 3
 
+[node name="VBoxContainer" type="HBoxContainer" parent="Player"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -150.667
+offset_right = 56.0
+offset_bottom = -112.667
+scale = Vector2(1.7, 1.7)
+
+[node name="Special_ability_Button_water" type="TextureButton" parent="Player/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_cygns")
+texture_hover = ExtResource("13_d72ua")
+stretch_mode = 4
+
+[node name="Water" type="Sprite2D" parent="Player/VBoxContainer/Special_ability_Button_water"]
+position = Vector2(18.0392, 19.2157)
+scale = Vector2(0.948, 0.948)
+texture = ExtResource("14_57mxr")
+
 [node name="Enemy" type="Control" parent="."]
 visible = false
 anchors_preset = 0
@@ -275,4 +297,5 @@ vertical_alignment = 1
 [connection signal="item_selected" from="Player/Cannon Buttons" to="." method="_on_cannon_buttons_item_selected"]
 [connection signal="pressed" from="Player/Water_box" to="." method="_on_water_box_pressed"]
 [connection signal="item_selected" from="Player/Cannon Ball Buttons" to="." method="_on_cannon_ball_buttons_item_selected"]
+[connection signal="pressed" from="Player/VBoxContainer/Special_ability_Button_water" to="." method="_on_water_box_pressed"]
 [connection signal="pressed" from="Enemy/Attack_button" to="." method="_on_attack_button_pressed"]
