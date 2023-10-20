@@ -17,3 +17,4 @@ name = "Sleep Ball"
 level = 1
 damage = 10
 status_effect = SubResource("Resource_i5sbd")
+description = "Put the enemy ship asleep for some rounds"

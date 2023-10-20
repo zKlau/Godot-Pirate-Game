@@ -4,9 +4,8 @@ class_name Cannon_Balls_resource
 @export var name : String = ""
 @export var level : int = 1
 @export var damage : int = 10
-
 @export var status_effect : Status_Effect
-
+@export var description : String = ""
 #@export_group("")
 #@export var Cannon_Ball : bool = true
 #@export var Fire_Ball : bool = false

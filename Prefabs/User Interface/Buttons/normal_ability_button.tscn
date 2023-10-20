@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dee2x2640onv"]
+[gd_scene load_steps=8 format=3 uid="uid://dee2x2640onv"]
 
+[ext_resource type="Theme" uid="uid://cef4t62webdn8" path="res://Prefabs/User Interface/Buttons/ability_button.tres" id="1_auada"]
 [ext_resource type="Texture2D" uid="uid://wacquabgr5ah" path="res://Assets/Textures/UI/Ship/Combat/Ship-slot.png" id="1_s1sus"]
 [ext_resource type="Script" path="res://Prefabs/User Interface/Buttons/normal_ability_button.gd" id="1_xyc7e"]
 [ext_resource type="Texture2D" uid="uid://dfrf1cpfp584d" path="res://Assets/Textures/UI/Ship/Combat/Ship-slot-hover.png" id="2_t40dd"]
@@ -10,6 +11,7 @@
 [node name="Normal Ability Button" type="TextureButton"]
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_auada")
 texture_normal = ExtResource("1_s1sus")
 texture_hover = ExtResource("2_t40dd")
 texture_disabled = ExtResource("3_pxggb")

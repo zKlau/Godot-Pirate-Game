@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://8j2pej8wmupm"]
+[gd_scene load_steps=21 format=3 uid="uid://8j2pej8wmupm"]
 
 [ext_resource type="Script" path="res://Scripts/ship_menu.gd" id="1_mdeg3"]
 [ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="2_2ka52"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bbcubcjnt81a1" path="res://Assets/Textures/UI/button-ui.png" id="8_dwkfm"]
 [ext_resource type="Texture2D" uid="uid://d3utk1e2kn3ir" path="res://Assets/Textures/UI/button-ui-hover.png" id="9_edxy2"]
 [ext_resource type="FontFile" uid="uid://dfjqs1f82t7qc" path="res://Assets/Fonts/pixel_pirate.ttf" id="10_b71il"]
+[ext_resource type="Theme" uid="uid://cef4t62webdn8" path="res://Prefabs/User Interface/Buttons/ability_button.tres" id="11_5vns5"]
 [ext_resource type="Texture2D" uid="uid://b8bmct638cq3r" path="res://Assets/Textures/UI/Ship/Combat/Ship-slot-special.png" id="12_cygns"]
 [ext_resource type="Texture2D" uid="uid://bc7hcps8x7oh7" path="res://Assets/Textures/UI/Ship/Combat/Ship-slot-special-hover.png" id="13_d72ua"]
 [ext_resource type="Texture2D" uid="uid://bebdjrb2pnhgq" path="res://Assets/Textures/UI/Ship/Combat/Abilities/water.png" id="14_57mxr"]
@@ -215,6 +216,8 @@ scale = Vector2(1.7, 1.7)
 
 [node name="Special_ability_Button_water" type="TextureButton" parent="Player/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Extinguish the fire on the ship at the cost of your crew getting tired"
+theme = ExtResource("11_5vns5")
 texture_normal = ExtResource("12_cygns")
 texture_hover = ExtResource("13_d72ua")
 stretch_mode = 4

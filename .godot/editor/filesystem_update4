@@ -1,4 +1,4 @@
-res://Scenes/Battle.tscn
+res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://addons/panku_console/res/panku_console_theme.tres
 res://Scripts/Match_game.gd
 res://Assets/water/Water2.gdshader
@@ -12,6 +12,8 @@ res://Scenes/water.gdshader
 res://Scenes/water2.gdshader
 res://Scenes/clouds.gdshader
 res://Scenes/fog2.gdshader
-res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
+res://Scenes/Battle.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
-res://Scripts/ship_menu.gd
+res://Scripts/Resources/Ship/Cannon_balls.gd
+res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
+res://Prefabs/User Interface/Buttons/normal_ability_button.gd

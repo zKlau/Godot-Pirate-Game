@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c6jm72o6qy757"]
+[gd_scene load_steps=45 format=3 uid="uid://c6jm72o6qy757"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_8jyy6"]
 [ext_resource type="Script" path="res://Scripts/Match_game.gd" id="1_oipmo"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="25_vay5e"]
 [ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="26_cxscp"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="27_630tg"]
+[ext_resource type="Texture2D" uid="uid://b8sb3hd6h7k67" path="res://Assets/Textures/UI/game-menu.png" id="30_3rqdf"]
 
 [sub_resource type="Animation" id="Animation_in3of"]
 length = 0.001
@@ -404,6 +405,12 @@ stream = ExtResource("22_i453u")
 volume_db = -11.624
 autoplay = true
 bus = &"Music"
+
+[node name="Game-menu" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(915, 403)
+scale = Vector2(1.41333, 1.41333)
+texture = ExtResource("30_3rqdf")
 
 [connection signal="pressed" from="UI/Attack Button" to="MATCH GAME" method="_on_attack_button_pressed"]
 [connection signal="pressed" from="UI/Switch Camera" to="UI" method="_on_switch_camera_pressed"]

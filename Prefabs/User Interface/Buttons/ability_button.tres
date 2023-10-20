@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cef4t62webdn8"]
+
+[ext_resource type="Texture2D" uid="uid://duloxtkkjthpc" path="res://Assets/Textures/UI/health-bar.png" id="1_n6ugq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_enkst"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+texture = ExtResource("1_n6ugq")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[resource]
+TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
+TooltipLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+TooltipLabel/constants/outline_size = 3
+TooltipLabel/font_sizes/font_size = 26
+TooltipLabel/fonts/font = null
+TooltipPanel/styles/panel = SubResource("StyleBoxTexture_enkst")

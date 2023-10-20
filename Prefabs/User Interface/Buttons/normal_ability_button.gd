@@ -6,6 +6,7 @@ var hover : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	name = ability.name
+	tooltip_text = ability.description
 	pass # Replace with function body.
 
 

@@ -11,3 +11,4 @@ name = "Fire Ball"
 level = 1
 damage = 5
 status_effect = ExtResource("2_4h8nb")
+description = "Setting the enemy on fire and dealing more damage overtime"
