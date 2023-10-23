@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://8j2pej8wmupm"]
+[gd_scene load_steps=23 format=3 uid="uid://8j2pej8wmupm"]
 
 [ext_resource type="Script" path="res://Scripts/ship_menu.gd" id="1_mdeg3"]
 [ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="2_2ka52"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://b8bmct638cq3r" path="res://Assets/Textures/UI/Ship/Combat/Ship-slot-special.png" id="12_cygns"]
 [ext_resource type="Texture2D" uid="uid://bc7hcps8x7oh7" path="res://Assets/Textures/UI/Ship/Combat/Ship-slot-special-hover.png" id="13_d72ua"]
 [ext_resource type="Texture2D" uid="uid://bebdjrb2pnhgq" path="res://Assets/Textures/UI/Ship/Combat/Abilities/water.png" id="14_57mxr"]
+[ext_resource type="Script" path="res://Prefabs/User Interface/Ship/Special_ability_button.gd" id="14_ncr0j"]
+[ext_resource type="PackedScene" uid="uid://1fyd3iq1ffo6" path="res://Prefabs/User Interface/Buttons/tooltip.tscn" id="15_bpehg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iwq40"]
 font = ExtResource("10_b71il")
@@ -216,16 +218,24 @@ scale = Vector2(1.7, 1.7)
 
 [node name="Special_ability_Button_water" type="TextureButton" parent="Player/VBoxContainer"]
 layout_mode = 2
-tooltip_text = "Extinguish the fire on the ship at the cost of your crew getting tired"
 theme = ExtResource("11_5vns5")
 texture_normal = ExtResource("12_cygns")
 texture_hover = ExtResource("13_d72ua")
 stretch_mode = 4
+script = ExtResource("14_ncr0j")
+description = "Use to stop the fire on your ship.
+Be aware that you crew will get tired for some time"
 
 [node name="Water" type="Sprite2D" parent="Player/VBoxContainer/Special_ability_Button_water"]
 position = Vector2(18.0392, 19.2157)
 scale = Vector2(0.948, 0.948)
 texture = ExtResource("14_57mxr")
+
+[node name="Tooltip" parent="Player/VBoxContainer/Special_ability_Button_water" instance=ExtResource("15_bpehg")]
+offset_left = 20.0
+offset_top = 16.4708
+offset_right = 20.0
+offset_bottom = 16.4708
 
 [node name="Enemy" type="Control" parent="."]
 visible = false

@@ -2,18 +2,18 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dfjqs1f82t7qc"
-path="res://.godot/imported/pixel_pirate.ttf-3b9b950f02bcbe59a43e93857ccd4716.fontdata"
+uid="uid://b0qf45wixf6i3"
+path="res://.godot/imported/BirchLeaf.ttf-d44a55d98afda35c49f09b002d25c831.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/pixel_pirate.ttf"
-dest_files=["res://.godot/imported/pixel_pirate.ttf-3b9b950f02bcbe59a43e93857ccd4716.fontdata"]
+source_file="res://Assets/Fonts/BirchLeaf.ttf"
+dest_files=["res://.godot/imported/BirchLeaf.ttf-d44a55d98afda35c49f09b002d25c831.fontdata"]
 
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
@@ -31,7 +31,8 @@ preload=[{
 "chars": [],
 "glyphs": [],
 "name": "New Configuration",
-"size": Vector2i(16, 0)
+"size": Vector2i(16, 0),
+"variation_embolden": 0.0
 }]
 language_support={}
 script_support={}

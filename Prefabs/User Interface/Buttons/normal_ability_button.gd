@@ -3,13 +3,18 @@ extends TextureButton
 @export var ability : Resource
 @onready var parent : Control = $"../../.."
 var hover : bool = false
+@onready var tooltip = $Tooltip
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	name = ability.name
-	tooltip_text = ability.description
+	format_tooltip()
 	pass # Replace with function body.
 
-
+func format_tooltip():
+	ability.description = ability.description.replace("{damage}",str(ability.damage))
+	ability.description = ability.description.replace("{level}",str(ability.level))
+	tooltip.set_text(ability.description)
+	#tooltip_text = ability.description
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if parent.ship.attacked or !parent.ship.can_attack:

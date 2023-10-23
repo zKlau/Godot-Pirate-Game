@@ -17,4 +17,8 @@ name = "Sleep Ball"
 level = 1
 damage = 10
 status_effect = SubResource("Resource_i5sbd")
-description = "Put the enemy ship asleep for some rounds"
+description = "[i] A lightweight cannon ball that puts the enemy asleep [/i]
+- Level [b] [color=green] {level} [/color] [/b]
+- Damage -[b][color=red] {damage} [/color][/b]
+- Put enemy [wave amp=20 freq=2][color=\"blue\"]asleep[/color][/wave] 
+- Cooldown [b]2[/b] rounds"

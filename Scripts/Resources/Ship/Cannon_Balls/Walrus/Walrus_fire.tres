@@ -11,4 +11,9 @@ name = "Fire Ball"
 level = 1
 damage = 5
 status_effect = ExtResource("2_4h8nb")
-description = "Setting the enemy on fire and dealing more damage overtime"
+description = "[i] A lightweight cannon ball that sets the enemy on fire [/i]
+- Level [b] [color=green] {level} [/color] [/b]
+- Damage -[b][color=red] {damage} [/color][/b]
+- Damage over time [b][color=red]10%[/color][/b]  per round
+- Set the enemy on [wave amp=20 freq=2][color=\"orange\"]fire[/color][/wave]
+- Cooldown [b]2[/b] rounds"

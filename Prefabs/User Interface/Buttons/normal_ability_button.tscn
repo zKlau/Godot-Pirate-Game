@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dee2x2640onv"]
+[gd_scene load_steps=9 format=3 uid="uid://dee2x2640onv"]
 
 [ext_resource type="Theme" uid="uid://cef4t62webdn8" path="res://Prefabs/User Interface/Buttons/ability_button.tres" id="1_auada"]
 [ext_resource type="Texture2D" uid="uid://wacquabgr5ah" path="res://Assets/Textures/UI/Ship/Combat/Ship-slot.png" id="1_s1sus"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cq72osne7ueua" path="res://Assets/Textures/UI/Ship/Combat/Abilities/fire-ball.png" id="3_5peuc"]
 [ext_resource type="Texture2D" uid="uid://cdvw7o05ypl6x" path="res://Assets/Textures/UI/Ship/Combat/Ship-slot-disabled.png" id="3_pxggb"]
 [ext_resource type="Texture2D" uid="uid://cnqp5mp6kmcp0" path="res://Assets/Textures/UI/Ship/Combat/Ship-slot-locked.png" id="4_538fn"]
+[ext_resource type="PackedScene" uid="uid://1fyd3iq1ffo6" path="res://Prefabs/User Interface/Buttons/tooltip.tscn" id="8_vxkp7"]
 
 [node name="Normal Ability Button" type="TextureButton"]
 size_flags_horizontal = 4
@@ -26,6 +27,8 @@ texture = ExtResource("3_5peuc")
 visible = false
 position = Vector2(18, 19)
 texture = ExtResource("4_538fn")
+
+[node name="Tooltip" parent="." instance=ExtResource("8_vxkp7")]
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

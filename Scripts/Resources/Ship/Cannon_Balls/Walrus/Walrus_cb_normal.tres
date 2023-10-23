@@ -9,4 +9,6 @@ texture = ExtResource("2_emwnv")
 name = "Cannon Ball"
 level = 1
 damage = 10
-description = "A normal cannon balll that deals normal damage"
+description = "[i] A normal cannon ball [/i]
+- Level [b] [color=green] {level} [/color] [/b]
+- Damage -[b][color=red] {damage} [/color][/b]"
