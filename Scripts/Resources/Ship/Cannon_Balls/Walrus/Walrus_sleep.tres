@@ -20,5 +20,5 @@ status_effect = SubResource("Resource_i5sbd")
 description = "[i] A lightweight cannon ball that puts the enemy asleep [/i]
 - Level [b] [color=green] {level} [/color] [/b]
 - Damage -[b][color=red] {damage} [/color][/b]
-- Put enemy [wave amp=20 freq=2][color=\"blue\"]asleep[/color][/wave] 
+- Put enemy [wave amp=20 freq=2][color=\"lightblue\"]asleep[/color][/wave] 
 - Cooldown [b]2[/b] rounds"

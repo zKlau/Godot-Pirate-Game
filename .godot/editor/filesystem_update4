@@ -1,4 +1,4 @@
-res://Scenes/Battle.tscn
+res://Prefabs/User Interface/Buttons/tooltip.tscn
 res://addons/panku_console/res/panku_console_theme.tres
 res://Scripts/Match_game.gd
 res://Prefabs/User Interface/Buttons/ability_button.tres
@@ -6,7 +6,6 @@ res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres
-res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
 res://Prefabs/User Interface/Ship/option_button_ship_menu.tres
 res://Data/Player/Player.tres
 res://Scenes/fog.gdshader
@@ -14,10 +13,10 @@ res://Scenes/water.gdshader
 res://Scenes/water2.gdshader
 res://Scenes/clouds.gdshader
 res://Scenes/fog2.gdshader
-res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
-res://Prefabs/User Interface/Ship/ship_menu.tscn
+res://Prefabs/User Interface/tooltip.gdshader
 res://Prefabs/User Interface/Buttons/Tooltip.gd
+res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
+res://Scenes/Battle.tscn
+res://Prefabs/User Interface/Ship/ship_menu.tscn
 res://Prefabs/User Interface/Buttons/normal_ability_button.gd
-res://Prefabs/User Interface/tooltip.tscn
-res://Prefabs/User Interface/Buttons/tooltip.tscn
 res://Prefabs/User Interface/Ship/Special_ability_button.gd
