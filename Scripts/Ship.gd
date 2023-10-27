@@ -141,13 +141,13 @@ func new_round():
 		if ship_menu.water:
 			ship_menu.water = false
 			on_fire = false
-			attack_stopped_for = 2
+			#attack_stopped_for = 2
 			print("stop fire")
 		if on_fire:
 			print("on fire")
 			health -= health * 0.1
 		if sleep:
-			attack_stopped_for = 2
+			#attack_stopped_for = 2
 			sleep = false
 		#attack_coords = Vector3()
 			#print(can_attack,"remove round")

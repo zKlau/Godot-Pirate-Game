@@ -24,10 +24,8 @@ func _ready():
 	for i in $"Player/Normal Projectiles".get_children():
 		i.pressed.connect(ability_button)
 		print(i)
-		
 	$"Player/Normal Projectiles".load_projectiles()
 	pass # Replace with function body.
-
 func ability_button():
 	print(get_parent().name)
 	pass
@@ -70,9 +68,15 @@ func _on_cannon_buttons_item_selected(index):
 
 
 func _on_water_box_pressed():
-	ship.attack_stopped_for = 2
+	ship.attack_stopped_for = 1
 	ship.stop_fire()
 	water = true
+	
+	Global.m_game.selected_player_ship.attacked = true
+	Global.m_game.p1_round_attacks += 1
+	Global.m_game.selected_player_ship = null
+	Global.allow_ship_interaction = false
+	Global.m_game.player2_turn = true
 	pass # Replace with function body.
 
 
