@@ -6,6 +6,7 @@ res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres
+res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
 res://Prefabs/User Interface/Ship/option_button_ship_menu.tres
 res://Data/Player/Player.tres
 res://Scenes/fog.gdshader
@@ -17,8 +18,6 @@ res://Prefabs/User Interface/tooltip.gdshader
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
 res://Prefabs/User Interface/Buttons/tooltip.tscn
-res://Scripts/ship_menu.gd
 res://Data/Player/Ships/Dutchman.tscn
 res://Prefabs/Ships/Animations/ship_shooting_animation.tscn
-res://Scripts/Resources/Status_Effect.tres
-res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
+res://Prefabs/User Interface/Ship/Special_ability_button.gd
