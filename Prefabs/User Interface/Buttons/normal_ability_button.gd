@@ -30,10 +30,14 @@ func set_texture(texture):
 func _on_pressed():
 	parent.ship.selected_projectile = ability
 	parent.close_menu()
+	#if Global.m_game.selected_player_ship == null:
+		#if Global.m_game.selected_player_ship.selected_projectile.tag == 0:
+			
 	#parent.visible = false
 	#Signals.emit_signal("ship_menu_closed")
 	#print(ability.name, ability.damage)
-	Global.rotate_camera(90)
+	if ability.tag == 0:
+		Global.rotate_camera(90)
 	
 	#Global.camera.quaternion = Vector3(0,1,0)
 	pass # Replace with function body.

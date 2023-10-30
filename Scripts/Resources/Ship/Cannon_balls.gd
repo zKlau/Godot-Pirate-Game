@@ -1,5 +1,6 @@
 extends Resource
 class_name Cannon_Balls_resource
+@export_enum("Combat","Utility") var tag = 0
 @export var texture : Texture
 @export var name : String = ""
 @export var level : int = 1

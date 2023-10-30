@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Cannon_Balls_resource" load_steps=5 format=3 uid="uid://1ypxrjubeiwv"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/Ship/Cannon_balls.gd" id="1_60io8"]
+[ext_resource type="Script" path="res://Scripts/Resources/status_effect.gd" id="2_5n6bt"]
+[ext_resource type="Texture2D" uid="uid://bkv15s4cma5mp" path="res://Assets/Textures/UI/Ship/Combat/Abilities/healing-ball.png" id="3_cbp3y"]
+
+[sub_resource type="Resource" id="Resource_i5sbd"]
+script = ExtResource("2_5n6bt")
+status = 2
+hit_stop_action = 2
+stop_action_for = 2
+
+[resource]
+script = ExtResource("1_60io8")
+tag = 1
+texture = ExtResource("3_cbp3y")
+name = "Heal Ball"
+level = 1
+damage = 30
+status_effect = SubResource("Resource_i5sbd")
+description = "[i] Magically heal your hurt ships [/i]
+- Level [b] [color=green] {level} [/color] [/b]
+- Heal for  [wave amp=20 freq=2][color=\"lightgreen\"]{damage}[/color][/wave] 
+- Cooldown [b]2[/b] rounds"

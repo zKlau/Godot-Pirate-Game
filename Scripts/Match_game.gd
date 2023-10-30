@@ -267,6 +267,31 @@ func hit_chance(chance):
 	else:
 		return false
 		
+func ship_utility_interaction(current_p : int, ship):
+	if selected_player_ship.selected_projectile.status_effect.status == 2:
+		ship.health += ship.max_health * 0.2
+	match current_p:
+		0:
+			p1_round_attacks += 1
+			if p1_round_attacks < player1_attacks:
+				pass
+				#Global.rotate_camera(0)
+			else:
+				Global.allow_ship_interaction = false
+				player2_turn = true
+		1:
+			p2_round_attacks += 1
+			if p2_round_attacks < player2_attacks:
+				pass
+				#Global.rotate_camera(0)
+			player2_turn = true
+	
+	if current_p == 0:	
+		await get_tree().create_timer(.5).timeout
+	selected_player_ship.shooting_animation.play("shooting")
+	selected_player_ship.attacked = true
+	selected_player_ship = null
+	pass
 func attack(current_p : int):
 	print(selected_player_ship._name)
 	Signals.emit_signal("ship_menu_opened")

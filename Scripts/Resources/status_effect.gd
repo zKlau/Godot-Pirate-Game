@@ -1,7 +1,7 @@
 extends Resource
 class_name Status_Effect
 
-@export_enum("Fire","Sleep") var status
+@export_enum("Fire","Sleep","Heal") var status
 
 @export var hit_stop_action : int = 0
 @export var stop_action_for : int = 0

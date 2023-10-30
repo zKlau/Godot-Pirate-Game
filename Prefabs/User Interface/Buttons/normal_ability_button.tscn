@@ -20,7 +20,7 @@ stretch_mode = 4
 script = ExtResource("1_xyc7e")
 
 [node name="ability_texture" type="Sprite2D" parent="."]
-position = Vector2(19, 19)
+position = Vector2(18.5, 19)
 texture = ExtResource("3_5peuc")
 
 [node name="lock" type="Sprite2D" parent="."]

@@ -12,6 +12,7 @@ stop_action_for = 2
 
 [resource]
 script = ExtResource("1_t52gd")
+tag = null
 texture = ExtResource("3_rsxx6")
 name = "Sleep Ball"
 level = 1

@@ -15,9 +15,12 @@ res://Scenes/water2.gdshader
 res://Scenes/clouds.gdshader
 res://Scenes/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
+res://Scripts/Resources/Ship/Cannon_balls.gd
+res://Data/Player/Ships/Dutchman.tscn
+res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
 res://Prefabs/User Interface/Buttons/tooltip.tscn
-res://Data/Player/Ships/Dutchman.tscn
 res://Prefabs/Ships/Animations/ship_shooting_animation.tscn
-res://Prefabs/User Interface/Ship/Special_ability_button.gd
+res://Data/Player/Ships/WhydahGally.tscn
+res://Scripts/Ship.gd

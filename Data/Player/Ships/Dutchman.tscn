@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://tkrm5v6hnf2v"]
+[gd_scene load_steps=17 format=3 uid="uid://tkrm5v6hnf2v"]
 
 [ext_resource type="Script" path="res://Scripts/Ship.gd" id="1_kpibg"]
 [ext_resource type="Resource" uid="uid://c1yqbcmv0exjb" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres" id="2_xt28e"]
 [ext_resource type="Resource" uid="uid://c0vhxameste02" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres" id="3_prrig"]
 [ext_resource type="Resource" uid="uid://boa0urygxkl7l" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres" id="4_a5dch"]
+[ext_resource type="Resource" uid="uid://1ypxrjubeiwv" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres" id="5_42yd7"]
 [ext_resource type="PackedScene" uid="uid://8j2pej8wmupm" path="res://Prefabs/User Interface/Ship/ship_menu.tscn" id="5_airga"]
 [ext_resource type="PackedScene" uid="uid://b62gpgcp55lat" path="res://Prefabs/part_fire.tscn" id="7_ei4a6"]
 [ext_resource type="Script" path="res://Scripts/Ship_Cannonballs.gd" id="9_2oqtt"]
@@ -32,7 +33,7 @@ _name = "Dutchman"
 ship_size = 2
 cannons = 12
 ship_rotation = 2
-ship_projectiles = Array[Resource]([ExtResource("2_xt28e"), ExtResource("3_prrig"), ExtResource("4_a5dch")])
+ship_projectiles = Array[Resource]([ExtResource("2_xt28e"), ExtResource("3_prrig"), ExtResource("4_a5dch"), ExtResource("5_42yd7")])
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

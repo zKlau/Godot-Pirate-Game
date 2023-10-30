@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_n2jal")
+tag = 0
 texture = ExtResource("2_emwnv")
 name = "Cannon Ball"
 level = 1

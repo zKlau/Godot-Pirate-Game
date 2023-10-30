@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_5wojw")
+tag = null
 texture = ExtResource("3_q6u3y")
 name = "Fire Ball"
 level = 1
