@@ -110,21 +110,6 @@ offset_bottom = -35.0
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("2_2ka52")
 
-[node name="Water_box" type="CheckBox" parent="Player"]
-layout_mode = 0
-offset_left = 114.0
-offset_top = -138.667
-offset_right = 189.0
-offset_bottom = -107.667
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Water"
-
 [node name="Health" type="TextureProgressBar" parent="Player"]
 layout_mode = 1
 anchors_preset = -1
@@ -245,6 +230,14 @@ offset_top = 16.4708
 offset_right = 20.0
 offset_bottom = 16.4708
 
+[node name="Heal_Button" type="Button" parent="Player"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -170.0
+offset_right = 173.0
+offset_bottom = -139.0
+text = "Heal"
+
 [node name="Enemy" type="Control" parent="."]
 visible = false
 anchors_preset = 0
@@ -316,7 +309,7 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="MenuCollision" to="." method="_on_menu_collision_mouse_entered"]
 [connection signal="mouse_exited" from="MenuCollision" to="." method="_on_menu_collision_mouse_exited"]
 [connection signal="item_selected" from="Player/Cannon Buttons" to="." method="_on_cannon_buttons_item_selected"]
-[connection signal="pressed" from="Player/Water_box" to="." method="_on_water_box_pressed"]
 [connection signal="item_selected" from="Player/Cannon Ball Buttons" to="." method="_on_cannon_ball_buttons_item_selected"]
 [connection signal="pressed" from="Player/VBoxContainer/Special_ability_Button_water" to="." method="_on_water_box_pressed"]
+[connection signal="pressed" from="Player/Heal_Button" to="." method="_on_heal_button_pressed"]
 [connection signal="pressed" from="Enemy/Attack_button" to="." method="_on_attack_button_pressed"]

@@ -75,8 +75,15 @@ func _on_water_box_pressed():
 	Global.m_game.selected_player_ship.attacked = true
 	Global.m_game.p1_round_attacks += 1
 	Global.m_game.selected_player_ship = null
-	Global.allow_ship_interaction = false
-	Global.m_game.player2_turn = true
+	
+	if Global.m_game.p1_round_attacks < Global.m_game.player1_attacks:
+		pass
+		#Global.rotate_camera(0)
+	else:
+		Global.allow_ship_interaction = false
+		Global.m_game.player2_turn = true
+	#Global.allow_ship_interaction = false
+	#Global.m_game.player2_turn = true
 	pass # Replace with function body.
 
 
@@ -135,4 +142,9 @@ func _on_menu_collision_mouse_exited():
 
 func _on_attack_button_pressed():
 	Signals.emit_signal("attack_button")
+	pass # Replace with function body.
+
+
+func _on_heal_button_pressed():
+	Global.m_game.ship_utility_interaction(0,ship)
 	pass # Replace with function body.

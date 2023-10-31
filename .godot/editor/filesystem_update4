@@ -1,3 +1,4 @@
+res://Scripts/Ship.gd
 res://Scenes/Battle.tscn
 res://addons/panku_console/res/panku_console_theme.tres
 res://Scripts/Match_game.gd
@@ -7,6 +8,7 @@ res://Assets/water/Water.material
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
+res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres
 res://Prefabs/User Interface/Ship/option_button_ship_menu.tres
 res://Data/Player/Player.tres
 res://Scenes/fog.gdshader
@@ -15,12 +17,11 @@ res://Scenes/water2.gdshader
 res://Scenes/clouds.gdshader
 res://Scenes/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
-res://Scripts/Resources/Ship/Cannon_balls.gd
-res://Data/Player/Ships/Dutchman.tscn
-res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
-res://Prefabs/User Interface/Buttons/tooltip.tscn
+res://Data/Player/Ships/Dutchman.tscn
 res://Prefabs/Ships/Animations/ship_shooting_animation.tscn
 res://Data/Player/Ships/WhydahGally.tscn
-res://Scripts/Ship.gd
+res://Scripts/ship_menu.gd
+res://addons/panku_console/modules/interactive_shell/module.gd
+res://Scripts/Global.gd

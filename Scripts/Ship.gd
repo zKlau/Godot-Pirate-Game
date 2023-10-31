@@ -116,7 +116,7 @@ func interact():
 		if user == 0 and attacked == false:
 			if Global.m_game.selected_player_ship != null:
 				if Global.m_game.selected_player_ship.selected_projectile.tag == 1:
-					Global.m_game.ship_utility_interaction(0,self)
+					#Global.m_game.ship_utility_interaction(0,self)
 					return
 			match_game.selected_player_ship = self
 			print("select")

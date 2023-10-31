@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pirate Game"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/Battle.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 

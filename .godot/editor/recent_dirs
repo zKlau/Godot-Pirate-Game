@@ -1,3 +1,4 @@
+res://Scenes
 res://Prefabs/User Interface
 res://Prefabs/User Interface/Buttons
 res://Prefabs/Ships/Combat
@@ -5,7 +6,6 @@ res://Prefabs/Particles
 res://Prefabs/Ships/Animations
 res://Scripts/User Interface
 res://Scripts
-res://Scenes
 res://Prefabs/Test
 res://Prefabs/Ships/Player
 res://Data/Player
