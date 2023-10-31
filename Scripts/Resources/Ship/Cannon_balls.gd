@@ -13,6 +13,15 @@ class_name Cannon_Balls_resource
 #@export var Sleeping_Gas_Ball : bool = false
 var balls = []
 
+func interact():
+	if status_effect != null:
+		match status_effect.status:
+			2:
+				Global.m_game.action = "healing"
+	else:
+		Global.m_game.action = "combat"
+	pass
+
 func load_balls():
 	#if Cannon_Ball:
 	#	balls.append("Cannon Ball")

@@ -25,3 +25,11 @@ res://Data/Player/Ships/WhydahGally.tscn
 res://Scripts/ship_menu.gd
 res://addons/panku_console/modules/interactive_shell/module.gd
 res://Scripts/Global.gd
+res://Prefabs/User Interface/Buttons/normal_ability_button.gd
+res://Scripts/Grid_follow_cursor.gd
+res://Prefabs/User Interface/Buttons/Description.gd
+res://Data/Player/Player_data.gd
+res://Prefabs/User Interface/Ship/Special_ability_button.gd
+res://Scripts/Resources/Ship/Cannon_balls.gd
+res://Scripts/Resources/status_effect.gd
+res://Scripts/Signals.gd

@@ -33,6 +33,10 @@ func ability_button():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if visible:
+		if Global.m_game.action == "healing" and ship.health > 0:
+			$Player/Heal_Button.visible = true
+		else:
+			$Player/Heal_Button.visible = false
 		$Player/Health/Health_percentage.text = str($Player/Health.value) + "%"
 		$Enemy/Health/Health_percentage.text =  str($Enemy/Health.value) + "%"
 		if ship.user == 0:
@@ -75,7 +79,7 @@ func _on_water_box_pressed():
 	Global.m_game.selected_player_ship.attacked = true
 	Global.m_game.p1_round_attacks += 1
 	Global.m_game.selected_player_ship = null
-	
+
 	if Global.m_game.p1_round_attacks < Global.m_game.player1_attacks:
 		pass
 		#Global.rotate_camera(0)

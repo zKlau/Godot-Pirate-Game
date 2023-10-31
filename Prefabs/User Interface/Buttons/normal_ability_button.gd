@@ -17,7 +17,7 @@ func format_tooltip():
 	#tooltip_text = ability.description
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if parent.ship.attacked or !parent.ship.can_attack:
+	if parent.ship.attacked or !parent.ship.can_attack or Global.m_game.action == "healing":
 		disable_button()
 	else:
 		enable_button()
@@ -29,6 +29,7 @@ func set_texture(texture):
 
 func _on_pressed():
 	parent.ship.selected_projectile = ability
+	ability.interact()
 	parent.close_menu()
 	#if Global.m_game.selected_player_ship == null:
 		#if Global.m_game.selected_player_ship.selected_projectile.tag == 0:

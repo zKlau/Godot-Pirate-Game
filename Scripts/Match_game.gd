@@ -38,7 +38,7 @@ var default_ships_player2 = []
 
 var selected_player_ship : Ship = null
 var selected_enemy_ship : Ship = null
-
+var action : String
 @onready var attack_button = $"../UI/Attack Button"
 @onready var camera_anim : AnimationPlayer = $Camera
 # Called when the node enters the scene tree for the first time.
@@ -103,6 +103,7 @@ func add_default_ships(player : int,ship : Ship):
 func new_round():
 	#Global.rotate_camera(0)
 	#load_player()
+	action = "idle"
 	player1_ships = []
 	player2_ships = []
 	await Signals.emit_signal("new_round")
@@ -268,7 +269,7 @@ func hit_chance(chance):
 		return false
 		
 func ship_utility_interaction(current_p : int, ship):
-	if selected_player_ship.selected_projectile.status_effect.status == 2:
+	if selected_player_ship.selected_projectile.status_effect.status == 2 and ship.health > 0:
 		ship.health += ship.max_health * 0.2
 	match current_p:
 		0:
@@ -288,9 +289,11 @@ func ship_utility_interaction(current_p : int, ship):
 	
 	if current_p == 0:	
 		await get_tree().create_timer(.5).timeout
+	Signals.emit_signal("ship_menu_opened")
 	selected_player_ship.shooting_animation.play("shooting")
 	selected_player_ship.attacked = true
 	selected_player_ship = null
+	action = "idle"
 	pass
 func attack(current_p : int):
 	print(selected_player_ship._name)
