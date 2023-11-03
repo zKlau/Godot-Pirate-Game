@@ -1,8 +1,7 @@
-res://Scripts/Ship.gd
-res://Scenes/Battle.tscn
+res://Prefabs/User Interface/Ship/ship_menu.tscn
 res://addons/panku_console/res/panku_console_theme.tres
-res://Scripts/Match_game.gd
 res://Prefabs/User Interface/Buttons/ability_button.tres
+res://Scripts/Match_game.gd
 res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres
@@ -18,18 +17,11 @@ res://Scenes/clouds.gdshader
 res://Scenes/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
-res://Prefabs/User Interface/Ship/ship_menu.tscn
+res://Scenes/Battle.tscn
 res://Data/Player/Ships/Dutchman.tscn
 res://Prefabs/Ships/Animations/ship_shooting_animation.tscn
 res://Data/Player/Ships/WhydahGally.tscn
-res://Scripts/ship_menu.gd
-res://addons/panku_console/modules/interactive_shell/module.gd
-res://Scripts/Global.gd
-res://Prefabs/User Interface/Buttons/normal_ability_button.gd
-res://Scripts/Grid_follow_cursor.gd
-res://Prefabs/User Interface/Buttons/Description.gd
-res://Data/Player/Player_data.gd
-res://Prefabs/User Interface/Ship/Special_ability_button.gd
-res://Scripts/Resources/Ship/Cannon_balls.gd
-res://Scripts/Resources/status_effect.gd
-res://Scripts/Signals.gd
+res://Assets/water/water.tscn
+res://Scenes/World.tscn
+res://Scenes/Environment.gd
+res://Scripts/Environment.gd

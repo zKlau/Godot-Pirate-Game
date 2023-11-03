@@ -88,13 +88,13 @@ _data = {
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yd8hf"]
 panorama = ExtResource("2_8kta6")
 
-[sub_resource type="Sky" id="Sky_x535p"]
+[sub_resource type="Sky" id="Sky_25e5d"]
 sky_material = SubResource("PanoramaSkyMaterial_yd8hf")
 
 [sub_resource type="Environment" id="Environment_kodso"]
 background_mode = 2
 background_color = Color(0.0431373, 0.847059, 0.921569, 0.921569)
-sky = SubResource("Sky_x535p")
+sky = SubResource("Sky_25e5d")
 ambient_light_source = 3
 ambient_light_color = Color(0.0431373, 0.847059, 0.921569, 0.921569)
 ambient_light_sky_contribution = 0.25

@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://b5e3q10dja7qy"]
+
+[ext_resource type="PackedScene" uid="uid://d4fy7x6u1qact" path="res://Assets/water/water.tscn" id="1_hr76c"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
+[ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
+[ext_resource type="PackedScene" uid="uid://bahc3rvnq6exh" path="res://Models/Ships/Sloop1/Sloop.glb" id="3_v0j16"]
+
+[sub_resource type="Gradient" id="Gradient_tlcdp"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(1, 0.443137, 0.0784314, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.443137, 0.0784314, 1)
+
+[sub_resource type="Curve" id="Curve_kliol"]
+_data = [Vector2(0.25, 0.063), 0.0, 0.0, 0, 0, Vector2(0.254098, 0.989474), 0.19263, 0.19263, 0, 0, Vector2(0.748634, 1), -0.132848, -0.132848, 0, 0, Vector2(0.75, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_gbhfj"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_08h8f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_man56"]
+
+[sub_resource type="Sky" id="Sky_ks3cv"]
+sky_material = SubResource("ProceduralSkyMaterial_man56")
+
+[sub_resource type="Environment" id="Environment_i12il"]
+background_mode = 2
+background_color = Color(0.0431373, 0.847059, 0.921569, 0.921569)
+sky = SubResource("Sky_ks3cv")
+ambient_light_source = 3
+ambient_light_color = Color(0.0431373, 0.847059, 0.921569, 0.921569)
+ambient_light_sky_contribution = 0.25
+ambient_light_energy = 0.9
+tonemap_mode = 1
+tonemap_exposure = 0.5
+tonemap_white = 0.5
+sdfgi_use_occlusion = true
+sdfgi_min_cell_size = 0.498145
+sdfgi_cascade0_distance = 31.8813
+sdfgi_max_distance = 510.1
+sdfgi_energy = 0.5
+glow_enabled = true
+glow_intensity = 0.2
+volumetric_fog_density = 0.0
+volumetric_fog_albedo = Color(0.247059, 0.247059, 0.247059, 1)
+volumetric_fog_anisotropy = 0.44
+volumetric_fog_length = 320.0
+volumetric_fog_ambient_inject = 1.0
+volumetric_fog_temporal_reprojection_enabled = false
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_saturation = 1.6
+
+[sub_resource type="BoxMesh" id="BoxMesh_jxp6t"]
+
+[node name="World" type="Node3D"]
+
+[node name="Water" parent="." instance=ExtResource("1_hr76c")]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, -1.5895, 19.2259, 0.208666)
+fov = 73.6
+script = ExtResource("2_uo2xb")
+
+[node name="Environment" type="Node" parent="."]
+script = ExtResource("3_f88n7")
+sun_color = SubResource("Gradient_tlcdp")
+sun_intensity = SubResource("Curve_kliol")
+moon_color = SubResource("Gradient_gbhfj")
+moon_intensity = SubResource("Curve_08h8f")
+
+[node name="Sun" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-3.48004e-08, 0.174284, -0.984695, 2.64504e-08, 0.984695, 0.174284, 1, -1.99804e-08, -3.88776e-08, 0, 10, 0)
+shadow_enabled = true
+
+[node name="Moon" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-3.48004e-08, 0.174284, -0.984695, 2.64504e-08, 0.984695, 0.174284, 1, -1.99804e-08, -3.88776e-08, 0, 10, 0)
+light_color = Color(0, 0, 0, 1)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Day_Time" type="Timer" parent="Environment"]
+wait_time = 10.0
+autostart = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_i12il")
+
+[node name="Sloop" parent="." instance=ExtResource("3_v0j16")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.18512, 0, -6.87613)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, -3.406, 0)
+cast_shadow = 3
+mesh = SubResource("BoxMesh_jxp6t")
