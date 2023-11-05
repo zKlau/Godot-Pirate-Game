@@ -1,9 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=20 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="PackedScene" uid="uid://d4fy7x6u1qact" path="res://Assets/water/water.tscn" id="1_hr76c"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
-[ext_resource type="PackedScene" uid="uid://bahc3rvnq6exh" path="res://Models/Ships/Sloop1/Sloop.glb" id="3_v0j16"]
+[ext_resource type="Texture2D" uid="uid://bbhq53ttw0tt8" path="res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co(1).jpg" id="4_qci14"]
+[ext_resource type="Script" path="res://Scripts/CharacterBody3D.gd" id="5_nq3kf"]
+[ext_resource type="PackedScene" uid="uid://d1lqkc0r5kx3v" path="res://Prefabs/Ships/Placeholder/ship_dark.tscn" id="5_php58"]
+[ext_resource type="PackedScene" uid="uid://obtjefhqm51v" path="res://Prefabs/floating_object.tscn" id="6_m4dna"]
 
 [sub_resource type="Gradient" id="Gradient_tlcdp"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
@@ -21,15 +24,16 @@ colors = PackedColorArray(0, 0, 0, 1)
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_man56"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w5gco"]
+panorama = ExtResource("4_qci14")
 
-[sub_resource type="Sky" id="Sky_ks3cv"]
-sky_material = SubResource("ProceduralSkyMaterial_man56")
+[sub_resource type="Sky" id="Sky_2v13m"]
+sky_material = SubResource("PanoramaSkyMaterial_w5gco")
 
 [sub_resource type="Environment" id="Environment_i12il"]
 background_mode = 2
 background_color = Color(0.0431373, 0.847059, 0.921569, 0.921569)
-sky = SubResource("Sky_ks3cv")
+sky = SubResource("Sky_2v13m")
 ambient_light_source = 3
 ambient_light_color = Color(0.0431373, 0.847059, 0.921569, 0.921569)
 ambient_light_sky_contribution = 0.25
@@ -56,18 +60,25 @@ adjustment_saturation = 1.6
 
 [sub_resource type="BoxMesh" id="BoxMesh_jxp6t"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_jc8rj"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hywq0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pfbuo"]
+size = Vector3(500, 1, 500)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t22nu"]
+size = Vector3(500, 1, 500)
+
 [node name="World" type="Node3D"]
 
 [node name="Water" parent="." instance=ExtResource("1_hr76c")]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, -1.5895, 19.2259, 0.208666)
-fov = 73.6
-script = ExtResource("2_uo2xb")
-
 [node name="Environment" type="Node" parent="."]
 script = ExtResource("3_f88n7")
+day_length = 200.0
 sun_color = SubResource("Gradient_tlcdp")
 sun_intensity = SubResource("Curve_kliol")
 moon_color = SubResource("Gradient_gbhfj")
@@ -90,10 +101,42 @@ autostart = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
 environment = SubResource("Environment_i12il")
 
-[node name="Sloop" parent="." instance=ExtResource("3_v0j16")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.18512, 0, -6.87613)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, -3.406, 0)
 cast_shadow = 3
 mesh = SubResource("BoxMesh_jxp6t")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.747172, 0.00579992, 0.664605, 0, 0.999962, -0.00872654, -0.664631, 0.00652022, 0.747144, 2.12784, 6.61324, -3.32197)
+fov = 73.6
+script = ExtResource("2_uo2xb")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.747172, 0, 0.664631, 0, 1, 0, -0.664631, 0, 0.747172, -4.37147, 2.8949, -6.4427)
+script = ExtResource("5_nq3kf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
+shape = SubResource("BoxShape3D_jc8rj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_hywq0")
+
+[node name="ship_dark" parent="CharacterBody3D" instance=ExtResource("5_php58")]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, 0, 0, 1, 4.76837e-07, 0, -4.76837e-07)
+ship = false
+
+[node name="PlayerShip" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.4427)
+
+[node name="FloatingObject" parent="." instance=ExtResource("6_m4dna")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.96711, 0, -17.2847)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.774622, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_pfbuo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_t22nu")

@@ -28,7 +28,9 @@ func daynight_cycle(delta):
 		time = 0
 		
 	print($Day_Time.get_time_left())
+	
 	$Sun.rotation_degrees.x =  time * 360 + 90#(360/360) * $Day_Time.get_time_left()
+	#$WorldEnvironment.environment.sky_rotation.x = $Sun.rotation_degrees.x
 	$Sun.light_color = sun_color.sample(time)
 	$Sun.light_energy = sun_intensity.sample(time)
 	

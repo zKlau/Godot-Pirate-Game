@@ -31,9 +31,7 @@ func _process(delta):
 
 func knockback(point):
 	apply_impulse(point.global_position,Vector3.UP * .5) #0.5
-func _input(event):
-	if Input.is_action_pressed("2"):
-		print("te")
+
 		#apply_impulse(hit_points.mid.global_position,Vector3.UP * 0.5)
 func load_info():
 	water = Global.water
@@ -41,8 +39,6 @@ func load_info():
 	print("teee")
 	set_physics_process(true)
 func _physics_process(delta):
-	#add_constant_force(-Vector3.RIGHT * speed * delta)
-	#add_constant_force(Vector3(-1,0,1) * speed)
 	submerged = false
 	for p in probes:
 		var depth = Global.water.get_height(p.global_position) - p.global_position.y 
