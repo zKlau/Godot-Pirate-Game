@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=24 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="PackedScene" uid="uid://d4fy7x6u1qact" path="res://Assets/water/water.tscn" id="1_hr76c"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" path="res://Scripts/CharacterBody3D.gd" id="5_nq3kf"]
 [ext_resource type="PackedScene" uid="uid://d1lqkc0r5kx3v" path="res://Prefabs/Ships/Placeholder/ship_dark.tscn" id="5_php58"]
 [ext_resource type="PackedScene" uid="uid://obtjefhqm51v" path="res://Prefabs/floating_object.tscn" id="6_m4dna"]
+[ext_resource type="Script" path="res://Scripts/UI_match.gd" id="8_rfjex"]
+[ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="9_i8g1a"]
+[ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
+[ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
 
 [sub_resource type="Gradient" id="Gradient_tlcdp"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
@@ -74,7 +78,7 @@ size = Vector3(500, 1, 500)
 [node name="World" type="Node3D"]
 
 [node name="Water" parent="." instance=ExtResource("1_hr76c")]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Environment" type="Node" parent="."]
 script = ExtResource("3_f88n7")
@@ -106,13 +110,8 @@ transform = Transform3D(1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, -3.406, 0)
 cast_shadow = 3
 mesh = SubResource("BoxMesh_jxp6t")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.747172, 0.00579992, 0.664605, 0, 0.999962, -0.00872654, -0.664631, 0.00652022, 0.747144, 2.12784, 6.61324, -3.32197)
-fov = 73.6
-script = ExtResource("2_uo2xb")
-
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.747172, 0, 0.664631, 0, 1, 0, -0.664631, 0, 0.747172, -4.37147, 2.8949, -6.4427)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37147, 2.8949, -6.4427)
 script = ExtResource("5_nq3kf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
@@ -125,6 +124,15 @@ mesh = SubResource("CapsuleMesh_hywq0")
 [node name="ship_dark" parent="CharacterBody3D" instance=ExtResource("5_php58")]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, 0, 0, 1, 4.76837e-07, 0, -4.76837e-07)
 ship = false
+
+[node name="Camera_point" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.897265, 13.5746, 12.6967)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Camera_point"]
+transform = Transform3D(1, 0, 0, 0, 0.884581, 0.466387, 0, -0.466387, 0.884581, 0, 0, 0)
+fov = 73.6
+script = ExtResource("2_uo2xb")
+follow_offset = 0.0
 
 [node name="PlayerShip" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.4427)
@@ -139,4 +147,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.774622, 0)
 shape = SubResource("BoxShape3D_pfbuo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+visible = false
 mesh = SubResource("BoxMesh_t22nu")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_rfjex")
+
+[node name="Menu Button" type="TextureButton" parent="UI"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -6.0
+offset_right = 145.0
+offset_bottom = 142.0
+texture_normal = ExtResource("9_i8g1a")
+texture_hover = ExtResource("10_a2kha")
+stretch_mode = 4
+
+[node name="FPS" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS : 0"
+script = ExtResource("11_y117j")

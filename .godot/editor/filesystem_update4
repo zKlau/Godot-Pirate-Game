@@ -1,8 +1,7 @@
-res://Prefabs/User Interface/Buttons/normal_ability_button.gd
 res://Scenes/World.tscn
 res://addons/panku_console/res/panku_console_theme.tres
-res://Prefabs/User Interface/Buttons/ability_button.tres
 res://Scripts/Match_game.gd
+res://Prefabs/User Interface/Buttons/ability_button.tres
 res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres
@@ -21,11 +20,6 @@ res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Scenes/Battle.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
 res://Assets/water/water.tscn
-res://Scripts/Environment.gd
-res://Scripts/Floating_Object.gd
-res://Scripts/FloatingObject_action.gd
-res://Prefabs/floating_object.tscn
-res://Assets/water/water.gd
 res://Prefabs/Ships/Placeholder/ship_dark.tscn
 res://Scripts/CharacterBody3D.gd
-res://Scripts/Ship.gd
+res://Scripts/Camera.gd
