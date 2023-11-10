@@ -1,9 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=18 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="PackedScene" uid="uid://d4fy7x6u1qact" path="res://Assets/water/water.tscn" id="1_hr76c"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
-[ext_resource type="Texture2D" uid="uid://bbhq53ttw0tt8" path="res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co(1).jpg" id="4_qci14"]
+[ext_resource type="Sky" uid="uid://dx86cfl72ttys" path="res://Scenes/WorldSky.tres" id="3_mgqyv"]
 [ext_resource type="Script" path="res://Scripts/CharacterBody3D.gd" id="5_nq3kf"]
 [ext_resource type="PackedScene" uid="uid://d1lqkc0r5kx3v" path="res://Prefabs/Ships/Placeholder/ship_dark.tscn" id="5_php58"]
 [ext_resource type="PackedScene" uid="uid://obtjefhqm51v" path="res://Prefabs/floating_object.tscn" id="6_m4dna"]
@@ -12,55 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
 
-[sub_resource type="Gradient" id="Gradient_tlcdp"]
-offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
-colors = PackedColorArray(1, 0.443137, 0.0784314, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.443137, 0.0784314, 1)
-
-[sub_resource type="Curve" id="Curve_kliol"]
-_data = [Vector2(0.25, 0.063), 0.0, 0.0, 0, 0, Vector2(0.254098, 0.989474), 0.19263, 0.19263, 0, 0, Vector2(0.748634, 1), -0.132848, -0.132848, 0, 0, Vector2(0.75, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="Gradient" id="Gradient_gbhfj"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="Curve" id="Curve_08h8f"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w5gco"]
-panorama = ExtResource("4_qci14")
-
-[sub_resource type="Sky" id="Sky_2v13m"]
-sky_material = SubResource("PanoramaSkyMaterial_w5gco")
-
-[sub_resource type="Environment" id="Environment_i12il"]
+[sub_resource type="Environment" id="Environment_xrhli"]
 background_mode = 2
-background_color = Color(0.0431373, 0.847059, 0.921569, 0.921569)
-sky = SubResource("Sky_2v13m")
+sky = ExtResource("3_mgqyv")
 ambient_light_source = 3
-ambient_light_color = Color(0.0431373, 0.847059, 0.921569, 0.921569)
-ambient_light_sky_contribution = 0.25
-ambient_light_energy = 0.9
-tonemap_mode = 1
-tonemap_exposure = 0.5
-tonemap_white = 0.5
-sdfgi_use_occlusion = true
-sdfgi_min_cell_size = 0.498145
-sdfgi_cascade0_distance = 31.8813
-sdfgi_max_distance = 510.1
-sdfgi_energy = 0.5
-glow_enabled = true
-glow_intensity = 0.2
-volumetric_fog_density = 0.0
-volumetric_fog_albedo = Color(0.247059, 0.247059, 0.247059, 1)
-volumetric_fog_anisotropy = 0.44
-volumetric_fog_length = 320.0
-volumetric_fog_ambient_inject = 1.0
-volumetric_fog_temporal_reprojection_enabled = false
-adjustment_enabled = true
-adjustment_brightness = 0.9
-adjustment_saturation = 1.6
+reflected_light_source = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_jxp6t"]
 
@@ -82,28 +38,25 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Environment" type="Node" parent="."]
 script = ExtResource("3_f88n7")
-day_length = 200.0
-sun_color = SubResource("Gradient_tlcdp")
-sun_intensity = SubResource("Curve_kliol")
-moon_color = SubResource("Gradient_gbhfj")
-moon_intensity = SubResource("Curve_08h8f")
+day_time = 17.52
+time_scale = 0.2
+sun_base_enegry = 1.0
+moon_base_enegry = 1.0
 
 [node name="Sun" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(-3.48004e-08, 0.174284, -0.984695, 2.64504e-08, 0.984695, 0.174284, 1, -1.99804e-08, -3.88776e-08, 0, 10, 0)
+transform = Transform3D(0.921033, 0, -0.389485, 0.0488154, -0.992115, 0.115436, -0.386414, -0.125333, -0.91377, 0, 0, 0)
+rotation_order = 4
 shadow_enabled = true
 
 [node name="Moon" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(-3.48004e-08, 0.174284, -0.984695, 2.64504e-08, 0.984695, 0.174284, 1, -1.99804e-08, -3.88776e-08, 0, 10, 0)
-light_color = Color(0, 0, 0, 1)
+transform = Transform3D(0.879688, 0, 0.47555, 0.418664, 0.47427, -0.77446, -0.225539, 0.880379, 0.41721, 0, 0, 0)
+rotation_order = 4
+light_energy = 0.0
 shadow_enabled = true
-sky_mode = 1
-
-[node name="Day_Time" type="Timer" parent="Environment"]
-wait_time = 10.0
-autostart = true
+sky_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
-environment = SubResource("Environment_i12il")
+environment = SubResource("Environment_xrhli")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, -3.406, 0)
@@ -126,7 +79,7 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, 0, 0, 1, 4.76837e-07, 0, -4.
 ship = false
 
 [node name="Camera_point" type="Node3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.897265, 13.5746, 12.6967)
+transform = Transform3D(1, 0, 0, 0, 0.97067, -0.240414, 0, 0.240414, 0.97067, 0.897265, 11.4786, 12.6967)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Camera_point"]
 transform = Transform3D(1, 0, 0, 0, 0.884581, 0.466387, 0, -0.466387, 0.884581, 0, 0, 0)

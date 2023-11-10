@@ -10,6 +10,7 @@ res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres
 res://Prefabs/User Interface/Ship/option_button_ship_menu.tres
 res://Data/Player/Player.tres
+res://Scenes/Sky.gdshader
 res://Scenes/fog.gdshader
 res://Scenes/water.gdshader
 res://Scenes/water2.gdshader
@@ -21,5 +22,15 @@ res://Scenes/Battle.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
 res://Assets/water/water.tscn
 res://Prefabs/Ships/Placeholder/ship_dark.tscn
-res://Scripts/CharacterBody3D.gd
-res://Scripts/Camera.gd
+res://Scripts/Environment.gd
+res://Scenes/MainSky.gdshader
+res://Scenes/World_sky1.tres
+res://Scripts/Shaders/fog.gdshader
+res://Scripts/Shaders/water.gdshader
+res://Scripts/Shaders/water2.gdshader
+res://Scripts/Shaders/clouds.gdshader
+res://Scripts/Shaders/fog2.gdshader
+res://Scripts/Shaders/Sky.gdshader
+res://Scripts/Shaders/MainSky.gdshader
+res://Scenes/WorldSky.tres
+res://Scripts/Shaders/World_sky1.tres

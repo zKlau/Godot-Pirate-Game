@@ -1,6 +1,6 @@
 [gd_resource type="MeshLibrary" load_steps=27 format=3 uid="uid://cvdl5qoplmmlb"]
 
-[ext_resource type="Shader" path="res://Scenes/water.gdshader" id="1_2d5o0"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/water.gdshader" id="1_2d5o0"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ng835"]
 
