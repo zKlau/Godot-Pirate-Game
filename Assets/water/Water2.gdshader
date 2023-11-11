@@ -71,8 +71,8 @@ float waveheight(vec2 offset, int mode) {
 void vertex() {
 	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	
-	//vertex_distance = distance(world_pos,ocean_pos);
-	vertex_distance = 5.0; //5
+	vertex_distance = distance(world_pos,ocean_pos);
+	//vertex_distance = 5.0; //5
 	vertex_distance = clamp(vertex_distance, 0.0, 85.0);
 	vertex_distance_clamped = vertex_distance / 85.0;
 	

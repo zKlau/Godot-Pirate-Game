@@ -1,6 +1,6 @@
+Node3D
 WorldEnvironment
 DirectionalLight3D
-Node3D
 MeshInstance3D
 CollisionShape3D
 StaticBody3D
@@ -30,4 +30,3 @@ TextureButton
 TextureProgressBar
 AudioStreamPlayer
 FogVolume
-CollisionPolygon2D

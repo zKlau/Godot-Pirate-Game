@@ -1,5 +1,6 @@
-res://Scenes
+res://Scripts/Resources
 res://Scripts
+res://Scenes
 res://
 res://Prefabs/User Interface
 res://Prefabs/User Interface/Buttons
@@ -13,7 +14,6 @@ res://Data/Player
 res://Prefabs
 res://Scripts/Resources/RandomObjects/Resources
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus
-res://Scripts/Resources
 res://Scripts/Resources/Ship
 res://Prefabs/Ships
 E:/Godot/Project/Pirate Game/Data/Player
