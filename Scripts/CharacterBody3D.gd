@@ -27,12 +27,13 @@ func _physics_process(delta):
 	if input_dir.y == 0 and input_dir.x == 0:
 		ocean.position.x = self.position.x
 		ocean.position.z = self.position.z
-		
+	if input_dir.y == -1:
+		ocean.position.x = lerp(ocean.position.x,self.position.x,delta*0.1)
+		ocean.position.z = lerp(ocean.position.z,self.position.z,delta*0.1)
 	if input_dir.y != 0:
 		rotate_y(-input_dir.x/50)
 	elif input_dir.y == 0:
-		ocean.position.x = lerp(ocean.position.x,self.position.x,delta*0.1)
-		ocean.position.z = lerp(ocean.position.z,self.position.z,delta*0.1)
+		
 		print("rotating")
 		rotate_y(-input_dir.x/(50*2))
 	if input_dir.y > 0:

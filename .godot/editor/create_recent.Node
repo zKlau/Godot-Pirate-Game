@@ -1,3 +1,7 @@
+GPUParticles3D
+AudioStreamPlayer
+Node
+FogVolume
 Node3D
 WorldEnvironment
 DirectionalLight3D
@@ -23,10 +27,7 @@ Control
 RichTextLabel
 TextEdit
 Sprite2D
-Node
 HBoxContainer
 VBoxContainer
 TextureButton
 TextureProgressBar
-AudioStreamPlayer
-FogVolume
