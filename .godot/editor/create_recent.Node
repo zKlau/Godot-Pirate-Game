@@ -1,6 +1,8 @@
-GPUParticles3D
 AudioStreamPlayer
+Timer
+GPUParticles3D
 Node
+Sprite3D
 FogVolume
 Node3D
 WorldEnvironment
@@ -9,7 +11,6 @@ MeshInstance3D
 CollisionShape3D
 StaticBody3D
 CharacterBody3D
-Timer
 Button
 Container
 TextureRect
@@ -29,5 +30,3 @@ TextEdit
 Sprite2D
 HBoxContainer
 VBoxContainer
-TextureButton
-TextureProgressBar

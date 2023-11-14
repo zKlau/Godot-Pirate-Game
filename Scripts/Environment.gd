@@ -95,6 +95,7 @@ func _ready() -> void :
 func _process( delta: float ) -> void :
 	if not Engine.is_editor_hint() : # We don't want a time lapse in the editor
 		day_time += delta * time_scale
+	
 
 func _update() -> void :
 	_update_sun()

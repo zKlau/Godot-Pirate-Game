@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=28 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="PackedScene" uid="uid://d4fy7x6u1qact" path="res://Assets/water/water.tscn" id="1_hr76c"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
@@ -8,7 +8,10 @@
 [ext_resource type="AudioStream" uid="uid://cd8yulx8jfgg7" path="res://Assets/Audio/Sound Effects/Ambient/ocean-waves-112906.mp3" id="5_ldqdq"]
 [ext_resource type="Script" path="res://Scripts/CharacterBody3D.gd" id="5_nq3kf"]
 [ext_resource type="PackedScene" uid="uid://d1lqkc0r5kx3v" path="res://Prefabs/Ships/Placeholder/ship_dark.tscn" id="5_php58"]
+[ext_resource type="Texture2D" uid="uid://d1meu5g00f1cw" path="res://Assets/Textures/Rain/Rain Drop.png" id="6_6ik2u"]
+[ext_resource type="Script" path="res://Scenes/Weather.gd" id="6_40dol"]
 [ext_resource type="PackedScene" uid="uid://obtjefhqm51v" path="res://Prefabs/floating_object.tscn" id="6_m4dna"]
+[ext_resource type="AudioStream" uid="uid://c6xtsq67ypmr8" path="res://Assets/Audio/Sound Effects/Ambient/light-rain-ambient-114354.mp3" id="8_b7y4n"]
 [ext_resource type="Script" path="res://Scripts/UI_match.gd" id="8_rfjex"]
 [ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="9_i8g1a"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
@@ -41,6 +44,29 @@ exposure_multiplier = 1.315
 auto_exposure_enabled = true
 auto_exposure_min_sensitivity = 150.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1ovtm"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 20)
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+collision_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vh3a7"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1, 1, 1, 0.54902)
+albedo_texture = ExtResource("6_6ik2u")
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.0
+billboard_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ax6sf"]
+material = SubResource("StandardMaterial3D_vh3a7")
+size = Vector2(0.3, 0.5)
+orientation = 2
+
 [sub_resource type="BoxMesh" id="BoxMesh_jxp6t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jc8rj"]
@@ -48,18 +74,10 @@ size = Vector3(1, 0.1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hywq0"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uil4x"]
-gravity = Vector3(0, 0, 10)
-turbulence_noise_scale = 2.64
-turbulence_noise_speed_random = 0.5
-turbulence_influence_min = 0.09
-turbulence_influence_max = 0.22
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46t8f"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_lkhpe"]
-material = SubResource("StandardMaterial3D_46t8f")
-size = Vector3(0.2, 0.05, 0.1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsh03"]
+transparency = 1
+shading_mode = 0
+specular_mode = 1
 
 [node name="World" type="Node3D"]
 
@@ -78,20 +96,20 @@ mesh = SubResource("BoxMesh_t22nu")
 
 [node name="Environment" type="Node" parent="."]
 script = ExtResource("3_f88n7")
-day_time = 17.52
+day_time = 11.4018
+clouds_cutoff = 0.32
 time_scale = 0.2
 sun_base_enegry = 1.0
 moon_base_enegry = 1.0
 
 [node name="Sun" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.921033, 0, -0.389485, 0.0488154, -0.992115, 0.115436, -0.386414, -0.125333, -0.91377, 0, 0, 0)
+transform = Transform3D(0.920888, 0, -0.389827, 0.385056, 0.155969, 0.909618, 0.0608009, -0.987762, 0.14363, 0, 0, 0)
 rotation_order = 4
 shadow_enabled = true
 
 [node name="Moon" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.879688, 0, 0.47555, 0.418664, 0.47427, -0.77446, -0.225539, 0.880379, 0.41721, 0, 0, 0)
+transform = Transform3D(0.999664, 0, 0.0258993, -0.0117475, 0.891213, 0.453433, -0.0230818, -0.453585, 0.890914, 0, 0, 0)
 rotation_order = 4
-light_energy = 0.0
 shadow_enabled = true
 sky_mode = 2
 
@@ -113,40 +131,55 @@ volume_db = -30.0
 autoplay = true
 bus = &"Sound Effects"
 
+[node name="Weather" type="Node" parent="Environment"]
+script = ExtResource("6_40dol")
+rain = true
+heavy_rain = true
+
+[node name="Rain" type="GPUParticles3D" parent="Environment/Weather"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.514, -10.853)
+amount = 2000
+lifetime = 3.5
+visibility_aabb = AABB(-95.4251, -74.3909, -86.8678, 190.85, 148.782, 173.926)
+process_material = SubResource("ParticleProcessMaterial_1ovtm")
+draw_pass_1 = SubResource("PlaneMesh_ax6sf")
+
+[node name="Light Rain" type="AudioStreamPlayer" parent="Environment/Weather/Rain"]
+stream = ExtResource("8_b7y4n")
+volume_db = -10.0
+
+[node name="Rain Timer" type="Timer" parent="Environment/Weather"]
+wait_time = 300.0
+autostart = true
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, -3.406, 0)
 cast_shadow = 3
 mesh = SubResource("BoxMesh_jxp6t")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37147, 2.8949, -6.4427)
 script = ExtResource("5_nq3kf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
 shape = SubResource("BoxShape3D_jc8rj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 mesh = SubResource("CapsuleMesh_hywq0")
 
-[node name="ship_dark" parent="CharacterBody3D" instance=ExtResource("5_php58")]
+[node name="ship_dark" parent="Player" instance=ExtResource("5_php58")]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, 0, 0, 1, 4.76837e-07, 0, -4.76837e-07)
 ship = false
 
-[node name="Camera_point" type="Node3D" parent="CharacterBody3D"]
+[node name="Camera_point" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.97067, -0.240414, 0, 0.240414, 0.97067, 0.897265, 11.4786, 13.6343)
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Camera_point"]
+[node name="Camera3D" type="Camera3D" parent="Player/Camera_point"]
 transform = Transform3D(1, 0, 0, 0, 0.884581, 0.466387, 0, -0.466387, 0.884581, 0, 0, 0)
 fov = 73.6
 script = ExtResource("2_uo2xb")
 follow_offset = 0.0
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111248, 0.477573, 2.90195)
-amount = 143
-process_material = SubResource("ParticleProcessMaterial_uil4x")
-draw_pass_1 = SubResource("BoxMesh_lkhpe")
 
 [node name="PlayerShip" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.4427)
@@ -177,3 +210,9 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "FPS : 0"
 script = ExtResource("11_y117j")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(500, 0, 0, 0, 84.4253, 492.821, 0, -492.821, 84.4253, 0, -34.9207, 2.78056)
+material_override = SubResource("StandardMaterial3D_hsh03")
+
+[connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]

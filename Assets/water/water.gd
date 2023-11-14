@@ -23,7 +23,6 @@ func _input(event):
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	time += delta
 	material.set_shader_parameter("ocean_pos",Global.camera.global_position)
 	#material.set_shader_parameter("wave_time", time)

@@ -5,6 +5,7 @@ var cursor_click_ship = true
 var water
 var m_game
 var cursor
+var player
 var allow_ship_interaction : bool = true
 # Called when the node enters the scene tree for the first time.
 
