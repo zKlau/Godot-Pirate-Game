@@ -4,7 +4,7 @@ var player
 @export var rain : bool = false
 @onready var rain_particles : GPUParticles3D = $Rain
 @export var heavy_rain : bool = false
-var rain_weight : int = 2000
+@export var rain_weight : int = 4000
 @onready var env : Node = $".."
 var time
 func _ready():
@@ -21,6 +21,8 @@ func _process(delta):
 		rain_particles.position.z = Global.player.global_position.z
 		if heavy_rain:
 			rain_particles.amount = rain_weight*2
+		else:
+			rain_particles.amount = rain_weight
 		rain_particles.emitting = true
 	else:
 		$"Rain/Light Rain".stop()

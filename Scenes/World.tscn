@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=35 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="PackedScene" uid="uid://d4fy7x6u1qact" path="res://Assets/water/water.tscn" id="1_hr76c"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://c6xtsq67ypmr8" path="res://Assets/Audio/Sound Effects/Ambient/light-rain-ambient-114354.mp3" id="8_b7y4n"]
 [ext_resource type="Script" path="res://Scripts/UI_match.gd" id="8_rfjex"]
 [ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="9_i8g1a"]
+[ext_resource type="Texture2D" uid="uid://b1aslilfq257l" path="res://Assets/Textures/Rain/water ripple.png" id="9_nl5gu"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
 
@@ -33,6 +34,8 @@ tonemap_exposure = 0.5
 tonemap_white = 0.5
 glow_enabled = true
 glow_intensity = 0.2
+fog_light_color = Color(0.568627, 0.603922, 0.658824, 1)
+fog_sun_scatter = 0.01
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 adjustment_enabled = true
@@ -46,26 +49,68 @@ auto_exposure_min_sensitivity = 150.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1ovtm"]
 emission_shape = 3
-emission_box_extents = Vector3(20, 1, 20)
+emission_box_extents = Vector3(45, 1, 45)
+direction = Vector3(1, 0, 1)
+gravity = Vector3(-1.485, -10, 0)
+linear_accel_max = 40.1
+color = Color(0.784314, 0.996078, 0.996078, 1)
 sub_emitter_mode = 3
 sub_emitter_amount_at_collision = 1
 collision_mode = 2
+
+[sub_resource type="Curve" id="Curve_1ka3s"]
+max_value = 0.1
+_data = [Vector2(0.010582, 0), 0.0, 0.326842, 0, 0, Vector2(0.0899471, 0.0263158), 0.284211, 0.284211, 0, 0, Vector2(0.981481, 0.00105263), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6t8oy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.541176)
+metallic_specular = 1.0
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_ugs0l"]
+material = SubResource("StandardMaterial3D_6t8oy")
+size = 0.5
+sections = 3
+curve = SubResource("Curve_1ka3s")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vh3a7"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
+shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.54902)
 albedo_texture = ExtResource("6_6ik2u")
-metallic = 1.0
-metallic_specular = 1.0
-roughness = 0.0
 billboard_mode = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ax6sf"]
 material = SubResource("StandardMaterial3D_vh3a7")
-size = Vector2(0.3, 0.5)
+size = Vector2(0.1, 0.4)
 orientation = 2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pbkw8"]
+emission_shape = 3
+emission_box_extents = Vector3(0.2, 0.1, 0.2)
+direction = Vector3(10, 0, 10)
+spread = 78.32
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vl86t"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+albedo_texture = ExtResource("9_nl5gu")
+proximity_fade_distance = 4096.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6ky4f"]
+lightmap_size_hint = Vector2i(4, 4)
+material = SubResource("StandardMaterial3D_vl86t")
+size = Vector2(0.4, 0.4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jxp6t"]
 
@@ -93,6 +138,9 @@ shape = SubResource("BoxShape3D_pfbuo")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Water/StaticBody3D"]
 visible = false
 mesh = SubResource("BoxMesh_t22nu")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Water"]
+size = Vector3(200, 2, 200)
 
 [node name="Environment" type="Node" parent="."]
 script = ExtResource("3_f88n7")
@@ -133,24 +181,52 @@ bus = &"Sound Effects"
 
 [node name="Weather" type="Node" parent="Environment"]
 script = ExtResource("6_40dol")
-rain = true
-heavy_rain = true
 
 [node name="Rain" type="GPUParticles3D" parent="Environment/Weather"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.514, -10.853)
-amount = 2000
-lifetime = 3.5
-visibility_aabb = AABB(-95.4251, -74.3909, -86.8678, 190.85, 148.782, 173.926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.6965, -10.853)
+emitting = false
+amount = 4000
+sub_emitter = NodePath("../Water_ripple")
+lifetime = 2.8
+randomness = 0.82
+visibility_aabb = AABB(-95.4251, -74.3909, -101.56, 190.85, 148.782, 203.31)
+trail_enabled = true
+trail_lifetime = 0.15
+process_material = SubResource("ParticleProcessMaterial_1ovtm")
+draw_pass_1 = SubResource("RibbonTrailMesh_ugs0l")
+
+[node name="Light Rain" type="AudioStreamPlayer" parent="Environment/Weather/Rain"]
+stream = ExtResource("8_b7y4n")
+volume_db = -10.0
+
+[node name="Rain2" type="GPUParticles3D" parent="Environment/Weather"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.6965, -10.853)
+visible = false
+emitting = false
+amount = 4000
+sub_emitter = NodePath("../Water_ripple")
+lifetime = 2.8
+visibility_aabb = AABB(-95.4251, -74.3909, -101.56, 190.85, 148.782, 203.31)
 process_material = SubResource("ParticleProcessMaterial_1ovtm")
 draw_pass_1 = SubResource("PlaneMesh_ax6sf")
 
-[node name="Light Rain" type="AudioStreamPlayer" parent="Environment/Weather/Rain"]
+[node name="Light Rain" type="AudioStreamPlayer" parent="Environment/Weather/Rain2"]
 stream = ExtResource("8_b7y4n")
 volume_db = -10.0
 
 [node name="Rain Timer" type="Timer" parent="Environment/Weather"]
 wait_time = 300.0
 autostart = true
+
+[node name="Water_ripple" type="GPUParticles3D" parent="Environment/Weather"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54913, -0.691884, -9.8914)
+emitting = false
+amount = 8000
+lifetime = 0.1
+one_shot = true
+visibility_aabb = AABB(-134.354, -45.2639, -93.3086, 268.707, 90.5278, 186.617)
+process_material = SubResource("ParticleProcessMaterial_pbkw8")
+draw_pass_1 = SubResource("PlaneMesh_6ky4f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, -3.406, 0)

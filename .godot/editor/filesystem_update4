@@ -1,8 +1,9 @@
 res://Scenes/World.tscn
 res://addons/panku_console/res/panku_console_theme.tres
-res://Scripts/Match_game.gd
-res://Prefabs/User Interface/Buttons/ability_button.tres
 res://Assets/water/Water2.gdshader
+res://Assets/water/Water.material
+res://Prefabs/User Interface/Buttons/ability_button.tres
+res://Scripts/Match_game.gd
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
@@ -22,8 +23,3 @@ res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Scenes/Battle.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
 res://Assets/water/water.tscn
-res://Prefabs/Ships/Placeholder/ship_dark.tscn
-res://Scripts/Global.gd
-res://Scenes/Weather.gd
-res://Scripts/CharacterBody3D.gd
-res://Scripts/Environment.gd
