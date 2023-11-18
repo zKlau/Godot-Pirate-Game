@@ -24,14 +24,15 @@ func _on_switch_camera_pressed():
 		camera_r = true
 	pass # Replace with function body.
 
-
+func resume():
+	get_tree().paused = false
+	anim.play("Menu_OUT")
+	menu_opened = false
 func _on_menu_button_pressed():
 	if !menu_opened:
 		get_tree().paused = true
 		anim.play("Menu_IN")
 		menu_opened = true
 	else:
-		get_tree().paused = false
-		anim.play("Menu_OUT")
-		menu_opened = false
+		resume()
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://c6jm72o6qy757"]
+[gd_scene load_steps=50 format=3 uid="uid://c6jm72o6qy757"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_8jyy6"]
 [ext_resource type="Script" path="res://Scripts/Match_game.gd" id="1_oipmo"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="25_vay5e"]
 [ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="26_cxscp"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="27_630tg"]
+[ext_resource type="PackedScene" uid="uid://by8uciujlh6f" path="res://Prefabs/User Interface/menu.tscn" id="27_i07gq"]
 [ext_resource type="Texture2D" uid="uid://b8sb3hd6h7k67" path="res://Assets/Textures/UI/game-menu.png" id="30_3rqdf"]
 
 [sub_resource type="Animation" id="Animation_in3of"]
@@ -160,21 +161,6 @@ tracks/0/keys = {
 "values": [Vector2(0, -723), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_huobs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Menu:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -1000)]
-}
-
 [sub_resource type="Animation" id="Animation_b1ru1"]
 resource_name = "Menu_OUT"
 length = 0.3
@@ -189,6 +175,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -763)]
+}
+
+[sub_resource type="Animation" id="Animation_huobs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1000)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_funm7"]
@@ -438,17 +439,7 @@ offset_bottom = 393.0
 text = "Player 1 has Won"
 label_settings = SubResource("LabelSettings_o442b")
 
-[node name="Menu" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 0
-offset_top = -1000.0
-offset_right = 1727.0
-offset_bottom = 80.0
-
-[node name="Game-menu" type="Sprite2D" parent="UI/Menu"]
-position = Vector2(960, 371)
-scale = Vector2(1.29333, 1.29333)
-texture = ExtResource("30_3rqdf")
+[node name="Menu" parent="UI" instance=ExtResource("27_i07gq")]
 
 [node name="UI_Animations" type="AnimationPlayer" parent="UI"]
 process_mode = 3
@@ -457,6 +448,7 @@ libraries = {
 }
 
 [node name="Menu Button" type="TextureButton" parent="UI"]
+layout_mode = 0
 offset_left = -3.0
 offset_top = -6.0
 offset_right = 145.0

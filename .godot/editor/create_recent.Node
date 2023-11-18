@@ -1,3 +1,8 @@
+VBoxContainer
+PanelContainer
+Container
+Button
+RichTextLabel
 Control
 PankuLynxWindowsManager
 AnimationPlayer
@@ -17,10 +22,7 @@ DirectionalLight3D
 CollisionShape3D
 StaticBody3D
 CharacterBody3D
-Button
-Container
 TextureRect
-PanelContainer
 VFlowContainer
 FlowContainer
 MarginContainer
@@ -29,4 +31,3 @@ AspectRatioContainer
 Label
 ScrollContainer
 Area2D
-CollisionShape2D

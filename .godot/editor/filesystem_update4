@@ -1,4 +1,4 @@
-res://Scenes/World.tscn
+res://Scenes/Battle.tscn
 res://addons/panku_console/res/panku_console_theme.tres
 res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
@@ -19,9 +19,15 @@ res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
+res://Scenes/World.tscn
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
-res://Scenes/Battle.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
 res://Assets/water/water.tscn
 res://Prefabs/Ships/Placeholder/ship_dark.tscn
+res://Prefabs/User Interface/menu.tscn
+res://Prefabs/User Interface/Buttons/tooltip.tscn
+res://Scripts/ship_menu.gd
+res://Scripts/CharacterBody3D.gd
+res://Scripts/Resources/status_effect.gd
+res://Prefabs/User Interface/menu.gd
 res://Scripts/UI_match.gd
