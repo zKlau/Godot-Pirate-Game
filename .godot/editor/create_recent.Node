@@ -1,9 +1,12 @@
+Control
+PankuLynxWindowsManager
+AnimationPlayer
+GPUParticles3D
+CPUParticles3D
 FogVolume
 GPUParticlesCollisionBox3D
 RigidBody3D
 MeshInstance3D
-GPUParticles3D
-CPUParticles3D
 AudioStreamPlayer
 Timer
 Node
@@ -27,6 +30,3 @@ Label
 ScrollContainer
 Area2D
 CollisionShape2D
-Control
-RichTextLabel
-TextEdit

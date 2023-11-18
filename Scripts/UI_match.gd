@@ -1,6 +1,8 @@
 extends Control
 
 var camera_r : bool = true
+@onready var anim : AnimationPlayer = $UI_Animations
+var menu_opened : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -20,4 +22,16 @@ func _on_switch_camera_pressed():
 	else:
 		Global.rotate_camera(0)
 		camera_r = true
+	pass # Replace with function body.
+
+
+func _on_menu_button_pressed():
+	if !menu_opened:
+		get_tree().paused = true
+		anim.play("Menu_IN")
+		menu_opened = true
+	else:
+		get_tree().paused = false
+		anim.play("Menu_OUT")
+		menu_opened = false
 	pass # Replace with function body.

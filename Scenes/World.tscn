@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=40 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="PackedScene" uid="uid://d4fy7x6u1qact" path="res://Assets/water/water.tscn" id="1_hr76c"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b1aslilfq257l" path="res://Assets/Textures/Rain/water ripple.png" id="9_nl5gu"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
+[ext_resource type="Texture2D" uid="uid://b8sb3hd6h7k67" path="res://Assets/Textures/UI/game-menu.png" id="18_tinp0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pfbuo"]
 size = Vector3(500, 1, 500)
@@ -119,6 +120,60 @@ size = Vector3(1, 0.1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hywq0"]
 
+[sub_resource type="Animation" id="Animation_qfcig"]
+resource_name = "Menu_IN"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -723), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_huobs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1000)]
+}
+
+[sub_resource type="Animation" id="Animation_b1ru1"]
+resource_name = "Menu_OUT"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -763)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_funm7"]
+_data = {
+"Menu_IN": SubResource("Animation_qfcig"),
+"Menu_OUT": SubResource("Animation_b1ru1"),
+"RESET": SubResource("Animation_huobs")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsh03"]
 transparency = 1
 shading_mode = 0
@@ -156,7 +211,7 @@ rotation_order = 4
 shadow_enabled = true
 
 [node name="Moon" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.999664, 0, 0.0258993, -0.0117475, 0.891213, 0.453433, -0.0230818, -0.453585, 0.890914, 0, 0, 0)
+transform = Transform3D(0.999663, 0, 0.0258993, -0.0117475, 0.891213, 0.453432, -0.0230818, -0.453585, 0.890914, 0, 0, 0)
 rotation_order = 4
 shadow_enabled = true
 sky_mode = 2
@@ -249,7 +304,7 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, 0, 0, 1, 4.76837e-07, 0, -4.
 ship = false
 
 [node name="Camera_point" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.97067, -0.240414, 0, 0.240414, 0.97067, 0.897265, 11.4786, 13.6343)
+transform = Transform3D(0.997564, -0.0167575, -0.0677137, 0, 0.970716, -0.240228, 0.0697565, 0.239643, 0.968351, 0.897265, 11.4786, 13.6343)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Camera_point"]
 transform = Transform3D(1, 0, 0, 0, 0.884581, 0.466387, 0, -0.466387, 0.884581, 0, 0, 0)
@@ -264,11 +319,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.4427)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.96711, 0, -17.2847)
 
 [node name="UI" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("8_rfjex")
+
+[node name="Menu" type="Control" parent="UI"]
+anchors_preset = 0
+offset_top = -1000.0
+offset_right = 1727.0
+offset_bottom = 80.0
+
+[node name="Game-menu" type="Sprite2D" parent="UI/Menu"]
+position = Vector2(960, 371)
+scale = Vector2(1.29333, 1.29333)
+texture = ExtResource("18_tinp0")
 
 [node name="Menu Button" type="TextureButton" parent="UI"]
 layout_mode = 0
@@ -287,8 +354,15 @@ offset_bottom = 23.0
 text = "FPS : 0"
 script = ExtResource("11_y117j")
 
+[node name="UI_Animations" type="AnimationPlayer" parent="UI"]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_funm7")
+}
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(500, 0, 0, 0, 84.4253, 492.821, 0, -492.821, 84.4253, 0, -34.9207, 2.78056)
 material_override = SubResource("StandardMaterial3D_hsh03")
 
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
+[connection signal="pressed" from="UI/Menu Button" to="UI" method="_on_menu_button_pressed"]

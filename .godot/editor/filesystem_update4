@@ -23,3 +23,5 @@ res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Scenes/Battle.tscn
 res://Prefabs/User Interface/Ship/ship_menu.tscn
 res://Assets/water/water.tscn
+res://Prefabs/Ships/Placeholder/ship_dark.tscn
+res://Scripts/UI_match.gd
