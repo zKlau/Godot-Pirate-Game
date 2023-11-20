@@ -29,6 +29,7 @@ func resume():
 	anim.play("Menu_OUT")
 	menu_opened = false
 func _on_menu_button_pressed():
+	Signals.emit_signal("ship_menu_opened")
 	if !menu_opened:
 		get_tree().paused = true
 		anim.play("Menu_IN")

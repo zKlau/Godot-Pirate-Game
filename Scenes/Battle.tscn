@@ -29,7 +29,7 @@
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="25_vay5e"]
 [ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="26_cxscp"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="27_630tg"]
-[ext_resource type="PackedScene" uid="uid://by8uciujlh6f" path="res://Prefabs/User Interface/menu.tscn" id="27_i07gq"]
+[ext_resource type="PackedScene" uid="uid://b2t1immwsvpbp" path="res://Prefabs/User Interface/pause_menu.tscn" id="29_gs4e8"]
 [ext_resource type="Texture2D" uid="uid://b8sb3hd6h7k67" path="res://Assets/Textures/UI/game-menu.png" id="30_3rqdf"]
 
 [sub_resource type="Animation" id="Animation_in3of"]
@@ -151,14 +151,26 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Menu:position")
+tracks/0/path = NodePath("PauseMenu:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -723), Vector2(0, 0)]
+"values": [Vector2(0, -1000), Vector2(0, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_b1ru1"]
@@ -167,14 +179,26 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Menu:position")
+tracks/0/path = NodePath("PauseMenu:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -763)]
+"values": [Vector2(0, -3), Vector2(0, -1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_huobs"]
@@ -182,7 +206,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Menu:position")
+tracks/0/path = NodePath("PauseMenu:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -190,6 +214,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_funm7"]
@@ -439,14 +475,6 @@ offset_bottom = 393.0
 text = "Player 1 has Won"
 label_settings = SubResource("LabelSettings_o442b")
 
-[node name="Menu" parent="UI" instance=ExtResource("27_i07gq")]
-
-[node name="UI_Animations" type="AnimationPlayer" parent="UI"]
-process_mode = 3
-libraries = {
-"": SubResource("AnimationLibrary_funm7")
-}
-
 [node name="Menu Button" type="TextureButton" parent="UI"]
 layout_mode = 0
 offset_left = -3.0
@@ -456,6 +484,18 @@ offset_bottom = 142.0
 texture_normal = ExtResource("26_cxscp")
 texture_hover = ExtResource("27_630tg")
 stretch_mode = 4
+
+[node name="UI_Animations" type="AnimationPlayer" parent="UI"]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_funm7")
+}
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("29_gs4e8")]
+layout_mode = 1
+offset_top = -1000.0
+offset_right = 40.0
+offset_bottom = -960.0
 
 [node name="Barrier" type="StaticBody3D" parent="."]
 

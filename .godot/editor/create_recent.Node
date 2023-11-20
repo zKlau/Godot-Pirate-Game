@@ -1,8 +1,8 @@
+RichTextLabel
+Button
 VBoxContainer
 PanelContainer
 Container
-Button
-RichTextLabel
 Control
 PankuLynxWindowsManager
 AnimationPlayer
@@ -30,4 +30,3 @@ VScrollBar
 AspectRatioContainer
 Label
 ScrollContainer
-Area2D

@@ -1,0 +1,169 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2t1immwsvpbp"]
+
+[ext_resource type="Texture2D" uid="uid://b8sb3hd6h7k67" path="res://Assets/Textures/UI/game-menu.png" id="1_umfxd"]
+[ext_resource type="Script" path="res://Prefabs/User Interface/menu.gd" id="1_wsd3a"]
+[ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="2_vsc6g"]
+[ext_resource type="Script" path="res://Scripts/User Interface/ButtonBBCODE.gd" id="4_jjmgd"]
+
+[sub_resource type="Theme" id="Theme_pp2vs"]
+default_font = ExtResource("2_vsc6g")
+default_font_size = 86
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 7
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_outline_size = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds7w7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lu6sr"]
+
+[sub_resource type="Theme" id="Theme_rqhpj"]
+default_font = ExtResource("2_vsc6g")
+default_font_size = 46
+Button/colors/font_hover_color = Color(0.952941, 0.65098, 0.258824, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_ds7w7")
+Button/styles/pressed = SubResource("StyleBoxEmpty_lu6sr")
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 6
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wsd3a")
+
+[node name="Game-menu" type="Sprite2D" parent="."]
+position = Vector2(960, 371)
+scale = Vector2(1.29333, 1.29333)
+texture = ExtResource("1_umfxd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 131.0
+offset_right = 1424.0
+offset_bottom = 253.0
+theme = SubResource("Theme_pp2vs")
+bbcode_enabled = true
+text = "[center]Menu[/center]"
+scroll_active = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 245.0
+offset_right = 1423.0
+offset_bottom = 630.0
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_rqhpj")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "
+"
+flat = true
+script = ExtResource("4_jjmgd")
+hover_text_color = Color(1, 0.533333, 0, 1)
+default_text_color = Color(1, 1, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Resume"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 932.0
+offset_bottom = 47.0
+mouse_filter = 1
+theme = SubResource("Theme_rqhpj")
+bbcode_enabled = true
+text = "[center]Resume[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Map" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_rqhpj")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "
+"
+flat = true
+script = ExtResource("4_jjmgd")
+hover_text_color = Color(1, 0.533333, 0, 1)
+default_text_color = Color(1, 1, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Map"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 932.0
+offset_bottom = 47.0
+mouse_filter = 1
+theme = SubResource("Theme_rqhpj")
+bbcode_enabled = true
+text = "[center]Map[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_rqhpj")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "
+"
+flat = true
+script = ExtResource("4_jjmgd")
+hover_text_color = Color(1, 0.533333, 0, 1)
+default_text_color = Color(1, 1, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Options"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 932.0
+offset_bottom = 47.0
+mouse_filter = 1
+theme = SubResource("Theme_rqhpj")
+bbcode_enabled = true
+text = "[center]Options[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="SaveExit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_rqhpj")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "
+"
+flat = true
+script = ExtResource("4_jjmgd")
+hover_text_color = Color(1, 0.533333, 0, 1)
+default_text_color = Color(1, 1, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/SaveExit"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 932.0
+offset_bottom = 47.0
+mouse_filter = 1
+theme = SubResource("Theme_rqhpj")
+bbcode_enabled = true
+text = "[center]Save & Exit[/center]"
+fit_content = true
+scroll_active = false
+
+[connection signal="mouse_entered" from="VBoxContainer/Resume" to="VBoxContainer/Resume" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Resume" to="VBoxContainer/Resume" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Map" to="VBoxContainer/Map" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Map" to="VBoxContainer/Map" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Map" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Options" to="VBoxContainer/Options" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Options" to="VBoxContainer/Options" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/SaveExit" to="VBoxContainer/SaveExit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/SaveExit" to="VBoxContainer/SaveExit" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/SaveExit" to="." method="_on_resume_pressed"]
