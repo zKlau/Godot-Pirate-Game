@@ -1,3 +1,6 @@
+Decal
+Node3D
+Node
 RichTextLabel
 Button
 VBoxContainer
@@ -14,9 +17,7 @@ RigidBody3D
 MeshInstance3D
 AudioStreamPlayer
 Timer
-Node
 Sprite3D
-Node3D
 WorldEnvironment
 DirectionalLight3D
 CollisionShape3D
@@ -29,4 +30,3 @@ MarginContainer
 VScrollBar
 AspectRatioContainer
 Label
-ScrollContainer

@@ -7,7 +7,7 @@ extends RigidBody3D
 
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var water = Global.water
-
+@export var foam : Node3D
 
 @onready var probes = $ProbeContainer.get_children()
 
@@ -24,6 +24,12 @@ func _ready():
 	probes = $ProbeContainer.get_children()
 	pass # Replace with function body.
 
+func enable_foam():
+	for e in range(0,foam.get_child_count()):
+		foam.get_child(e).emitting = true
+func disable_foam():
+	for e in range(0,foam.get_child_count()):
+		foam.get_child(e).emitting = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

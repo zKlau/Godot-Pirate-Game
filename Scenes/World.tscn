@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=39 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="PackedScene" uid="uid://d4fy7x6u1qact" path="res://Assets/water/water.tscn" id="1_hr76c"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
@@ -10,13 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://d1lqkc0r5kx3v" path="res://Prefabs/Ships/Placeholder/ship_dark.tscn" id="5_php58"]
 [ext_resource type="Texture2D" uid="uid://d1meu5g00f1cw" path="res://Assets/Textures/Rain/Rain Drop.png" id="6_6ik2u"]
 [ext_resource type="Script" path="res://Scenes/Weather.gd" id="6_40dol"]
-[ext_resource type="PackedScene" uid="uid://obtjefhqm51v" path="res://Prefabs/floating_object.tscn" id="6_m4dna"]
 [ext_resource type="AudioStream" uid="uid://c6xtsq67ypmr8" path="res://Assets/Audio/Sound Effects/Ambient/light-rain-ambient-114354.mp3" id="8_b7y4n"]
 [ext_resource type="Script" path="res://Scripts/UI_match.gd" id="8_rfjex"]
 [ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="9_i8g1a"]
 [ext_resource type="Texture2D" uid="uid://b1aslilfq257l" path="res://Assets/Textures/Rain/water ripple.png" id="9_nl5gu"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
+[ext_resource type="Texture2D" uid="uid://cm61hmwgp40if" path="res://Assets/Textures/Ship/ripples.png" id="13_pnjdw"]
 [ext_resource type="PackedScene" uid="uid://b2t1immwsvpbp" path="res://Prefabs/User Interface/pause_menu.tscn" id="18_xjalu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pfbuo"]
@@ -210,11 +210,6 @@ _data = {
 "RESET": SubResource("Animation_huobs")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsh03"]
-transparency = 1
-shading_mode = 0
-specular_mode = 1
-
 [node name="World" type="Node3D"]
 
 [node name="Water" parent="." instance=ExtResource("1_hr76c")]
@@ -324,9 +319,10 @@ transform = Transform3D(1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, -3.406, 0)
 cast_shadow = 3
 mesh = SubResource("BoxMesh_jxp6t")
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("ship")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37147, 2.8949, -6.4427)
 script = ExtResource("5_nq3kf")
+ship = NodePath("ship_dark")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
@@ -348,11 +344,11 @@ fov = 73.6
 script = ExtResource("2_uo2xb")
 follow_offset = 0.0
 
-[node name="PlayerShip" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.4427)
-
-[node name="FloatingObject" parent="." instance=ExtResource("6_m4dna")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.96711, 0, -17.2847)
+[node name="Decal" type="Decal" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.12517)
+size = Vector3(5.232, 241.66, 5.429)
+texture_albedo = ExtResource("13_pnjdw")
+upper_fade = 0.0401916
 
 [node name="UI" type="Control" parent="."]
 process_mode = 3
@@ -390,10 +386,6 @@ layout_mode = 1
 offset_top = -1000.0
 offset_right = 160.0
 offset_bottom = -840.0
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(500, 0, 0, 0, 84.4253, 492.821, 0, -492.821, 84.4253, 0, -34.9207, 2.78056)
-material_override = SubResource("StandardMaterial3D_hsh03")
 
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
 [connection signal="pressed" from="UI/Menu Button" to="UI" method="_on_menu_button_pressed"]
