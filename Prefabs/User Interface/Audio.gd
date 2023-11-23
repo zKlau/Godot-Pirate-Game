@@ -24,10 +24,9 @@ func save_settings():
 	pass
 
 func linear_transform(x):
-	var m = 24 / 6 
-	var b = 100
-	var y = m * x + b
-	return y
+	var min = -40
+	x = max(min, min(x, 0))
+	return floor(((x - min) / (0 - min)) * 100)
 
 func _on_master_slider_value_changed(value):
 	$"Master Audio/Level".text = str(linear_transform(value))+"%"

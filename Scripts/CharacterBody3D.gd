@@ -19,11 +19,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	
+	print($Camera_point.global_rotation_degrees)
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("Left", "Right", "Forward", "Back")
-	print(input_dir)
+	#print(input_dir)
 	#ocean.position = lerp(ocean.position,self.position,delta*0.1)
 	if input_dir.y == 0 and input_dir.x == 0:
 		ship.disable_foam()
@@ -37,7 +37,7 @@ func _physics_process(delta):
 		rotate_y(-input_dir.x/50)
 	elif input_dir.y == 0:
 		
-		print("rotating")
+		#print("rotating")
 		rotate_y(-input_dir.x/(50*2))
 	if input_dir.y > 0:
 		input_dir.y = 0

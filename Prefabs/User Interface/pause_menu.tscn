@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="2_vsc6g"]
 [ext_resource type="Script" path="res://Scripts/User Interface/ButtonBBCODE.gd" id="4_jjmgd"]
 [ext_resource type="Script" path="res://Prefabs/User Interface/Audio.gd" id="5_o2381"]
-[ext_resource type="Resource" uid="uid://bdtpwhpjbw8cq" path="res://Data/Settings/Settings.tres" id="6_uwtpi"]
+[ext_resource type="Resource" uid="uid://nieahxfq76jt" path="res://Data/Settings/Settings.tres" id="6_uwtpi"]
 
 [sub_resource type="Theme" id="Theme_pp2vs"]
 default_font = ExtResource("2_vsc6g")
@@ -170,6 +170,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Options" type="RichTextLabel" parent="Options"]
+layout_mode = 0
 offset_left = 494.0
 offset_top = 131.0
 offset_right = 1424.0
@@ -181,6 +182,7 @@ scroll_active = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
 visible = false
+layout_mode = 0
 offset_left = 493.0
 offset_top = 245.0
 offset_right = 1423.0
@@ -267,6 +269,7 @@ script = ExtResource("5_o2381")
 settings = ExtResource("6_uwtpi")
 
 [node name="Audio" type="RichTextLabel" parent="Options/Audio"]
+layout_mode = 0
 offset_left = 594.0
 offset_top = 180.0
 offset_right = 1524.0
@@ -278,6 +281,7 @@ text = "Audio"
 scroll_active = false
 
 [node name="Master Audio" type="RichTextLabel" parent="Options/Audio"]
+layout_mode = 0
 offset_left = 618.0
 offset_top = 257.0
 offset_right = 1382.0
@@ -294,10 +298,11 @@ offset_left = 238.0
 offset_top = 10.0
 offset_right = 491.0
 offset_bottom = 26.0
-min_value = -25.0
+min_value = -40.0
 max_value = 0.0
 
 [node name="Level" type="RichTextLabel" parent="Options/Audio/Master Audio"]
+layout_mode = 0
 offset_left = 500.605
 offset_top = 8.0
 offset_right = 1009.61
@@ -309,6 +314,7 @@ text = "100%"
 scroll_active = false
 
 [node name="Music" type="RichTextLabel" parent="Options/Audio"]
+layout_mode = 0
 offset_left = 618.0
 offset_top = 300.0
 offset_right = 1285.0
@@ -325,10 +331,11 @@ offset_left = 238.0
 offset_top = 10.0
 offset_right = 491.0
 offset_bottom = 26.0
-min_value = -25.0
+min_value = -40.0
 max_value = 0.0
 
 [node name="Level" type="RichTextLabel" parent="Options/Audio/Music"]
+layout_mode = 0
 offset_left = 500.605
 offset_top = 8.0
 offset_right = 1009.61
@@ -340,6 +347,7 @@ text = "100%"
 scroll_active = false
 
 [node name="Sound Effects" type="RichTextLabel" parent="Options/Audio"]
+layout_mode = 0
 offset_left = 618.0
 offset_top = 343.0
 offset_right = 1401.0
@@ -356,10 +364,11 @@ offset_left = 238.0
 offset_top = 10.0
 offset_right = 491.0
 offset_bottom = 26.0
-min_value = -25.0
+min_value = -40.0
 max_value = 0.0
 
 [node name="Level" type="RichTextLabel" parent="Options/Audio/Sound Effects"]
+layout_mode = 0
 offset_left = 500.605
 offset_top = 8.0
 offset_right = 1009.61
@@ -371,6 +380,7 @@ text = "100%"
 scroll_active = false
 
 [node name="Audio_back" type="Button" parent="Options/Audio"]
+layout_mode = 0
 offset_left = 495.0
 offset_top = 482.0
 offset_right = 503.0
