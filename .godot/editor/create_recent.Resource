@@ -1,3 +1,4 @@
+Settings
 Resource
 Player_Data
 Random_object_data_currency

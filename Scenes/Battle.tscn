@@ -494,8 +494,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("29_gs4e8")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 160.0
-offset_bottom = -840.0
+offset_right = 240.0
+offset_bottom = -760.0
 
 [node name="Barrier" type="StaticBody3D" parent="."]
 
@@ -504,6 +504,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.73782, 0, 0)
 shape = SubResource("BoxShape3D_suaw8")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("22_i453u")
 volume_db = -11.624
 autoplay = true

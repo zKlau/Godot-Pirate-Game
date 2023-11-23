@@ -384,8 +384,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 160.0
-offset_bottom = -840.0
+offset_right = 240.0
+offset_bottom = -760.0
 
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
 [connection signal="pressed" from="UI/Menu Button" to="UI" method="_on_menu_button_pressed"]

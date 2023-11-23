@@ -26,6 +26,7 @@ func _ready():
 
 func enable_foam():
 	for e in range(0,foam.get_child_count()):
+		foam.get_child(e).visible = true
 		foam.get_child(e).emitting = true
 func disable_foam():
 	for e in range(0,foam.get_child_count()):

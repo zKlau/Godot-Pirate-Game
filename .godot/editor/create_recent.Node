@@ -1,12 +1,13 @@
+RichTextLabel
+Control
+HSlider
 Decal
 Node3D
 Node
-RichTextLabel
 Button
 VBoxContainer
 PanelContainer
 Container
-Control
 PankuLynxWindowsManager
 AnimationPlayer
 GPUParticles3D
@@ -29,4 +30,3 @@ FlowContainer
 MarginContainer
 VScrollBar
 AspectRatioContainer
-Label

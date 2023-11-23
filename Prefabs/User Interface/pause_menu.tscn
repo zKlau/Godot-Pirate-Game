@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2t1immwsvpbp"]
+[gd_scene load_steps=11 format=3 uid="uid://b2t1immwsvpbp"]
 
 [ext_resource type="Texture2D" uid="uid://b8sb3hd6h7k67" path="res://Assets/Textures/UI/game-menu.png" id="1_umfxd"]
 [ext_resource type="Script" path="res://Prefabs/User Interface/menu.gd" id="1_wsd3a"]
 [ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="2_vsc6g"]
 [ext_resource type="Script" path="res://Scripts/User Interface/ButtonBBCODE.gd" id="4_jjmgd"]
+[ext_resource type="Script" path="res://Prefabs/User Interface/Audio.gd" id="5_o2381"]
+[ext_resource type="Resource" uid="uid://bdtpwhpjbw8cq" path="res://Data/Settings/Settings.tres" id="6_uwtpi"]
 
 [sub_resource type="Theme" id="Theme_pp2vs"]
 default_font = ExtResource("2_vsc6g")
@@ -35,13 +37,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wsd3a")
+settings = ExtResource("6_uwtpi")
 
 [node name="Game-menu" type="Sprite2D" parent="."]
 position = Vector2(960, 371)
 scale = Vector2(1.29333, 1.29333)
 texture = ExtResource("1_umfxd")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Menu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
 layout_mode = 0
 offset_left = 494.0
 offset_top = 131.0
@@ -52,14 +61,14 @@ bbcode_enabled = true
 text = "[center]Menu[/center]"
 scroll_active = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
 layout_mode = 0
 offset_left = 493.0
 offset_top = 245.0
 offset_right = 1423.0
 offset_bottom = 630.0
 
-[node name="Resume" type="Button" parent="VBoxContainer"]
+[node name="Resume" type="Button" parent="Menu/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_rqhpj")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -71,7 +80,7 @@ script = ExtResource("4_jjmgd")
 hover_text_color = Color(1, 0.533333, 0, 1)
 default_text_color = Color(1, 1, 1, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Resume"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/VBoxContainer/Resume"]
 layout_mode = 0
 offset_left = 1.0
 offset_right = 932.0
@@ -83,7 +92,7 @@ text = "[center]Resume[/center]"
 fit_content = true
 scroll_active = false
 
-[node name="Map" type="Button" parent="VBoxContainer"]
+[node name="Map" type="Button" parent="Menu/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_rqhpj")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -95,7 +104,7 @@ script = ExtResource("4_jjmgd")
 hover_text_color = Color(1, 0.533333, 0, 1)
 default_text_color = Color(1, 1, 1, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Map"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/VBoxContainer/Map"]
 layout_mode = 0
 offset_left = 1.0
 offset_right = 932.0
@@ -107,7 +116,7 @@ text = "[center]Map[/center]"
 fit_content = true
 scroll_active = false
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="Menu/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_rqhpj")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -119,7 +128,7 @@ script = ExtResource("4_jjmgd")
 hover_text_color = Color(1, 0.533333, 0, 1)
 default_text_color = Color(1, 1, 1, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Options"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/VBoxContainer/Options"]
 layout_mode = 0
 offset_left = 1.0
 offset_right = 932.0
@@ -131,7 +140,7 @@ text = "[center]Options[/center]"
 fit_content = true
 scroll_active = false
 
-[node name="SaveExit" type="Button" parent="VBoxContainer"]
+[node name="SaveExit" type="Button" parent="Menu/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_rqhpj")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -143,7 +152,7 @@ script = ExtResource("4_jjmgd")
 hover_text_color = Color(1, 0.533333, 0, 1)
 default_text_color = Color(1, 1, 1, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/SaveExit"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/VBoxContainer/SaveExit"]
 layout_mode = 0
 offset_left = 1.0
 offset_right = 932.0
@@ -155,15 +164,262 @@ text = "[center]Save & Exit[/center]"
 fit_content = true
 scroll_active = false
 
-[connection signal="mouse_entered" from="VBoxContainer/Resume" to="VBoxContainer/Resume" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Resume" to="VBoxContainer/Resume" method="_on_mouse_exited"]
-[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Map" to="VBoxContainer/Map" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Map" to="VBoxContainer/Map" method="_on_mouse_exited"]
-[connection signal="pressed" from="VBoxContainer/Map" to="." method="_on_resume_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Options" to="VBoxContainer/Options" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Options" to="VBoxContainer/Options" method="_on_mouse_exited"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_resume_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/SaveExit" to="VBoxContainer/SaveExit" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/SaveExit" to="VBoxContainer/SaveExit" method="_on_mouse_exited"]
-[connection signal="pressed" from="VBoxContainer/SaveExit" to="." method="_on_resume_pressed"]
+[node name="Options" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Options" type="RichTextLabel" parent="Options"]
+offset_left = 494.0
+offset_top = 131.0
+offset_right = 1424.0
+offset_bottom = 253.0
+theme = SubResource("Theme_pp2vs")
+bbcode_enabled = true
+text = "[center]Options[/center]"
+scroll_active = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+visible = false
+offset_left = 493.0
+offset_top = 245.0
+offset_right = 1423.0
+offset_bottom = 630.0
+
+[node name="Graphics" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_rqhpj")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "
+"
+flat = true
+script = ExtResource("4_jjmgd")
+hover_text_color = Color(1, 0.533333, 0, 1)
+default_text_color = Color(1, 1, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/VBoxContainer/Graphics"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 932.0
+offset_bottom = 47.0
+mouse_filter = 1
+theme = SubResource("Theme_rqhpj")
+bbcode_enabled = true
+text = "[center]Graphics[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Audio" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_rqhpj")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "
+"
+flat = true
+script = ExtResource("4_jjmgd")
+hover_text_color = Color(1, 0.533333, 0, 1)
+default_text_color = Color(1, 1, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/VBoxContainer/Audio"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 932.0
+offset_bottom = 47.0
+mouse_filter = 1
+theme = SubResource("Theme_rqhpj")
+bbcode_enabled = true
+text = "[center]Audio[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Options_Back" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_rqhpj")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "
+"
+flat = true
+script = ExtResource("4_jjmgd")
+hover_text_color = Color(1, 0.533333, 0, 1)
+default_text_color = Color(1, 1, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/VBoxContainer/Options_Back"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 932.0
+offset_bottom = 47.0
+mouse_filter = 1
+theme = SubResource("Theme_rqhpj")
+bbcode_enabled = true
+text = "[center]Back[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Audio" type="Control" parent="Options"]
+anchors_preset = 0
+offset_top = 49.0
+offset_right = 40.0
+offset_bottom = 89.0
+script = ExtResource("5_o2381")
+settings = ExtResource("6_uwtpi")
+
+[node name="Audio" type="RichTextLabel" parent="Options/Audio"]
+offset_left = 594.0
+offset_top = 180.0
+offset_right = 1524.0
+offset_bottom = 302.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "Audio"
+scroll_active = false
+
+[node name="Master Audio" type="RichTextLabel" parent="Options/Audio"]
+offset_left = 618.0
+offset_top = 257.0
+offset_right = 1382.0
+offset_bottom = 339.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Master Audio"
+scroll_active = false
+
+[node name="Master_slider" type="HSlider" parent="Options/Audio/Master Audio"]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 10.0
+offset_right = 491.0
+offset_bottom = 26.0
+min_value = -25.0
+max_value = 0.0
+
+[node name="Level" type="RichTextLabel" parent="Options/Audio/Master Audio"]
+offset_left = 500.605
+offset_top = 8.0
+offset_right = 1009.61
+offset_bottom = 41.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "100%"
+scroll_active = false
+
+[node name="Music" type="RichTextLabel" parent="Options/Audio"]
+offset_left = 618.0
+offset_top = 300.0
+offset_right = 1285.0
+offset_bottom = 382.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Music"
+scroll_active = false
+
+[node name="Music_slider" type="HSlider" parent="Options/Audio/Music"]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 10.0
+offset_right = 491.0
+offset_bottom = 26.0
+min_value = -25.0
+max_value = 0.0
+
+[node name="Level" type="RichTextLabel" parent="Options/Audio/Music"]
+offset_left = 500.605
+offset_top = 8.0
+offset_right = 1009.61
+offset_bottom = 41.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "100%"
+scroll_active = false
+
+[node name="Sound Effects" type="RichTextLabel" parent="Options/Audio"]
+offset_left = 618.0
+offset_top = 343.0
+offset_right = 1401.0
+offset_bottom = 425.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Sound Effects"
+scroll_active = false
+
+[node name="Sound_effects_slider" type="HSlider" parent="Options/Audio/Sound Effects"]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 10.0
+offset_right = 491.0
+offset_bottom = 26.0
+min_value = -25.0
+max_value = 0.0
+
+[node name="Level" type="RichTextLabel" parent="Options/Audio/Sound Effects"]
+offset_left = 500.605
+offset_top = 8.0
+offset_right = 1009.61
+offset_bottom = 41.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "100%"
+scroll_active = false
+
+[node name="Audio_back" type="Button" parent="Options/Audio"]
+offset_left = 495.0
+offset_top = 482.0
+offset_right = 503.0
+offset_bottom = 537.0
+theme = SubResource("Theme_rqhpj")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "
+"
+flat = true
+script = ExtResource("4_jjmgd")
+hover_text_color = Color(1, 0.533333, 0, 1)
+default_text_color = Color(1, 1, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/Audio/Audio_back"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 932.0
+offset_bottom = 47.0
+mouse_filter = 1
+theme = SubResource("Theme_rqhpj")
+bbcode_enabled = true
+text = "[center]Back[/center]"
+fit_content = true
+scroll_active = false
+
+[connection signal="mouse_entered" from="Menu/VBoxContainer/Resume" to="Menu/VBoxContainer/Resume" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/VBoxContainer/Resume" to="Menu/VBoxContainer/Resume" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="Menu/VBoxContainer/Map" to="Menu/VBoxContainer/Map" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/VBoxContainer/Map" to="Menu/VBoxContainer/Map" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/VBoxContainer/Map" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="Menu/VBoxContainer/Options" to="Menu/VBoxContainer/Options" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/VBoxContainer/Options" to="Menu/VBoxContainer/Options" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="Menu/VBoxContainer/SaveExit" to="Menu/VBoxContainer/SaveExit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/VBoxContainer/SaveExit" to="Menu/VBoxContainer/SaveExit" method="_on_mouse_exited"]
+[connection signal="pressed" from="Menu/VBoxContainer/SaveExit" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="Options/VBoxContainer/Graphics" to="Options/VBoxContainer/Graphics" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Options/VBoxContainer/Graphics" to="Options/VBoxContainer/Graphics" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Options/VBoxContainer/Audio" to="Options/VBoxContainer/Audio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Options/VBoxContainer/Audio" to="Options/VBoxContainer/Audio" method="_on_mouse_exited"]
+[connection signal="pressed" from="Options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="mouse_entered" from="Options/VBoxContainer/Options_Back" to="Options/VBoxContainer/Options_Back" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Options/VBoxContainer/Options_Back" to="Options/VBoxContainer/Options_Back" method="_on_mouse_exited"]
+[connection signal="pressed" from="Options/VBoxContainer/Options_Back" to="." method="_on_options_back_pressed"]
+[connection signal="value_changed" from="Options/Audio/Master Audio/Master_slider" to="Options/Audio" method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Options/Audio/Music/Music_slider" to="Options/Audio" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Options/Audio/Sound Effects/Sound_effects_slider" to="Options/Audio" method="_on_sound_effects_slider_value_changed"]
+[connection signal="mouse_entered" from="Options/Audio/Audio_back" to="Options/Audio/Audio_back" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Options/Audio/Audio_back" to="Options/Audio/Audio_back" method="_on_mouse_exited"]
+[connection signal="pressed" from="Options/Audio/Audio_back" to="." method="_on_audio_back_pressed"]
