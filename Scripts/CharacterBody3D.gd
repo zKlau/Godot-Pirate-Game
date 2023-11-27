@@ -6,7 +6,7 @@ const JUMP_VELOCITY = 4.5
 @export var ship : RigidBody3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var ocean = $"../Water"
+@onready var ocean = $"../WaterPoint"
 func _ready():
 		Global.player = self
 func _physics_process(delta):
@@ -15,15 +15,8 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	
-	print($Camera_point.global_rotation_degrees)
-	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("Left", "Right", "Forward", "Back")
-	#print(input_dir)
 	#ocean.position = lerp(ocean.position,self.position,delta*0.1)
 	if input_dir.y == 0 and input_dir.x == 0:
 		ship.disable_foam()
@@ -33,10 +26,12 @@ func _physics_process(delta):
 		ship.enable_foam()
 		ocean.position.x = lerp(ocean.position.x,self.position.x,delta*0.1)
 		ocean.position.z = lerp(ocean.position.z,self.position.z,delta*0.1)
+		
 	if input_dir.y != 0:
 		rotate_y(-input_dir.x/50)
+		ocean.rotation.y = rotation.y
 	elif input_dir.y == 0:
-		
+		ocean.rotation.y = rotation.y
 		#print("rotating")
 		rotate_y(-input_dir.x/(50*2))
 	if input_dir.y > 0:

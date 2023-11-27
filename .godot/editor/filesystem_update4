@@ -1,5 +1,4 @@
-res://Prefabs/User Interface/Audio.gd
-res://Scenes/Battle.tscn
+res://Scenes/World.tscn
 res://addons/panku_console/res/panku_console_theme.tres
 res://Scripts/Match_game.gd
 res://Prefabs/User Interface/Buttons/ability_button.tres
@@ -20,13 +19,5 @@ res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
-res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
-res://Prefabs/User Interface/Ship/ship_menu.tscn
+res://Scenes/water2.gdshader
 res://Assets/water/water.tscn
-res://Scenes/World.tscn
-res://Prefabs/Ships/Placeholder/ship_dark.tscn
-res://Prefabs/User Interface/pause_menu.tscn
-res://Data/Settings/Settings.tres
-res://Data/Player/Player_data.gd
-res://Scripts/CharacterBody3D.gd
-res://Scripts/Camera.gd

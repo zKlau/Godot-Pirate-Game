@@ -1,8 +1,8 @@
 extends Camera3D
 
 @export var target_follow : Node3D
-@export var follow_offset : float = 10
-@export var follow_speed : float = 10
+@export var follow_offset : float = 0
+@export var follow_speed : float = 5
 @export var follow_rotation_speed : float = 10
 # Called when the node enters the scene tree for the first time.
 func _ready():

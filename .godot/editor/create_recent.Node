@@ -1,3 +1,7 @@
+MeshInstance3D
+Marker3D
+ReflectionProbe
+Area3D
 RichTextLabel
 Control
 HSlider
@@ -15,7 +19,6 @@ CPUParticles3D
 FogVolume
 GPUParticlesCollisionBox3D
 RigidBody3D
-MeshInstance3D
 AudioStreamPlayer
 Timer
 Sprite3D
@@ -27,6 +30,3 @@ CharacterBody3D
 TextureRect
 VFlowContainer
 FlowContainer
-MarginContainer
-VScrollBar
-AspectRatioContainer
