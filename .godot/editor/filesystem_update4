@@ -4,13 +4,7 @@ res://Scripts/Match_game.gd
 res://Prefabs/User Interface/Buttons/ability_button.tres
 res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
-res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres
-res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres
-res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
-res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres
 res://Prefabs/User Interface/Ship/option_button_ship_menu.tres
-res://Data/Player/Player.tres
-res://Scenes/WorldSky.tres
 res://Scripts/Shaders/fog.gdshader
 res://Scripts/Shaders/water.gdshader
 res://Scripts/Shaders/water2.gdshader
@@ -19,5 +13,24 @@ res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
-res://Scenes/water2.gdshader
+res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres
+res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres
+res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
+res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres
+res://Data/Player/Player.tres
+res://Scenes/WorldSky.tres
+res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
+res://Scenes/Battle.tscn
+res://Prefabs/User Interface/Ship/ship_menu.tscn
 res://Assets/water/water.tscn
+res://Prefabs/Ships/Placeholder/ship_dark.tscn
+res://Prefabs/User Interface/pause_menu.tscn
+res://addons/boujie_water_shader/types/gerstner_wave.gd
+res://Scripts/Floating_Object.gd
+res://addons/boujie_water_shader/prefabs/deep_ocean_material.tres
+res://example/boujie_water_shader/height_waves/height4.tres
+res://example/boujie_water_shader/foam_waves/foam1.tres
+res://addons/boujie_water_shader/prefabs/ocean_prefab.gd
+res://Scripts/CharacterBody3D.gd
+res://addons/boujie_water_shader/types/water_material_designer.gd
+res://Legal/Licenses.txt

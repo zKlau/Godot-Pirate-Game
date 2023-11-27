@@ -5,8 +5,8 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_uutwj"]
 size = Vector2(10.05, 10.05)
-subdivide_width = 256
-subdivide_depth = 256
+subdivide_width = 199
+subdivide_depth = 199
 
 [node name="Water" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5607, -0.235453, -0.553464)

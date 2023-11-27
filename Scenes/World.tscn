@@ -1,6 +1,5 @@
-[gd_scene load_steps=38 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=53 format=3 uid="uid://b5e3q10dja7qy"]
 
-[ext_resource type="PackedScene" uid="uid://d4fy7x6u1qact" path="res://Assets/water/water.tscn" id="1_hr76c"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
 [ext_resource type="Sky" uid="uid://dx86cfl72ttys" path="res://Scenes/WorldSky.tres" id="3_mgqyv"]
@@ -16,13 +15,18 @@
 [ext_resource type="Texture2D" uid="uid://b1aslilfq257l" path="res://Assets/Textures/Rain/water ripple.png" id="9_nl5gu"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
+[ext_resource type="Script" path="res://addons/boujie_water_shader/prefabs/ocean_prefab.gd" id="18_4xhm8"]
 [ext_resource type="PackedScene" uid="uid://b2t1immwsvpbp" path="res://Prefabs/User Interface/pause_menu.tscn" id="18_xjalu"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_pfbuo"]
-size = Vector3(500, 1, 500)
-
-[sub_resource type="BoxMesh" id="BoxMesh_t22nu"]
-size = Vector3(500, 1, 500)
+[ext_resource type="Material" uid="uid://cu46b100244nd" path="res://addons/boujie_water_shader/prefabs/deep_ocean_material.tres" id="19_785gs"]
+[ext_resource type="Script" path="res://addons/boujie_water_shader/types/camera_follower_3d.gd" id="20_w5lww"]
+[ext_resource type="Script" path="res://addons/boujie_water_shader/types/water_material_designer.gd" id="21_uloqi"]
+[ext_resource type="Script" path="res://addons/boujie_water_shader/types/gerstner_wave.gd" id="22_te0el"]
+[ext_resource type="Resource" uid="uid://cxeeuqlnw0v08" path="res://example/boujie_water_shader/height_waves/height4.tres" id="23_pwjr3"]
+[ext_resource type="Resource" uid="uid://c33noe5oxh41i" path="res://example/boujie_water_shader/height_waves/height2.tres" id="24_mkr2h"]
+[ext_resource type="Resource" uid="uid://bf2pvto4lly3o" path="res://example/boujie_water_shader/foam_waves/foam1.tres" id="25_vnad2"]
+[ext_resource type="Resource" uid="uid://1wsbw638p6o2" path="res://example/boujie_water_shader/foam_waves/foam2.tres" id="26_5aj2j"]
+[ext_resource type="Resource" uid="uid://dp2iua60m7f8m" path="res://example/boujie_water_shader/uv_waves/uvwave1.tres" id="27_oyena"]
+[ext_resource type="Resource" uid="uid://3g1mc132n1al" path="res://example/boujie_water_shader/uv_waves/uvwave2.tres" id="28_kkd0h"]
 
 [sub_resource type="Environment" id="Environment_xrhli"]
 background_mode = 2
@@ -112,8 +116,6 @@ proximity_fade_distance = 4096.0
 lightmap_size_hint = Vector2i(4, 4)
 material = SubResource("StandardMaterial3D_vl86t")
 size = Vector2(0.4, 0.4)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jxp6t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jc8rj"]
 size = Vector3(1, 0.1, 1)
@@ -210,28 +212,67 @@ _data = {
 "RESET": SubResource("Animation_huobs")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pfbuo"]
+size = Vector3(500, 1, 500)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t22nu"]
+size = Vector3(500, 1, 500)
+
+[sub_resource type="Resource" id="Resource_h6ky8"]
+script = ExtResource("22_te0el")
+steepness = 2.0
+amplitude = 2.0
+direction_degrees = 15.0
+frequency = 0.02
+speed = 1.0
+phase_degrees = 0.0
+
+[sub_resource type="Resource" id="Resource_gq4b8"]
+script = ExtResource("22_te0el")
+steepness = 0.05
+amplitude = 0.004
+direction_degrees = 70.702
+frequency = 2.0
+speed = 1.0
+phase_degrees = 0.0
+
+[sub_resource type="Resource" id="Resource_ewn38"]
+script = ExtResource("22_te0el")
+steepness = 0.1
+amplitude = 1.5
+direction_degrees = 15.0
+frequency = 0.02
+speed = 1.0
+phase_degrees = -40.0
+
+[sub_resource type="Resource" id="Resource_v8fws"]
+script = ExtResource("22_te0el")
+steepness = 0.45
+amplitude = 0.7
+direction_degrees = 281.195
+frequency = 0.03
+speed = 3.0
+phase_degrees = 0.0
+
+[sub_resource type="Resource" id="Resource_pwrcy"]
+script = ExtResource("22_te0el")
+steepness = 1.3
+amplitude = 2.0
+direction_degrees = 88.25
+frequency = 0.001
+speed = 0.05
+phase_degrees = 0.0
+
+[sub_resource type="Resource" id="Resource_ei3rv"]
+script = ExtResource("22_te0el")
+steepness = 1.5
+amplitude = 1.0
+direction_degrees = 151.5
+frequency = 0.004
+speed = 0.05
+phase_degrees = 0.0
+
 [node name="World" type="Node3D"]
-
-[node name="WaterPoint" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.40834)
-
-[node name="Water" parent="WaterPoint" instance=ExtResource("1_hr76c")]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, -208.807)
-cast_shadow = 0
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="WaterPoint/Water"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.469239, -0.00229116)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterPoint/Water/StaticBody3D"]
-shape = SubResource("BoxShape3D_pfbuo")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WaterPoint/Water/StaticBody3D"]
-visible = false
-mesh = SubResource("BoxMesh_t22nu")
-
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="WaterPoint/Water"]
-size = Vector3(200, 2, 200)
 
 [node name="Environment" type="Node" parent="."]
 script = ExtResource("3_f88n7")
@@ -317,19 +358,15 @@ visibility_aabb = AABB(-134.354, -45.2639, -93.3086, 268.707, 90.5278, 186.617)
 process_material = SubResource("ParticleProcessMaterial_pbkw8")
 draw_pass_1 = SubResource("PlaneMesh_6ky4f")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, -3.406, 0)
-cast_shadow = 3
-mesh = SubResource("BoxMesh_jxp6t")
-
 [node name="PlayerCamera" type="Camera3D" parent="." node_paths=PackedStringArray("target_follow")]
 transform = Transform3D(0.997564, 0.0167575, -0.0677138, 0, 0.970717, 0.240228, 0.0697565, -0.239643, 0.968352, -3.47421, 12.3735, 7.1916)
-fov = 73.6
+current = true
+fov = 60.0
 script = ExtResource("2_uo2xb")
 target_follow = NodePath("../Player/Camera_point")
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("ship")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37147, 1.8949, -6.4427)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37147, 0.411892, -6.4427)
 script = ExtResource("5_nq3kf")
 ship = NodePath("ship_dark")
 
@@ -343,6 +380,7 @@ mesh = SubResource("CapsuleMesh_hywq0")
 
 [node name="ship_dark" parent="Player" instance=ExtResource("5_php58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 0, -4.76837e-07)
+float_force = 0.6
 ship = false
 
 [node name="Camera_point" type="Node3D" parent="Player"]
@@ -387,5 +425,51 @@ offset_bottom = -680.0
 
 [node name="Area3D" type="Area3D" parent="."]
 
+[node name="DeepOcean" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.048, 0.352546, -14.3202)
+script = ExtResource("18_4xhm8")
+material = ExtResource("19_785gs")
+levels_of_detail = 5
+unit_size = 2.0
+far_edge = 4000
+
+[node name="CameraFollower3D" type="Node3D" parent="DeepOcean"]
+script = ExtResource("20_w5lww")
+target_path = NodePath("..")
+snap = true
+snap_unit = 32.0
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="DeepOcean/CameraFollower3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13535, 0)
+size = Vector3(100000, 2, 1e+06)
+
+[node name="Collision" type="Node3D" parent="DeepOcean/CameraFollower3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.83177, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DeepOcean/CameraFollower3D/Collision"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeepOcean/CameraFollower3D/Collision/StaticBody3D"]
+shape = SubResource("BoxShape3D_pfbuo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DeepOcean/CameraFollower3D/Collision/StaticBody3D"]
+visible = false
+mesh = SubResource("BoxMesh_t22nu")
+
+[node name="WaterMaterialDesigner" type="Node" parent="DeepOcean"]
+script = ExtResource("21_uloqi")
+material = ExtResource("19_785gs")
+update_on_ready = true
+update_when_camera_far_changes = true
+ocean_path = NodePath("..")
+camera_follower_path = NodePath("../CameraFollower3D")
+distance_fade_far = 4000
+distance_fade_softness = 0.323
+wave_fade_far = 2000
+wave_fade_softness = 0.641
+height_waves = Array[ExtResource("22_te0el")]([SubResource("Resource_h6ky8"), SubResource("Resource_gq4b8"), ExtResource("23_pwjr3"), ExtResource("24_mkr2h")])
+foam_waves = Array[ExtResource("22_te0el")]([SubResource("Resource_ewn38"), SubResource("Resource_v8fws"), SubResource("Resource_pwrcy"), SubResource("Resource_ei3rv"), ExtResource("25_vnad2"), ExtResource("26_5aj2j")])
+uv_waves = Array[ExtResource("22_te0el")]([ExtResource("27_oyena"), ExtResource("28_kkd0h")])
+
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
 [connection signal="pressed" from="UI/Menu Button" to="UI" method="_on_menu_button_pressed"]
+[connection signal="updated_lod" from="DeepOcean/WaterMaterialDesigner" to="DeepOcean" method="_on_water_material_designer_updated_lod" flags=18]

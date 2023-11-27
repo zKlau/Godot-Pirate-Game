@@ -13,9 +13,11 @@ extends RigidBody3D
 
 var submerged := false
 @onready var hit_points = $"../Hit Points"
-
+#@onready var ocean = $"../../DeepOcean/WaterMaterialDesigner"
 @export var ship : bool = false
 var parent
+
+var time = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if ship:
@@ -45,10 +47,22 @@ func load_info():
 	probes = $ProbeContainer.get_children()
 	print("teee")
 	set_physics_process(true)
+
+func average(arr):
+	var res = 0
+	for i in arr:
+		res += i
+	return (res/len(arr))
 func _physics_process(delta):
+	time += delta
 	submerged = false
+	var arr = []
 	for p in probes:
-		var depth = Global.water.get_height(p.global_position) - p.global_position.y 
+		for i in range(4):
+			arr.append(-Global.water.height_waves[i].P_DEG(p.global_position.x,p.global_position.y,p.global_position.z,time).y - p.global_position.y)
+		
+		#var depth = Global.water.get_height(p.global_position) - p.global_position.y 
+		var depth = average(arr) - global_position.y
 		if depth > 0:
 			submerged = true
 			apply_force(Vector3.UP * float_force * gravity * depth, p.global_position - global_position)

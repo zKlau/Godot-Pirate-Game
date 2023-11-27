@@ -247,6 +247,7 @@ player_data = ExtResource("2_d7bs8")
 
 [node name="Camera3D" type="Camera3D" parent="MATCH GAME"]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -0.449246, 1.80818, -23.2574)
+current = true
 script = ExtResource("1_8jyy6")
 
 [node name="Camera" type="AnimationPlayer" parent="MATCH GAME"]
@@ -494,8 +495,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("29_gs4e8")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 560.0
-offset_bottom = -440.0
+offset_right = 600.0
+offset_bottom = -400.0
 
 [node name="Barrier" type="StaticBody3D" parent="."]
 
