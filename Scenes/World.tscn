@@ -359,9 +359,10 @@ process_material = SubResource("ParticleProcessMaterial_pbkw8")
 draw_pass_1 = SubResource("PlaneMesh_6ky4f")
 
 [node name="PlayerCamera" type="Camera3D" parent="." node_paths=PackedStringArray("target_follow")]
-transform = Transform3D(0.997564, 0.0167575, -0.0677138, 0, 0.970717, 0.240228, 0.0697565, -0.239643, 0.968352, -3.47421, 12.3735, 7.1916)
+transform = Transform3D(0.997564, 0.0167575, -0.0677138, -1.69853e-09, 0.970716, 0.240228, 0.0697565, -0.239643, 0.968352, -3.47421, 11.8905, 7.1916)
 current = true
 fov = 60.0
+far = 1000.0
 script = ExtResource("2_uo2xb")
 target_follow = NodePath("../Player/Camera_point")
 
@@ -369,6 +370,7 @@ target_follow = NodePath("../Player/Camera_point")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37147, 0.411892, -6.4427)
 script = ExtResource("5_nq3kf")
 ship = NodePath("ship_dark")
+rotation_force = 70.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
@@ -420,8 +422,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 320.0
-offset_bottom = -680.0
+offset_right = 360.0
+offset_bottom = -640.0
 
 [node name="Area3D" type="Area3D" parent="."]
 

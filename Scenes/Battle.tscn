@@ -495,8 +495,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("29_gs4e8")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 600.0
-offset_bottom = -400.0
+offset_right = 640.0
+offset_bottom = -360.0
 
 [node name="Barrier" type="StaticBody3D" parent="."]
 

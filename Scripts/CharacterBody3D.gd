@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var SPEED = 10.0
 const JUMP_VELOCITY = 4.5
 @export var ship : RigidBody3D
+@export var rotation_force : float = 50
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 #@onready var ocean = $"../WaterPoint"
@@ -28,12 +29,12 @@ func _physics_process(delta):
 		#ocean.position.z = lerp(ocean.position.z,self.position.z,delta*0.1)
 		
 	if input_dir.y != 0:
-		rotate_y(-input_dir.x/50)
+		rotate_y(-input_dir.x/rotation_force)
 		#ocean.rotation.y = rotation.y
 	elif input_dir.y == 0:
 		#ocean.rotation.y = rotation.y
 		#print("rotating")
-		rotate_y(-input_dir.x/(50*2))
+		rotate_y(-input_dir.x/(rotation_force*2))
 	if input_dir.y > 0:
 		input_dir.y = 0
 	var direction = (transform.basis * Vector3(0, 0, input_dir.y)).normalized()
