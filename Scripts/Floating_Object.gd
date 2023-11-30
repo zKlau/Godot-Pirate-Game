@@ -16,6 +16,7 @@ var submerged := false
 #@onready var ocean = $"../../DeepOcean/WaterMaterialDesigner"
 @export var ship : bool = false
 var parent
+@export var y_rotation_lock : float = 1.5
 
 var time = 0
 # Called when the node enters the scene tree for the first time.
@@ -67,6 +68,7 @@ func _physics_process(delta):
 			submerged = true
 			apply_force(Vector3.UP * float_force * gravity * depth, p.global_position - global_position)
 func _integrate_forces(state: PhysicsDirectBodyState3D):
+	rotation_degrees.y = y_rotation_lock
 	if submerged:
 		state.linear_velocity *=  1 - water_drag
 		state.angular_velocity *= 1 - water_angular_drag 

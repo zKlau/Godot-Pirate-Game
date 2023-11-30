@@ -1,6 +1,7 @@
 extends Control
 
 @export var settings : Settings
+@export var min : int = -30
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	settings = $"../..".settings
@@ -24,13 +25,18 @@ func save_settings():
 	pass
 
 func linear_transform(x):
-	var min = -40
 	x = max(min, min(x, 0))
 	return floor(((x - min) / (0 - min)) * 100)
 
+func set_audio(value,id):
+	AudioServer.set_bus_volume_db(id,value)
+	if value <= min:
+		AudioServer.set_bus_mute(id, true)
+	else:
+		AudioServer.set_bus_mute(id, false)
 func _on_master_slider_value_changed(value):
 	$"Master Audio/Level".text = str(linear_transform(value))+"%"
-	AudioServer.set_bus_volume_db(0,value)
+	set_audio(value,0)
 	settings.master_volume = value
 	$"../..".save_settings()
 	pass # Replace with function body.
@@ -38,7 +44,7 @@ func _on_master_slider_value_changed(value):
 
 func _on_sound_effects_slider_value_changed(value):
 	$"Sound Effects/Level".text = str(linear_transform(value))+"%"
-	AudioServer.set_bus_volume_db(2,value)
+	set_audio(value,2)
 	settings.effects_volume = value
 	$"../..".save_settings()
 	pass # Replace with function body.
@@ -46,7 +52,7 @@ func _on_sound_effects_slider_value_changed(value):
 
 func _on_music_slider_value_changed(value):
 	$Music/Level.text = str(linear_transform(value))+"%"
-	AudioServer.set_bus_volume_db(1,value)
+	set_audio(value,1)
 	settings.music_volume = value
 	$"../..".save_settings()
 	pass # Replace with function body.

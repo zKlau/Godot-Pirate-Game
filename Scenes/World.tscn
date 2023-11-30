@@ -296,6 +296,7 @@ environment = SubResource("Environment_xrhli")
 camera_attributes = SubResource("CameraAttributesPractical_5kron")
 
 [node name="Audio" type="Node" parent="Environment"]
+process_mode = 3
 
 [node name="Wind" type="AudioStreamPlayer" parent="Environment/Audio"]
 stream = ExtResource("4_6hlyr")
@@ -310,6 +311,7 @@ autoplay = true
 bus = &"Sound Effects"
 
 [node name="Weather" type="Node" parent="Environment"]
+process_mode = 3
 script = ExtResource("6_40dol")
 
 [node name="Rain" type="GPUParticles3D" parent="Environment/Weather"]
@@ -422,8 +424,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 360.0
-offset_bottom = -640.0
+offset_right = 480.0
+offset_bottom = -520.0
 
 [node name="Area3D" type="Area3D" parent="."]
 

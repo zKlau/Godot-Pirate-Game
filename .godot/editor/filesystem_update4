@@ -34,3 +34,6 @@ res://Scripts/Camera.gd
 res://Scripts/Shaders/mask.gdshader
 res://Data/Settings/Settings.tres
 res://Scripts/Ship.gd
+res://Scripts/Floating_Object.gd
+res://Prefabs/User Interface/Audio.gd
+res://default_bus_layout.tres
