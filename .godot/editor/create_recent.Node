@@ -1,3 +1,4 @@
+HSlider
 OptionButton
 MenuButton
 CheckButton
@@ -8,7 +9,6 @@ Marker3D
 ReflectionProbe
 Area3D
 RichTextLabel
-HSlider
 Decal
 Node
 Button

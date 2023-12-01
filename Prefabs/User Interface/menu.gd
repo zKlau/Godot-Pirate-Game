@@ -20,7 +20,17 @@ func load_settings():
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
-	
+	match settings.scaling_mode:
+		1:
+			get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_BILINEAR
+			#get_viewport().scaling_3d_scale = 1
+		2:
+			get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR
+			#get_viewport().scaling_3d_scale = 0.77
+		3:
+			get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR2
+			#get_viewport().scaling_3d_scale = 0.67
+	get_viewport().scaling_3d_scale = settings.scaling_value
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -56,4 +66,21 @@ func _on_audio_back_pressed():
 func _on_options_back_pressed():
 	$Options.visible = false
 	$Menu.visible = true
+	pass # Replace with function body.
+
+
+func _on_graphics_back_pressed():
+	$Options/Graphics.visible = false
+	$Options/VBoxContainer.visible = true
+	pass # Replace with function body.
+
+
+func _on_graphics_pressed():
+	$Options/Graphics.visible = true
+	$Options/VBoxContainer.visible = false
+	pass # Replace with function body.
+
+
+func _on_save_exit_pressed():
+	get_tree().quit()
 	pass # Replace with function body.

@@ -354,8 +354,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 800.0
-offset_bottom = -200.0
+offset_right = 920.0
+offset_bottom = -80.0
 
 [node name="Area3D" type="Area3D" parent="."]
 

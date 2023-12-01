@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="2_vsc6g"]
 [ext_resource type="Script" path="res://Scripts/User Interface/ButtonBBCODE.gd" id="4_jjmgd"]
 [ext_resource type="Script" path="res://Prefabs/User Interface/Audio.gd" id="5_o2381"]
-[ext_resource type="Resource" uid="uid://b2n4bnflmahdg" path="res://Data/Settings/Settings.tres" id="6_uwtpi"]
+[ext_resource type="Resource" uid="uid://b8fcq26n42tkj" path="res://Data/Settings/Settings.tres" id="6_uwtpi"]
 [ext_resource type="Script" path="res://Prefabs/User Interface/Graphics.gd" id="7_hqku3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqe1c"]
@@ -54,7 +54,6 @@ texture = ExtResource("1_umfxd")
 metadata/_edit_lock_ = true
 
 [node name="Menu" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -175,6 +174,7 @@ fit_content = true
 scroll_active = false
 
 [node name="Options" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -192,7 +192,6 @@ text = "[center]Options[/center]"
 scroll_active = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
-visible = false
 layout_mode = 0
 offset_left = 493.0
 offset_top = 245.0
@@ -420,6 +419,7 @@ fit_content = true
 scroll_active = false
 
 [node name="Graphics" type="Control" parent="Options"]
+visible = false
 anchors_preset = 0
 offset_top = 49.0
 offset_right = 40.0
@@ -507,17 +507,95 @@ offset_bottom = 429.0
 theme = SubResource("Theme_pp2vs")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "Display Mode"
+text = "Display Resolution"
 scroll_active = false
 
 [node name="DisplayResolution_selection" type="OptionButton" parent="Options/Graphics/Resolution"]
 layout_mode = 0
-offset_left = 255.0
-offset_right = 459.0
+offset_left = 324.0
+offset_right = 528.0
 offset_bottom = 45.0
 theme = SubResource("Theme_pp2vs")
 theme_override_font_sizes/font_size = 32
 alignment = 1
+
+[node name="Scale Mode" type="RichTextLabel" parent="Options/Graphics"]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 422.0
+offset_right = 1423.0
+offset_bottom = 524.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Scaling"
+scroll_active = false
+
+[node name="Scaling_selection" type="OptionButton" parent="Options/Graphics/Scale Mode"]
+layout_mode = 0
+offset_left = 131.0
+offset_right = 335.0
+offset_bottom = 45.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/font_size = 32
+alignment = 1
+item_count = 3
+selected = 0
+popup/item_0/text = "Bilinear"
+popup/item_0/id = 0
+popup/item_1/text = "FSR 1.0"
+popup/item_1/id = 1
+popup/item_2/text = "FSR 2.2"
+popup/item_2/id = 2
+
+[node name="Scaling_slider" type="HSlider" parent="Options/Graphics/Scale Mode"]
+offset_left = 1.0
+offset_top = 59.0
+offset_right = 254.0
+offset_bottom = 75.0
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 0.5
+
+[node name="Level" type="RichTextLabel" parent="Options/Graphics/Scale Mode"]
+offset_left = 263.605
+offset_top = 57.0
+offset_right = 772.61
+offset_bottom = 90.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "100%"
+scroll_active = false
+
+[node name="Graphics_back" type="Button" parent="Options/Graphics"]
+offset_left = 495.0
+offset_top = 482.0
+offset_right = 503.0
+offset_bottom = 537.0
+theme = SubResource("Theme_rqhpj")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "
+"
+flat = true
+script = ExtResource("4_jjmgd")
+hover_text_color = Color(1, 0.533333, 0, 1)
+default_text_color = Color(1, 1, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/Graphics/Graphics_back"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 39.0
+offset_right = 932.0
+offset_bottom = 86.0
+mouse_filter = 1
+theme = SubResource("Theme_rqhpj")
+bbcode_enabled = true
+text = "[center]Back[/center]"
+fit_content = true
+scroll_active = false
 
 [connection signal="mouse_entered" from="Menu/VBoxContainer/Resume" to="Menu/VBoxContainer/Resume" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/VBoxContainer/Resume" to="Menu/VBoxContainer/Resume" method="_on_mouse_exited"]
@@ -530,9 +608,10 @@ alignment = 1
 [connection signal="pressed" from="Menu/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="Menu/VBoxContainer/SaveExit" to="Menu/VBoxContainer/SaveExit" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/VBoxContainer/SaveExit" to="Menu/VBoxContainer/SaveExit" method="_on_mouse_exited"]
-[connection signal="pressed" from="Menu/VBoxContainer/SaveExit" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/SaveExit" to="." method="_on_save_exit_pressed"]
 [connection signal="mouse_entered" from="Options/VBoxContainer/Graphics" to="Options/VBoxContainer/Graphics" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Options/VBoxContainer/Graphics" to="Options/VBoxContainer/Graphics" method="_on_mouse_exited"]
+[connection signal="pressed" from="Options/VBoxContainer/Graphics" to="." method="_on_graphics_pressed"]
 [connection signal="mouse_entered" from="Options/VBoxContainer/Audio" to="Options/VBoxContainer/Audio" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Options/VBoxContainer/Audio" to="Options/VBoxContainer/Audio" method="_on_mouse_exited"]
 [connection signal="pressed" from="Options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
@@ -548,3 +627,8 @@ alignment = 1
 [connection signal="toggled" from="Options/Graphics/vSync/CheckButton" to="Options/Graphics" method="_on_check_button_toggled"]
 [connection signal="item_selected" from="Options/Graphics/DisplayMode/DisplayMode_selection" to="Options/Graphics" method="_on_display_mode_selection_item_selected"]
 [connection signal="item_selected" from="Options/Graphics/Resolution/DisplayResolution_selection" to="Options/Graphics" method="_on_display_resolution_selection_item_selected"]
+[connection signal="item_selected" from="Options/Graphics/Scale Mode/Scaling_selection" to="Options/Graphics" method="_on_scaling_selection_item_selected"]
+[connection signal="value_changed" from="Options/Graphics/Scale Mode/Scaling_slider" to="Options/Graphics" method="_on_scaling_slider_value_changed"]
+[connection signal="mouse_entered" from="Options/Graphics/Graphics_back" to="Options/Graphics/Graphics_back" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Options/Graphics/Graphics_back" to="Options/Graphics/Graphics_back" method="_on_mouse_exited"]
+[connection signal="pressed" from="Options/Graphics/Graphics_back" to="." method="_on_graphics_back_pressed"]
