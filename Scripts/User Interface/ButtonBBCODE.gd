@@ -23,3 +23,4 @@ func _on_mouse_exited():
 	var color = str(Color(default_text_color).to_html(true))
 	$RichTextLabel.text = "[center][color="+color+"]" + rtl_text + "[/color]"
 	pass # Replace with function body.
+

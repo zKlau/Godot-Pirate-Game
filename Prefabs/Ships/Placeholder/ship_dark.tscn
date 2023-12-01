@@ -26,9 +26,9 @@ emission_shape = 3
 emission_box_extents = Vector3(0.1, 0.1, 1.5)
 direction = Vector3(0, 0, 0)
 spread = 0.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
 sub_emitter_mode = 3
 sub_emitter_amount_at_collision = 1
 

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_8jyy6"]
 [ext_resource type="Script" path="res://Scripts/Match_game.gd" id="1_oipmo"]
-[ext_resource type="PackedScene" uid="uid://d4fy7x6u1qact" path="res://Assets/water/water.tscn" id="2_7d4tc"]
 [ext_resource type="Texture2D" uid="uid://bsjloxje2v2b3" path="res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co.jpg" id="2_8kta6"]
 [ext_resource type="Resource" uid="uid://c73a773ukpclh" path="res://Data/Player/Player.tres" id="2_d7bs8"]
 [ext_resource type="PackedScene" uid="uid://fgacajsj3cf3" path="res://Prefabs/User Interface/cursor.tscn" id="2_eabm1"]
@@ -31,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="27_630tg"]
 [ext_resource type="PackedScene" uid="uid://b2t1immwsvpbp" path="res://Prefabs/User Interface/pause_menu.tscn" id="29_gs4e8"]
 [ext_resource type="Texture2D" uid="uid://b8sb3hd6h7k67" path="res://Assets/Textures/UI/game-menu.png" id="30_3rqdf"]
+[ext_resource type="PackedScene" uid="uid://bpvbvy6vfe5mx" path="res://Scenes/deep_ocean.tscn" id="32_b7l1f"]
 
 [sub_resource type="Animation" id="Animation_in3of"]
 length = 0.001
@@ -44,7 +44,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.449246, 1.80818, -23.2574)]
+"values": [Vector3(-0.449, 5, -23.257)]
 }
 
 [sub_resource type="Animation" id="Animation_0ca13"]
@@ -246,8 +246,9 @@ script = ExtResource("1_oipmo")
 player_data = ExtResource("2_d7bs8")
 
 [node name="Camera3D" type="Camera3D" parent="MATCH GAME"]
-transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -0.449246, 1.80818, -23.2574)
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -0.449, 5, -23.257)
 current = true
+far = 1000.0
 script = ExtResource("1_8jyy6")
 
 [node name="Camera" type="AnimationPlayer" parent="MATCH GAME"]
@@ -268,11 +269,8 @@ shadow_blur = 10.0
 
 [node name="Cursor" parent="." instance=ExtResource("2_eabm1")]
 
-[node name="Water" parent="." instance=ExtResource("2_7d4tc")]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -2.17919, -5.14124, -15.6029)
-
 [node name="Player_Zone" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.45933, -11.7704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -11.77)
 
 [node name="Position 1" type="Marker3D" parent="Player_Zone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301823, 0, 2.62579)
@@ -293,7 +291,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.64591, 0, -0.0729141)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Enemy_zone" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.45933, 36.3457)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 36.346)
 
 [node name="Position 1" type="Marker3D" parent="Enemy_zone"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -23.261)
@@ -495,8 +493,22 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("29_gs4e8")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 640.0
-offset_bottom = -360.0
+offset_right = 960.0
+offset_bottom = -40.0
+
+[node name="OptionButton" type="OptionButton" parent="UI"]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 278.0
+offset_right = 827.0
+offset_bottom = 309.0
+item_count = 3
+popup/item_0/text = "test"
+popup/item_0/id = 0
+popup/item_1/text = "test2"
+popup/item_1/id = 1
+popup/item_2/text = "test3"
+popup/item_2/id = 2
 
 [node name="Barrier" type="StaticBody3D" parent="."]
 
@@ -516,6 +528,9 @@ visible = false
 position = Vector2(915, 403)
 scale = Vector2(1.41333, 1.41333)
 texture = ExtResource("30_3rqdf")
+
+[node name="DeepOcean" parent="." instance=ExtResource("32_b7l1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.048, 0, -14.32)
 
 [connection signal="pressed" from="UI/Attack Button" to="MATCH GAME" method="_on_attack_button_pressed"]
 [connection signal="pressed" from="UI/Switch Camera" to="UI" method="_on_switch_camera_pressed"]

@@ -1,17 +1,21 @@
-res://Scenes/World.tscn
+res://Prefabs/User Interface/Graphics.gd
+res://Prefabs/User Interface/menu.gd
+res://Data/Settings/Settings.gd
+res://Prefabs/User Interface/pause_menu.tscn
 res://addons/panku_console/res/panku_console_theme.tres
-res://Assets/water/Water2.gdshader
-res://Assets/water/Water.material
-res://Prefabs/User Interface/Buttons/ability_button.tres
 res://Scripts/Match_game.gd
+res://Prefabs/User Interface/Buttons/ability_button.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres
 res://Prefabs/User Interface/Ship/option_button_ship_menu.tres
+res://Scripts/Shaders/mask.gdshader
 res://Data/Player/Player.tres
+res://addons/boujie_water_shader/shader/water.gdshader
 res://Scenes/WorldSky.tres
-res://addons/boujie_water_shader/prefabs/deep_ocean_material.tres
+res://Assets/water/Water2.gdshader
+res://Assets/water/Water.material
 res://Scripts/Shaders/fog.gdshader
 res://Scripts/Shaders/water.gdshader
 res://Scripts/Shaders/water2.gdshader
@@ -22,18 +26,6 @@ res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Scenes/Battle.tscn
-res://Prefabs/User Interface/Ship/ship_menu.tscn
-res://Assets/water/water.tscn
+res://Scenes/World.tscn
 res://Prefabs/Ships/Placeholder/ship_dark.tscn
-res://Prefabs/User Interface/pause_menu.tscn
-res://Scripts/Ocean.gd
-res://addons/boujie_water_shader/shader/water.gdshader
-res://Scenes/fps.gd
-res://Scripts/CharacterBody3D.gd
-res://Scripts/Camera.gd
-res://Scripts/Shaders/mask.gdshader
 res://Data/Settings/Settings.tres
-res://Scripts/Ship.gd
-res://Scripts/Floating_Object.gd
-res://Prefabs/User Interface/Audio.gd
-res://default_bus_layout.tres

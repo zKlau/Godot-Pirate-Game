@@ -8,3 +8,6 @@ master_volume = 0
 effects_volume = 0
 audio_volume = 100
 music_volume = 0
+vsync = true
+display_mode = 1
+resolution = 2

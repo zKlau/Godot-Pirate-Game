@@ -1,15 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2t1immwsvpbp"]
+[gd_scene load_steps=14 format=3 uid="uid://b2t1immwsvpbp"]
 
 [ext_resource type="Texture2D" uid="uid://b8sb3hd6h7k67" path="res://Assets/Textures/UI/game-menu.png" id="1_umfxd"]
 [ext_resource type="Script" path="res://Prefabs/User Interface/menu.gd" id="1_wsd3a"]
 [ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="2_vsc6g"]
 [ext_resource type="Script" path="res://Scripts/User Interface/ButtonBBCODE.gd" id="4_jjmgd"]
 [ext_resource type="Script" path="res://Prefabs/User Interface/Audio.gd" id="5_o2381"]
-[ext_resource type="Resource" uid="uid://nieahxfq76jt" path="res://Data/Settings/Settings.tres" id="6_uwtpi"]
+[ext_resource type="Resource" uid="uid://b2n4bnflmahdg" path="res://Data/Settings/Settings.tres" id="6_uwtpi"]
+[ext_resource type="Script" path="res://Prefabs/User Interface/Graphics.gd" id="7_hqku3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqe1c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ba7f1"]
 
 [sub_resource type="Theme" id="Theme_pp2vs"]
 default_font = ExtResource("2_vsc6g")
-default_font_size = 86
+default_font_size = 32
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_yqe1c")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_ba7f1")
+OptionButton/font_sizes/font_size = 32
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
 RichTextLabel/constants/outline_size = 7
@@ -43,6 +51,7 @@ settings = ExtResource("6_uwtpi")
 position = Vector2(960, 371)
 scale = Vector2(1.29333, 1.29333)
 texture = ExtResource("1_umfxd")
+metadata/_edit_lock_ = true
 
 [node name="Menu" type="Control" parent="."]
 visible = false
@@ -57,6 +66,7 @@ offset_top = 131.0
 offset_right = 1424.0
 offset_bottom = 253.0
 theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 86
 bbcode_enabled = true
 text = "[center]Menu[/center]"
 scroll_active = false
@@ -176,6 +186,7 @@ offset_top = 131.0
 offset_right = 1424.0
 offset_bottom = 253.0
 theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 86
 bbcode_enabled = true
 text = "[center]Options[/center]"
 scroll_active = false
@@ -261,6 +272,7 @@ fit_content = true
 scroll_active = false
 
 [node name="Audio" type="Control" parent="Options"]
+visible = false
 anchors_preset = 0
 offset_top = 49.0
 offset_right = 40.0
@@ -407,6 +419,106 @@ text = "[center]Back[/center]"
 fit_content = true
 scroll_active = false
 
+[node name="Graphics" type="Control" parent="Options"]
+anchors_preset = 0
+offset_top = 49.0
+offset_right = 40.0
+offset_bottom = 89.0
+script = ExtResource("7_hqku3")
+
+[node name="Graphics" type="RichTextLabel" parent="Options/Graphics"]
+layout_mode = 0
+offset_left = 619.0
+offset_top = 180.0
+offset_right = 1524.0
+offset_bottom = 302.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "Graphics"
+scroll_active = false
+
+[node name="vSync" type="RichTextLabel" parent="Options/Graphics"]
+layout_mode = 0
+offset_left = 639.0
+offset_top = 257.0
+offset_right = 1382.0
+offset_bottom = 339.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "V-Sync"
+scroll_active = false
+
+[node name="Status" type="RichTextLabel" parent="Options/Graphics/vSync"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 7.0
+offset_right = 773.005
+offset_bottom = 40.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "OFF"
+scroll_active = false
+
+[node name="CheckButton" type="CheckButton" parent="Options/Graphics/vSync"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = -5.0
+offset_right = 226.0
+offset_bottom = 19.0
+scale = Vector2(2, 2)
+theme = SubResource("Theme_pp2vs")
+
+[node name="DisplayMode" type="RichTextLabel" parent="Options/Graphics"]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 313.0
+offset_right = 1423.0
+offset_bottom = 373.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Display Mode"
+scroll_active = false
+
+[node name="DisplayMode_selection" type="OptionButton" parent="Options/Graphics/DisplayMode"]
+layout_mode = 0
+offset_left = 255.0
+offset_right = 459.0
+offset_bottom = 45.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/font_size = 32
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "FullScreen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+
+[node name="Resolution" type="RichTextLabel" parent="Options/Graphics"]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 369.0
+offset_right = 1423.0
+offset_bottom = 429.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Display Mode"
+scroll_active = false
+
+[node name="DisplayResolution_selection" type="OptionButton" parent="Options/Graphics/Resolution"]
+layout_mode = 0
+offset_left = 255.0
+offset_right = 459.0
+offset_bottom = 45.0
+theme = SubResource("Theme_pp2vs")
+theme_override_font_sizes/font_size = 32
+alignment = 1
+
 [connection signal="mouse_entered" from="Menu/VBoxContainer/Resume" to="Menu/VBoxContainer/Resume" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/VBoxContainer/Resume" to="Menu/VBoxContainer/Resume" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
@@ -433,3 +545,6 @@ scroll_active = false
 [connection signal="mouse_entered" from="Options/Audio/Audio_back" to="Options/Audio/Audio_back" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Options/Audio/Audio_back" to="Options/Audio/Audio_back" method="_on_mouse_exited"]
 [connection signal="pressed" from="Options/Audio/Audio_back" to="." method="_on_audio_back_pressed"]
+[connection signal="toggled" from="Options/Graphics/vSync/CheckButton" to="Options/Graphics" method="_on_check_button_toggled"]
+[connection signal="item_selected" from="Options/Graphics/DisplayMode/DisplayMode_selection" to="Options/Graphics" method="_on_display_mode_selection_item_selected"]
+[connection signal="item_selected" from="Options/Graphics/Resolution/DisplayResolution_selection" to="Options/Graphics" method="_on_display_resolution_selection_item_selected"]
