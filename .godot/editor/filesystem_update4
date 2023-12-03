@@ -1,7 +1,5 @@
-res://Prefabs/User Interface/Graphics.gd
-res://Data/Settings/Settings.gd
 res://Prefabs/User Interface/menu.gd
-res://Prefabs/User Interface/pause_menu.tscn
+res://Scenes/World.tscn
 res://addons/panku_console/res/panku_console_theme.tres
 res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
@@ -24,8 +22,15 @@ res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
+res://Scripts/CharacterBody3D.gd
+res://Scripts/Ship.gd
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Scenes/Battle.tscn
-res://Scenes/World.tscn
 res://Prefabs/Ships/Placeholder/ship_dark.tscn
+res://Prefabs/User Interface/pause_menu.tscn
+res://Data/Player/Ships/Dutchman.tscn
+res://Scenes/PlayerShip.gd
+res://Prefabs/Ships/Player/QueenAnnesRevenge.tscn
+res://Data/Player/Cannonballs/Dutchman/normal.tres
+res://Scenes/Player_ShipMenu.gd
 res://Data/Settings/Settings.tres

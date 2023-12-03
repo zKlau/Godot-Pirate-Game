@@ -26,7 +26,6 @@ var attacked : bool = false
 var on_fire : bool = false
 var stop_fire_r : bool = false
 var sleep : bool = false
-
 var ship_model
 
 @onready var ship_menu : Control = $"Ship_Menu"

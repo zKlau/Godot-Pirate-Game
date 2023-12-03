@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=39 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -14,7 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="9_i8g1a"]
 [ext_resource type="Texture2D" uid="uid://b1aslilfq257l" path="res://Assets/Textures/Rain/water ripple.png" id="9_nl5gu"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
+[ext_resource type="Resource" uid="uid://c73a773ukpclh" path="res://Data/Player/Player.tres" id="11_hcc55"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
+[ext_resource type="Script" path="res://Scenes/PlayerShip.gd" id="12_cqa17"]
+[ext_resource type="Resource" uid="uid://c1yqbcmv0exjb" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres" id="13_cfbtj"]
+[ext_resource type="Script" path="res://Scenes/Player_ShipMenu.gd" id="15_kvw31"]
 [ext_resource type="PackedScene" uid="uid://bpvbvy6vfe5mx" path="res://Scenes/deep_ocean.tscn" id="17_7jk8s"]
 [ext_resource type="PackedScene" uid="uid://b2t1immwsvpbp" path="res://Prefabs/User Interface/pause_menu.tscn" id="18_xjalu"]
 
@@ -74,9 +78,7 @@ sections = 3
 curve = SubResource("Curve_1ka3s")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vh3a7"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
+transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.54902)
 albedo_texture = ExtResource("6_6ik2u")
@@ -263,7 +265,6 @@ volume_db = -10.0
 
 [node name="Rain2" type="GPUParticles3D" parent="Environment/Weather"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.6965, -10.853)
-visible = false
 emitting = false
 amount = 4000
 sub_emitter = NodePath("../Water_ripple")
@@ -301,8 +302,9 @@ target_follow = NodePath("../Player/Camera_point")
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("ship")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37147, 0.411892, -6.4427)
 script = ExtResource("5_nq3kf")
-ship = NodePath("ship_dark")
+ship = NodePath("Dutchman/ship_dark")
 rotation_force = 70.0
+player_data = ExtResource("11_hcc55")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
@@ -312,10 +314,30 @@ shape = SubResource("BoxShape3D_jc8rj")
 visible = false
 mesh = SubResource("CapsuleMesh_hywq0")
 
-[node name="ship_dark" parent="Player" instance=ExtResource("5_php58")]
+[node name="Dutchman" type="Node3D" parent="Player" node_paths=PackedStringArray("model")]
+script = ExtResource("12_cqa17")
+_name = "The Dutchman"
+model = NodePath("ship_dark")
+_cannons = Array[Resource]([ExtResource("13_cfbtj")])
+
+[node name="ship_dark" parent="Player/Dutchman" instance=ExtResource("5_php58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 0, -4.76837e-07)
 float_force = 0.6
 ship = false
+
+[node name="Ship Menu" type="Control" parent="Player/Dutchman"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1915.0
+offset_bottom = 1063.0
+script = ExtResource("15_kvw31")
+
+[node name="Name" type="RichTextLabel" parent="Player/Dutchman/Ship Menu"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 8.0
+offset_right = 1726.0
+offset_bottom = 121.0
 
 [node name="Camera_point" type="Node3D" parent="Player"]
 transform = Transform3D(0.997564, -0.0167575, -0.0677137, 0, 0.970716, -0.240228, 0.0697565, 0.239643, 0.968351, 0.897265, 11.4786, 13.6343)

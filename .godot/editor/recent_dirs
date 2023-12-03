@@ -1,9 +1,10 @@
+res://Data/Player/Cannonballs/Dutchman
+res://Scripts
 res://Scenes
 res://Scripts/Shaders
 res://Data/Settings
 res://Prefabs/User Interface
 res://Scripts/Resources
-res://Scripts
 res://
 res://Prefabs/User Interface/Buttons
 res://Prefabs/Ships/Combat
@@ -19,7 +20,6 @@ res://Scripts/Resources/Ship/Cannon_Balls/Walrus
 res://Scripts/Resources/Ship
 res://Prefabs/Ships
 E:/Godot/Project/Pirate Game/Data/Player
-res://Prefabs/Ships/Placeholder
 C:/Users/zKlau/AppData/Roaming/Godot/export_templates/4.1.1.stable
 E:/Godot/Project/Pirate Game
 E:/Godot/Exports
