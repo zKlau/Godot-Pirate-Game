@@ -1,5 +1,10 @@
+Container
+ColorRect
 RichTextLabel
+HBoxContainer
+Sprite2D
 Control
+Button
 Node3D
 GPUParticles3D
 HSlider
@@ -8,7 +13,3 @@ MenuButton
 CheckButton
 MeshInstance3D
 Marker3D
-ReflectionProbe
-Area3D
-Decal
-Node

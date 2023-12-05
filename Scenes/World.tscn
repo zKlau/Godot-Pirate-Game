@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=46 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -17,9 +17,12 @@
 [ext_resource type="Resource" uid="uid://c73a773ukpclh" path="res://Data/Player/Player.tres" id="11_hcc55"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
 [ext_resource type="Script" path="res://Scenes/PlayerShip.gd" id="12_cqa17"]
-[ext_resource type="Resource" uid="uid://c1yqbcmv0exjb" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres" id="13_cfbtj"]
+[ext_resource type="Resource" uid="uid://dkm3hykhrpanh" path="res://Data/Player/Cannonballs/Dutchman/CannonBall.tres" id="13_1cdl2"]
+[ext_resource type="Resource" uid="uid://vohu8kjrgnv1" path="res://Data/Player/Cannonballs/Dutchman/FireBall.tres" id="14_y4ct8"]
 [ext_resource type="Script" path="res://Scenes/Player_ShipMenu.gd" id="15_kvw31"]
+[ext_resource type="PackedScene" uid="uid://c2gsd7h2ve7ly" path="res://Data/Player/Scenes/cannon_ball_ui.tscn" id="16_klcyr"]
 [ext_resource type="PackedScene" uid="uid://bpvbvy6vfe5mx" path="res://Scenes/deep_ocean.tscn" id="17_7jk8s"]
+[ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="17_mh6cu"]
 [ext_resource type="PackedScene" uid="uid://b2t1immwsvpbp" path="res://Prefabs/User Interface/pause_menu.tscn" id="18_xjalu"]
 
 [sub_resource type="Environment" id="Environment_xrhli"]
@@ -113,6 +116,34 @@ size = Vector2(0.4, 0.4)
 size = Vector3(1, 0.1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hywq0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqe1c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ba7f1"]
+
+[sub_resource type="Theme" id="Theme_kxf07"]
+default_font = ExtResource("17_mh6cu")
+default_font_size = 32
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_yqe1c")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_ba7f1")
+OptionButton/font_sizes/font_size = 32
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 7
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_outline_size = 0
+
+[sub_resource type="Theme" id="Theme_n6ufs"]
+default_font = ExtResource("17_mh6cu")
+default_font_size = 32
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_yqe1c")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_ba7f1")
+OptionButton/font_sizes/font_size = 32
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 7
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_outline_size = 0
 
 [sub_resource type="Animation" id="Animation_qfcig"]
 resource_name = "Menu_IN"
@@ -218,7 +249,7 @@ rotation_order = 4
 shadow_enabled = true
 
 [node name="Moon" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.993158, 0, 0.116766, -0.0294438, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
+transform = Transform3D(0.993158, 0, 0.116766, -0.0294437, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
 rotation_order = 4
 shadow_enabled = true
 sky_mode = 2
@@ -316,9 +347,9 @@ mesh = SubResource("CapsuleMesh_hywq0")
 
 [node name="Dutchman" type="Node3D" parent="Player" node_paths=PackedStringArray("model")]
 script = ExtResource("12_cqa17")
-_name = "The Dutchman"
+_name = "Dutchman"
 model = NodePath("ship_dark")
-_cannons = Array[Resource]([ExtResource("13_cfbtj")])
+_cannons = Array[Resource]([ExtResource("14_y4ct8"), ExtResource("13_1cdl2")])
 
 [node name="ship_dark" parent="Player/Dutchman" instance=ExtResource("5_php58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 0, -4.76837e-07)
@@ -331,13 +362,48 @@ anchors_preset = 0
 offset_right = 1915.0
 offset_bottom = 1063.0
 script = ExtResource("15_kvw31")
+cannonball_component = ExtResource("16_klcyr")
+
+[node name="ColorRect" type="ColorRect" parent="Player/Dutchman/Ship Menu"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 123.0
+offset_right = 688.0
+offset_bottom = 941.0
+color = Color(0.509804, 0.509804, 0.509804, 1)
 
 [node name="Name" type="RichTextLabel" parent="Player/Dutchman/Ship Menu"]
 layout_mode = 0
-offset_left = 262.0
-offset_top = 8.0
-offset_right = 1726.0
-offset_bottom = 121.0
+offset_left = 35.0
+offset_top = 131.0
+offset_right = 557.0
+offset_bottom = 169.0
+scale = Vector2(1.25, 1.25)
+theme = SubResource("Theme_kxf07")
+text = "The Dutchman"
+
+[node name="Stats" type="RichTextLabel" parent="Player/Dutchman/Ship Menu"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 188.0
+offset_right = 556.0
+offset_bottom = 601.0
+scale = Vector2(1.25, 1.25)
+theme = SubResource("Theme_n6ufs")
+text = "Level {level}
+
+
+Max Health {max_health}
+
+
+Health {health}"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/Dutchman/Ship Menu"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 728.0
+offset_right = 663.0
+offset_bottom = 918.0
 
 [node name="Camera_point" type="Node3D" parent="Player"]
 transform = Transform3D(0.997564, -0.0167575, -0.0677137, 0, 0.970716, -0.240228, 0.0697565, 0.239643, 0.968351, 0.897265, 11.4786, 13.6343)
@@ -376,8 +442,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 920.0
-offset_bottom = -80.0
+offset_right = 960.0
+offset_bottom = -40.0
 
 [node name="Area3D" type="Area3D" parent="."]
 

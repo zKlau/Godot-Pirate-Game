@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2gsd7h2ve7ly"]
+
+[ext_resource type="Script" path="res://Data/Player/Scenes/cannon_ball_ui.gd" id="1_23rjg"]
+[ext_resource type="Texture2D" uid="uid://m1rpjp5nb3ny" path="res://Assets/Textures/UI/Ship/Combat/Abilities/cannon-ball.png" id="1_he1mn"]
+[ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="2_tg8fa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqe1c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ba7f1"]
+
+[sub_resource type="Theme" id="Theme_57py2"]
+default_font = ExtResource("2_tg8fa")
+default_font_size = 32
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_yqe1c")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_ba7f1")
+OptionButton/font_sizes/font_size = 32
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 7
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_outline_size = 0
+
+[sub_resource type="Theme" id="Theme_2s6jw"]
+default_font = ExtResource("2_tg8fa")
+default_font_size = 32
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_yqe1c")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_ba7f1")
+OptionButton/font_sizes/font_size = 32
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 7
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_outline_size = 0
+
+[node name="CannonBall" type="Control"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 152.0
+offset_bottom = 151.0
+script = ExtResource("1_23rjg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_right = 150.0
+offset_bottom = 150.0
+
+[node name="Name" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = -1.0
+offset_top = 3.0
+offset_right = 159.0
+offset_bottom = 43.0
+theme = SubResource("Theme_57py2")
+text = "Cannonball"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(103, 74)
+scale = Vector2(3.05555, 3.08772)
+texture = ExtResource("1_he1mn")
+
+[node name="LevelUp" type="Button" parent="."]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 64.0
+offset_right = 45.0
+offset_bottom = 95.0
+text = "+"
+
+[node name="Level" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_top = 118.0
+offset_right = 121.0
+offset_bottom = 158.0
+theme = SubResource("Theme_2s6jw")
+text = "level"
+
+[connection signal="pressed" from="LevelUp" to="." method="_on_level_up_pressed"]
