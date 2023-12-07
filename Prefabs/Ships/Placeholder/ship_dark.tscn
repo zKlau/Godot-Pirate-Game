@@ -149,3 +149,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0113653, 1.48323, 0.002653
 mesh = SubResource("BoxMesh_vr6dn")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_fon3p")
+
+[node name="right_cast" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 0, 0.954433, 1.21903, 0.00953188)
+target_position = Vector3(0, -30, 0)

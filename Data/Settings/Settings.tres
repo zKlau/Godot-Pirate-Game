@@ -12,4 +12,4 @@ vsync = false
 display_mode = 1
 resolution = 3
 scaling_mode = 0
-scaling_value = 0.6
+scaling_value = 1.0

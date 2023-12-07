@@ -20,14 +20,17 @@ func _ready():
 	render_projectiles()
 	pass # Replace with function body.
 
-func _input(event):
-	if event.is_action_pressed("ship_menu") and !anim.is_playing():
-		if ship_menu_anim:
+func menu():
+	if ship_menu_anim:
 			anim.play("Ship_menu_out")
 			ship_menu_anim = false
-		else:
-			anim.play("Ship_menu_in")
-			ship_menu_anim = true
+	else:
+		anim.play("Ship_menu_in")
+		ship_menu_anim = true
+			
+func _input(event):
+	if event.is_action_pressed("ship_menu") and !anim.is_playing():
+		menu()
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,3 +38,8 @@ func _process(delta):
 	$Stats.text = $Stats.text.replace("{level}",str(ship._level)).replace("{max_health}",str(ship._maxHealth)).replace("{health}",str(ship._health)) 
 	#_name.text = ship._name + str(ship._level) + " Level " + str(ship._cannons[0].level)
 	pass
+
+
+func _on_close_button_pressed():
+	menu()
+	pass # Replace with function body.

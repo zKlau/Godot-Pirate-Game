@@ -6,6 +6,7 @@ class_name PlayerShip
 @export var _maxHealth : int = 2500
 @export var model : RigidBody3D
 @export var _cannons : Array[Resource]
+@export var _selected_cannon_id : int = 0
 @export var _health : int = _maxHealth
 # Called when the node enters the scene tree for the first time.
 func _ready():

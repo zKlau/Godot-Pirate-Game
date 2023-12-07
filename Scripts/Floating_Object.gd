@@ -8,7 +8,7 @@ extends RigidBody3D
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var water = Global.water
 @export var foam : Node3D
-
+@onready var right_cast : RayCast3D =  $right_cast
 @onready var probes = $ProbeContainer.get_children()
 
 var submerged := false

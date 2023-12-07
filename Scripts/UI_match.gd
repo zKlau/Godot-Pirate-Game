@@ -24,16 +24,22 @@ func _on_switch_camera_pressed():
 		camera_r = true
 	pass # Replace with function body.
 
-func resume():
-	get_tree().paused = false
-	anim.play("Menu_OUT")
-	menu_opened = false
-func _on_menu_button_pressed():
-	Signals.emit_signal("ship_menu_opened")
+
+func _input(event):
+	if event.is_action_pressed("escape"):
+		menu()
+func menu():
 	if !menu_opened:
 		get_tree().paused = true
 		anim.play("Menu_IN")
 		menu_opened = true
 	else:
 		resume()
+func resume():
+	get_tree().paused = false
+	anim.play("Menu_OUT")
+	menu_opened = false
+func _on_menu_button_pressed():
+	Signals.emit_signal("ship_menu_opened")
+	menu()
 	pass # Replace with function body.

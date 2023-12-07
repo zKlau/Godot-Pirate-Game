@@ -12,6 +12,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 		Global.player = self
 func _physics_process(delta):
+	
+	print(ship.right_cast.get_collider())
 	RenderingServer.global_shader_parameter_set("ocean_pos", self.position);
 	# Add the gravity.
 	if not is_on_floor():

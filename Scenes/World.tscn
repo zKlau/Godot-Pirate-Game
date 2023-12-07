@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=52 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -158,7 +158,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_mi6d7"]
 resource_name = "Ship_menu_in"
-length = 0.2
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -166,10 +166,10 @@ tracks/0/path = NodePath("Ship Menu:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-2000, 0), Vector2(0, 0)]
+"values": [Vector2(-1000, 0), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -186,7 +186,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_eojok"]
 resource_name = "Shio_menu_out"
-length = 0.2
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -206,10 +206,10 @@ tracks/1/path = NodePath("Ship Menu:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-2000, 0)]
+"values": [Vector2(0, 0), Vector2(-1000, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -218,7 +218,7 @@ tracks/2/path = NodePath("Ship Menu:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -349,6 +349,12 @@ _data = {
 "RESET": SubResource("Animation_huobs")
 }
 
+[sub_resource type="BoxMesh" id="BoxMesh_xgqk8"]
+size = Vector3(10, 10, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_agky8"]
+size = Vector3(10, 10, 5)
+
 [node name="World" type="Node3D"]
 
 [node name="Environment" type="Node" parent="."]
@@ -436,13 +442,15 @@ visibility_aabb = AABB(-134.354, -45.2639, -93.3086, 268.707, 90.5278, 186.617)
 process_material = SubResource("ParticleProcessMaterial_pbkw8")
 draw_pass_1 = SubResource("PlaneMesh_6ky4f")
 
-[node name="PlayerCamera" type="Camera3D" parent="." node_paths=PackedStringArray("target_follow")]
-transform = Transform3D(0.997564, 0.0167575, -0.0677138, -1.69853e-09, 0.970716, 0.240228, 0.0697565, -0.239643, 0.968352, -3.47421, 11.8905, 7.1916)
+[node name="PlayerCamera" type="Camera3D" parent="." node_paths=PackedStringArray("target_follow", "action_camera_left", "action_camera_right")]
+transform = Transform3D(1, 0, 0, 0, 0.970716, 0.240228, 0, -0.240228, 0.970716, -3.47421, 11.8905, 7.1916)
 current = true
 fov = 60.0
 far = 1000.0
 script = ExtResource("2_uo2xb")
 target_follow = NodePath("../Player/Camera_point")
+action_camera_left = NodePath("../Player/Action_Camera_Left")
+action_camera_right = NodePath("../Player/Action_Camera_Right")
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("ship")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37147, 0.411892, -6.4427)
@@ -500,12 +508,13 @@ layout_mode = 0
 offset_left = 35.0
 offset_top = 131.0
 offset_right = 557.0
-offset_bottom = 169.0
+offset_bottom = 196.0
 scale = Vector2(1.25, 1.25)
 theme = SubResource("Theme_kxf07")
 theme_override_font_sizes/normal_font_size = 48
 text = "The Dutchman"
-metadata/_edit_lock_ = true
+fit_content = true
+scroll_active = false
 
 [node name="Stats" type="RichTextLabel" parent="Player/Dutchman/Ship Menu"]
 layout_mode = 0
@@ -522,7 +531,7 @@ text = "Level [color=green]{level}[/color]
 Max Health [color=red]{max_health}[/color]
 
 
-Health[color=#f26565] [wave amp=20.0 freq=5.0 connected=1]{health}[/wave][/color]"
+Health[color=#f26565] {health}[/color]"
 metadata/_edit_lock_ = true
 
 [node name="CannonBalls_text" type="RichTextLabel" parent="Player/Dutchman/Ship Menu"]
@@ -544,8 +553,22 @@ offset_right = 663.0
 offset_bottom = 918.0
 metadata/_edit_lock_ = true
 
+[node name="Close_button" type="Button" parent="Player/Dutchman/Ship Menu"]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 130.0
+offset_right = 681.0
+offset_bottom = 161.0
+text = "X"
+
 [node name="Camera_point" type="Node3D" parent="Player"]
 transform = Transform3D(0.997564, -0.0167575, -0.0677137, 0, 0.970716, -0.240228, 0.0697565, 0.239643, 0.968351, 0.897265, 11.4786, 13.6343)
+
+[node name="Action_Camera_Left" type="Node3D" parent="Player"]
+transform = Transform3D(-4.37114e-08, -0.240228, -0.970716, 0, 0.970716, -0.240228, 1, -1.05007e-08, -4.24313e-08, -12.1933, 11.4786, 3.07069)
+
+[node name="Action_Camera_Right" type="Node3D" parent="Player"]
+transform = Transform3D(-4.37114e-08, 0.240228, 0.970716, 0, 0.970716, -0.240228, -1, -1.05007e-08, -4.24313e-08, 11.562, 11.4786, 3.07069)
 
 [node name="UI" type="Control" parent="."]
 process_mode = 3
@@ -583,9 +606,19 @@ layout_mode = 1
 offset_top = -1000.0
 offset_right = 1000.0
 
-[node name="Area3D" type="Area3D" parent="."]
-
 [node name="DeepOcean" parent="." instance=ExtResource("17_7jk8s")]
 
+[node name="Dummy" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.6734, 3.20055, -5.42664)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Dummy"]
+mesh = SubResource("BoxMesh_xgqk8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Dummy/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dummy/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_agky8")
+
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
+[connection signal="pressed" from="Player/Dutchman/Ship Menu/Close_button" to="Player/Dutchman/Ship Menu" method="_on_close_button_pressed"]
 [connection signal="pressed" from="UI/Menu Button" to="UI" method="_on_menu_button_pressed"]

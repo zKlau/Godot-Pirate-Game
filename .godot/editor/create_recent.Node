@@ -1,3 +1,9 @@
+RayCast3D
+StaticBody3D
+CollisionShape3D
+MeshInstance3D
+Node3D
+Button
 AnimationPlayer
 RichTextLabel
 Container
@@ -5,11 +11,5 @@ ColorRect
 HBoxContainer
 Sprite2D
 Control
-Button
-Node3D
 GPUParticles3D
 HSlider
-OptionButton
-MenuButton
-CheckButton
-MeshInstance3D
