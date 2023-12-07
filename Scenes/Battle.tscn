@@ -493,8 +493,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("29_gs4e8")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 1120.0
-offset_bottom = 120.0
+offset_right = 1160.0
+offset_bottom = 160.0
 
 [node name="OptionButton" type="OptionButton" parent="UI"]
 layout_mode = 0

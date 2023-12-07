@@ -1,6 +1,7 @@
+AnimationPlayer
+RichTextLabel
 Container
 ColorRect
-RichTextLabel
 HBoxContainer
 Sprite2D
 Control
@@ -12,4 +13,3 @@ OptionButton
 MenuButton
 CheckButton
 MeshInstance3D
-Marker3D

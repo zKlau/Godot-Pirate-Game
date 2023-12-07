@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=50 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -116,6 +116,120 @@ size = Vector2(0.4, 0.4)
 size = Vector3(1, 0.1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hywq0"]
+
+[sub_resource type="Animation" id="Animation_ou1m2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1915, 1063)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ship Menu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2000, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ship Menu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mi6d7"]
+resource_name = "Ship_menu_in"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2000, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ship Menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_eojok"]
+resource_name = "Shio_menu_out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ship Menu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2000, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ship Menu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x40t5"]
+_data = {
+"RESET": SubResource("Animation_ou1m2"),
+"Ship_menu_in": SubResource("Animation_mi6d7"),
+"Ship_menu_out": SubResource("Animation_eojok")
+}
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqe1c"]
 
@@ -249,7 +363,7 @@ rotation_order = 4
 shadow_enabled = true
 
 [node name="Moon" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.993158, 0, 0.116766, -0.0294437, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
+transform = Transform3D(0.993158, 0, 0.116766, -0.0294438, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
 rotation_order = 4
 shadow_enabled = true
 sky_mode = 2
@@ -357,12 +471,20 @@ float_force = 0.6
 ship = false
 
 [node name="Ship Menu" type="Control" parent="Player/Dutchman"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1915.0
+offset_left = -2000.0
+offset_right = -85.0
 offset_bottom = 1063.0
 script = ExtResource("15_kvw31")
 cannonball_component = ExtResource("16_klcyr")
+
+[node name="UI_Animations" type="AnimationPlayer" parent="Player/Dutchman/Ship Menu"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_x40t5")
+}
 
 [node name="ColorRect" type="ColorRect" parent="Player/Dutchman/Ship Menu"]
 layout_mode = 0
@@ -371,6 +493,7 @@ offset_top = 123.0
 offset_right = 688.0
 offset_bottom = 941.0
 color = Color(0.509804, 0.509804, 0.509804, 1)
+metadata/_edit_lock_ = true
 
 [node name="Name" type="RichTextLabel" parent="Player/Dutchman/Ship Menu"]
 layout_mode = 0
@@ -380,30 +503,46 @@ offset_right = 557.0
 offset_bottom = 169.0
 scale = Vector2(1.25, 1.25)
 theme = SubResource("Theme_kxf07")
+theme_override_font_sizes/normal_font_size = 48
 text = "The Dutchman"
+metadata/_edit_lock_ = true
 
 [node name="Stats" type="RichTextLabel" parent="Player/Dutchman/Ship Menu"]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 188.0
-offset_right = 556.0
-offset_bottom = 601.0
+offset_left = 38.0
+offset_top = 237.0
+offset_right = 560.0
+offset_bottom = 650.0
 scale = Vector2(1.25, 1.25)
 theme = SubResource("Theme_n6ufs")
-text = "Level {level}
+bbcode_enabled = true
+text = "Level [color=green]{level}[/color]
 
 
-Max Health {max_health}
+Max Health [color=red]{max_health}[/color]
 
 
-Health {health}"
+Health[color=#f26565] [wave amp=20.0 freq=5.0 connected=1]{health}[/wave][/color]"
+metadata/_edit_lock_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Player/Dutchman/Ship Menu"]
+[node name="CannonBalls_text" type="RichTextLabel" parent="Player/Dutchman/Ship Menu"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 691.0
+offset_right = 496.0
+offset_bottom = 731.0
+theme = SubResource("Theme_kxf07")
+text = "CannonBalls
+"
+metadata/_edit_lock_ = true
+
+[node name="CannonBalls" type="HBoxContainer" parent="Player/Dutchman/Ship Menu"]
 layout_mode = 0
 offset_left = 47.0
 offset_top = 728.0
 offset_right = 663.0
 offset_bottom = 918.0
+metadata/_edit_lock_ = true
 
 [node name="Camera_point" type="Node3D" parent="Player"]
 transform = Transform3D(0.997564, -0.0167575, -0.0677137, 0, 0.970716, -0.240228, 0.0697565, 0.239643, 0.968351, 0.897265, 11.4786, 13.6343)
@@ -442,8 +581,7 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 960.0
-offset_bottom = -40.0
+offset_right = 1000.0
 
 [node name="Area3D" type="Area3D" parent="."]
 
