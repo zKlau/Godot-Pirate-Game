@@ -1,8 +1,10 @@
+Area3D
+CollisionShape3D
+RigidBody3D
 Node
 Node3D
 RayCast3D
 StaticBody3D
-CollisionShape3D
 MeshInstance3D
 Button
 AnimationPlayer
@@ -10,5 +12,3 @@ RichTextLabel
 Container
 ColorRect
 HBoxContainer
-Sprite2D
-Control

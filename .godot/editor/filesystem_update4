@@ -1,5 +1,5 @@
-res://Prefabs/User Interface/ButtonBBCODE.gd
-res://Scenes/World.tscn
+res://Prefabs/User Interface/menu.gd
+res://Prefabs/Ships/Placeholder/ship_dark.tscn
 res://addons/panku_console/res/panku_console_theme.tres
 res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
@@ -22,17 +22,17 @@ res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
+res://Scripts/Floating_Object.gd
+res://Prefabs/Ships/Animations/ship_shooting_animation.gd
+res://Scenes/World.tscn
+res://Scripts/Ship/Combat.gd
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Scenes/Battle.tscn
-res://Prefabs/Ships/Placeholder/ship_dark.tscn
 res://Prefabs/User Interface/pause_menu.tscn
 res://Data/Player/Scenes/cannon_ball_ui.tscn
+res://Prefabs/Ships/Animations/ship_shooting_animation.tscn
 res://Data/Settings/Settings.tres
 res://Scripts/CharacterBody3D.gd
-res://Scenes/Combat.gd
-res://Scenes/PlayerShip.gd
-res://Scenes/EnemyShip.gd
-res://Scripts/ShipRe.gd
-res://Scripts/Ship/Ship.gd
-res://Scripts/Floating_Object.gd
-res://Scripts/Ship/Combat.gd
+res://Data/Settings/Settings.gd
+res://Scenes/Weather.gd
+res://Scenes/Player_ShipMenu.gd

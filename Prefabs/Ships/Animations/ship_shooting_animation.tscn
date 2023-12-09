@@ -266,7 +266,6 @@ libraries = {
 
 [node name="Cannon_Fire" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.223378, 3.31072)
-emitting = true
 
 [node name="Cannon_Fire2" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83191e-07, 0.224404, 4.19091)
@@ -276,21 +275,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19799e-07, 0.224404, 5.0284
 
 [node name="Cannon_Fire4" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57628e-07, 0.250059, 5.87504)
-emitting = true
 
 [node name="Cannon_Fire5" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56744e-07, -0.308258, 5.87362)
 
 [node name="Cannon_Fire6" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19393e-07, -0.32374, 5.01913)
-emitting = true
 
 [node name="Cannon_Fire7" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83523e-07, -0.354705, 4.19852)
 
 [node name="Cannon_Fire8" parent="Shooting Particles" instance=ExtResource("1_as7oy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4444e-07, -0.354705, 3.30441)
-emitting = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 volume_db = -10.0

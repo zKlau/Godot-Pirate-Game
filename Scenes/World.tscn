@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=52 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -351,12 +351,6 @@ _data = {
 "RESET": SubResource("Animation_huobs")
 }
 
-[sub_resource type="BoxMesh" id="BoxMesh_xgqk8"]
-size = Vector3(10, 10, 5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_agky8"]
-size = Vector3(10, 10, 5)
-
 [node name="World" type="Node3D"]
 
 [node name="Environment" type="Node" parent="."]
@@ -371,7 +365,7 @@ rotation_order = 4
 shadow_enabled = true
 
 [node name="Moon" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.993158, 0, 0.116766, -0.0294438, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
+transform = Transform3D(0.993158, 0, 0.116766, -0.0294437, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
 rotation_order = 4
 shadow_enabled = true
 sky_mode = 2
@@ -473,9 +467,10 @@ shape = SubResource("BoxShape3D_jc8rj")
 visible = false
 mesh = SubResource("CapsuleMesh_hywq0")
 
-[node name="Dutchman" type="Node3D" parent="Player"]
+[node name="Dutchman" type="Node3D" parent="Player" node_paths=PackedStringArray("model")]
 script = ExtResource("12_cqa17")
 _name = "The Dutchman"
+model = NodePath("ship_dark")
 _cannons = Array[Resource]([ExtResource("14_y4ct8"), ExtResource("13_1cdl2")])
 
 [node name="ship_dark" parent="Player/Dutchman" instance=ExtResource("5_php58")]
@@ -609,28 +604,23 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 1000.0
+offset_right = 1040.0
+offset_bottom = 40.0
 
 [node name="DeepOcean" parent="." instance=ExtResource("17_7jk8s")]
 
 [node name="Dummy" type="Node3D" parent="." node_paths=PackedStringArray("ship", "combat")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.6734, 3.20055, -5.42664)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6734, 3.20055, -5.42664)
 script = ExtResource("26_43h36")
-ship = NodePath("Dummy Ship/MeshInstance3D")
+ship = NodePath("Dummy Ship")
 combat = NodePath("Combat")
 
 [node name="Dummy Ship" type="Node3D" parent="Dummy"]
 script = ExtResource("12_cqa17")
 _name = "Dummy"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Dummy/Dummy Ship"]
-mesh = SubResource("BoxMesh_xgqk8")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Dummy/Dummy Ship/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Dummy/Dummy Ship/MeshInstance3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_agky8")
+[node name="ship_dark" parent="Dummy/Dummy Ship" instance=ExtResource("5_php58")]
+ship = false
 
 [node name="Combat" type="Node" parent="Dummy"]
 script = ExtResource("25_cijhw")
