@@ -1,5 +1,5 @@
 @icon("res://Assets/Textures/spyglass.png")
-class_name Ship
+class_name ShipEX
 extends Node3D
 @export var _name : String
 @export var id : int

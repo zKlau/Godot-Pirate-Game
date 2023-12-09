@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cq54qwv42l2dr"]
 
-[ext_resource type="Script" path="res://Scripts/Ship.gd" id="1_lvyee"]
+[ext_resource type="Script" path="res://Scripts/ShipRe.gd" id="1_lvyee"]
 [ext_resource type="PackedScene" uid="uid://8j2pej8wmupm" path="res://Prefabs/User Interface/Ship/ship_menu.tscn" id="2_r0boh"]
 [ext_resource type="PackedScene" uid="uid://b62gpgcp55lat" path="res://Prefabs/part_fire.tscn" id="3_hpn1l"]
 [ext_resource type="PackedScene" uid="uid://cjhrkmvrhorbs" path="res://Prefabs/destroyed_fire.tscn" id="4_urjj1"]

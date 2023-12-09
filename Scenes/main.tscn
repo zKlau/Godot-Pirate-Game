@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bsjloxje2v2b3" path="res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co.jpg" id="3_xqtbw"]
 [ext_resource type="PackedScene" uid="uid://fgacajsj3cf3" path="res://Prefabs/User Interface/cursor.tscn" id="5_82005"]
 [ext_resource type="Texture2D" uid="uid://cssp0feh80rbg" path="res://Assets/Textures/map-1.png" id="6_7e1fi"]
-[ext_resource type="Script" path="res://Scripts/Ship.gd" id="6_m7uf2"]
+[ext_resource type="Script" path="res://Scripts/ShipRe.gd" id="6_m7uf2"]
 [ext_resource type="Script" path="res://Scripts/Enemy_Map.gd" id="7_2rmx8"]
 [ext_resource type="Script" path="res://Scripts/UI_match.gd" id="7_n10c2"]
 [ext_resource type="PackedScene" uid="uid://cc11767o2k2al" path="res://Scenes/mark.tscn" id="8_h8jul"]

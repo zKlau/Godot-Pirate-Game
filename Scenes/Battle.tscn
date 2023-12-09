@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://tkrm5v6hnf2v" path="res://Data/Player/Ships/Dutchman.tscn" id="3_c3tea"]
 [ext_resource type="PackedScene" uid="uid://bgbi2kruc1bxg" path="res://Data/Player/Ships/Walrus.tscn" id="4_hr5pd"]
 [ext_resource type="PackedScene" uid="uid://8vfu0qpkbqyn" path="res://Data/Player/Ships/WhydahGally.tscn" id="5_ty0ss"]
-[ext_resource type="Script" path="res://Scripts/Ship.gd" id="9_1j5d2"]
+[ext_resource type="Script" path="res://Scripts/ShipRe.gd" id="9_1j5d2"]
 [ext_resource type="Resource" uid="uid://c1yqbcmv0exjb" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres" id="10_kn8iu"]
 [ext_resource type="Resource" uid="uid://boa0urygxkl7l" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres" id="11_083tm"]
 [ext_resource type="Resource" uid="uid://c0vhxameste02" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres" id="12_mv25w"]
@@ -493,8 +493,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("29_gs4e8")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 1200.0
-offset_bottom = 200.0
+offset_right = 1320.0
+offset_bottom = 320.0
 
 [node name="OptionButton" type="OptionButton" parent="UI"]
 layout_mode = 0

@@ -3,17 +3,22 @@ extends CharacterBody3D
 
 @export var SPEED = 10.0
 const JUMP_VELOCITY = 4.5
-@export var ship : RigidBody3D
+@export var ship : Ship
 @export var rotation_force : float = 50
 @export var player_data : Player_Data
+@export var combat : Ship_Combat
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 #@onready var ocean = $"../WaterPoint"
 func _ready():
 		Global.player = self
+
+func _input(event):
+	if combat != null:
+		if combat.enabled:
+			if event.is_action_pressed("attack"):
+				combat.attack(ship)
 func _physics_process(delta):
-	
-	print(ship.right_cast.get_collider())
 	RenderingServer.global_shader_parameter_set("ocean_pos", self.position);
 	# Add the gravity.
 	if not is_on_floor():

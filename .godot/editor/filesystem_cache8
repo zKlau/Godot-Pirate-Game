@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1701969371
+::res://::1702085939
 default_bus_layout.tres::AudioBusLayout::1919213796326543025::1701330998::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1690930382::0::1::::<><>::
 ::res://addons/::1701111403
@@ -8,7 +8,7 @@ boujie_water_shader.gd::GDScript::-1::1701111403::0::1::::<>EditorPlugin<>::
 LICENSE.md::TextFile::-1::1701111403::0::1::::<><>::
 plugin.cfg::TextFile::-1::1701111403::0::1::::<><>::
 README.md::TextFile::-1::1701111403::0::1::::<><>::
-::res://addons/boujie_water_shader/icons/::1701111405
+::res://addons/boujie_water_shader/icons/::1701969384
 CameraFollower3D.svg::CompressedTexture2D::4429604127722294765::1701111403::1701969384::1::::<><>::
 icon.png::CompressedTexture2D::3182045478014885088::1701111403::1701111405::1::::<><>::
 icon.svg::CompressedTexture2D::8234480361535333110::1701111403::1701969384::1::::<><>::
@@ -25,7 +25,7 @@ obsidian_material.tres::ShaderMaterial::7345297248807705500::1701111403::0::1:::
 ocean_prefab.gd::GDScript::-1::1701116988::0::1::::<>Ocean<>::
 outset_ocean.tscn::PackedScene::4228172015635072755::1701111403::0::1::::<><>::res://addons/boujie_water_shader/prefabs/ocean_prefab.gd<>uid://cvnsu7lttsfsh::::res://addons/boujie_water_shader/prefabs/outset_ocean_material.tres<>res://addons/boujie_water_shader/types/camera_follower_3d.gd<>res://addons/boujie_water_shader/types/water_material_designer.gd<>uid://bavxgduu5sv2c::::res://example/boujie_water_shader/height_waves/height1.tres<>uid://c33noe5oxh41i::::res://example/boujie_water_shader/height_waves/height2.tres<>uid://0hol4u8hadr8::::res://example/boujie_water_shader/height_waves/height3.tres<>uid://cxeeuqlnw0v08::::res://example/boujie_water_shader/height_waves/height4.tres<>uid://d4jrd7iuain81::::res://example/boujie_water_shader/height_waves/height5.tres<>uid://bf2pvto4lly3o::::res://example/boujie_water_shader/foam_waves/foam1.tres<>uid://1wsbw638p6o2::::res://example/boujie_water_shader/foam_waves/foam2.tres<>uid://byfaqt1j16ysr::::res://example/boujie_water_shader/foam_waves/foam3.tres<>uid://c5j78g2giv011::::res://example/boujie_water_shader/foam_waves/foam4.tres<>uid://dp2iua60m7f8m::::res://example/boujie_water_shader/uv_waves/uvwave1.tres<>uid://3g1mc132n1al::::res://example/boujie_water_shader/uv_waves/uvwave2.tres
 outset_ocean_material.tres::ShaderMaterial::6274774314964984031::1701111403::0::1::::<><>::res://addons/boujie_water_shader/shader/water.gdshader<>uid://c28pojjx0kja3::::res://addons/boujie_water_shader/shader/ocean_albedo_1.png<>uid://bk6tootchx5gx::::res://addons/boujie_water_shader/shader/foam_1.png<>uid://cpav8p4gip0uk::::res://addons/boujie_water_shader/shader/refraction.png
-::res://addons/boujie_water_shader/shader/::1701804116
+::res://addons/boujie_water_shader/shader/::1702086282
 foam_1.png::CompressedTexture2D::3153484219205859331::1701111403::1701111405::1::::<><>::
 foam_2.png::CompressedTexture2D::5948004434701058990::1701111403::1701111405::1::::<><>::
 ice_albedo.png::CompressedTexture2D::4755641723987312205::1701111403::1701111405::1::::<><>::
@@ -33,13 +33,13 @@ ocean_albedo_1.png::CompressedTexture2D::6737000855195432256::1701111403::170111
 ocean_albedo_2.png::CompressedTexture2D::5131707199176423401::1701111403::1701111405::1::::<><>::
 ocean_albedo_white_highcontrast.png::CompressedTexture2D::7321926074290404979::1701111403::1701111405::1::::<><>::
 refraction.png::CompressedTexture2D::5827008842937147790::1701111403::1701111405::1::::<><>::
-water.gdshader::Shader::-1::1701804116::0::1::::<><>::
+water.gdshader::Shader::-1::1702086334::0::1::::<><>::
 ::res://addons/boujie_water_shader/types/::1701117002
 camera_follower_3d.gd::GDScript::-1::1701111403::0::1::::CameraFollower3D<>Node3D<>res://addons/boujie_water_shader/icons/CameraFollower3D.svg::
 gerstner_wave.gd::GDScript::-1::1701111475::0::1::::GerstnerWave<>Resource<>res://addons/boujie_water_shader/icons/Wave.svg::
 ocean.gd::GDScript::-1::1701111403::0::1::::Ocean<>Node3D<>res://addons/boujie_water_shader/icons/Ocean.svg::
 water_material_designer.gd::GDScript::-1::1701117002::0::1::::WaterMaterialDesigner<>Node<>res://addons/boujie_water_shader/icons/WaterMaterialDesigner.svg::
-::res://addons/panku_console/::1699132664
+::res://addons/panku_console/::1701969384
 console.gd::GDScript::-1::1688198774::0::1::::PankuConsole<>CanvasLayer<>::
 console.tscn::PackedScene::6468885623186101079::1688198774::0::1::::<><>::res://addons/panku_console/console.gd<>res://addons/panku_console/common/lynx_window2/lynx_windows_manager_2.gd
 logo.svg::CompressedTexture2D::1215273567287972993::1688198774::1701969384::1::::<><>::
@@ -191,13 +191,13 @@ os_report.gd::GDScript::-1::1688198774::0::1::::<>RefCounted<>::
 module.gd::GDScript::-1::1688198774::0::1::::PankuModuleTextureViewer<>PankuModule<>::
 texture_viewer.gd::GDScript::-1::1688198774::0::1::::<>Control<>::
 texture_viewer.tscn::PackedScene::7750132616475338843::1688198774::0::1::::<><>::res://addons/panku_console/modules/texture_viewer/texture_viewer.gd<>uid://cvjqqkymodlb6::::res://test/img7.jpg
-::res://addons/panku_console/res/::1701802584
-panku_console_theme.tres::Theme::3144029756148019014::1701802584::0::1::::<><>::uid://bua84a0uv8ntw::::res://addons/panku_console/res/icons2/checkbox_checked.svg<>uid://dkiyle8rjahmw::::res://addons/panku_console/res/icons2/checkbox_unchecked.svg
+::res://addons/panku_console/res/::1702080609
+panku_console_theme.tres::Theme::3144029756148019014::1702080609::0::1::::<><>::uid://bua84a0uv8ntw::::res://addons/panku_console/res/icons2/checkbox_checked.svg<>uid://dkiyle8rjahmw::::res://addons/panku_console/res/icons2/checkbox_unchecked.svg
 ::res://addons/panku_console/res/effect/::1691945765
 square_shadow.png::CompressedTexture2D::8669949328537749897::1688198774::1691945765::1::::<><>::
 ::res://addons/panku_console/res/font/::1691945760
 default_bold.tres::FontVariation::9058431437947727442::1688198774::0::1::::<><>::
-::res://addons/panku_console/res/icons2/::1699132664
+::res://addons/panku_console/res/icons2/::1701969384
 add.svg::CompressedTexture2D::8248109743387697848::1688198774::1691945765::1::::<><>::
 arrow-down-svgrepo-com.svg::CompressedTexture2D::5030973515888015403::1688198774::1701969384::1::::<><>::
 arrow-up-md-svgrepo-com.svg::CompressedTexture2D::8936678500751275656::1688198774::1701969384::1::::<><>::
@@ -230,7 +230,7 @@ mattias_crt.gdshader::Shader::-1::1688198774::0::1::::<><>::
 simple_fast_blur.gdshader::Shader::-1::1688198774::0::1::::<><>::
 ::res://android/::1690930530
 ::res://android/plugins/::1690930530
-::res://Assets/::1699132664
+::res://Assets/::1701969384
 icon.svg::CompressedTexture2D::8079050831338802480::1689709205::1701969384::1::::<><>::
 ::res://Assets/Audio/::1696580229
 ::res://Assets/Audio/Sound Effects/::1699751802
@@ -481,7 +481,7 @@ sword.png::CompressedTexture2D::830878871003211890::1537464543::1691763157::1:::
 sword_scimitar.png::CompressedTexture2D::8167524213478419432::1537464543::1691763157::1::::<><>::
 tower.png::CompressedTexture2D::5555768134710865942::1537464543::1691763157::1::::<><>::
 ::res://Assets/Placeholders/Ships/Unity package/::1691763120
-::res://Assets/seaweed/::1699132664
+::res://Assets/seaweed/::1701969384
 Noise.png::CompressedTexture2D::4934204181174466075::1678215265::1691238074::1::::<><>::
 Seaweed.gdshader::Shader::-1::1678215265::0::1::::<><>::
 Seaweed.material::ShaderMaterial::6820600999744626192::1691236644::0::1::::<><>::res://realistic_water_shader/art/seaweed/Seaweed.gdshader<>uid://vsew8xfyxu4w::::res://realistic_water_shader/art/seaweed/Seaweed_B.png<>uid://bub0img44urh7::::res://realistic_water_shader/art/seaweed/Seaweed_R.png<>uid://0h3jsf6ge5hi::::res://realistic_water_shader/art/seaweed/Seaweed_N.png
@@ -556,41 +556,41 @@ fire-ball.png::CompressedTexture2D::5963588279372051992::1695683548::1695683549:
 healing-ball.png::CompressedTexture2D::3133294258864327775::1698688310::1698688314::1::::<><>::
 sleeping-ball.png::CompressedTexture2D::5858522354218877672::1695683706::1695683706::1::::<><>::
 water.png::CompressedTexture2D::2669439554811811440::1697386186::1697386698::1::::<><>::
-::res://Assets/water/::1701804116
+::res://Assets/water/::1702086282
 Caustic.png::CompressedTexture2DArray::7344222317803523917::1678215265::1691238074::1::::<><>::
 Foam.png::CompressedTexture2D::3302035693990157461::1678215265::1691238074::1::::<><>::
-Water2.gdshader::Shader::-1::1701804116::0::1::::<><>::
+Water2.gdshader::Shader::-1::1702086334::0::1::::<><>::
 water.gd::GDScript::-1::1700489154::0::1::::<>MeshInstance3D<>::
 Water.gdshader::Shader::-1::1678215265::0::1::::<><>::
-Water.material::ShaderMaterial::7251690775018076135::1701802585::0::1::::<><>::res://Assets/water/Water2.gdshader
+Water.material::ShaderMaterial::7251690775018076135::1702080609::0::1::::<><>::res://Assets/water/Water2.gdshader
 water.tscn::PackedScene::9206576015453965367::1701391762::0::1::::<><>::uid://dbk1j1par5dmd::::res://Assets/water/Water.material<>res://Assets/water/water.gd
 Water_N_A.png::CompressedTexture2D::2739166990229088478::1678215265::1691238074::1::::<><>::
 Water_N_B.png::CompressedTexture2D::8258831567466412104::1678215265::1691238074::1::::<><>::
 Water_UV.png::CompressedTexture2D::5318083147776828139::1678215265::1691238074::1::::<><>::
 ::res://Data/::1700696957
 Abilities.json::JSON::-1::1692316349::0::1::::<><>::
-::res://Data/Player/::1701802585
-Player.tres::Resource/Player_Data::7076745811246261149::1701802585::0::1::::<><>::uid://tkrm5v6hnf2v::::res://Data/Player/Ships/Dutchman.tscn<>res://Data/Player/Player_data.gd<>uid://bgbi2kruc1bxg::::res://Data/Player/Ships/Walrus.tscn<>uid://8vfu0qpkbqyn::::res://Data/Player/Ships/WhydahGally.tscn
+::res://Data/Player/::1702080610
+Player.tres::Resource/Player_Data::7076745811246261149::1702080610::0::1::::<><>::uid://tkrm5v6hnf2v::::res://Data/Player/Ships/Dutchman.tscn<>res://Data/Player/Player_data.gd<>uid://bgbi2kruc1bxg::::res://Data/Player/Ships/Walrus.tscn<>uid://8vfu0qpkbqyn::::res://Data/Player/Ships/WhydahGally.tscn
 Player_data.gd::GDScript::-1::1697179121::0::1::::Player_Data<>Resource<>::
 Player_data.json::JSON::-1::1693350176::0::1::::<><>::
 ::res://Data/Player/Cannonballs/::1701633469
-::res://Data/Player/Cannonballs/Dutchman/::1701969349
-CannonBall.tres::Resource/Cannon_Balls_resource::7887636873212942889::1701969349::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd<>uid://m1rpjp5nb3ny::::res://Assets/Textures/UI/Ship/Combat/Abilities/cannon-ball.png
-FireBall.tres::Resource/Cannon_Balls_resource::1503329488933467128::1701969349::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd<>uid://cq72osne7ueua::::res://Assets/Textures/UI/Ship/Combat/Abilities/fire-ball.png
-::res://Data/Player/Scenes/::1701804037
+::res://Data/Player/Cannonballs/Dutchman/::1701971427
+CannonBall.tres::Resource/Resource::7887636873212942889::1701971427::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd<>uid://m1rpjp5nb3ny::::res://Assets/Textures/UI/Ship/Combat/Abilities/cannon-ball.png
+FireBall.tres::Resource/Resource::1503329488933467128::1701971427::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd<>uid://cq72osne7ueua::::res://Assets/Textures/UI/Ship/Combat/Abilities/fire-ball.png
+::res://Data/Player/Scenes/::1702086281
 cannon_ball_ui.gd::GDScript::-1::1701804037::0::1::::Cannonball_component_ui<>Control<>::
-cannon_ball_ui.tscn::PackedScene::6681426368204795806::1701804037::0::1::::<><>::res://Data/Player/Scenes/cannon_ball_ui.gd<>uid://m1rpjp5nb3ny::::res://Assets/Textures/UI/Ship/Combat/Abilities/cannon-ball.png<>uid://b0qf45wixf6i3::::res://Assets/Fonts/BirchLeaf.ttf
-::res://Data/Player/Ships/::1701633046
-Dutchman.tscn::PackedScene::1355287034626868919::1701633046::0::1::::<><>::res://Scripts/Ship.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://boa0urygxkl7l::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres<>uid://1ypxrjubeiwv::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>res://Scripts/Ship_Cannonballs.gd<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://caiwl410gy684::::res://Prefabs/Ships/Animations/ship_shooting_animation.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>uid://b7c58lhlc68wd::::res://Prefabs/Ships/Combat/hit_points.tscn
-QueenAnnesRevenge.tscn::PackedScene::-1::1693609513::0::1::::<><>::res://Scripts/Ship.gd<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>res://Scripts/ship_menu.gd<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>res://Prefabs/part_fire.gd<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>res://Scripts/Floating_Object.gd<>res://Scripts/Ship_Cannonballs.gd
+cannon_ball_ui.tscn::PackedScene::6681426368204795806::1702086281::0::1::::<><>::res://Data/Player/Scenes/cannon_ball_ui.gd<>uid://m1rpjp5nb3ny::::res://Assets/Textures/UI/Ship/Combat/Abilities/cannon-ball.png<>uid://b0qf45wixf6i3::::res://Assets/Fonts/BirchLeaf.ttf
+::res://Data/Player/Ships/::1702085879
+Dutchman.tscn::PackedScene::1355287034626868919::1702085879::0::1::::<><>::res://Scripts/ShipRe.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://boa0urygxkl7l::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres<>uid://1ypxrjubeiwv::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>res://Scripts/Ship_Cannonballs.gd<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://caiwl410gy684::::res://Prefabs/Ships/Animations/ship_shooting_animation.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>uid://b7c58lhlc68wd::::res://Prefabs/Ships/Combat/hit_points.tscn
+QueenAnnesRevenge.tscn::PackedScene::-1::1702085879::0::1::::<><>::res://Scripts/ShipRe.gd<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>res://Scripts/ship_menu.gd<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>res://Prefabs/part_fire.gd<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>res://Scripts/Floating_Object.gd<>res://Scripts/Ship_Cannonballs.gd
 Ship_hit_points.gd::GDScript::-1::1694470795::0::1::::<>Node3D<>::
-Walrus.tscn::PackedScene::2810152628060500552::1696852481::0::1::::<><>::res://Scripts/Ship.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>uid://caiwl410gy684::::res://Prefabs/Ships/Animations/ship_shooting_animation.tscn<>uid://b7c58lhlc68wd::::res://Prefabs/Ships/Combat/hit_points.tscn<>res://Scripts/Ship_Cannonballs.gd
-WhydahGally.tscn::PackedScene::2359924412227831813::1698776355::0::1::::<><>::res://Scripts/Ship.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://boa0urygxkl7l::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://ce17ftvb8wfmj::::res://Prefabs/Ships/Placeholder/ship_light.tscn<>uid://caiwl410gy684::::res://Prefabs/Ships/Animations/ship_shooting_animation.tscn<>uid://b7c58lhlc68wd::::res://Prefabs/Ships/Combat/hit_points.tscn<>res://Scripts/Ship_Cannonballs.gd
-::res://Data/Settings/::1701969349
+Walrus.tscn::PackedScene::2810152628060500552::1702085879::0::1::::<><>::res://Scripts/ShipRe.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>uid://caiwl410gy684::::res://Prefabs/Ships/Animations/ship_shooting_animation.tscn<>uid://b7c58lhlc68wd::::res://Prefabs/Ships/Combat/hit_points.tscn<>res://Scripts/Ship_Cannonballs.gd
+WhydahGally.tscn::PackedScene::2359924412227831813::1702085879::0::1::::<><>::res://Scripts/ShipRe.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://boa0urygxkl7l::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://ce17ftvb8wfmj::::res://Prefabs/Ships/Placeholder/ship_light.tscn<>uid://caiwl410gy684::::res://Prefabs/Ships/Animations/ship_shooting_animation.tscn<>uid://b7c58lhlc68wd::::res://Prefabs/Ships/Combat/hit_points.tscn<>res://Scripts/Ship_Cannonballs.gd
+::res://Data/Settings/::1702086275
 Settings.gd::GDScript::-1::1701468108::0::1::::Settings<>Resource<>::
-Settings.tres::Resource/Settings::8142529483316243419::1701969349::0::1::::<><>::res://Data/Settings/Settings.gd
+Settings.tres::Resource/Settings::8142529483316243419::1702086334::0::1::::<><>::res://Data/Settings/Settings.gd
 ::res://example/::1701111403
-::res://example/boujie_water_shader/::1701969349
+::res://example/boujie_water_shader/::1701969384
 camera.gd::GDScript::-1::1701111403::0::1::::<>Camera3D<>::
 DropWithDistance.gdshader::Shader::-1::1701111403::0::1::::<><>::
 fps_counter.gd::GDScript::-1::1701111403::0::1::::<>Label<>::
@@ -608,18 +608,18 @@ visibility_range_lod_group.gd::GDScript::-1::1701111404::0::1::::<>Node3D<>::
 water_shader_examples.gd::GDScript::-1::1701111404::0::1::::<>Node3D<>::
 water_shader_examples.tscn::PackedScene::2416875730846953745::1701111404::0::1::::<><>::res://example/boujie_water_shader/water_shader_examples.gd<>uid://ignpdv10rx52::::res://addons/boujie_water_shader/prefabs/deep_ocean.tscn<>res://example/boujie_water_shader/DropWithDistance.gdshader<>uid://dwsniss71hd03::::res://example/boujie_water_shader/Sand.png<>uid://bf2pvto4lly3o::::res://example/boujie_water_shader/foam_waves/foam1.tres<>res://example/boujie_water_shader/ocean_floor.gd<>uid://bavxgduu5sv2c::::res://example/boujie_water_shader/height_waves/height1.tres<>res://addons/boujie_water_shader/types/water_material_designer.gd<>uid://1wsbw638p6o2::::res://example/boujie_water_shader/foam_waves/foam2.tres<>uid://c33noe5oxh41i::::res://example/boujie_water_shader/height_waves/height2.tres<>uid://dp2iua60m7f8m::::res://example/boujie_water_shader/uv_waves/uvwave1.tres<>uid://byfaqt1j16ysr::::res://example/boujie_water_shader/foam_waves/foam3.tres<>uid://cvnsu7lttsfsh::::res://addons/boujie_water_shader/prefabs/outset_ocean_material.tres<>uid://0hol4u8hadr8::::res://example/boujie_water_shader/height_waves/height3.tres<>uid://3g1mc132n1al::::res://example/boujie_water_shader/uv_waves/uvwave2.tres<>uid://c5j78g2giv011::::res://example/boujie_water_shader/foam_waves/foam4.tres<>uid://cxeeuqlnw0v08::::res://example/boujie_water_shader/height_waves/height4.tres<>uid://d4jrd7iuain81::::res://example/boujie_water_shader/height_waves/height5.tres<>res://addons/boujie_water_shader/types/gerstner_wave.gd<>uid://dn0ukrkqrpmne::::res://example/boujie_water_shader/obelisk/obelisk.tscn<>uid://cuagegibp4wcj::::res://example/boujie_water_shader/pedestal/pedestal.tscn<>uid://kw5c7bat248e::::res://example/boujie_water_shader/MapEnvironment.tres<>uid://b17lc50fphxnr::::res://addons/boujie_water_shader/prefabs/ice_material.tres<>uid://dcwd8ciggcoqu::::res://addons/boujie_water_shader/prefabs/obsidian_material.tres<>uid://b8sapw7ttyhru::::res://example/boujie_water_shader/subdivcube.obj<>res://example/boujie_water_shader/camera.gd<>res://example/boujie_water_shader/underwater_fog.gd<>uid://cu46b100244nd::::res://addons/boujie_water_shader/prefabs/deep_ocean_material.tres<>res://example/boujie_water_shader/visibility_range_lod_group.gd<>uid://3kpp1l04oqfu::::res://example/boujie_water_shader/obelisk/StoneFloorTexture.png<>res://example/boujie_water_shader/hud.gd<>res://example/boujie_water_shader/fps_counter.gd<>uid://f85dvooifh0c::::res://example/boujie_water_shader/mountains.obj<>uid://c7phyredymkgu::::res://example/boujie_water_shader/mountain_material.tres
 ::res://example/boujie_water_shader/foam_waves/::1701116171
-foam1.tres::Resource/GerstnerWave::2794052378710079310::1701116171::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
-foam2.tres::Resource/GerstnerWave::1871422141561415227::1701111403::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
-foam3.tres::Resource/GerstnerWave::4081304431032133389::1701111403::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
-foam4.tres::Resource/GerstnerWave::6899088308415078554::1701111403::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
+foam1.tres::Resource/Resource::2794052378710079310::1701116171::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
+foam2.tres::Resource/Resource::1871422141561415227::1701111403::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
+foam3.tres::Resource/Resource::4081304431032133389::1701111403::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
+foam4.tres::Resource/Resource::6899088308415078554::1701111403::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
 ::res://example/boujie_water_shader/height_waves/::1701115211
-height1.tres::Resource/GerstnerWave::2431180011541084380::1701111403::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
-height2.tres::Resource/GerstnerWave::6796746145490089432::1701111403::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
-height3.tres::Resource/GerstnerWave::1770042972442882303::1701111403::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
-height4.tres::Resource/GerstnerWave::6395721723913868367::1701115211::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
-height5.tres::Resource/GerstnerWave::9214357156642203888::1701111404::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
-height_super.tres::Resource/GerstnerWave::8380313694060878896::1701111404::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
-::res://example/boujie_water_shader/obelisk/::1701969349
+height1.tres::Resource/Resource::2431180011541084380::1701111403::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
+height2.tres::Resource/Resource::6796746145490089432::1701111403::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
+height3.tres::Resource/Resource::1770042972442882303::1701111403::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
+height4.tres::Resource/Resource::6395721723913868367::1701115211::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
+height5.tres::Resource/Resource::9214357156642203888::1701111404::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
+height_super.tres::Resource/Resource::8380313694060878896::1701111404::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
+::res://example/boujie_water_shader/obelisk/::1701969384
 diffuse.tga::CompressedTexture2D::2133209283773664314::1701111404::1701111405::1::::<><>::
 normal.tga::CompressedTexture2D::6320736509435500376::1701111404::1701111405::1::::<><>::
 obelisk.tscn::PackedScene::8124559569114881782::1701111404::0::1::::<><>::uid://cj0csa11nva20::::res://example/boujie_water_shader/obelisk/pyramid_pillar.obj<>uid://b5yp2r2ccy8cj::::res://example/boujie_water_shader/obelisk/obelisk_material.tres<>uid://dm15sg1uklilb::::res://example/boujie_water_shader/pedestal/pedestal_material.tres
@@ -633,8 +633,8 @@ MetalPlates_Normal_03.tga::CompressedTexture2D::4431644806558770375::1701111404:
 pedestal.tscn::PackedScene::6176990012844250141::1701111404::0::1::::<><>::uid://dm15sg1uklilb::::res://example/boujie_water_shader/pedestal/pedestal_material.tres<>uid://cj0csa11nva20::::res://example/boujie_water_shader/obelisk/pyramid_pillar.obj<>uid://b5yp2r2ccy8cj::::res://example/boujie_water_shader/obelisk/obelisk_material.tres
 pedestal_material.tres::StandardMaterial3D::8057056006642057487::1701111404::0::1::::<><>::uid://dv8hg77du5mfk::::res://example/boujie_water_shader/pedestal/MetalPlates_Diffuse.tga<>uid://b4eyspeen6e04::::res://example/boujie_water_shader/pedestal/MetalPlates_Normal_03.tga
 ::res://example/boujie_water_shader/uv_waves/::1701111404
-uvwave1.tres::Resource/GerstnerWave::8268354405871755682::1701111404::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
-uvwave2.tres::Resource/GerstnerWave::1979274106248481291::1701111404::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
+uvwave1.tres::Resource/Resource::8268354405871755682::1701111404::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
+uvwave2.tres::Resource/Resource::1979274106248481291::1701111404::0::1::::<><>::res://addons/boujie_water_shader/types/gerstner_wave.gd
 ::res://Legal/::1701117332
 Licenses.txt::TextFile::-1::1701117332::0::1::::<><>::
 ::res://Models/::1696778491
@@ -683,118 +683,121 @@ emit_particles.gd::GDScript::-1::1693261197::0::1::::<>GPUParticles3D<>::
 fire.tscn::PackedScene::7921073276974159105::1696868576::0::1::::<><>::uid://dcj7mv4qe2b1t::::res://Assets/Textures/Fire/Fire.tres<>uid://botpljupcx1wg::::res://Assets/Textures/Fire/fire5_white.png<>uid://bkv4rtn3besn3::::res://Assets/Textures/Fire/flame_spark.png
 hit_particles.gd::GDScript::-1::1696954261::0::1::::<>GPUParticles3D<>::
 hit_particles.tscn::PackedScene::1080086638981251100::1696954273::0::1::::<><>::res://Prefabs/Particles/hit_particles.gd
-::res://Prefabs/Ships/::1696599381
-player_ship.tscn::PackedScene::5959584753017987275::1696599381::0::1::::<><>::res://Scripts/Ship.gd<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>res://Scripts/Ship_Cannonballs.gd
+::res://Prefabs/Ships/::1702085879
+player_ship.tscn::PackedScene::5959584753017987275::1702085879::0::1::::<><>::res://Scripts/ShipRe.gd<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>res://Scripts/Ship_Cannonballs.gd
 ::res://Prefabs/Ships/Animations/::1698776355
 ship_shooting_animation.tscn::PackedScene::4790713371479449275::1698776355::0::1::::<><>::uid://bepm0760nntva::::res://Prefabs/Particles/cannon_fire.tscn<>uid://b5v0ydi5nwe58::::res://Assets/Audio/Sound Effects/Combat/Ship/cannon_shot1.wav
 ::res://Prefabs/Ships/Combat/::1694470728
 hit_points.tscn::PackedScene::4638473465674314539::1694470728::0::1::::<><>::res://Data/Player/Ships/Ship_hit_points.gd
-::res://Prefabs/Ships/Placeholder/::1701803991
-ship_dark.tscn::PackedScene::9007869615265838649::1701803991::0::1::::<><>::res://Scripts/Floating_Object.gd<>uid://bahc3rvnq6exh::::res://Models/Ships/Sloop1/Sloop.glb<>uid://37iarqnytm8r::::res://Assets/Textures/Rain/water Sparkles.png<>res://Scripts/Shaders/mask.gdshader
+::res://Prefabs/Ships/Placeholder/::1702086281
+ship_dark.tscn::PackedScene::9007869615265838649::1702086281::0::1::::<><>::res://Scripts/Floating_Object.gd<>uid://bahc3rvnq6exh::::res://Models/Ships/Sloop1/Sloop.glb<>uid://37iarqnytm8r::::res://Assets/Textures/Rain/water Sparkles.png<>res://Scripts/Shaders/mask.gdshader
 ship_light.tscn::PackedScene::5109223466756888021::1697178437::0::1::::<><>::res://Scripts/Floating_Object.gd<>uid://bahc3rvnq6exh::::res://Models/Ships/Sloop1/Sloop.glb
-::res://Prefabs/Ships/Player/::1701633369
-Dutchman.tscn::PackedScene::4422179463385217488::1693349747::0::1::::<><>::res://Scripts/Ship.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://boa0urygxkl7l::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>res://Scenes/Ship_Cannonballs.gd
-QueenAnnesRevenge.tscn::PackedScene::7326125014192458241::1701633369::0::1::::<><>::res://Scripts/Ship.gd<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>res://Scripts/Ship_Cannonballs.gd
-Walrus.tscn::PackedScene::3974874921139008229::1693518010::0::1::::<><>::res://Scripts/Ship.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>res://Scenes/Ship_Cannonballs.gd
-WhydahGally.tscn::PackedScene::2521889920737272071::1693517710::0::1::::<><>::res://Scripts/Ship.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://boa0urygxkl7l::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://dkm5a7ddcld6j::::res://Prefabs/Ships/Placeholder/ship_light.tscn<>res://Scenes/Ship_Cannonballs.gd
+::res://Prefabs/Ships/Player/::1702085879
+Dutchman.tscn::PackedScene::4422179463385217488::1702085879::0::1::::<><>::res://Scripts/ShipRe.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://boa0urygxkl7l::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>res://Scenes/Ship_Cannonballs.gd
+QueenAnnesRevenge.tscn::PackedScene::7326125014192458241::1702085879::0::1::::<><>::res://Scripts/ShipRe.gd<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>res://Scripts/Ship_Cannonballs.gd
+Walrus.tscn::PackedScene::3974874921139008229::1702085879::0::1::::<><>::res://Scripts/ShipRe.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>res://Scenes/Ship_Cannonballs.gd
+WhydahGally.tscn::PackedScene::2521889920737272071::1702085879::0::1::::<><>::res://Scripts/ShipRe.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://boa0urygxkl7l::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://ce17ftvb8wfmj::::res://Prefabs/Ships/Placeholder/ship_light.tscn<>res://Scenes/Ship_Cannonballs.gd
 ::res://Prefabs/Test/::1693613107
 ship.tscn::PackedScene::4124110932105557040::1693613107::0::1::::<><>::res://Scripts/TestScript.gd
-::res://Prefabs/User Interface/::1701804116
+::res://Prefabs/User Interface/::1702086282
 Audio.gd::GDScript::-1::1701331251::0::1::::<>Control<>::
 ButtonBBCODE.gd::GDScript::-1::1700486702::0::1::::<>Button<>::
 cursor.tscn::PackedScene::363334071036537790::1694211800::0::1::::<><>::res://Scripts/Grid_follow_cursor.gd
 Graphics.gd::GDScript::-1::1701468462::0::1::::<>Control<>::
 menu.gd::GDScript::-1::1701468932::0::1::::<>Control<>::
-pause_menu.tscn::PackedScene::4322336217252609269::1701803991::0::1::::<><>::uid://b8sb3hd6h7k67::::res://Assets/Textures/UI/game-menu.png<>res://Prefabs/User Interface/menu.gd<>uid://b0qf45wixf6i3::::res://Assets/Fonts/BirchLeaf.ttf<>res://Scripts/User Interface/ButtonBBCODE.gd<>res://Prefabs/User Interface/Audio.gd<>uid://doakjhhquw76n::::res://Data/Settings/Settings.tres<>res://Prefabs/User Interface/Graphics.gd
-tooltip.gdshader::Shader::-1::1701804116::0::1::::<><>::
-::res://Prefabs/User Interface/Buttons/::1701803990
-ability_button.tres::Theme::5065715024521592623::1701802585::0::1::::<><>::uid://duloxtkkjthpc::::res://Assets/Textures/UI/health-bar.png
+pause_menu.tscn::PackedScene::4322336217252609269::1702086281::0::1::::<><>::uid://b8sb3hd6h7k67::::res://Assets/Textures/UI/game-menu.png<>res://Prefabs/User Interface/menu.gd<>uid://b0qf45wixf6i3::::res://Assets/Fonts/BirchLeaf.ttf<>res://Scripts/User Interface/ButtonBBCODE.gd<>res://Prefabs/User Interface/Audio.gd<>uid://doakjhhquw76n::::res://Data/Settings/Settings.tres<>res://Prefabs/User Interface/Graphics.gd
+tooltip.gdshader::Shader::-1::1702086334::0::1::::<><>::
+::res://Prefabs/User Interface/Buttons/::1702086281
+ability_button.tres::Theme::5065715024521592623::1702080609::0::1::::<><>::uid://duloxtkkjthpc::::res://Assets/Textures/UI/health-bar.png
 Description.gd::GDScript::-1::1698165863::0::1::::<>RichTextLabel<>::
 normal_ability_button.gd::GDScript::-1::1698775964::0::1::::<>TextureButton<>::
-normal_ability_button.tscn::PackedScene::219116377531857983::1701803990::0::1::::<><>::uid://cef4t62webdn8::::res://Prefabs/User Interface/Buttons/ability_button.tres<>uid://wacquabgr5ah::::res://Assets/Textures/UI/Ship/Combat/Ship-slot.png<>res://Prefabs/User Interface/Buttons/normal_ability_button.gd<>uid://dfrf1cpfp584d::::res://Assets/Textures/UI/Ship/Combat/Ship-slot-hover.png<>uid://cq72osne7ueua::::res://Assets/Textures/UI/Ship/Combat/Abilities/fire-ball.png<>uid://cdvw7o05ypl6x::::res://Assets/Textures/UI/Ship/Combat/Ship-slot-disabled.png<>uid://cnqp5mp6kmcp0::::res://Assets/Textures/UI/Ship/Combat/Ship-slot-locked.png<>uid://1fyd3iq1ffo6::::res://Prefabs/User Interface/Buttons/tooltip.tscn
+normal_ability_button.tscn::PackedScene::219116377531857983::1702086281::0::1::::<><>::uid://cef4t62webdn8::::res://Prefabs/User Interface/Buttons/ability_button.tres<>uid://wacquabgr5ah::::res://Assets/Textures/UI/Ship/Combat/Ship-slot.png<>res://Prefabs/User Interface/Buttons/normal_ability_button.gd<>uid://dfrf1cpfp584d::::res://Assets/Textures/UI/Ship/Combat/Ship-slot-hover.png<>uid://cq72osne7ueua::::res://Assets/Textures/UI/Ship/Combat/Abilities/fire-ball.png<>uid://cdvw7o05ypl6x::::res://Assets/Textures/UI/Ship/Combat/Ship-slot-disabled.png<>uid://cnqp5mp6kmcp0::::res://Assets/Textures/UI/Ship/Combat/Ship-slot-locked.png<>uid://1fyd3iq1ffo6::::res://Prefabs/User Interface/Buttons/tooltip.tscn
 Tooltip.gd::GDScript::-1::1698171940::0::1::::<>Control<>::
 tooltip.tscn::PackedScene::1836695872341404375::1700484937::0::1::::<><>::res://Prefabs/User Interface/Buttons/Tooltip.gd<>uid://bvdmc042j82ld::::res://Assets/Textures/map-2.png<>uid://b0qf45wixf6i3::::res://Assets/Fonts/BirchLeaf.ttf<>res://Prefabs/User Interface/Buttons/Description.gd
-::res://Prefabs/User Interface/Ship/::1701802585
+::res://Prefabs/User Interface/Ship/::1702080610
 Debug.gd::GDScript::-1::1696262797::0::1::::<>Control<>::
-option_button_ship_menu.tres::Theme::4964882094321871408::1701802585::0::1::::<><>::
+option_button_ship_menu.tres::Theme::4964882094321871408::1702080610::0::1::::<><>::
 ship_menu.tscn::PackedScene::2336477611080778618::1701391762::0::1::::<><>::res://Scripts/ship_menu.gd<>uid://cc0a5aoiafsuy::::res://Prefabs/User Interface/Ship/option_button_ship_menu.tres<>uid://b3eotnoaupsu::::res://Assets/Textures/UI/Ship/Combat/Ship-menu-enemy.png<>uid://6puc7db2wbck::::res://Assets/Textures/UI/Ship/Combat/Ship-menu-player.png<>res://Prefabs/User Interface/Ship/Debug.gd<>uid://mj2gwy4qv5py::::res://Assets/Textures/UI/Ship/Combat/Ship_ui.png<>res://Scripts/User Interface/Normal Projectiles.gd<>uid://duloxtkkjthpc::::res://Assets/Textures/UI/health-bar.png<>uid://drhdweiex5v04::::res://Assets/Textures/UI/health-bar-progress.png<>uid://bbcubcjnt81a1::::res://Assets/Textures/UI/button-ui.png<>uid://d3utk1e2kn3ir::::res://Assets/Textures/UI/button-ui-hover.png<>uid://dfjqs1f82t7qc::::res://Assets/Fonts/pixel_pirate.ttf<>uid://cef4t62webdn8::::res://Prefabs/User Interface/Buttons/ability_button.tres<>uid://b8bmct638cq3r::::res://Assets/Textures/UI/Ship/Combat/Ship-slot-special.png<>uid://bc7hcps8x7oh7::::res://Assets/Textures/UI/Ship/Combat/Ship-slot-special-hover.png<>uid://bebdjrb2pnhgq::::res://Assets/Textures/UI/Ship/Combat/Abilities/water.png<>uid://bi0n6hkm8jq2::::res://Assets/Textures/UI/Ship/Combat/Ship-slot-special-disabled.png<>res://Prefabs/User Interface/Ship/Special_ability_button.gd<>uid://1fyd3iq1ffo6::::res://Prefabs/User Interface/Buttons/tooltip.tscn<>uid://cnqp5mp6kmcp0::::res://Assets/Textures/UI/Ship/Combat/Ship-slot-locked.png
 Special_ability_button.gd::GDScript::-1::1698776353::0::1::::<>TextureButton<>::
-::res://Scenes/::1701969349
-Battle.tscn::PackedScene::6968062110458474812::1701969349::0::1::::<><>::res://Scripts/Camera.gd<>res://Scripts/Match_game.gd<>uid://bsjloxje2v2b3::::res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co.jpg<>uid://c73a773ukpclh::::res://Data/Player/Player.tres<>uid://fgacajsj3cf3::::res://Prefabs/User Interface/cursor.tscn<>uid://tkrm5v6hnf2v::::res://Data/Player/Ships/Dutchman.tscn<>uid://bgbi2kruc1bxg::::res://Data/Player/Ships/Walrus.tscn<>uid://8vfu0qpkbqyn::::res://Data/Player/Ships/WhydahGally.tscn<>res://Scripts/Ship.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://boa0urygxkl7l::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://ce17ftvb8wfmj::::res://Prefabs/Ships/Placeholder/ship_light.tscn<>uid://bnvjpk6edctrf::::res://Prefabs/enemy_ai.tscn<>res://Scripts/Ship_Cannonballs.gd<>res://Scripts/UI_match.gd<>uid://caiwl410gy684::::res://Prefabs/Ships/Animations/ship_shooting_animation.tscn<>uid://b7c58lhlc68wd::::res://Prefabs/Ships/Combat/hit_points.tscn<>uid://cnvv5inbmi000::::res://Assets/Audio/Soundtrack/Cloudy voyage.ogg<>uid://bbcubcjnt81a1::::res://Assets/Textures/UI/button-ui.png<>uid://d3utk1e2kn3ir::::res://Assets/Textures/UI/button-ui-hover.png<>uid://dfjqs1f82t7qc::::res://Assets/Fonts/pixel_pirate.ttf<>res://Scenes/fps.gd<>uid://damy8fkqbrlpm::::res://Assets/Textures/UI/button-menu.png<>uid://d1r87lrx472rp::::res://Assets/Textures/UI/button-menu-hover.png<>uid://b2t1immwsvpbp::::res://Prefabs/User Interface/pause_menu.tscn<>uid://b8sb3hd6h7k67::::res://Assets/Textures/UI/game-menu.png<>uid://bpvbvy6vfe5mx::::res://Scenes/deep_ocean.tscn
+::res://Scenes/::1702086282
+Battle.tscn::PackedScene::6968062110458474812::1702086281::0::1::::<><>::res://Scripts/Camera.gd<>res://Scripts/Match_game.gd<>uid://bsjloxje2v2b3::::res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co.jpg<>uid://c73a773ukpclh::::res://Data/Player/Player.tres<>uid://fgacajsj3cf3::::res://Prefabs/User Interface/cursor.tscn<>uid://tkrm5v6hnf2v::::res://Data/Player/Ships/Dutchman.tscn<>uid://bgbi2kruc1bxg::::res://Data/Player/Ships/Walrus.tscn<>uid://8vfu0qpkbqyn::::res://Data/Player/Ships/WhydahGally.tscn<>res://Scripts/ShipRe.gd<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://boa0urygxkl7l::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://ce17ftvb8wfmj::::res://Prefabs/Ships/Placeholder/ship_light.tscn<>uid://bnvjpk6edctrf::::res://Prefabs/enemy_ai.tscn<>res://Scripts/Ship_Cannonballs.gd<>res://Scripts/UI_match.gd<>uid://caiwl410gy684::::res://Prefabs/Ships/Animations/ship_shooting_animation.tscn<>uid://b7c58lhlc68wd::::res://Prefabs/Ships/Combat/hit_points.tscn<>uid://cnvv5inbmi000::::res://Assets/Audio/Soundtrack/Cloudy voyage.ogg<>uid://bbcubcjnt81a1::::res://Assets/Textures/UI/button-ui.png<>uid://d3utk1e2kn3ir::::res://Assets/Textures/UI/button-ui-hover.png<>uid://dfjqs1f82t7qc::::res://Assets/Fonts/pixel_pirate.ttf<>res://Scenes/fps.gd<>uid://damy8fkqbrlpm::::res://Assets/Textures/UI/button-menu.png<>uid://d1r87lrx472rp::::res://Assets/Textures/UI/button-menu-hover.png<>uid://b2t1immwsvpbp::::res://Prefabs/User Interface/pause_menu.tscn<>uid://b8sb3hd6h7k67::::res://Assets/Textures/UI/game-menu.png<>uid://bpvbvy6vfe5mx::::res://Scenes/deep_ocean.tscn
 clouds.gdshader::Shader::-1::1699577437::0::1::::<><>::
+Combat.gd::GDScript::-1::1702085556::0::1::::Ship_Combat<>Node<>::
 deep_ocean.tscn::PackedScene::3482704799173969655::1701387670::0::1::::<><>::res://addons/boujie_water_shader/prefabs/ocean_prefab.gd<>uid://cu46b100244nd::::res://addons/boujie_water_shader/prefabs/deep_ocean_material.tres<>res://addons/boujie_water_shader/types/camera_follower_3d.gd<>res://addons/boujie_water_shader/types/water_material_designer.gd<>res://addons/boujie_water_shader/types/gerstner_wave.gd<>uid://cxeeuqlnw0v08::::res://example/boujie_water_shader/height_waves/height4.tres<>uid://c33noe5oxh41i::::res://example/boujie_water_shader/height_waves/height2.tres<>uid://bf2pvto4lly3o::::res://example/boujie_water_shader/foam_waves/foam1.tres<>uid://1wsbw638p6o2::::res://example/boujie_water_shader/foam_waves/foam2.tres<>uid://dp2iua60m7f8m::::res://example/boujie_water_shader/uv_waves/uvwave1.tres<>uid://3g1mc132n1al::::res://example/boujie_water_shader/uv_waves/uvwave2.tres
+EnemyShip.gd::GDScript::-1::1702085807::0::1::::<>Node3D<>::
 fog2.gdshader::Shader::-1::1699577437::0::1::::<><>::
 fog.gdshader::Shader::-1::1699577437::0::1::::<><>::
 fps.gd::GDScript::-1::1701325200::0::1::::<>Label<>::
 main.tres::Environment::904175416211093694::1691515751::0::1::::<><>::uid://bsjloxje2v2b3::::res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co.jpg
-main.tscn::PackedScene::8885865888388928659::1700484888::0::1::::<><>::res://Scripts/Shaders/fog.gdshader<>res://Scripts/Match_game.gd<>uid://c73a773ukpclh::::res://Data/Player/Player.tres<>res://Scripts/Camera.gd<>uid://bsjloxje2v2b3::::res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co.jpg<>uid://fgacajsj3cf3::::res://Prefabs/User Interface/cursor.tscn<>uid://cssp0feh80rbg::::res://Assets/Textures/map-1.png<>res://Scripts/Ship.gd<>res://Scripts/Enemy_Map.gd<>res://Scripts/UI_match.gd<>uid://cc11767o2k2al::::res://Scenes/mark.tscn<>res://Scripts/Enemy_attack.gd<>uid://dpearitenb2b4::::res://Assets/Textures/spyglass.png<>res://Scripts/Player_attack_zone.gd<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://bnvjpk6edctrf::::res://Prefabs/enemy_ai.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://bwhof72vkp2l6::::res://Assets/Textures/Empty_grid.png<>uid://ce17ftvb8wfmj::::res://Prefabs/Ships/Placeholder/ship_light.tscn<>res://Scripts/RandomObjectSpawner.gd<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://d4fy7x6u1qact::::res://Assets/water/water.tscn<>uid://boa0urygxkl7l::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres<>uid://daoferrwatptc::::res://Assets/Textures/Sand/sand_01_diff_1k.jpg<>res://Scripts/Ship_Cannonballs.gd<>uid://obtjefhqm51v::::res://Prefabs/floating_object.tscn<>uid://by00rfhlb32fk::::res://Prefabs/Test/ship.tscn<>uid://tkrm5v6hnf2v::::res://Data/Player/Ships/Dutchman.tscn<>res://Data/Player/Ships/QueenAnnesRevenge.tscn<>res://Scripts/Resources/RandomObjects/RandomObjectResource_currency.gd<>uid://8vfu0qpkbqyn::::res://Data/Player/Ships/WhydahGally.tscn
+main.tscn::PackedScene::8885865888388928659::1702085879::0::1::::<><>::res://Scripts/Shaders/fog.gdshader<>res://Scripts/Match_game.gd<>uid://c73a773ukpclh::::res://Data/Player/Player.tres<>res://Scripts/Camera.gd<>uid://bsjloxje2v2b3::::res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co.jpg<>uid://fgacajsj3cf3::::res://Prefabs/User Interface/cursor.tscn<>uid://cssp0feh80rbg::::res://Assets/Textures/map-1.png<>res://Scripts/ShipRe.gd<>res://Scripts/Enemy_Map.gd<>res://Scripts/UI_match.gd<>uid://cc11767o2k2al::::res://Scenes/mark.tscn<>res://Scripts/Enemy_attack.gd<>uid://dpearitenb2b4::::res://Assets/Textures/spyglass.png<>res://Scripts/Player_attack_zone.gd<>uid://b62gpgcp55lat::::res://Prefabs/part_fire.tscn<>uid://c0vhxameste02::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres<>uid://bnvjpk6edctrf::::res://Prefabs/enemy_ai.tscn<>uid://cjhrkmvrhorbs::::res://Prefabs/destroyed_fire.tscn<>uid://bwhof72vkp2l6::::res://Assets/Textures/Empty_grid.png<>uid://ce17ftvb8wfmj::::res://Prefabs/Ships/Placeholder/ship_light.tscn<>res://Scripts/RandomObjectSpawner.gd<>uid://8j2pej8wmupm::::res://Prefabs/User Interface/Ship/ship_menu.tscn<>uid://c1yqbcmv0exjb::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres<>uid://d4fy7x6u1qact::::res://Assets/water/water.tscn<>uid://boa0urygxkl7l::::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres<>uid://daoferrwatptc::::res://Assets/Textures/Sand/sand_01_diff_1k.jpg<>res://Scripts/Ship_Cannonballs.gd<>uid://obtjefhqm51v::::res://Prefabs/floating_object.tscn<>uid://by00rfhlb32fk::::res://Prefabs/Test/ship.tscn<>uid://tkrm5v6hnf2v::::res://Data/Player/Ships/Dutchman.tscn<>res://Data/Player/Ships/QueenAnnesRevenge.tscn<>res://Scripts/Resources/RandomObjects/RandomObjectResource_currency.gd<>uid://8vfu0qpkbqyn::::res://Data/Player/Ships/WhydahGally.tscn
 MainSky.gdshader::Shader::-1::1699577437::0::1::::<><>::
 mark.tscn::PackedScene::4968530341814902839::1692387186::0::1::::<><>::res://Scripts/Mark.gd<>uid://daxrdkr0cu5jv::::res://Assets/Textures/cross-mark-1.png<>uid://bq8coo64vb2ex::::res://Models/Grid/Grid_slot.png
 OpenWorld.tscn::PackedScene::299525517450208674::1693609855::0::1::::<><>::res://Scripts/Match_game.gd<>uid://bwrysr2w7ojkk::::res://Data/Player/Player.tres<>res://Scripts/Camera.gd
-PlayerShip.gd::GDScript::-1::1701802585::0::1::::PlayerShip<>Node3D<>::
-Player_ShipMenu.gd::GDScript::-1::1701969349::0::1::::<>Control<>::
+Player_ShipMenu.gd::GDScript::-1::1701972144::0::1::::<>Control<>::
 Sky.gdshader::Shader::-1::1699577437::0::1::::<><>::
 water2.gdshader::Shader::-1::1699577437::0::1::::<><>::
 water.gdshader::Shader::-1::1699577437::0::1::::<><>::
 Weather.gd::GDScript::-1::1700145295::0::1::::<>Node<>::
-World.tscn::PackedScene::4502073556725836008::1701969349::0::1::::<><>::res://Scripts/Camera.gd<>res://Scripts/Environment.gd<>uid://dx86cfl72ttys::::res://Scenes/WorldSky.tres<>uid://db6ojjt0j8kks::::res://Assets/Audio/Sound Effects/Ambient/wind-outside-sound-ambient-141989.mp3<>uid://cd8yulx8jfgg7::::res://Assets/Audio/Sound Effects/Ambient/ocean-waves-112906.mp3<>res://Scripts/CharacterBody3D.gd<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>uid://d1meu5g00f1cw::::res://Assets/Textures/Rain/Rain Drop.png<>res://Scenes/Weather.gd<>uid://c6xtsq67ypmr8::::res://Assets/Audio/Sound Effects/Ambient/light-rain-ambient-114354.mp3<>res://Scripts/UI_match.gd<>uid://damy8fkqbrlpm::::res://Assets/Textures/UI/button-menu.png<>uid://b1aslilfq257l::::res://Assets/Textures/Rain/water ripple.png<>uid://d1r87lrx472rp::::res://Assets/Textures/UI/button-menu-hover.png<>uid://c73a773ukpclh::::res://Data/Player/Player.tres<>res://Scenes/fps.gd<>res://Scenes/PlayerShip.gd<>uid://dkm3hykhrpanh::::res://Data/Player/Cannonballs/Dutchman/CannonBall.tres<>uid://vohu8kjrgnv1::::res://Data/Player/Cannonballs/Dutchman/FireBall.tres<>res://Scenes/Player_ShipMenu.gd<>uid://c2gsd7h2ve7ly::::res://Data/Player/Scenes/cannon_ball_ui.tscn<>uid://bpvbvy6vfe5mx::::res://Scenes/deep_ocean.tscn<>uid://b0qf45wixf6i3::::res://Assets/Fonts/BirchLeaf.ttf<>uid://b2t1immwsvpbp::::res://Prefabs/User Interface/pause_menu.tscn
-WorldSky.tres::Sky::8843616000101974294::1701802585::0::1::::<><>::res://Scenes/MainSky.gdshader<>uid://yqgmtn3ktvrj::::res://Assets/Textures/stars.png
-::res://Scripts/::1701802585
-Camera.gd::GDScript::-1::1701717341::0::1::::<>Camera3D<>::
+World.tscn::PackedScene::4502073556725836008::1702086334::0::1::::<><>::res://Scripts/Camera.gd<>res://Scripts/Environment.gd<>uid://dx86cfl72ttys::::res://Scenes/WorldSky.tres<>uid://db6ojjt0j8kks::::res://Assets/Audio/Sound Effects/Ambient/wind-outside-sound-ambient-141989.mp3<>uid://cd8yulx8jfgg7::::res://Assets/Audio/Sound Effects/Ambient/ocean-waves-112906.mp3<>res://Scripts/CharacterBody3D.gd<>uid://d1lqkc0r5kx3v::::res://Prefabs/Ships/Placeholder/ship_dark.tscn<>uid://d1meu5g00f1cw::::res://Assets/Textures/Rain/Rain Drop.png<>res://Scenes/Weather.gd<>uid://c6xtsq67ypmr8::::res://Assets/Audio/Sound Effects/Ambient/light-rain-ambient-114354.mp3<>res://Scripts/UI_match.gd<>uid://damy8fkqbrlpm::::res://Assets/Textures/UI/button-menu.png<>uid://b1aslilfq257l::::res://Assets/Textures/Rain/water ripple.png<>uid://d1r87lrx472rp::::res://Assets/Textures/UI/button-menu-hover.png<>uid://c73a773ukpclh::::res://Data/Player/Player.tres<>res://Scenes/fps.gd<>res://Scripts/Ship/Ship.gd<>uid://dkm3hykhrpanh::::res://Data/Player/Cannonballs/Dutchman/CannonBall.tres<>uid://vohu8kjrgnv1::::res://Data/Player/Cannonballs/Dutchman/FireBall.tres<>res://Scenes/Player_ShipMenu.gd<>uid://c2gsd7h2ve7ly::::res://Data/Player/Scenes/cannon_ball_ui.tscn<>uid://bpvbvy6vfe5mx::::res://Scenes/deep_ocean.tscn<>uid://b0qf45wixf6i3::::res://Assets/Fonts/BirchLeaf.ttf<>uid://b2t1immwsvpbp::::res://Prefabs/User Interface/pause_menu.tscn<>res://Scenes/Combat.gd<>res://Scenes/EnemyShip.gd
+WorldSky.tres::Sky::8843616000101974294::1702086105::0::1::::<><>::res://Scenes/MainSky.gdshader<>uid://yqgmtn3ktvrj::::res://Assets/Textures/stars.png
+::res://Scripts/::1702086275
+Camera.gd::GDScript::-1::1701975233::0::1::::<>Camera3D<>::
 Cannon_balls.gd::GDScript::-1::1690998316::0::1::::<>Node<>::
-CharacterBody3D.gd::GDScript::-1::1701633032::0::1::::<>CharacterBody3D<>::
+CharacterBody3D.gd::GDScript::-1::1702085801::0::1::::<>CharacterBody3D<>::
 Enemy_AI.gd::GDScript::-1::1692312901::0::1::::Enemy_AI<>Node3D<>res://Assets/Textures/Icons/processor.svg::
 Enemy_attack.gd::GDScript::-1::1693000134::0::1::::<>Node3D<>::
 Enemy_Map.gd::GDScript::-1::1693606871::0::1::::<>Sprite2D<>::
 Environment.gd::GDScript::-1::1699986303::0::1::::<>Node<>::
 FloatingObject_action.gd::GDScript::-1::1699137368::0::1::::<>Node3D<>::
-Floating_Object.gd::GDScript::-1::1701330751::0::1::::<>RigidBody3D<>::
+Floating_Object.gd::GDScript::-1::1702086275::0::1::::<>RigidBody3D<>::
 fog_hole.gd::GDScript::-1::1689982616::0::1::::<>FogVolume<>::
 Global.gd::GDScript::-1::1699985070::0::1::::<>Node<>::
 Grid_follow_cursor.gd::GDScript::-1::1696954090::0::1::::<>MeshInstance3D<>::
 Mark.gd::GDScript::-1::1690407566::0::1::::<>Node2D<>::
-Match_game.gd::GDScript::-1::1701802585::0::1::::<>Node<>::
+Match_game.gd::GDScript::-1::1702080609::0::1::::<>Node<>::
 Ocean.gd::GDScript::-1::1699653169::0::1::::<>Node3D<>::
 Player_attack_zone.gd::GDScript::-1::1693606497::0::1::::<>Node3D<>::
 RandomObjectSpawner.gd::GDScript::-1::1693344030::0::1::::<>Node3D<>::
-Ship.gd::GDScript::-1::1701633014::0::1::::Ship<>Node3D<>res://Assets/Textures/spyglass.png::
+ShipRe.gd::GDScript::-1::1702085974::0::1::::ShipEX<>Node3D<>res://Assets/Textures/spyglass.png::
 Ship_Cannonballs.gd::GDScript::-1::1692217199::0::1::::Ship_CannonBalls<>Node<>res://Assets/Textures/Icons/ball-pyramid.svg::
 ship_menu.gd::GDScript::-1::1698776240::0::1::::<>Control<>::
 Signals.gd::GDScript::-1::1696348842::0::1::::<>Node<>::
 TestScript.gd::GDScript::-1::1693604784::0::1::::<>MeshInstance3D<>::
-UI_match.gd::GDScript::-1::1700489648::0::1::::<>Control<>::
+UI_match.gd::GDScript::-1::1701971487::0::1::::<>Control<>::
 ::res://Scripts/Resources/::1699654546
 2GridSpawnInfo.tres::Resource::5149510013127591560::1676564731::0::1::::<><>::res://Resources/GridSpawnInfo.gd
 GridSpawnInfo.gd::GDScript::-1::1676564731::0::1::::<>Resource<>::
 GridSpawnInfo.tres::Resource::3341174818044504211::1699654546::0::1::::<><>::res://Scripts/Resources/GridSpawnInfo.gd
 status_effect.gd::GDScript::-1::1698687595::0::1::::Status_Effect<>Resource<>::
-Status_Effect.tres::Resource/Status_Effect::4346223729321783793::1698389177::0::1::::<><>::res://Scripts/Resources/status_effect.gd
+Status_Effect.tres::Resource/Resource::4346223729321783793::1698389177::0::1::::<><>::res://Scripts/Resources/status_effect.gd
 ::res://Scripts/Resources/RandomObjects/::1693092013
 RandomObjectResource_currency.gd::GDScript::-1::1693092013::0::1::::Random_object_data_currency<>Resource<>::
 ::res://Scripts/Resources/RandomObjects/Resources/::1693086917
-Barrel_Coins.tres::Resource/Random_object_data_currency::7273138012544088431::1693086917::0::1::::<><>::res://Scripts/Resources/RandomObjects/RandomObjectResource_currency.gd
-Barrel_Pearls.tres::Resource/Random_object_data_currency::5657497224869168604::1693086917::0::1::::<><>::res://Scripts/Resources/RandomObjects/RandomObjectResource_currency.gd
+Barrel_Coins.tres::Resource/Resource::7273138012544088431::1693086917::0::1::::<><>::res://Scripts/Resources/RandomObjects/RandomObjectResource_currency.gd
+Barrel_Pearls.tres::Resource/Resource::5657497224869168604::1693086917::0::1::::<><>::res://Scripts/Resources/RandomObjects/RandomObjectResource_currency.gd
 ::res://Scripts/Resources/Ship/::1698687357
 Cannon_balls.gd::GDScript::-1::1698775785::0::1::::Cannon_Balls_resource<>Resource<>::
-Ship_Cannon_Balls.tres::Resource/Cannon_Balls_resource::6939517861971773666::1692778385::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd
+Ship_Cannon_Balls.tres::Resource/Resource::6939517861971773666::1692778385::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd
 ::res://Scripts/Resources/Ship/Cannon_Balls/::1692776944
-::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/::1701802585
-Walrus_cb_normal.tres::Resource/Cannon_Balls_resource::6648269750322736735::1701802585::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd<>uid://m1rpjp5nb3ny::::res://Assets/Textures/UI/Ship/Combat/Abilities/cannon-ball.png
-Walrus_fire.tres::Resource/Cannon_Balls_resource::3370619065598827511::1701802585::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd<>uid://b26lw1la4xftp::::res://Scripts/Resources/Status_Effect.tres<>uid://cq72osne7ueua::::res://Assets/Textures/UI/Ship/Combat/Abilities/fire-ball.png
-Walrus_Heal.tres::Resource/Cannon_Balls_resource::1875407736547990417::1701802585::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd<>res://Scripts/Resources/status_effect.gd<>uid://bkv15s4cma5mp::::res://Assets/Textures/UI/Ship/Combat/Abilities/healing-ball.png
-Walrus_sleep.tres::Resource/Cannon_Balls_resource::6571380502125645877::1701802585::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd<>res://Scripts/Resources/status_effect.gd<>uid://cpp6aimj6swou::::res://Assets/Textures/UI/Ship/Combat/Abilities/sleeping-ball.png
+::res://Scripts/Resources/Ship/Cannon_Balls/Walrus/::1702080610
+Walrus_cb_normal.tres::Resource/Cannon_Balls_resource::6648269750322736735::1702080609::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd<>uid://m1rpjp5nb3ny::::res://Assets/Textures/UI/Ship/Combat/Abilities/cannon-ball.png
+Walrus_fire.tres::Resource/Cannon_Balls_resource::3370619065598827511::1702080610::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd<>uid://b26lw1la4xftp::::res://Scripts/Resources/Status_Effect.tres<>uid://cq72osne7ueua::::res://Assets/Textures/UI/Ship/Combat/Abilities/fire-ball.png
+Walrus_Heal.tres::Resource/Cannon_Balls_resource::1875407736547990417::1702080610::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd<>res://Scripts/Resources/status_effect.gd<>uid://bkv15s4cma5mp::::res://Assets/Textures/UI/Ship/Combat/Abilities/healing-ball.png
+Walrus_sleep.tres::Resource/Cannon_Balls_resource::6571380502125645877::1702080609::0::1::::<><>::res://Scripts/Resources/Ship/Cannon_balls.gd<>res://Scripts/Resources/status_effect.gd<>uid://cpp6aimj6swou::::res://Assets/Textures/UI/Ship/Combat/Abilities/sleeping-ball.png
 ::res://Scripts/Resources/Ship/UI/::1693613348
 ::res://Scripts/Resources/Ship/UI/Abilities/::1693613387
-::res://Scripts/Shaders/::1701804116
-clouds.gdshader::Shader::-1::1701804116::0::1::::<><>::
-fog2.gdshader::Shader::-1::1701804116::0::1::::<><>::
-fog.gdshader::Shader::-1::1701804116::0::1::::<><>::
-MainSky.gdshader::Shader::-1::1701804116::0::1::::<><>::
-mask.gdshader::Shader::-1::1701804116::0::1::::<><>::
-Sky.gdshader::Shader::-1::1701804116::0::1::::<><>::
-water2.gdshader::Shader::-1::1701804116::0::1::::<><>::
-water.gdshader::Shader::-1::1701804116::0::1::::<><>::
+::res://Scripts/Shaders/::1702086282
+clouds.gdshader::Shader::-1::1702086334::0::1::::<><>::
+fog2.gdshader::Shader::-1::1702086334::0::1::::<><>::
+fog.gdshader::Shader::-1::1702086334::0::1::::<><>::
+MainSky.gdshader::Shader::-1::1702086334::0::1::::<><>::
+mask.gdshader::Shader::-1::1702086334::0::1::::<><>::
+Sky.gdshader::Shader::-1::1702086334::0::1::::<><>::
+water2.gdshader::Shader::-1::1702086334::0::1::::<><>::
+water.gdshader::Shader::-1::1702086334::0::1::::<><>::
 World_sky1.tres::ShaderMaterial::7177931901566779123::1699578808::0::1::::<><>::res://Scripts/Shaders/Sky.gdshader
+::res://Scripts/Ship/::1702086279
+Ship.gd::GDScript::-1::1702086279::0::1::::Ship<>Node3D<>::
 ::res://Scripts/User Interface/::1701391761
 ButtonBBCODE.gd::GDScript::-1::1701391761::0::1::::<>Button<>::
 Normal Projectiles.gd::GDScript::-1::1696262788::0::1::::<>HBoxContainer<>::

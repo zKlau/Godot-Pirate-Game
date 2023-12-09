@@ -21,6 +21,7 @@ var parent
 var time = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_parent().right_cast = right_cast
 	if ship:
 		$"..".ship_model = self
 	water = Global.water

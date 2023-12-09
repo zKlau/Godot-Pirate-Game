@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dcm3hdf0cydfl"]
 
-[ext_resource type="Script" path="res://Scripts/Ship.gd" id="1_f4er3"]
+[ext_resource type="Script" path="res://Scripts/ShipRe.gd" id="1_f4er3"]
 [ext_resource type="Resource" uid="uid://c0vhxameste02" path="res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres" id="2_hrlym"]
 [ext_resource type="PackedScene" uid="uid://8j2pej8wmupm" path="res://Prefabs/User Interface/Ship/ship_menu.tscn" id="3_klla4"]
 [ext_resource type="PackedScene" uid="uid://b62gpgcp55lat" path="res://Prefabs/part_fire.tscn" id="4_0rn6o"]

@@ -1,8 +1,9 @@
+Node
+Node3D
 RayCast3D
 StaticBody3D
 CollisionShape3D
 MeshInstance3D
-Node3D
 Button
 AnimationPlayer
 RichTextLabel
@@ -11,5 +12,3 @@ ColorRect
 HBoxContainer
 Sprite2D
 Control
-GPUParticles3D
-HSlider

@@ -1,5 +1,5 @@
 extends Node3D
-class_name PlayerShip
+class_name Ship
 
 @export var _name : String = ""
 @export var _level : int = 1
@@ -8,6 +8,7 @@ class_name PlayerShip
 @export var _cannons : Array[Resource]
 @export var _selected_cannon_id : int = 0
 @export var _health : int = _maxHealth
+var right_cast : RayCast3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
