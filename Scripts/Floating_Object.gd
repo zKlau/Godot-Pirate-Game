@@ -40,8 +40,8 @@ func disable_foam():
 func _process(delta):
 	pass
 
-func knockback(point):
-	apply_impulse(point.global_position,Vector3.UP * .5) #0.5
+func knockback():
+	apply_impulse(global_position,Vector3.UP * 0.2) #0.5
 
 		#apply_impulse(hit_points.mid.global_position,Vector3.UP * 0.5)
 func load_info():

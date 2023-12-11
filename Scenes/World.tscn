@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=53 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bpvbvy6vfe5mx" path="res://Scenes/deep_ocean.tscn" id="17_7jk8s"]
 [ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="17_mh6cu"]
 [ext_resource type="PackedScene" uid="uid://b2t1immwsvpbp" path="res://Prefabs/User Interface/pause_menu.tscn" id="18_xjalu"]
+[ext_resource type="Texture2D" uid="uid://dme8orbavgy63" path="res://Assets/Textures/Ship/Range.png" id="20_cxf7y"]
 [ext_resource type="Script" path="res://Scripts/Ship/Combat.gd" id="25_cijhw"]
 [ext_resource type="Script" path="res://Scenes/EnemyShip.gd" id="26_43h36"]
 
@@ -365,7 +366,7 @@ rotation_order = 4
 shadow_enabled = true
 
 [node name="Moon" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.993158, 0, 0.116766, -0.0294437, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
+transform = Transform3D(0.993158, 0, 0.116766, -0.0294438, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
 rotation_order = 4
 shadow_enabled = true
 sky_mode = 2
@@ -561,6 +562,16 @@ offset_right = 681.0
 offset_bottom = 161.0
 text = "X"
 
+[node name="Decal" type="Decal" parent="Player/Dutchman"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.3396, -7.34857, 0.340874)
+visible = false
+size = Vector3(25, 35.546, 33.1245)
+texture_albedo = ExtResource("20_cxf7y")
+emission_energy = 0.0
+albedo_mix = 0.37
+upper_fade = 1e-05
+lower_fade = 1e-05
+
 [node name="Camera_point" type="Node3D" parent="Player"]
 transform = Transform3D(0.997564, -0.0167575, -0.0677137, 0, 0.970716, -0.240228, 0.0697565, 0.239643, 0.968351, 0.897265, 11.4786, 13.6343)
 
@@ -615,9 +626,10 @@ script = ExtResource("26_43h36")
 ship = NodePath("Dummy Ship")
 combat = NodePath("Combat")
 
-[node name="Dummy Ship" type="Node3D" parent="Dummy"]
+[node name="Dummy Ship" type="Node3D" parent="Dummy" node_paths=PackedStringArray("model")]
 script = ExtResource("12_cqa17")
 _name = "Dummy"
+model = NodePath("ship_dark")
 
 [node name="ship_dark" parent="Dummy/Dummy Ship" instance=ExtResource("5_php58")]
 ship = false

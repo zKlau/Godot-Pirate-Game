@@ -20,7 +20,8 @@ func _input(event):
 				combat.attack(ship)
 func _physics_process(delta):
 	if ship.right_cast.get_collider() != null:
-		print(ship.right_cast.get_collider().name)
+		pass
+		#print(ship.right_cast.get_collider().name)
 	RenderingServer.global_shader_parameter_set("ocean_pos", self.position);
 	# Add the gravity.
 	if not is_on_floor():
