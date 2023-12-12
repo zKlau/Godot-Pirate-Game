@@ -366,7 +366,7 @@ rotation_order = 4
 shadow_enabled = true
 
 [node name="Moon" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.993158, 0, 0.116766, -0.0294438, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
+transform = Transform3D(0.993158, 0, 0.116766, -0.0294437, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
 rotation_order = 4
 shadow_enabled = true
 sky_mode = 2
@@ -475,7 +475,7 @@ model = NodePath("ship_dark")
 _cannons = Array[Resource]([ExtResource("14_y4ct8"), ExtResource("13_1cdl2")])
 
 [node name="ship_dark" parent="Player/Dutchman" instance=ExtResource("5_php58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 0, -4.76837e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 0, 0.180713)
 float_force = 0.6
 ship = false
 

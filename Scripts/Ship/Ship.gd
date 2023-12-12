@@ -8,9 +8,10 @@ class_name Ship
 @export var _cannons : Array[Resource]
 @export var _selected_cannon_id : int = 0
 @export var _health : int = _maxHealth
-var right_cast : RayCast3D
+var right_cast : Ship_Casts
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	right_cast = model.right_cast
 	pass # Replace with function body.
 
 

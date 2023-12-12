@@ -1,0 +1,643 @@
+[gd_scene load_steps=53 format=3 uid="uid://b5e3q10dja7qy"]
+
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
+[ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
+[ext_resource type="Sky" uid="uid://dx86cfl72ttys" path="res://Scenes/WorldSky.tres" id="3_mgqyv"]
+[ext_resource type="AudioStream" uid="uid://db6ojjt0j8kks" path="res://Assets/Audio/Sound Effects/Ambient/wind-outside-sound-ambient-141989.mp3" id="4_6hlyr"]
+[ext_resource type="AudioStream" uid="uid://cd8yulx8jfgg7" path="res://Assets/Audio/Sound Effects/Ambient/ocean-waves-112906.mp3" id="5_ldqdq"]
+[ext_resource type="Script" path="res://Scripts/CharacterBody3D.gd" id="5_nq3kf"]
+[ext_resource type="PackedScene" uid="uid://d1lqkc0r5kx3v" path="res://Prefabs/Ships/Placeholder/ship_dark.tscn" id="5_php58"]
+[ext_resource type="Texture2D" uid="uid://d1meu5g00f1cw" path="res://Assets/Textures/Rain/Rain Drop.png" id="6_6ik2u"]
+[ext_resource type="Script" path="res://Scenes/Weather.gd" id="6_40dol"]
+[ext_resource type="AudioStream" uid="uid://c6xtsq67ypmr8" path="res://Assets/Audio/Sound Effects/Ambient/light-rain-ambient-114354.mp3" id="8_b7y4n"]
+[ext_resource type="Script" path="res://Scripts/UI_match.gd" id="8_rfjex"]
+[ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="9_i8g1a"]
+[ext_resource type="Texture2D" uid="uid://b1aslilfq257l" path="res://Assets/Textures/Rain/water ripple.png" id="9_nl5gu"]
+[ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
+[ext_resource type="Resource" uid="uid://c73a773ukpclh" path="res://Data/Player/Player.tres" id="11_hcc55"]
+[ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
+[ext_resource type="Script" path="res://Scripts/Ship/Ship.gd" id="12_cqa17"]
+[ext_resource type="Resource" uid="uid://dkm3hykhrpanh" path="res://Data/Player/Cannonballs/Dutchman/CannonBall.tres" id="13_1cdl2"]
+[ext_resource type="Resource" uid="uid://vohu8kjrgnv1" path="res://Data/Player/Cannonballs/Dutchman/FireBall.tres" id="14_y4ct8"]
+[ext_resource type="Script" path="res://Scenes/Player_ShipMenu.gd" id="15_kvw31"]
+[ext_resource type="PackedScene" uid="uid://c2gsd7h2ve7ly" path="res://Data/Player/Scenes/cannon_ball_ui.tscn" id="16_klcyr"]
+[ext_resource type="PackedScene" uid="uid://bpvbvy6vfe5mx" path="res://Scenes/deep_ocean.tscn" id="17_7jk8s"]
+[ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="17_mh6cu"]
+[ext_resource type="PackedScene" uid="uid://b2t1immwsvpbp" path="res://Prefabs/User Interface/pause_menu.tscn" id="18_xjalu"]
+[ext_resource type="Texture2D" uid="uid://dme8orbavgy63" path="res://Assets/Textures/Ship/Range.png" id="20_cxf7y"]
+[ext_resource type="Script" path="res://Scripts/Ship/Combat.gd" id="25_cijhw"]
+[ext_resource type="Script" path="res://Scenes/EnemyShip.gd" id="26_43h36"]
+
+[sub_resource type="Environment" id="Environment_xrhli"]
+background_mode = 2
+sky = ExtResource("3_mgqyv")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 1
+tonemap_exposure = 0.5
+tonemap_white = 0.5
+glow_enabled = true
+glow_intensity = 0.2
+fog_light_color = Color(0.568627, 0.603922, 0.658824, 1)
+fog_sun_scatter = 0.01
+volumetric_fog_density = 0.0
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_saturation = 1.3
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5kron"]
+exposure_multiplier = 1.315
+auto_exposure_enabled = true
+dof_blur_far_distance = 4045.81
+dof_blur_far_transition = 4409.84
+auto_exposure_min_sensitivity = 150.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1ovtm"]
+emission_shape = 3
+emission_box_extents = Vector3(45, 1, 45)
+direction = Vector3(1, 0, 1)
+gravity = Vector3(-1.485, -10, 0)
+linear_accel_max = 40.1
+color = Color(0.784314, 0.996078, 0.996078, 1)
+collision_mode = 2
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+
+[sub_resource type="Curve" id="Curve_1ka3s"]
+max_value = 0.1
+_data = [Vector2(0.010582, 0), 0.0, 0.326842, 0, 0, Vector2(0.0899471, 0.0263158), 0.284211, 0.284211, 0, 0, Vector2(0.981481, 0.00105263), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6t8oy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.541176)
+metallic_specular = 1.0
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_ugs0l"]
+material = SubResource("StandardMaterial3D_6t8oy")
+size = 0.5
+sections = 3
+curve = SubResource("Curve_1ka3s")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vh3a7"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.54902)
+albedo_texture = ExtResource("6_6ik2u")
+billboard_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ax6sf"]
+material = SubResource("StandardMaterial3D_vh3a7")
+size = Vector2(0.1, 0.4)
+orientation = 2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pbkw8"]
+emission_shape = 3
+emission_box_extents = Vector3(0.2, 0.1, 0.2)
+direction = Vector3(10, 0, 10)
+spread = 78.32
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vl86t"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+albedo_texture = ExtResource("9_nl5gu")
+proximity_fade_distance = 4096.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6ky4f"]
+lightmap_size_hint = Vector2i(4, 4)
+material = SubResource("StandardMaterial3D_vl86t")
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jc8rj"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hywq0"]
+
+[sub_resource type="Animation" id="Animation_ou1m2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1915, 1063)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ship Menu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2000, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ship Menu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mi6d7"]
+resource_name = "Ship_menu_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1000, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ship Menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_eojok"]
+resource_name = "Shio_menu_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship Menu:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ship Menu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1000, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ship Menu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x40t5"]
+_data = {
+"RESET": SubResource("Animation_ou1m2"),
+"Ship_menu_in": SubResource("Animation_mi6d7"),
+"Ship_menu_out": SubResource("Animation_eojok")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqe1c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ba7f1"]
+
+[sub_resource type="Theme" id="Theme_kxf07"]
+default_font = ExtResource("17_mh6cu")
+default_font_size = 32
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_yqe1c")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_ba7f1")
+OptionButton/font_sizes/font_size = 32
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 7
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_outline_size = 0
+
+[sub_resource type="Theme" id="Theme_n6ufs"]
+default_font = ExtResource("17_mh6cu")
+default_font_size = 32
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_yqe1c")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_ba7f1")
+OptionButton/font_sizes/font_size = 32
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 7
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_outline_size = 0
+
+[sub_resource type="Animation" id="Animation_qfcig"]
+resource_name = "Menu_IN"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1000), Vector2(0, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_b1ru1"]
+resource_name = "Menu_OUT"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -3), Vector2(0, -1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_huobs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_funm7"]
+_data = {
+"Menu_IN": SubResource("Animation_qfcig"),
+"Menu_OUT": SubResource("Animation_b1ru1"),
+"RESET": SubResource("Animation_huobs")
+}
+
+[node name="World" type="Node3D"]
+
+[node name="Environment" type="Node" parent="."]
+script = ExtResource("3_f88n7")
+day_time = 12.2553
+sun_base_enegry = 1.0
+moon_base_enegry = 1.0
+
+[node name="Sun" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(0.920908, 0, -0.389779, 0.388909, -0.0667876, 0.918852, -0.0260324, -0.997767, -0.0615052, 0, 0, 0)
+rotation_order = 4
+shadow_enabled = true
+
+[node name="Moon" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(0.993158, 0, 0.116766, -0.0294437, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
+rotation_order = 4
+shadow_enabled = true
+sky_mode = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_xrhli")
+camera_attributes = SubResource("CameraAttributesPractical_5kron")
+
+[node name="Audio" type="Node" parent="Environment"]
+process_mode = 3
+
+[node name="Wind" type="AudioStreamPlayer" parent="Environment/Audio"]
+stream = ExtResource("4_6hlyr")
+volume_db = -20.0
+autoplay = true
+bus = &"Sound Effects"
+
+[node name="Waves" type="AudioStreamPlayer" parent="Environment/Audio"]
+stream = ExtResource("5_ldqdq")
+volume_db = -30.0
+autoplay = true
+bus = &"Sound Effects"
+
+[node name="Weather" type="Node" parent="Environment"]
+process_mode = 3
+script = ExtResource("6_40dol")
+
+[node name="Rain" type="GPUParticles3D" parent="Environment/Weather"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.6965, -10.853)
+emitting = false
+amount = 4000
+sub_emitter = NodePath("../Water_ripple")
+lifetime = 2.8
+randomness = 0.82
+visibility_aabb = AABB(-95.4251, -74.3909, -101.56, 190.85, 148.782, 203.31)
+trail_enabled = true
+trail_lifetime = 0.15
+process_material = SubResource("ParticleProcessMaterial_1ovtm")
+draw_pass_1 = SubResource("RibbonTrailMesh_ugs0l")
+
+[node name="Light Rain" type="AudioStreamPlayer" parent="Environment/Weather/Rain"]
+stream = ExtResource("8_b7y4n")
+volume_db = -10.0
+
+[node name="Rain2" type="GPUParticles3D" parent="Environment/Weather"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.6965, -10.853)
+emitting = false
+amount = 4000
+sub_emitter = NodePath("../Water_ripple")
+lifetime = 2.8
+visibility_aabb = AABB(-95.4251, -74.3909, -101.56, 190.85, 148.782, 203.31)
+process_material = SubResource("ParticleProcessMaterial_1ovtm")
+draw_pass_1 = SubResource("PlaneMesh_ax6sf")
+
+[node name="Light Rain" type="AudioStreamPlayer" parent="Environment/Weather/Rain2"]
+stream = ExtResource("8_b7y4n")
+volume_db = -10.0
+
+[node name="Rain Timer" type="Timer" parent="Environment/Weather"]
+wait_time = 300.0
+autostart = true
+
+[node name="Water_ripple" type="GPUParticles3D" parent="Environment/Weather"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54913, -0.691884, -9.8914)
+emitting = false
+amount = 8000
+lifetime = 0.1
+one_shot = true
+visibility_aabb = AABB(-134.354, -45.2639, -93.3086, 268.707, 90.5278, 186.617)
+process_material = SubResource("ParticleProcessMaterial_pbkw8")
+draw_pass_1 = SubResource("PlaneMesh_6ky4f")
+
+[node name="PlayerCamera" type="Camera3D" parent="." node_paths=PackedStringArray("target_follow", "action_camera_left", "action_camera_right")]
+transform = Transform3D(1, 0, 0, 0, 0.970716, 0.240228, 0, -0.240228, 0.970716, -3.47421, 11.8905, 7.1916)
+current = true
+fov = 60.0
+far = 1000.0
+script = ExtResource("2_uo2xb")
+target_follow = NodePath("../Player/Camera_point")
+action_camera_left = NodePath("../Player/Action_Camera_Left")
+action_camera_right = NodePath("../Player/Action_Camera_Right")
+
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("ship", "combat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37147, 0.411892, -6.4427)
+script = ExtResource("5_nq3kf")
+ship = NodePath("Dutchman")
+rotation_force = 70.0
+player_data = ExtResource("11_hcc55")
+combat = NodePath("Combat")
+
+[node name="Combat" type="Node" parent="Player"]
+script = ExtResource("25_cijhw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
+shape = SubResource("BoxShape3D_jc8rj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+visible = false
+mesh = SubResource("CapsuleMesh_hywq0")
+
+[node name="Dutchman" type="Node3D" parent="Player" node_paths=PackedStringArray("model")]
+script = ExtResource("12_cqa17")
+_name = "The Dutchman"
+model = NodePath("ship_dark")
+_cannons = Array[Resource]([ExtResource("14_y4ct8"), ExtResource("13_1cdl2")])
+
+[node name="ship_dark" parent="Player/Dutchman" instance=ExtResource("5_php58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 0, 0.180713)
+float_force = 0.6
+ship = false
+
+[node name="Ship Menu" type="Control" parent="Player/Dutchman"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2000.0
+offset_right = -85.0
+offset_bottom = 1063.0
+script = ExtResource("15_kvw31")
+cannonball_component = ExtResource("16_klcyr")
+
+[node name="UI_Animations" type="AnimationPlayer" parent="Player/Dutchman/Ship Menu"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_x40t5")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Player/Dutchman/Ship Menu"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 123.0
+offset_right = 688.0
+offset_bottom = 941.0
+color = Color(0.509804, 0.509804, 0.509804, 1)
+metadata/_edit_lock_ = true
+
+[node name="Name" type="RichTextLabel" parent="Player/Dutchman/Ship Menu"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 131.0
+offset_right = 557.0
+offset_bottom = 196.0
+scale = Vector2(1.25, 1.25)
+theme = SubResource("Theme_kxf07")
+theme_override_font_sizes/normal_font_size = 48
+text = "The Dutchman"
+fit_content = true
+scroll_active = false
+
+[node name="Stats" type="RichTextLabel" parent="Player/Dutchman/Ship Menu"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 237.0
+offset_right = 560.0
+offset_bottom = 650.0
+scale = Vector2(1.25, 1.25)
+theme = SubResource("Theme_n6ufs")
+bbcode_enabled = true
+text = "Level [color=green]{level}[/color]
+
+
+Max Health [color=red]{max_health}[/color]
+
+
+Health[color=#f26565] {health}[/color]"
+metadata/_edit_lock_ = true
+
+[node name="CannonBalls_text" type="RichTextLabel" parent="Player/Dutchman/Ship Menu"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 691.0
+offset_right = 496.0
+offset_bottom = 731.0
+theme = SubResource("Theme_kxf07")
+text = "CannonBalls
+"
+metadata/_edit_lock_ = true
+
+[node name="CannonBalls" type="HBoxContainer" parent="Player/Dutchman/Ship Menu"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 728.0
+offset_right = 663.0
+offset_bottom = 918.0
+metadata/_edit_lock_ = true
+
+[node name="Close_button" type="Button" parent="Player/Dutchman/Ship Menu"]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 130.0
+offset_right = 681.0
+offset_bottom = 161.0
+text = "X"
+
+[node name="Decal" type="Decal" parent="Player/Dutchman"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.3396, -7.34857, 0.340874)
+visible = false
+size = Vector3(25, 35.546, 33.1245)
+texture_albedo = ExtResource("20_cxf7y")
+emission_energy = 0.0
+albedo_mix = 0.37
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="Camera_point" type="Node3D" parent="Player"]
+transform = Transform3D(0.997564, -0.0167575, -0.0677137, 0, 0.970716, -0.240228, 0.0697565, 0.239643, 0.968351, 0.897265, 11.4786, 13.6343)
+
+[node name="Action_Camera_Left" type="Node3D" parent="Player"]
+transform = Transform3D(-4.37114e-08, -0.240228, -0.970716, 0, 0.970716, -0.240228, 1, -1.05007e-08, -4.24313e-08, -12.1933, 11.4786, -0.0262027)
+
+[node name="Action_Camera_Right" type="Node3D" parent="Player"]
+transform = Transform3D(-4.37114e-08, 0.240228, 0.970716, 0, 0.970716, -0.240228, -1, -1.05007e-08, -4.24313e-08, 11.562, 11.4786, -2.35398)
+
+[node name="UI" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_rfjex")
+
+[node name="Menu Button" type="TextureButton" parent="UI"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -6.0
+offset_right = 145.0
+offset_bottom = 142.0
+texture_normal = ExtResource("9_i8g1a")
+texture_hover = ExtResource("10_a2kha")
+stretch_mode = 4
+
+[node name="FPS" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS : 0"
+script = ExtResource("11_y117j")
+
+[node name="UI_Animations" type="AnimationPlayer" parent="UI"]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_funm7")
+}
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
+layout_mode = 1
+offset_top = -1000.0
+offset_right = 1040.0
+offset_bottom = 40.0
+
+[node name="DeepOcean" parent="." instance=ExtResource("17_7jk8s")]
+
+[node name="Dummy" type="Node3D" parent="." node_paths=PackedStringArray("ship", "combat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6734, 3.20055, -5.42664)
+visible = false
+script = ExtResource("26_43h36")
+ship = NodePath("Dummy Ship")
+combat = NodePath("Combat")
+
+[node name="Dummy Ship" type="Node3D" parent="Dummy" node_paths=PackedStringArray("model")]
+script = ExtResource("12_cqa17")
+_name = "Dummy"
+model = NodePath("ship_dark")
+
+[node name="ship_dark" parent="Dummy/Dummy Ship" instance=ExtResource("5_php58")]
+ship = false
+
+[node name="Combat" type="Node" parent="Dummy"]
+script = ExtResource("25_cijhw")
+
+[connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
+[connection signal="pressed" from="Player/Dutchman/Ship Menu/Close_button" to="Player/Dutchman/Ship Menu" method="_on_close_button_pressed"]
+[connection signal="pressed" from="UI/Menu Button" to="UI" method="_on_menu_button_pressed"]

@@ -8,7 +8,7 @@ extends RigidBody3D
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var water = Global.water
 @export var foam : Node3D
-@onready var right_cast : RayCast3D =  $right_cast
+@onready var right_cast : Ship_Casts = $"Right_casts"
 @onready var probes = $ProbeContainer.get_children()
 
 var submerged := false
@@ -21,13 +21,12 @@ var shooting_animation
 var time = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_parent().right_cast = right_cast
 	if ship:
 		$"..".ship_model = self
 	water = Global.water
 	probes = $ProbeContainer.get_children()
 	pass # Replace with function body.
-
+	
 func enable_foam():
 	for e in range(0,foam.get_child_count()):
 		foam.get_child(e).visible = true
