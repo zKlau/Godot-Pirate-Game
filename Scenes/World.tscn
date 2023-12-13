@@ -366,7 +366,7 @@ rotation_order = 4
 shadow_enabled = true
 
 [node name="Moon" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.993158, 0, 0.116766, -0.0294437, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
+transform = Transform3D(0.993158, 0, 0.116766, -0.0294438, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
 rotation_order = 4
 shadow_enabled = true
 sky_mode = 2

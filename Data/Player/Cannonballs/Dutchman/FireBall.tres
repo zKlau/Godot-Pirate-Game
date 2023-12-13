@@ -10,6 +10,7 @@ texture = ExtResource("2_sjma7")
 name = "Fire Ball"
 level = 112
 damage = 10
+coooldown = 5.0
 description = "[i] A normal cannon ball [/i]
 - Level [b] [color=green] {level} [/color] [/b]
 - Damage -[b][color=red] {damage} [/color][/b]"

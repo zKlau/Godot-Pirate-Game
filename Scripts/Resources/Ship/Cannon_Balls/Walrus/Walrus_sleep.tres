@@ -17,6 +17,7 @@ texture = ExtResource("3_rsxx6")
 name = "Sleep Ball"
 level = 1
 damage = 10
+coooldown = 2.0
 status_effect = SubResource("Resource_i5sbd")
 description = "[i] A lightweight cannon ball that puts the enemy asleep [/i]
 - Level [b] [color=green] {level} [/color] [/b]

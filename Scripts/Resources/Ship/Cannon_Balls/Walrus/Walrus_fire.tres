@@ -11,6 +11,7 @@ texture = ExtResource("3_q6u3y")
 name = "Fire Ball"
 level = 1
 damage = 5
+coooldown = 2.0
 status_effect = ExtResource("2_4h8nb")
 description = "[i] A lightweight cannon ball that sets the enemy on fire [/i]
 - Level [b] [color=green] {level} [/color] [/b]

@@ -16,6 +16,7 @@ func _ready():
 
 
 func _input(event):
+	'''
 	if event.is_action_pressed("Switch Camera"):
 		match current_camera:
 			0:
@@ -27,7 +28,17 @@ func _input(event):
 			2:
 				target_follow = default_camera
 				current_camera = 0
-
+	'''
+	if event.is_action_pressed("1"):
+		target_follow = default_camera
+		current_camera = 0
+	if event.is_action_pressed("3"):
+		target_follow = action_camera_left
+		current_camera = 2
+	if event.is_action_pressed("2"):
+		target_follow = action_camera_right
+		current_camera = 1
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if target_follow != null:

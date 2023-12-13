@@ -17,6 +17,7 @@ texture = ExtResource("3_cbp3y")
 name = "Heal Ball"
 level = 1
 damage = 30
+coooldown = 2.0
 status_effect = SubResource("Resource_i5sbd")
 description = "[i] Magically heal your hurt ships [/i]
 - Level [b] [color=green] {level} [/color] [/b]

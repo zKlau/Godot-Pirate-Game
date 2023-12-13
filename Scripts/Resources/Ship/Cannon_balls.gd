@@ -5,6 +5,7 @@ class_name Cannon_Balls_resource
 @export var name : String = ""
 @export var level : int = 1
 @export var damage : int = 10
+@export var coooldown : float = 2;
 @export var status_effect : Status_Effect
 @export_multiline var description : String = ""
 #@export_group("")

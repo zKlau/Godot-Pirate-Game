@@ -18,6 +18,7 @@ func _input(event):
 		if combat.enabled:
 			if event.is_action_pressed("attack"):
 				combat.attack(ship)
+				
 func _physics_process(delta):
 	RenderingServer.global_shader_parameter_set("ocean_pos", self.position);
 	# Add the gravity.
