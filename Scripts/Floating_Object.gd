@@ -40,7 +40,7 @@ func _process(delta):
 	pass
 
 func knockback():
-	apply_impulse(global_position,Vector3.UP * 0.2) #0.5
+	apply_impulse(global_position,Vector3.UP * 0.01) #0.5
 
 		#apply_impulse(hit_points.mid.global_position,Vector3.UP * 0.5)
 func load_info():

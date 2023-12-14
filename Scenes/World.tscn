@@ -5,7 +5,7 @@
 [ext_resource type="Sky" uid="uid://dx86cfl72ttys" path="res://Scenes/WorldSky.tres" id="3_mgqyv"]
 [ext_resource type="AudioStream" uid="uid://db6ojjt0j8kks" path="res://Assets/Audio/Sound Effects/Ambient/wind-outside-sound-ambient-141989.mp3" id="4_6hlyr"]
 [ext_resource type="AudioStream" uid="uid://cd8yulx8jfgg7" path="res://Assets/Audio/Sound Effects/Ambient/ocean-waves-112906.mp3" id="5_ldqdq"]
-[ext_resource type="Script" path="res://Scripts/CharacterBody3D.gd" id="5_nq3kf"]
+[ext_resource type="Script" path="res://Scripts/PlayerBody.gd" id="5_nq3kf"]
 [ext_resource type="PackedScene" uid="uid://d1lqkc0r5kx3v" path="res://Prefabs/Ships/Placeholder/ship_dark.tscn" id="5_php58"]
 [ext_resource type="Texture2D" uid="uid://d1meu5g00f1cw" path="res://Assets/Textures/Rain/Rain Drop.png" id="6_6ik2u"]
 [ext_resource type="Script" path="res://Scenes/Weather.gd" id="6_40dol"]
@@ -457,8 +457,9 @@ rotation_force = 70.0
 player_data = ExtResource("11_hcc55")
 combat = NodePath("Combat")
 
-[node name="Combat" type="Node" parent="Player"]
+[node name="Combat" type="Node" parent="Player" node_paths=PackedStringArray("parent")]
 script = ExtResource("25_cijhw")
+parent = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
@@ -572,6 +573,8 @@ albedo_mix = 0.37
 upper_fade = 1e-05
 lower_fade = 1e-05
 
+[node name="Timer" type="Timer" parent="Player/Dutchman"]
+
 [node name="Camera_point" type="Node3D" parent="Player"]
 transform = Transform3D(0.997564, -0.0167575, -0.0677137, 0, 0.970716, -0.240228, 0.0697565, 0.239643, 0.968351, 0.897265, 11.4786, 13.6343)
 
@@ -615,13 +618,13 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 1040.0
-offset_bottom = 40.0
+offset_right = 1080.0
+offset_bottom = 80.0
 
 [node name="DeepOcean" parent="." instance=ExtResource("17_7jk8s")]
 
-[node name="Dummy" type="Node3D" parent="." node_paths=PackedStringArray("ship", "combat")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6734, 3.20055, -5.42664)
+[node name="Dummy" type="CharacterBody3D" parent="." node_paths=PackedStringArray("ship", "combat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.673, 0.412, -5.427)
 script = ExtResource("26_43h36")
 ship = NodePath("Dummy Ship")
 combat = NodePath("Combat")
@@ -634,8 +637,13 @@ model = NodePath("ship_dark")
 [node name="ship_dark" parent="Dummy/Dummy Ship" instance=ExtResource("5_php58")]
 ship = false
 
-[node name="Combat" type="Node" parent="Dummy"]
+[node name="Combat" type="Node" parent="Dummy" node_paths=PackedStringArray("parent")]
 script = ExtResource("25_cijhw")
+parent = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dummy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
+shape = SubResource("BoxShape3D_jc8rj")
 
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
 [connection signal="pressed" from="Player/Dutchman/Ship Menu/Close_button" to="Player/Dutchman/Ship Menu" method="_on_close_button_pressed"]

@@ -2,6 +2,7 @@ extends Node3D
 class_name Ship_Casts
 
 var casts : Array[RayCast3D]
+@export var parent : RigidBody3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in get_children():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d1lqkc0r5kx3v"]
+[gd_scene load_steps=21 format=3 uid="uid://d1lqkc0r5kx3v"]
 
 [ext_resource type="Script" path="res://Scripts/Floating_Object.gd" id="1_o08mp"]
 [ext_resource type="PackedScene" uid="uid://bahc3rvnq6exh" path="res://Models/Ships/Sloop1/Sloop.glb" id="2_1yyje"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://caiwl410gy684" path="res://Prefabs/Ships/Animations/ship_shooting_animation.tscn" id="5_3awnw"]
 [ext_resource type="Script" path="res://Prefabs/Ships/Animations/ship_shooting_animation.gd" id="6_5uh1f"]
 [ext_resource type="Texture2D" uid="uid://bod1u3ybxgnii" path="res://Assets/Textures/Ship/area.png" id="7_8ijew"]
+[ext_resource type="Script" path="res://Prefabs/Ships/Placeholder/Ship_hitBox.gd" id="7_n77gg"]
 [ext_resource type="Script" path="res://Prefabs/Ships/Placeholder/Ship_casts.gd" id="8_0q7un"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1ta8h"]
@@ -165,8 +166,10 @@ surface_material_override/0 = SubResource("ShaderMaterial_fon3p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1019, 1.3275, -4.87377)
 script = ExtResource("6_5uh1f")
 
-[node name="Ship_hitBox" type="Area3D" parent="."]
+[node name="Ship_hitBox" type="Area3D" parent="." node_paths=PackedStringArray("parent")]
 monitoring = false
+script = ExtResource("7_n77gg")
+parent = NodePath("..")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Ship_hitBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0435181, 2.18481, -0.563171)
@@ -178,8 +181,9 @@ transparency = 0.71
 cast_shadow = 0
 texture = ExtResource("7_8ijew")
 
-[node name="Right_casts" type="Node3D" parent="."]
+[node name="Right_casts" type="Node3D" parent="." node_paths=PackedStringArray("parent")]
 script = ExtResource("8_0q7un")
+parent = NodePath("..")
 
 [node name="right_cast" type="RayCast3D" parent="Right_casts"]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 0, 1.84073, 1.21903, 0.00953188)

@@ -1,7 +1,6 @@
-extends CharacterBody3D
+extends Area3D
 
-@export var ship : Ship
-@export var combat : Ship_Combat
+@export var parent : RigidBody3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

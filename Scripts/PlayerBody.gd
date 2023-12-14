@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name PlayerBody
 
 @export var SPEED = 10.0
 const JUMP_VELOCITY = 4.5

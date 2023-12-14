@@ -9,6 +9,7 @@ script = ExtResource("2_5n6bt")
 status = 2
 hit_stop_action = 2
 stop_action_for = 2
+cooldown = 0.0
 
 [resource]
 script = ExtResource("1_60io8")
