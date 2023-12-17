@@ -6,6 +6,7 @@ var water
 var m_game
 var cursor
 var player
+var ticks : int = 10
 var allow_ship_interaction : bool = true
 # Called when the node enters the scene tree for the first time.
 

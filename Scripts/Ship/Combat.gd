@@ -30,13 +30,14 @@ func attack(attacker):
 	attacker.model.shooting_animation.anim.play("shooting")
 	pass
 	
-func _process(delta):
+func _physics_process(delta):
 	time += delta;
 	if on_fire:
-		if Engine.get_process_frames() % 10 == 0 and fire_duration > 0:
+		if Engine.get_process_frames() % Global.ticks == 0 and fire_duration > 0:
 			#print("Burning")
 			parent.ship._health -= fire_damage
 		if fire_duration <= 0:
+			parent.ship.model.enable_fire(false)
 			on_fire = false
 		fire_duration -= delta
 		
@@ -51,6 +52,7 @@ func take_damage(cannon):
 				on_fire = true
 				fire_damage = cannon.status_effect.damage_over_time
 				fire_duration = cannon.status_effect.duration
+				parent.ship.model.enable_fire(true)
 				print("Fire")
 			1:
 				print("Sleep")

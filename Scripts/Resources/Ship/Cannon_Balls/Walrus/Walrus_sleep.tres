@@ -7,9 +7,9 @@
 [sub_resource type="Resource" id="Resource_i5sbd"]
 script = ExtResource("2_aq16t")
 status = 1
-hit_stop_action = 2
-stop_action_for = 2
 cooldown = 0.0
+duration = 1.0
+damage_over_time = 0.0
 
 [resource]
 script = ExtResource("1_t52gd")

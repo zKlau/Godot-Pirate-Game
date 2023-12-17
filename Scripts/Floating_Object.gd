@@ -10,7 +10,7 @@ extends RigidBody3D
 @export var foam : Node3D
 @onready var right_cast : Ship_Casts = $"Right_casts"
 @onready var probes = $ProbeContainer.get_children()
-
+@export var fire : Node3D
 var submerged := false
 @onready var hit_points = $"../Hit Points"
 #@onready var ocean = $"../../DeepOcean/WaterMaterialDesigner"
@@ -38,6 +38,10 @@ func disable_foam():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+func enable_fire(state):
+	fire.visible = true
+	for i in fire.get_children():
+		i.get_child(0).emitting = state
 
 func knockback():
 	apply_impulse(global_position,Vector3.UP * 0.01) #0.5

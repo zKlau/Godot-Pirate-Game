@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=54 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dme8orbavgy63" path="res://Assets/Textures/Ship/Range.png" id="20_cxf7y"]
 [ext_resource type="Script" path="res://Scripts/Ship/Combat.gd" id="25_cijhw"]
 [ext_resource type="Script" path="res://Scenes/EnemyShip.gd" id="26_43h36"]
+[ext_resource type="Script" path="res://Scenes/ShipBattleAI.gd" id="28_c7hhh"]
 
 [sub_resource type="Environment" id="Environment_xrhli"]
 background_mode = 2
@@ -644,6 +645,9 @@ parent = NodePath("..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Dummy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
 shape = SubResource("BoxShape3D_jc8rj")
+
+[node name="ShipBattleAI" type="Node" parent="Dummy"]
+script = ExtResource("28_c7hhh")
 
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
 [connection signal="pressed" from="Player/Dutchman/Ship Menu/Close_button" to="Player/Dutchman/Ship Menu" method="_on_close_button_pressed"]

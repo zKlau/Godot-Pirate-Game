@@ -1,3 +1,4 @@
+Node
 Timer
 CharacterBody3D
 Node3D
@@ -7,9 +8,7 @@ Decal
 Area3D
 CollisionShape3D
 RigidBody3D
-Node
 RayCast3D
 StaticBody3D
 Button
 AnimationPlayer
-RichTextLabel
