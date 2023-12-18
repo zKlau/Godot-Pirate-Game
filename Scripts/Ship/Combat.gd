@@ -22,12 +22,13 @@ func round_place(num,places):
 	return (round(num*pow(10,places))/pow(10,places))
 	
 func attack(attacker):
-	for i in attacker.right_cast.casts:
-		if i.get_collider() != null and attacker.model.shooting_animation.anim.is_playing() == false:
-			if i.get_collider().name == "Ship_hitBox":
-				i.get_collider().get_parent().get_parent().get_parent().combat.take_damage(attacker._cannons[attacker._selected_cannon_id])
-				print("attack")
-	attacker.model.shooting_animation.anim.play("shooting")
+	if !on_sleep:
+		for i in attacker.right_cast.casts:
+			if i.get_collider() != null and attacker.model.shooting_animation.anim.is_playing() == false:
+				if i.get_collider().name == "Ship_hitBox":
+					i.get_collider().get_parent().get_parent().get_parent().combat.take_damage(attacker._cannons[attacker._selected_cannon_id])
+					print("attack")
+		attacker.model.shooting_animation.anim.play("shooting")
 	pass
 	
 func _physics_process(delta):

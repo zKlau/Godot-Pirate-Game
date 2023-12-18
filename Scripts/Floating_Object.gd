@@ -19,6 +19,7 @@ var parent
 @export var y_rotation_lock : float = 1.5
 var shooting_animation
 var time = 0
+@export var _id : int = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if ship:
