@@ -10,8 +10,8 @@ var on_fire : bool = false
 var fire_duration : float
 var fire_damage : int
 # Sleep
-var sleep : int = 0
-var slee_duration : float
+var on_sleep : bool = false
+var sleep_duration : float
 
 
 func _init():
@@ -31,17 +31,22 @@ func attack(attacker):
 	pass
 	
 func _physics_process(delta):
-	time += delta;
 	if on_fire:
 		if Engine.get_process_frames() % Global.ticks == 0 and fire_duration > 0:
-			#print("Burning")
 			parent.ship._health -= fire_damage
 		if fire_duration <= 0:
 			parent.ship.model.enable_fire(false)
 			on_fire = false
 		fire_duration -= delta
-		
+	if on_sleep:
+		if Engine.get_process_frames() % Global.ticks == 0 and sleep_duration > 0:
+			parent.stop_movement = true
+		if sleep_duration <= 0:
+			on_sleep = false
+			parent.stop_movement = false
+		sleep_duration -= delta
 	pass
+
 func take_damage(cannon):
 	parent.ship._health -= cannon.damage
 	#parent.ship.model.knockback()
@@ -55,6 +60,8 @@ func take_damage(cannon):
 				parent.ship.model.enable_fire(true)
 				print("Fire")
 			1:
+				on_sleep = true
+				sleep_duration = cannon.status_effect.duration
 				print("Sleep")
 			2:
 				print("Heal")
