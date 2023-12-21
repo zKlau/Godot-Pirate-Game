@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Cannon_Balls_resource" load_steps=5 format=3 uid="uid://j4vhksgbxei"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/Ship/Cannon_balls.gd" id="1_y4f6t"]
+[ext_resource type="Script" path="res://Scripts/Resources/status_effect.gd" id="2_4koj2"]
+[ext_resource type="Texture2D" uid="uid://cq72osne7ueua" path="res://Assets/Textures/UI/Ship/Combat/Abilities/fire-ball.png" id="3_0igsj"]
+
+[sub_resource type="Resource" id="Resource_e8av6"]
+script = ExtResource("2_4koj2")
+status = 0
+cooldown = 5.0
+duration = 5.0
+damage_over_time = 3.2
+
+[resource]
+script = ExtResource("1_y4f6t")
+tag = 0
+texture = ExtResource("3_0igsj")
+name = "Fire Ball"
+level = 120
+damage = 10
+coooldown = 5.0
+status_effect = SubResource("Resource_e8av6")
+description = "[i] A normal cannon ball [/i]
+- Level [b] [color=green] {level} [/color] [/b]
+- Damage -[b][color=red] {damage} [/color][/b]"

@@ -3,7 +3,7 @@ class_name Ship_Combat
 
 @export var enabled : bool = true;
 var attack_power : int
-@export var parent : CharacterBody3D
+@export var parent : Ship
 var time : float = 0
 # Fire
 var on_fire : bool = false
@@ -22,11 +22,11 @@ func round_place(num,places):
 	return (round(num*pow(10,places))/pow(10,places))
 	
 func attack(attacker):
-	if !on_sleep:
+	if on_sleep == false:
 		for i in attacker.right_cast.casts:
 			if i.get_collider() != null and attacker.model.shooting_animation.anim.is_playing() == false:
 				if i.get_collider().name == "Ship_hitBox":
-					i.get_collider().get_parent().get_parent().get_parent().combat.take_damage(attacker._cannons[attacker._selected_cannon_id])
+					i.get_collider().get_parent().get_parent().combat.take_damage(attacker._cannons[attacker._selected_cannon_id])
 					print("attack")
 		attacker.model.shooting_animation.anim.play("shooting")
 	pass
@@ -34,22 +34,22 @@ func attack(attacker):
 func _physics_process(delta):
 	if on_fire:
 		if Engine.get_process_frames() % Global.ticks == 0 and fire_duration > 0:
-			parent.ship._health -= fire_damage
+			parent._health -= fire_damage
 		if fire_duration <= 0:
-			parent.ship.model.enable_fire(false)
+			parent.model.enable_fire(false)
 			on_fire = false
 		fire_duration -= delta
 	if on_sleep:
 		if Engine.get_process_frames() % Global.ticks == 0 and sleep_duration > 0:
-			parent.stop_movement = true
+			parent.get_parent().stop_movement = true
 		if sleep_duration <= 0:
 			on_sleep = false
-			parent.stop_movement = false
+			parent.get_parent().stop_movement = false
 		sleep_duration -= delta
 	pass
 
 func take_damage(cannon):
-	parent.ship._health -= cannon.damage
+	parent._health -= cannon.damage
 	#parent.ship.model.knockback()
 	if cannon.status_effect != null:
 		print(cannon.status_effect.cooldown)
@@ -58,7 +58,7 @@ func take_damage(cannon):
 				on_fire = true
 				fire_damage = cannon.status_effect.damage_over_time
 				fire_duration = cannon.status_effect.duration
-				parent.ship.model.enable_fire(true)
+				parent.model.enable_fire(true)
 				print("Fire")
 			1:
 				on_sleep = true

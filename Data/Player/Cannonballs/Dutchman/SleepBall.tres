@@ -7,13 +7,13 @@
 script = ExtResource("2_3qkhh")
 status = 1
 cooldown = 5.0
-duration = 2.0
+duration = 10.0
 damage_over_time = 0.0
 
 [resource]
 script = ExtResource("1_phi41")
 tag = 0
-name = "Sleeping Bal"
+name = "Sleeping Ball"
 level = 1
 damage = 2
 coooldown = 50.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=56 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -18,9 +18,10 @@
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
 [ext_resource type="Script" path="res://Scripts/Ship/Ship.gd" id="12_cqa17"]
 [ext_resource type="Resource" uid="uid://dkm3hykhrpanh" path="res://Data/Player/Cannonballs/Dutchman/CannonBall.tres" id="13_1cdl2"]
-[ext_resource type="Resource" uid="uid://ck8wfvq5q6kr7" path="res://Data/Player/Cannonballs/Dutchman/SleepBall.tres" id="14_wj0ne"]
-[ext_resource type="Resource" uid="uid://vohu8kjrgnv1" path="res://Data/Player/Cannonballs/Dutchman/FireBall.tres" id="14_y4ct8"]
+[ext_resource type="Resource" uid="uid://3ceru85ohjau" path="res://Data/Player/Cannonballs/The Dutchman/SleepingBall.tres" id="13_ykvjw"]
+[ext_resource type="Resource" uid="uid://j4vhksgbxei" path="res://Data/Player/Cannonballs/The Dutchman/FireBall.tres" id="14_fpy0y"]
 [ext_resource type="Script" path="res://Scenes/Player_ShipMenu.gd" id="15_kvw31"]
+[ext_resource type="Resource" uid="uid://bceloyubfx6rt" path="res://Data/Player/Cannonballs/The Dutchman/CannonBall.tres" id="15_pj6b4"]
 [ext_resource type="PackedScene" uid="uid://c2gsd7h2ve7ly" path="res://Data/Player/Scenes/cannon_ball_ui.tscn" id="16_klcyr"]
 [ext_resource type="PackedScene" uid="uid://bpvbvy6vfe5mx" path="res://Scenes/deep_ocean.tscn" id="17_7jk8s"]
 [ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="17_mh6cu"]
@@ -457,11 +458,7 @@ script = ExtResource("5_nq3kf")
 ship = NodePath("Dutchman")
 rotation_force = 70.0
 player_data = ExtResource("11_hcc55")
-combat = NodePath("Combat")
-
-[node name="Combat" type="Node" parent="Player" node_paths=PackedStringArray("parent")]
-script = ExtResource("25_cijhw")
-parent = NodePath("..")
+combat = NodePath("Dutchman/Combat")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
@@ -471,11 +468,12 @@ shape = SubResource("BoxShape3D_jc8rj")
 visible = false
 mesh = SubResource("CapsuleMesh_hywq0")
 
-[node name="Dutchman" type="Node3D" parent="Player" node_paths=PackedStringArray("model")]
+[node name="Dutchman" type="Node3D" parent="Player" node_paths=PackedStringArray("model", "combat")]
 script = ExtResource("12_cqa17")
 _name = "The Dutchman"
 model = NodePath("ship_dark")
-_cannons = Array[Resource]([ExtResource("14_wj0ne"), ExtResource("14_y4ct8"), ExtResource("13_1cdl2")])
+_cannons = Array[Resource]([ExtResource("13_ykvjw"), ExtResource("14_fpy0y"), ExtResource("15_pj6b4")])
+combat = NodePath("Combat")
 
 [node name="ship_dark" parent="Player/Dutchman" instance=ExtResource("5_php58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -578,6 +576,10 @@ lower_fade = 1e-05
 
 [node name="Timer" type="Timer" parent="Player/Dutchman"]
 
+[node name="Combat" type="Node" parent="Player/Dutchman" node_paths=PackedStringArray("parent")]
+script = ExtResource("25_cijhw")
+parent = NodePath("..")
+
 [node name="Camera_point" type="Node3D" parent="Player"]
 transform = Transform3D(0.997564, -0.0167575, -0.0677137, 0, 0.970716, -0.240228, 0.0697565, 0.239643, 0.968351, 0.897265, 11.4786, 13.6343)
 
@@ -630,13 +632,15 @@ offset_bottom = 80.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7235, 0.412, -5.427)
 script = ExtResource("26_43h36")
 ship = NodePath("Dummy Ship")
-combat = NodePath("Combat")
+combat = NodePath("Dummy Ship/Combat")
+speed = 2.0
 
-[node name="Dummy Ship" type="Node3D" parent="Dummy" node_paths=PackedStringArray("model")]
+[node name="Dummy Ship" type="Node3D" parent="Dummy" node_paths=PackedStringArray("model", "combat")]
 script = ExtResource("12_cqa17")
 _name = "Dummy"
 model = NodePath("ship_dark")
 _cannons = Array[Resource]([ExtResource("13_1cdl2")])
+combat = NodePath("Combat")
 
 [node name="ship_dark" parent="Dummy/Dummy Ship" node_paths=PackedStringArray("foam", "fire") instance=ExtResource("5_php58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -645,18 +649,19 @@ foam = NodePath("../../../Player/Dutchman/ship_dark/MovementFoam")
 fire = NodePath("../../../Player/Dutchman/ship_dark/Destroyed_Fire")
 ship = false
 
-[node name="Combat" type="Node" parent="Dummy" node_paths=PackedStringArray("parent")]
+[node name="Combat" type="Node" parent="Dummy/Dummy Ship" node_paths=PackedStringArray("parent")]
 script = ExtResource("25_cijhw")
 parent = NodePath("..")
+
+[node name="ShipBattleAI" type="Node" parent="Dummy/Dummy Ship" node_paths=PackedStringArray("target", "parent", "body")]
+script = ExtResource("28_c7hhh")
+target = NodePath("../../../Player")
+parent = NodePath("..")
+body = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Dummy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
 shape = SubResource("BoxShape3D_jc8rj")
-
-[node name="ShipBattleAI" type="Node" parent="Dummy" node_paths=PackedStringArray("target", "parent")]
-script = ExtResource("28_c7hhh")
-target = NodePath("../../Player")
-parent = NodePath("..")
 
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
 [connection signal="pressed" from="Player/Dutchman/Ship Menu/Close_button" to="Player/Dutchman/Ship Menu" method="_on_close_button_pressed"]
