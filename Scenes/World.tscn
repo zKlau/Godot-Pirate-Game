@@ -589,6 +589,12 @@ transform = Transform3D(-4.37114e-08, -0.240228, -0.970716, 0, 0.970716, -0.2402
 [node name="Action_Camera_Right" type="Node3D" parent="Player"]
 transform = Transform3D(-4.37114e-08, 0.240228, 0.970716, 0, 0.970716, -0.240228, -1, -1.05007e-08, -4.24313e-08, 11.562, 11.4786, -2.35398)
 
+[node name="Right_combat_node" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0)
+
+[node name="Left_combat_node" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0)
+
 [node name="UI" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
@@ -633,7 +639,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7235, 0.412, -5.427)
 script = ExtResource("26_43h36")
 ship = NodePath("Dummy Ship")
 combat = NodePath("Dummy Ship/Combat")
-speed = 2.0
 
 [node name="Dummy Ship" type="Node3D" parent="Dummy" node_paths=PackedStringArray("model", "combat")]
 script = ExtResource("12_cqa17")
@@ -653,11 +658,12 @@ ship = false
 script = ExtResource("25_cijhw")
 parent = NodePath("..")
 
-[node name="ShipBattleAI" type="Node" parent="Dummy/Dummy Ship" node_paths=PackedStringArray("target", "parent", "body")]
+[node name="ShipBattleAI" type="Node" parent="Dummy/Dummy Ship" node_paths=PackedStringArray("target", "parent", "body", "target_attack_node")]
 script = ExtResource("28_c7hhh")
 target = NodePath("../../../Player")
 parent = NodePath("..")
 body = NodePath("../..")
+target_attack_node = [NodePath("../../../Player/Right_combat_node"), NodePath("../../../Player/Left_combat_node")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Dummy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)

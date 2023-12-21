@@ -1,7 +1,8 @@
+Path3D
+Node3D
 Node
 Timer
 CharacterBody3D
-Node3D
 Sprite3D
 MeshInstance3D
 Decal

@@ -38,7 +38,7 @@ func _physics_process(delta):
 			ship.model.enable_foam()
 			#ocean.position.x = lerp(ocean.position.x,self.position.x,delta*0.1)
 			#ocean.position.z = lerp(ocean.position.z,self.position.z,delta*0.1)
-			
+		print(-input_dir.x)
 		if input_dir.y != 0:
 			rotate_y(-input_dir.x/rotation_force)
 			#ocean.rotation.y = rotation.y

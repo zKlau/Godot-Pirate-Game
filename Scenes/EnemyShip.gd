@@ -17,11 +17,27 @@ func _ready():
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	if target_direction != null:
-		velocity.x = target_direction.x * speed
-		velocity.z = target_direction.z * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
-	move_and_slide()
+	if stop_movement == false: 
+		#if target_direction != null:
+		#	velocity.x = target_direction.x * speed
+		#	velocity.z = target_direction.z * speed
+		#else:
+		#	velocity.x = move_toward(velocity.x, 0, speed)
+		#	velocity.z = move_toward(velocity.z, 0, speed)
+		if target_direction != null:
+			var direction = target_direction#(transform.basis * Vector3(0, 0, -1)).normalized()
+			print(target_direction)
+			
+			if target_direction.z != -1:
+				rotate_y(1/rotation_force)
+				#if input_dir.x !=0:
+					#rotate_y(0.01)
+				
+			if direction:
+				velocity.x = direction.x * speed
+				velocity.z = direction.z * speed
+			else:
+				velocity.x = move_toward(velocity.x, 0, speed)
+				velocity.z = move_toward(velocity.z, 0, speed)
+			move_and_slide()
 	pass

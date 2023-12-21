@@ -1,6 +1,9 @@
 res://Scenes/World.tscn
-res://Scripts/Match_game.gd
+res://addons/panku_console/res/panku_console_theme.tres
+res://Assets/water/Water2.gdshader
+res://Assets/water/Water.material
 res://Prefabs/User Interface/Buttons/ability_button.tres
+res://Scripts/Match_game.gd
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_cb_normal.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_sleep.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
@@ -15,14 +18,12 @@ res://Data/Player/Cannonballs/The Dutchman/FireBall.tres
 res://Scripts/Shaders/fog.gdshader
 res://Scripts/Shaders/water.gdshader
 res://Scripts/Shaders/water2.gdshader
-res://Assets/water/Water2.gdshader
 res://Scripts/Shaders/clouds.gdshader
 res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
 res://Scenes/ShipBattleAI.gd
-res://Scenes/EnemyShip.gd
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Scenes/Battle.tscn
 res://Prefabs/Ships/Placeholder/ship_dark.tscn
@@ -30,3 +31,6 @@ res://Prefabs/User Interface/pause_menu.tscn
 res://Prefabs/destroyed_fire.tscn
 res://Prefabs/Particles/fire.tscn
 res://Data/Settings/Settings.tres
+res://Scenes/EnemyShip.gd
+res://Scripts/Global.gd
+res://Scripts/PlayerBody.gd

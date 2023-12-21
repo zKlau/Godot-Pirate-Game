@@ -7,7 +7,7 @@
 script = ExtResource("2_vftt6")
 status = 1
 cooldown = 5.0
-duration = 10.0
+duration = 1.0
 damage_over_time = 0.0
 
 [resource]
