@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_8jyy6"]
 [ext_resource type="Script" path="res://Scripts/Match_game.gd" id="1_oipmo"]
 [ext_resource type="Texture2D" uid="uid://bsjloxje2v2b3" path="res://Assets/HDRI/sky_a_bright_blue_sky_during_the_day_with_a_few_co.jpg" id="2_8kta6"]
-[ext_resource type="Resource" uid="uid://c73a773ukpclh" path="res://Data/Player/Player.tres" id="2_d7bs8"]
+[ext_resource type="Resource" uid="uid://bje6wuleftew5" path="res://Data/Player/Player.tres" id="2_d7bs8"]
 [ext_resource type="PackedScene" uid="uid://fgacajsj3cf3" path="res://Prefabs/User Interface/cursor.tscn" id="2_eabm1"]
 [ext_resource type="PackedScene" uid="uid://tkrm5v6hnf2v" path="res://Data/Player/Ships/Dutchman.tscn" id="3_c3tea"]
 [ext_resource type="PackedScene" uid="uid://bgbi2kruc1bxg" path="res://Data/Player/Ships/Walrus.tscn" id="4_hr5pd"]
@@ -493,8 +493,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("29_gs4e8")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 1960.0
-offset_bottom = 960.0
+offset_right = 2120.0
+offset_bottom = 1120.0
 
 [node name="OptionButton" type="OptionButton" parent="UI"]
 layout_mode = 0

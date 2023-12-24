@@ -1,6 +1,6 @@
+Node
 Path3D
 Node3D
-Node
 Timer
 CharacterBody3D
 Sprite3D
@@ -12,4 +12,3 @@ RigidBody3D
 RayCast3D
 StaticBody3D
 Button
-AnimationPlayer

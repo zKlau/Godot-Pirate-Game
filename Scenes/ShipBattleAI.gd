@@ -19,7 +19,7 @@ func _physics_process(delta):
 					if i.get_collider() != null:
 						if i.get_collider().get_parent()._id == 0:
 							parent.combat.attack(parent)
-							print("attacking")
+							#print("attacking")
 				## Follow the target 
 					var target_position
 					#var target_distance = min(parent.global_position.distance_to(target_attack_node[0],parent.global_position.distance_to(target_attack_node[1]))
@@ -27,9 +27,16 @@ func _physics_process(delta):
 						target_position = target_attack_node[0].global_position
 					else:
 						target_position = target_attack_node[1].global_position
+					var direction = (target_attack_node[0].global_position - parent.get_parent().global_position).normalized()
+					#print(direction)#rad_to_deg(asin(direction.dot(parent.get_parent().transform.basis.z))))
 					#var target_position = target.global_transform.origin
-					var direction_to_target = (target_position - body.global_transform.origin).normalized() # We normalize the vector because we only care about the direction
-					body.target_direction = direction_to_target
+					#var direction_to_target = (target_position - body.global_transform.origin).normalized() # We normalize the vector because we only care about the direction
+					print(rad_to_deg(acos(direction.dot(parent.get_parent().transform.basis.z))))
+					#if direction.x < 0:
+					#	body.rotate_to_point(1) # right
+					#else:
+					#	body.rotate_to_point(0) # left
+					#body.target_direction = direction_to_target
 					#parent.get_parent().rotate_y(-1/parent.get_parent().rotation_force)
 					#move_and_slide(direction_to_target * body.speed) # We multiply the direction by the speed
 				#parent.combat.attack(parent.ship)

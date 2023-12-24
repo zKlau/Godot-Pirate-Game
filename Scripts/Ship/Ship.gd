@@ -9,6 +9,11 @@ class_name Ship
 @export var _selected_cannon_id : int = 0
 @export var _health : float = _maxHealth
 
+@export var SPEED = 10.0
+var max_speed : float = SPEED
+@export var acceleration : float = 2
+@export var rotation_force : float = 50
+
 @export var combat : Ship_Combat
 
 var right_cast : Ship_Casts

@@ -82,5 +82,7 @@ func _on_graphics_pressed():
 
 
 func _on_save_exit_pressed():
+	Signals.emit_signal("quit_game")
+	Signals.emit_signal("save_game")
 	get_tree().quit()
 	pass # Replace with function body.

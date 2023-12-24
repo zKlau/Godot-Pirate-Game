@@ -10,7 +10,7 @@ var experience_to_level : int = 4000
 @export_category("Ships")
 @export var owned_ships : Resource
 @export var active_ships : Array[PackedScene]
-
+@export var inventory : ShipInventoryResource
 
 func add_experience(exp):
 	experience += exp

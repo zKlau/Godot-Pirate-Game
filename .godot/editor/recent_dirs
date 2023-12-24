@@ -1,3 +1,4 @@
+res://Data/Player
 res://Data/Player/Cannonballs/Dutchman
 res://Data/Player/Scenes
 res://Scripts
@@ -14,7 +15,6 @@ res://Prefabs/Ships/Animations
 res://Scripts/User Interface
 res://Prefabs/Test
 res://Prefabs/Ships/Player
-res://Data/Player
 res://Prefabs
 res://Scripts/Resources/RandomObjects/Resources
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus

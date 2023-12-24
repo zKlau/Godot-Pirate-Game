@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="9_i8g1a"]
 [ext_resource type="Texture2D" uid="uid://b1aslilfq257l" path="res://Assets/Textures/Rain/water ripple.png" id="9_nl5gu"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
-[ext_resource type="Resource" uid="uid://c73a773ukpclh" path="res://Data/Player/Player.tres" id="11_hcc55"]
+[ext_resource type="Resource" uid="uid://bje6wuleftew5" path="res://Data/Player/Player.tres" id="11_hcc55"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
 [ext_resource type="Script" path="res://Scripts/Ship/Ship.gd" id="12_cqa17"]
 [ext_resource type="Resource" uid="uid://dkm3hykhrpanh" path="res://Data/Player/Cannonballs/Dutchman/CannonBall.tres" id="13_1cdl2"]
@@ -456,7 +456,6 @@ action_camera_right = NodePath("../Player/Action_Camera_Right")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0545, 0.411892, -6.4427)
 script = ExtResource("5_nq3kf")
 ship = NodePath("Dutchman")
-rotation_force = 70.0
 player_data = ExtResource("11_hcc55")
 combat = NodePath("Dutchman/Combat")
 
@@ -473,6 +472,8 @@ script = ExtResource("12_cqa17")
 _name = "The Dutchman"
 model = NodePath("ship_dark")
 _cannons = Array[Resource]([ExtResource("13_ykvjw"), ExtResource("14_fpy0y"), ExtResource("15_pj6b4")])
+_health = 2500.0
+rotation_force = 70.0
 combat = NodePath("Combat")
 
 [node name="ship_dark" parent="Player/Dutchman" instance=ExtResource("5_php58")]
@@ -635,10 +636,13 @@ offset_bottom = 80.0
 [node name="DeepOcean" parent="." instance=ExtResource("17_7jk8s")]
 
 [node name="Dummy" type="CharacterBody3D" parent="." node_paths=PackedStringArray("ship", "combat")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7235, 0.412, -5.427)
+visible = false
 script = ExtResource("26_43h36")
 ship = NodePath("Dummy Ship")
 combat = NodePath("Dummy Ship/Combat")
+speed = 0.0
 
 [node name="Dummy Ship" type="Node3D" parent="Dummy" node_paths=PackedStringArray("model", "combat")]
 script = ExtResource("12_cqa17")

@@ -13,6 +13,16 @@ func _ready():
 	pass # Replace with function body.
 
 
+func rotate_to_point(direction):
+	match direction:
+		0:
+			rotate_y(-0.0142857142857143)
+		1:
+			rotate_y(0.0142857142857143)
+	# 0 => right
+	# 1 => left
+	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if not is_on_floor():
@@ -25,7 +35,7 @@ func _physics_process(delta):
 		#	velocity.x = move_toward(velocity.x, 0, speed)
 		#	velocity.z = move_toward(velocity.z, 0, speed)
 		if target_direction != null:
-			var direction = target_direction#(transform.basis * Vector3(0, 0, -1)).normalized()
+			var direction = (transform.basis * Vector3(0, 0, -1)).normalized()
 			print(target_direction)
 			
 			if target_direction.z != -1:

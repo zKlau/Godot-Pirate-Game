@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Settings" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="Settings" load_steps=2 format=3 uid="uid://dn00ylsh3p8e1"]
 
 [ext_resource type="Script" path="res://Data/Settings/Settings.gd" id="1_t8jpb"]
 
@@ -10,6 +10,6 @@ audio_volume = 100
 music_volume = 0
 vsync = false
 display_mode = 1
-resolution = 3
+resolution = 4
 scaling_mode = 0
 scaling_value = 1.0

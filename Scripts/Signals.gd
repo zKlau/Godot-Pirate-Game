@@ -8,3 +8,6 @@ signal ship_menu_opened
 signal ship_menu_closed
 signal Enemy_AI_Attacked
 signal attack_button
+signal quit_game
+signal save_game
+signal load_game
