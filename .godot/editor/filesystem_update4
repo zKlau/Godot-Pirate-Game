@@ -7,7 +7,6 @@ res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres
 res://Prefabs/User Interface/Ship/option_button_ship_menu.tres
 res://Scripts/Shaders/mask.gdshader
-res://Data/Player/Player.tres
 res://addons/boujie_water_shader/shader/water.gdshader
 res://Scenes/WorldSky.tres
 res://Data/Player/Cannonballs/The Dutchman/SleepingBall.tres
@@ -30,5 +29,5 @@ res://Prefabs/destroyed_fire.tscn
 res://Prefabs/Particles/fire.tscn
 res://Scenes/deep_ocean.tscn
 res://Data/Settings/Settings.tres
-res://Scripts/PlayerBody.gd
-res://Data/Player/Inventory.tres
+res://Scripts/Resources/Ship/Cannon_balls.gd
+res://Scripts/Ship/Combat.gd

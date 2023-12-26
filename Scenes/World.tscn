@@ -1,9 +1,10 @@
-[gd_scene load_steps=56 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=57 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
 [ext_resource type="Sky" uid="uid://dx86cfl72ttys" path="res://Scenes/WorldSky.tres" id="3_mgqyv"]
 [ext_resource type="AudioStream" uid="uid://db6ojjt0j8kks" path="res://Assets/Audio/Sound Effects/Ambient/wind-outside-sound-ambient-141989.mp3" id="4_6hlyr"]
+[ext_resource type="AudioStream" uid="uid://ystdscebaiyd" path="res://Assets/Audio/Soundtrack/Emile Merten/Grandeur of the Seas.mp3" id="5_do6kf"]
 [ext_resource type="AudioStream" uid="uid://cd8yulx8jfgg7" path="res://Assets/Audio/Sound Effects/Ambient/ocean-waves-112906.mp3" id="5_ldqdq"]
 [ext_resource type="Script" path="res://Scripts/PlayerBody.gd" id="5_nq3kf"]
 [ext_resource type="PackedScene" uid="uid://d1lqkc0r5kx3v" path="res://Prefabs/Ships/Placeholder/ship_dark.tscn" id="5_php58"]
@@ -393,6 +394,12 @@ volume_db = -30.0
 autoplay = true
 bus = &"Sound Effects"
 
+[node name="Background_Music" type="AudioStreamPlayer" parent="Environment/Audio"]
+stream = ExtResource("5_do6kf")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+
 [node name="Weather" type="Node" parent="Environment"]
 process_mode = 3
 script = ExtResource("6_40dol")
@@ -473,6 +480,7 @@ _name = "The Dutchman"
 model = NodePath("ship_dark")
 _cannons = Array[Resource]([ExtResource("13_ykvjw"), ExtResource("14_fpy0y"), ExtResource("15_pj6b4")])
 _health = 2500.0
+acceleration = 3.0
 rotation_force = 70.0
 combat = NodePath("Combat")
 

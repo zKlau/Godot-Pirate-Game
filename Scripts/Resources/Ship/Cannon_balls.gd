@@ -8,6 +8,7 @@ class_name Cannon_Balls_resource
 @export var coooldown : float = 2;
 @export var status_effect : Status_Effect
 @export_multiline var description : String = ""
+@export var amount : int = 100
 #@export_group("")
 #@export var Cannon_Ball : bool = true
 #@export var Fire_Ball : bool = false
