@@ -22,14 +22,15 @@ func round_place(num,places):
 	return (round(num*pow(10,places))/pow(10,places))
 	
 func attack(attacker):
-	if on_sleep == false and attacker._cannons[attacker._selected_cannon_id].amount >= 1:
+	if on_sleep == false and attacker._cannons[attacker._selected_cannon_id].amount >= 1 and attacker.model.shooting_animation.anim.is_playing() == false:
 		for i in attacker.right_cast.casts:
 			if i.get_collider() != null and attacker.model.shooting_animation.anim.is_playing() == false:
 				if i.get_collider().name == "Ship_hitBox":
 					i.get_collider().get_parent().get_parent().combat.take_damage(attacker._cannons[attacker._selected_cannon_id])
-					attacker._cannons[attacker._selected_cannon_id].amount -= 1
+					
 					#ResourceSaver.save(attacker._cannons[attacker._selected_cannon_id], )
 					print("attack")
+		attacker._cannons[attacker._selected_cannon_id].amount -= 1
 		attacker.model.shooting_animation.anim.play("shooting")
 	pass
 	

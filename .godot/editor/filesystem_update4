@@ -36,3 +36,4 @@ res://Data/Player/Inventory.tres
 res://Data/Player/Player.tres
 res://Data/Settings/Settings.gd
 res://Prefabs/User Interface/menu.gd
+res://Scripts/Ship/Combat.gd

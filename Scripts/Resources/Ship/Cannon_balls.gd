@@ -8,9 +8,7 @@ class_name Cannon_Balls_resource
 @export var coooldown : float = 2;
 @export var status_effect : Status_Effect
 @export_multiline var description : String = ""
-@export var amount : int:
-	get:
-		return 100
+@export var amount : int = 100:
 	set(value):
 		amount_changed()
 		amount = value
