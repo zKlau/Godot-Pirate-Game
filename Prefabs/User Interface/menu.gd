@@ -9,7 +9,7 @@ func _ready():
 func load_settings():
 	AudioServer.set_bus_volume_db(0,settings.master_volume)
 	AudioServer.set_bus_volume_db(1,settings.music_volume)
-	AudioServer.set_bus_volume_db(0,settings.effects_volume)
+	AudioServer.set_bus_volume_db(2,settings.effects_volume)
 
 	if settings.vsync == true:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)

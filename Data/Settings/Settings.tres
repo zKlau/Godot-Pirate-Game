@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="Settings" load_steps=2 format=3 uid="uid://dn00ylsh3p8e1"]
+[gd_resource type="Resource" script_class="Settings" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Data/Settings/Settings.gd" id="1_t8jpb"]
 
 [resource]
 script = ExtResource("1_t8jpb")
-master_volume = 0
+master_volume = -12
 effects_volume = 0
-audio_volume = 100
 music_volume = -6
 vsync = false
 display_mode = 1

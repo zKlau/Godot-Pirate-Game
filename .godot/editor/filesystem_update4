@@ -21,6 +21,8 @@ res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
+res://Data/Player/Cannonballs/Dutchman/FireBall.tres
+res://Scripts/Resources/Ship/Cannon_balls.gd
 res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
 res://Scenes/Battle.tscn
 res://Prefabs/Ships/Placeholder/ship_dark.tscn
@@ -29,5 +31,8 @@ res://Prefabs/destroyed_fire.tscn
 res://Prefabs/Particles/fire.tscn
 res://Scenes/deep_ocean.tscn
 res://Data/Settings/Settings.tres
-res://Scripts/Resources/Ship/Cannon_balls.gd
-res://Scripts/Ship/Combat.gd
+res://Scripts/PlayerBody.gd
+res://Data/Player/Inventory.tres
+res://Data/Player/Player.tres
+res://Data/Settings/Settings.gd
+res://Prefabs/User Interface/menu.gd

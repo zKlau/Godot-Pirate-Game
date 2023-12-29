@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_32hb6")
-food = 35.0
-water = 70.0
+food = -128.5
+water = -257.0

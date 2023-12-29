@@ -24,12 +24,14 @@ func _input(event):
 				
 func _physics_process(delta):
 	RenderingServer.global_shader_parameter_set("ocean_pos", self.position);
-	# Add the gravity.
+	
 	if player_at_sea:
 		if Engine.get_process_frames() % Global.ticks == 0:
-			print(player_data.inventory.food)
+			#print(player_data.inventory.food)
 			player_data.inventory.food -= 0.5
 			player_data.inventory.water -= 1 
+			
+	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	if !stop_movement:
@@ -48,7 +50,7 @@ func _physics_process(delta):
 		### The ship is moving ###
 		if input_dir.y != 0:
 			rotate_y(-input_dir.x/ship.rotation_force)
-			print(-input_dir.x/ship.rotation_force, " rotation")
+			#print(-input_dir.x/ship.rotation_force, " rotation")
 			#ocean.rotation.y = rotation.y
 		### The ship stops moving ###
 		elif input_dir.y == 0:

@@ -6,12 +6,12 @@
 
 [resource]
 script = ExtResource("1_5wojw")
-tag = 0
+tag = null
 texture = ExtResource("3_q6u3y")
 name = "Fire Ball"
-level = 1
+level = null
 damage = 5
-coooldown = 2.0
+coooldown = null
 status_effect = ExtResource("2_4h8nb")
 description = "[i] A lightweight cannon ball that sets the enemy on fire [/i]
 - Level [b] [color=green] {level} [/color] [/b]
@@ -19,3 +19,4 @@ description = "[i] A lightweight cannon ball that sets the enemy on fire [/i]
 - Damage over time [b][color=red]10%[/color][/b]  per round
 - Set the enemy on [wave amp=20 freq=2][color=\"orange\"]fire[/color][/wave]
 - Cooldown [b]2[/b] rounds"
+amount = null

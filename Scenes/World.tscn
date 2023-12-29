@@ -612,17 +612,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("8_rfjex")
 
-[node name="Menu Button" type="TextureButton" parent="UI"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = -6.0
-offset_right = 145.0
-offset_bottom = 142.0
-texture_normal = ExtResource("9_i8g1a")
-texture_hover = ExtResource("10_a2kha")
-stretch_mode = 4
-
 [node name="FPS" type="Label" parent="UI"]
+z_index = -1000
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -638,8 +629,18 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 1080.0
-offset_bottom = 80.0
+offset_right = 1160.0
+offset_bottom = 160.0
+
+[node name="Menu Button" type="TextureButton" parent="UI"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -6.0
+offset_right = 145.0
+offset_bottom = 142.0
+texture_normal = ExtResource("9_i8g1a")
+texture_hover = ExtResource("10_a2kha")
+stretch_mode = 4
 
 [node name="DeepOcean" parent="." instance=ExtResource("17_7jk8s")]
 

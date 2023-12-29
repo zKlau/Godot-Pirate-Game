@@ -13,15 +13,16 @@ damage_over_time = 0.0
 
 [resource]
 script = ExtResource("1_t52gd")
-tag = 0
+tag = null
 texture = ExtResource("3_rsxx6")
 name = "Sleep Ball"
-level = 1
-damage = 10
-coooldown = 2.0
+level = null
+damage = null
+coooldown = null
 status_effect = SubResource("Resource_i5sbd")
 description = "[i] A lightweight cannon ball that puts the enemy asleep [/i]
 - Level [b] [color=green] {level} [/color] [/b]
 - Damage -[b][color=red] {damage} [/color][/b]
 - Put enemy [wave amp=20 freq=2][color=\"lightblue\"]asleep[/color][/wave] 
 - Cooldown [b]2[/b] rounds"
+amount = null
