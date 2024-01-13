@@ -16,12 +16,12 @@ script = ExtResource("1_60io8")
 tag = 1
 texture = ExtResource("3_cbp3y")
 name = "Heal Ball"
-level = null
+level = 1
 damage = 30
-coooldown = null
+coooldown = 2.0
 status_effect = SubResource("Resource_i5sbd")
 description = "[i] Magically heal your hurt ships [/i]
 - Level [b] [color=green] {level} [/color] [/b]
 - Heal for  [wave amp=20 freq=2][color=\"lightgreen\"]{damage}[/color][/wave] 
 - Cooldown [b]2[/b] rounds"
-amount = null
+amount = 100

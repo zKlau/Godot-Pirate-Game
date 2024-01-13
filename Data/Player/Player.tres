@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="Player_Data" load_steps=6 format=3 uid="uid://bje6wuleftew5"]
+[gd_resource type="Resource" script_class="Player_Data" load_steps=6 format=3 uid="uid://clhgrg2apfnt"]
 
 [ext_resource type="PackedScene" uid="uid://tkrm5v6hnf2v" path="res://Data/Player/Ships/Dutchman.tscn" id="1_3exy5"]
 [ext_resource type="Script" path="res://Data/Player/Player_data.gd" id="1_wbdtc"]
 [ext_resource type="PackedScene" uid="uid://bgbi2kruc1bxg" path="res://Data/Player/Ships/Walrus.tscn" id="2_3qd1i"]
 [ext_resource type="PackedScene" uid="uid://8vfu0qpkbqyn" path="res://Data/Player/Ships/WhydahGally.tscn" id="3_x0dd1"]
-[ext_resource type="Resource" uid="uid://blvsiidvowjv" path="res://Data/Player/Inventory.tres" id="4_icc51"]
+[ext_resource type="Resource" uid="uid://cxagngmtu6k0j" path="res://Data/Player/Inventory.tres" id="4_icc51"]
 
 [resource]
 script = ExtResource("1_wbdtc")

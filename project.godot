@@ -98,6 +98,7 @@ attack={
 
 3d_physics/layer_2="Ship"
 3d_physics/layer_3="Collider"
+3d_physics/layer_4="IslandDetection"
 
 [rendering]
 

@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://daqm1dfkgqw4n"]
+
+[ext_resource type="PackedScene" uid="uid://iaew1oscsp60" path="res://Models/Islands/island test/test_island.gltf" id="1_kx3ad"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/mask.gdshader" id="2_6pqa8"]
+[ext_resource type="Script" path="res://Scripts/Island/PlayerIslandDetectionOcean.gd" id="3_dl6u0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ilyf2"]
+top_radius = 190.0
+bottom_radius = 200.0
+height = 45.225
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rq1xk"]
+render_priority = 0
+shader = ExtResource("2_6pqa8")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycqs4"]
+radius = 258.284
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u67io"]
+radius = 700.0
+
+[node name="MainPort" type="Node3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="test_island" parent="." instance=ExtResource("1_kx3ad")]
+
+[node name="Mask" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.04466, 0, 0, 0, 1, 0, 0, 0, 0.970174, -22.5562, -11.0725, 41.1909)
+mesh = SubResource("CylinderMesh_ilyf2")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_rq1xk")
+
+[node name="Mask2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.585444, 0, -0.254551, 0, 1, 0, 0.127166, 0, 1.1719, 13.9224, -11.0725, 25.001)
+mesh = SubResource("CylinderMesh_ilyf2")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_rq1xk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.088, 0, 22.8346)
+shape = SubResource("SphereShape3D_ycqs4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="PlayerDetectionOcean" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_dl6u0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionOcean"]
+shape = SubResource("SphereShape3D_u67io")
+
+[connection signal="body_entered" from="PlayerDetectionOcean" to="PlayerDetectionOcean" method="_on_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionOcean" to="PlayerDetectionOcean" method="_on_body_exited"]

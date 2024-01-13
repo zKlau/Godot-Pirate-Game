@@ -1,3 +1,5 @@
+res://Scripts/Island
+res://Prefabs/Islands
 res://Data/Player
 res://Data/Player/Cannonballs/Dutchman
 res://Data/Player/Scenes
@@ -18,8 +20,6 @@ res://Prefabs/Ships/Player
 res://Prefabs
 res://Scripts/Resources/RandomObjects/Resources
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus
-res://Scripts/Resources/Ship
-res://Prefabs/Ships
 E:/Godot/Project/Pirate Game/Data/Player
 C:/Users/zKlau/AppData/Roaming/Godot/export_templates/4.1.1.stable
 E:/Godot/Project/Pirate Game

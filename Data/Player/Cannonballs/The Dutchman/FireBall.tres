@@ -13,14 +13,14 @@ damage_over_time = 3.2
 
 [resource]
 script = ExtResource("1_y4f6t")
-tag = null
+tag = 0
 texture = ExtResource("3_0igsj")
 name = "Fire Ball"
 level = 120
-damage = null
+damage = 10
 coooldown = 5.0
 status_effect = SubResource("Resource_e8av6")
 description = "[i] A normal cannon ball [/i]
 - Level [b] [color=green] {level} [/color] [/b]
 - Damage -[b][color=red] {damage} [/color][/b]"
-amount = null
+amount = 100

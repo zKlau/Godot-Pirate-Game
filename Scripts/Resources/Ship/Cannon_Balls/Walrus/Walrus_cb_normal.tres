@@ -5,13 +5,13 @@
 
 [resource]
 script = ExtResource("1_n2jal")
-tag = null
+tag = 0
 texture = ExtResource("2_emwnv")
 name = "Cannon Ball"
-level = null
-damage = null
-coooldown = null
+level = 1
+damage = 10
+coooldown = 2.0
 description = "[i] A normal cannon ball [/i]
 - Level [b] [color=green] {level} [/color] [/b]
 - Damage -[b][color=red] {damage} [/color][/b]"
-amount = null
+amount = 100

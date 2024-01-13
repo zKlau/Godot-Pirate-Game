@@ -12,11 +12,11 @@ damage_over_time = 0.0
 
 [resource]
 script = ExtResource("1_nuuvr")
-tag = null
+tag = 0
 name = "Sleeping Ball"
 level = 31
 damage = 2
 coooldown = 50.0
 status_effect = SubResource("Resource_i53cp")
-description = null
-amount = null
+description = ""
+amount = 100

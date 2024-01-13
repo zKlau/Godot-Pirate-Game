@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="ShipInventoryResource" load_steps=2 format=3 uid="uid://blvsiidvowjv"]
+[gd_resource type="Resource" script_class="ShipInventoryResource" load_steps=2 format=3 uid="uid://cxagngmtu6k0j"]
 
 [ext_resource type="Script" path="res://Data/Player/ShipInventoryResource.gd" id="1_32hb6"]
 
 [resource]
 script = ExtResource("1_32hb6")
-food = -128.5
-water = -257.0
+food = -334.0
+water = -668.0

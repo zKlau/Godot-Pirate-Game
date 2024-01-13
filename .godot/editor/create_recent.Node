@@ -1,3 +1,6 @@
+CollisionShape3D
+Area3D
+StaticBody3D
 AudioStreamPlayer
 Node
 Path3D
@@ -7,9 +10,5 @@ CharacterBody3D
 Sprite3D
 MeshInstance3D
 Decal
-Area3D
-CollisionShape3D
 RigidBody3D
 RayCast3D
-StaticBody3D
-Button

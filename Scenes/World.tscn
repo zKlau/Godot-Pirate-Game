@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=58 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="9_i8g1a"]
 [ext_resource type="Texture2D" uid="uid://b1aslilfq257l" path="res://Assets/Textures/Rain/water ripple.png" id="9_nl5gu"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
-[ext_resource type="Resource" uid="uid://bje6wuleftew5" path="res://Data/Player/Player.tres" id="11_hcc55"]
+[ext_resource type="Resource" uid="uid://clhgrg2apfnt" path="res://Data/Player/Player.tres" id="11_hcc55"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
 [ext_resource type="Script" path="res://Scripts/Ship/Ship.gd" id="12_cqa17"]
 [ext_resource type="Resource" uid="uid://dkm3hykhrpanh" path="res://Data/Player/Cannonballs/Dutchman/CannonBall.tres" id="13_1cdl2"]
@@ -31,6 +31,7 @@
 [ext_resource type="Script" path="res://Scripts/Ship/Combat.gd" id="25_cijhw"]
 [ext_resource type="Script" path="res://Scenes/EnemyShip.gd" id="26_43h36"]
 [ext_resource type="Script" path="res://Scenes/ShipBattleAI.gd" id="28_c7hhh"]
+[ext_resource type="PackedScene" uid="uid://daqm1dfkgqw4n" path="res://Prefabs/Islands/MainPort.tscn" id="32_7h6ax"]
 
 [sub_resource type="Environment" id="Environment_xrhli"]
 background_mode = 2
@@ -370,7 +371,7 @@ rotation_order = 4
 shadow_enabled = true
 
 [node name="Moon" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.993158, 0, 0.116766, -0.0294438, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
+transform = Transform3D(0.993156, 0, 0.116766, -0.0294437, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
 rotation_order = 4
 shadow_enabled = true
 sky_mode = 2
@@ -681,6 +682,9 @@ target_attack_node = [NodePath("../../../Player/Right_combat_node"), NodePath(".
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Dummy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
 shape = SubResource("BoxShape3D_jc8rj")
+
+[node name="MainPort" parent="." instance=ExtResource("32_7h6ax")]
+transform = Transform3D(-0.342312, 0, 0.206936, 0, 0.4, 0, -0.206936, 0, -0.342312, -57.636, -2, -46.4)
 
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
 [connection signal="pressed" from="Player/Dutchman/Ship Menu/Close_button" to="Player/Dutchman/Ship Menu" method="_on_close_button_pressed"]

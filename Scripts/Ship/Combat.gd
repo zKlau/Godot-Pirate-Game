@@ -27,7 +27,6 @@ func attack(attacker):
 			if i.get_collider() != null and attacker.model.shooting_animation.anim.is_playing() == false:
 				if i.get_collider().name == "Ship_hitBox":
 					i.get_collider().get_parent().get_parent().combat.take_damage(attacker._cannons[attacker._selected_cannon_id])
-					
 					#ResourceSaver.save(attacker._cannons[attacker._selected_cannon_id], )
 					print("attack")
 		attacker._cannons[attacker._selected_cannon_id].amount -= 1
