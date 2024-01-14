@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=61 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -14,7 +14,9 @@
 [ext_resource type="Script" path="res://Scripts/UI_match.gd" id="8_rfjex"]
 [ext_resource type="Texture2D" uid="uid://damy8fkqbrlpm" path="res://Assets/Textures/UI/button-menu.png" id="9_i8g1a"]
 [ext_resource type="Texture2D" uid="uid://b1aslilfq257l" path="res://Assets/Textures/Rain/water ripple.png" id="9_nl5gu"]
+[ext_resource type="Script" path="res://Scenes/Fauna.gd" id="10_8lt55"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
+[ext_resource type="Script" path="res://Scenes/EventSeagulls.gd" id="11_4jbxr"]
 [ext_resource type="Resource" uid="uid://clhgrg2apfnt" path="res://Data/Player/Player.tres" id="11_hcc55"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
 [ext_resource type="Script" path="res://Scripts/Ship/Ship.gd" id="12_cqa17"]
@@ -32,6 +34,7 @@
 [ext_resource type="Script" path="res://Scenes/EnemyShip.gd" id="26_43h36"]
 [ext_resource type="Script" path="res://Scenes/ShipBattleAI.gd" id="28_c7hhh"]
 [ext_resource type="PackedScene" uid="uid://daqm1dfkgqw4n" path="res://Prefabs/Islands/MainPort.tscn" id="32_7h6ax"]
+[ext_resource type="PackedScene" uid="uid://brv8fncm45kf1" path="res://Prefabs/Enviorment/Fauna/CruisingEffects1.tscn" id="33_3qa84"]
 
 [sub_resource type="Environment" id="Environment_xrhli"]
 background_mode = 2
@@ -371,7 +374,7 @@ rotation_order = 4
 shadow_enabled = true
 
 [node name="Moon" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.993156, 0, 0.116766, -0.0294437, 0.967685, 0.250435, -0.112993, -0.25216, 0.961065, 0, 0, 0)
+transform = Transform3D(0.993155, 0, 0.116766, -0.0294437, 0.967685, 0.250435, -0.112992, -0.25216, 0.961065, 0, 0, 0)
 rotation_order = 4
 shadow_enabled = true
 sky_mode = 2
@@ -450,6 +453,13 @@ visibility_aabb = AABB(-134.354, -45.2639, -93.3086, 268.707, 90.5278, 186.617)
 process_material = SubResource("ParticleProcessMaterial_pbkw8")
 draw_pass_1 = SubResource("PlaneMesh_6ky4f")
 
+[node name="Fauna" type="Node" parent="Environment"]
+script = ExtResource("10_8lt55")
+
+[node name="Seagulls" type="Node" parent="Environment/Fauna"]
+script = ExtResource("11_4jbxr")
+scene = ExtResource("33_3qa84")
+
 [node name="PlayerCamera" type="Camera3D" parent="." node_paths=PackedStringArray("target_follow", "action_camera_left", "action_camera_right")]
 transform = Transform3D(1, 0, 0, 0, 0.970716, 0.240228, 0, -0.240228, 0.970716, -3.47421, 11.8905, 7.1916)
 current = true
@@ -461,7 +471,7 @@ action_camera_left = NodePath("../Player/Action_Camera_Left")
 action_camera_right = NodePath("../Player/Action_Camera_Right")
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("ship", "combat")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0545, 0.411892, -6.4427)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9497, 0.411893, -0.947069)
 script = ExtResource("5_nq3kf")
 ship = NodePath("Dutchman")
 player_data = ExtResource("11_hcc55")
@@ -630,8 +640,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 1160.0
-offset_bottom = 160.0
+offset_right = 1200.0
+offset_bottom = 200.0
 
 [node name="Menu Button" type="TextureButton" parent="UI"]
 layout_mode = 0

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://c66eybfy28pki"]
+
+[ext_resource type="PackedScene" uid="uid://cn1rxiptga0jo" path="res://Models/Enviorment/Fauna/Seagull.gltf" id="1_nvd2r"]
+[ext_resource type="Script" path="res://Prefabs/Enviorment/Fauna/seagull.gd" id="2_4pcso"]
+[ext_resource type="Animation" uid="uid://cijocmppc8pvr" path="res://Prefabs/Enviorment/Fauna/Seagull/left_wing_anim.res" id="3_f6sfu"]
+[ext_resource type="Animation" uid="uid://dq1ypwcdk3sog" path="res://Prefabs/Enviorment/Fauna/Seagull/right_wing_anim.res" id="4_037q7"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3mkk"]
+_data = {
+"Flying": ExtResource("4_037q7"),
+"left_wing_anim": ExtResource("3_f6sfu")
+}
+
+[node name="Seagull" instance=ExtResource("1_nvd2r")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("2_4pcso")
+
+[node name="Skeleton3D" parent="Right_Wing" index="0"]
+bones/0/rotation = Quaternion(0.977911, 0.15563, 0.105955, 0.0907876)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(0.134374, 0.443532, -0.00198596, 0.886126)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(-0.0996868, -0.360055, 0.113184, 0.920659)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.00658892, -0.402703, 0.0988438, 0.909954)
+bones/4/rotation = Quaternion(0.19438, -0.244367, -0.110879, 0.943508)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(-0.0649349, 0.721599, 0.0683181, 0.685865)
+
+[node name="Skeleton3D" parent="Left_Wing" index="0"]
+bones/0/rotation = Quaternion(0.104376, -0.00546772, 0.0493305, 0.993299)
+bones/1/rotation = Quaternion(-0.104743, -0.00248678, -0.103009, 0.989147)
+bones/2/rotation = Quaternion(0.000675995, -1.4902e-07, 0.147195, 0.989107)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.000380784, 4.47565e-07, 0.0828779, 0.99656)
+bones/4/rotation = Quaternion(-0.232052, -0.0119317, 0.0464817, 0.971519)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.703967, 0.0665643, 0.703967, -0.0665643)
+bones/5/scale = Vector3(1, 1, 1)
+
+[node name="AnimationPlayer" parent="." index="3"]
+active = false
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_h3mkk")
+}
+speed_scale = 0.5

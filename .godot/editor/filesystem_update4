@@ -1,4 +1,3 @@
-res://Scripts/Island/PlayerIslandDetectionOcean.gd
 res://addons/panku_console/res/panku_console_theme.tres
 res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
@@ -23,3 +22,20 @@ res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
+res://Prefabs/Enviorment/Fauna/seagull.tscn
+res://Prefabs/Enviorment/Fauna/seagull.gd
+res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
+res://Scenes/Battle.tscn
+res://Prefabs/Ships/Placeholder/ship_dark.tscn
+res://Prefabs/User Interface/pause_menu.tscn
+res://Scenes/World.tscn
+res://Scenes/deep_ocean.tscn
+res://Prefabs/Islands/MainPort.tscn
+res://Prefabs/Enviorment/Fauna/CruisingEffects1.tscn
+res://Data/Settings/Settings.tres
+res://Data/Player/Inventory.tres
+res://Data/Player/Player.tres
+res://Prefabs/Enviorment/Fauna/Seagull/right_wing_anim.res
+res://Scenes/EventSeagulls.gd
+res://Scripts/Global.gd
+res://Scenes/Fauna.gd
