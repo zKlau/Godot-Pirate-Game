@@ -1,3 +1,5 @@
+AnimationPlayer
+AnimationTree
 CollisionShape3D
 Area3D
 StaticBody3D
@@ -11,4 +13,3 @@ Sprite3D
 MeshInstance3D
 Decal
 RigidBody3D
-RayCast3D

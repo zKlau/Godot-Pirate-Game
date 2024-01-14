@@ -684,7 +684,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365045, 0)
 shape = SubResource("BoxShape3D_jc8rj")
 
 [node name="MainPort" parent="." instance=ExtResource("32_7h6ax")]
-transform = Transform3D(-0.342312, 0, 0.206936, 0, 0.4, 0, -0.206936, 0, -0.342312, -57.636, -2, -46.4)
+transform = Transform3D(-0.342312, 0, 0.206936, 0, 0.4, 0, -0.206936, 0, -0.342312, -61.2225, -2, -52.5295)
 
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
 [connection signal="pressed" from="Player/Dutchman/Ship Menu/Close_button" to="Player/Dutchman/Ship Menu" method="_on_close_button_pressed"]

@@ -1,3 +1,4 @@
+res://Scripts/Island/PlayerIslandDetectionOcean.gd
 res://addons/panku_console/res/panku_console_theme.tres
 res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
@@ -10,6 +11,7 @@ res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres
 res://Prefabs/User Interface/Ship/option_button_ship_menu.tres
 res://Scripts/Shaders/mask.gdshader
 res://addons/boujie_water_shader/shader/water.gdshader
+res://addons/boujie_water_shader/prefabs/deep_ocean_material.tres
 res://Scenes/WorldSky.tres
 res://Data/Player/Cannonballs/The Dutchman/SleepingBall.tres
 res://Data/Player/Cannonballs/The Dutchman/FireBall.tres
@@ -21,21 +23,3 @@ res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
-res://Prefabs/Islands/MainPort.tscn
-res://Scenes/World.tscn
-res://Prefabs/User Interface/Buttons/normal_ability_button.tscn
-res://Scenes/Battle.tscn
-res://Prefabs/Ships/Placeholder/ship_dark.tscn
-res://Prefabs/User Interface/pause_menu.tscn
-res://Data/Settings/Settings.tres
-res://addons/boujie_water_shader/prefabs/deep_ocean_material.tres
-res://Scenes/deep_ocean.tscn
-res://example/boujie_water_shader/height_waves/height4.tres
-res://example/boujie_water_shader/height_waves/height2.tres
-res://Data/Player/Inventory.tres
-res://Data/Player/Player.tres
-res://Scripts/Island/PlayerIslandDetectionOcean.gd
-res://Scripts/Global.gd
-res://addons/boujie_water_shader/prefabs/ocean_prefab.gd
-res://Scripts/Ship/Ship.gd
-res://Scenes/ShipBattleAI.gd
