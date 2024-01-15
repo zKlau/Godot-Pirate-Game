@@ -70,9 +70,25 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction.x * ship.SPEED
 			velocity.z = direction.z * ship.SPEED
+			print(velocity)
 		else:
-			velocity.x = move_toward(velocity.x, 0, ship.SPEED)
-			velocity.z = move_toward(velocity.z, 0, ship.SPEED)
+			print(velocity)
+			'''
+			if velocity.x >= 0:
+				velocity.x -= delta
+				
+			if velocity.z >= 0:
+				velocity.z -= delta
+				
+			if velocity.x < 0:
+				velocity.x = 0
+			if velocity.z < 0:
+				velocity.z = 0
+				'''
+				
+			velocity = lerp(velocity,Vector3(0,0,0),0.03)
+			#velocity.x = move_toward(velocity.x, 0, ship.SPEED)
+			#velocity.z = move_toward(velocity.z, 0, ship.SPEED)
 		
 		move_and_slide()
 	

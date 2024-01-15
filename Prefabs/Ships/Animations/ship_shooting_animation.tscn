@@ -289,7 +289,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83523e-07, -0.354705, 4.198
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4444e-07, -0.354705, 3.30441)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-volume_db = -10.0
+volume_db = -20.0
 pitch_scale = 1.5
 max_distance = 5000.0
 bus = &"Sound Effects"

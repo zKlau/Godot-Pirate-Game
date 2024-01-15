@@ -24,12 +24,14 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
 [node name="Mask" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.04466, 0, 0, 0, 1, 0, 0, 0, 0.970174, -22.5562, -11.0725, 41.1909)
+visible = false
 mesh = SubResource("CylinderMesh_ilyf2")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_rq1xk")
 
 [node name="Mask2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.585444, 0, -0.254551, 0, 1, 0, 0.127166, 0, 1.1719, 13.9224, -11.0725, 25.001)
+visible = false
 mesh = SubResource("CylinderMesh_ilyf2")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_rq1xk")

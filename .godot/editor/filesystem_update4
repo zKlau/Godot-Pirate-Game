@@ -33,3 +33,6 @@ res://Data/Player/Player.tres
 res://Prefabs/Enviorment/Fauna/seagull.gd
 res://Scenes/Fauna.gd
 res://Scenes/EventSeagulls.gd
+res://Scripts/PlayerBody.gd
+res://Prefabs/Ships/Animations/ship_shooting_animation.tscn
+res://Prefabs/Ships/Placeholder/ship_dark.tscn
