@@ -1,7 +1,9 @@
-AudioStreamPlayer3D
+SubViewport
+Camera3D
 Node
-AnimationPlayer
+AudioStreamPlayer3D
 Node3D
+AnimationPlayer
 GPUParticles3D
 AnimationTree
 CollisionShape3D
@@ -11,5 +13,3 @@ AudioStreamPlayer
 Path3D
 Timer
 CharacterBody3D
-Sprite3D
-MeshInstance3D

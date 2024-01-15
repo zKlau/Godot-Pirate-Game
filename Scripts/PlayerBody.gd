@@ -70,9 +70,7 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction.x * ship.SPEED
 			velocity.z = direction.z * ship.SPEED
-			print(velocity)
 		else:
-			print(velocity)
 			'''
 			if velocity.x >= 0:
 				velocity.x -= delta

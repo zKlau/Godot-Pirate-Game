@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://daqm1dfkgqw4n"]
 
-[ext_resource type="PackedScene" path="res://Models/Islands/island test/test_island.gltf" id="1_kx3ad"]
+[ext_resource type="PackedScene" uid="uid://b82nljj51riig" path="res://Models/Islands/island test/test_island.gltf" id="1_kx3ad"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/mask.gdshader" id="2_6pqa8"]
 [ext_resource type="Script" path="res://Scripts/Island/PlayerIslandDetectionOcean.gd" id="3_dl6u0"]
 

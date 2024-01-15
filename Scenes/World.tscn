@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=62 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b1aslilfq257l" path="res://Assets/Textures/Rain/water ripple.png" id="9_nl5gu"]
 [ext_resource type="Script" path="res://Scenes/Fauna.gd" id="10_8lt55"]
 [ext_resource type="Texture2D" uid="uid://d1r87lrx472rp" path="res://Assets/Textures/UI/button-menu-hover.png" id="10_a2kha"]
-[ext_resource type="Script" path="res://Scenes/EventSeagulls.gd" id="11_4jbxr"]
+[ext_resource type="Script" path="res://Scenes/EnvEvents.gd" id="11_4jbxr"]
 [ext_resource type="Resource" uid="uid://clhgrg2apfnt" path="res://Data/Player/Player.tres" id="11_hcc55"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
 [ext_resource type="Script" path="res://Scripts/Ship/Ship.gd" id="12_cqa17"]
@@ -35,6 +35,7 @@
 [ext_resource type="Script" path="res://Scenes/ShipBattleAI.gd" id="28_c7hhh"]
 [ext_resource type="PackedScene" uid="uid://daqm1dfkgqw4n" path="res://Prefabs/Islands/MainPort.tscn" id="32_7h6ax"]
 [ext_resource type="PackedScene" uid="uid://brv8fncm45kf1" path="res://Prefabs/Enviorment/Fauna/CruisingEffects1.tscn" id="33_3qa84"]
+[ext_resource type="PackedScene" uid="uid://bdc5mb40j7upf" path="res://Prefabs/Enviorment/Fauna/CruisingEvent2.tscn" id="36_3u2f6"]
 
 [sub_resource type="Environment" id="Environment_xrhli"]
 background_mode = 2
@@ -460,6 +461,10 @@ script = ExtResource("10_8lt55")
 script = ExtResource("11_4jbxr")
 scene = ExtResource("33_3qa84")
 
+[node name="Dolphins" type="Node" parent="Environment/Fauna"]
+script = ExtResource("11_4jbxr")
+scene = ExtResource("36_3u2f6")
+
 [node name="PlayerCamera" type="Camera3D" parent="." node_paths=PackedStringArray("target_follow", "action_camera_left", "action_camera_right")]
 transform = Transform3D(1, 0, 0, 0, 0.970716, 0.240228, 0, -0.240228, 0.970716, -3.47421, 11.8905, 7.1916)
 current = true
@@ -471,7 +476,7 @@ action_camera_left = NodePath("../Player/Action_Camera_Left")
 action_camera_right = NodePath("../Player/Action_Camera_Right")
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("ship", "combat")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9497, 0.411893, -0.947069)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8942, 0.411893, 7.6638)
 script = ExtResource("5_nq3kf")
 ship = NodePath("Dutchman")
 player_data = ExtResource("11_hcc55")
@@ -640,8 +645,8 @@ libraries = {
 [node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 1200.0
-offset_bottom = 200.0
+offset_right = 1240.0
+offset_bottom = 240.0
 
 [node name="Menu Button" type="TextureButton" parent="UI"]
 layout_mode = 0
@@ -695,6 +700,9 @@ shape = SubResource("BoxShape3D_jc8rj")
 
 [node name="MainPort" parent="." instance=ExtResource("32_7h6ax")]
 transform = Transform3D(-0.342312, 0, 0.206936, 0, 0.4, 0, -0.206936, 0, -0.342312, -61.2225, -2, -52.5295)
+
+[node name="CruisingEvent2" parent="." instance=ExtResource("36_3u2f6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6637, 0.21288, 8.89253)
 
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
 [connection signal="pressed" from="Player/Dutchman/Ship Menu/Close_button" to="Player/Dutchman/Ship Menu" method="_on_close_button_pressed"]

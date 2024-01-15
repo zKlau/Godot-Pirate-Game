@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdc5mb40j7upf"]
+
+[ext_resource type="PackedScene" uid="uid://2xm700wvdwsm" path="res://Prefabs/Enviorment/Fauna/Dolphin/dolphin.tscn" id="1_oy4up"]
+
+[node name="CruisingEvent2" type="Node3D"]
+
+[node name="Dolphins" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -2, 0)
+
+[node name="Dolphin" parent="Dolphins" instance=ExtResource("1_oy4up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.20598, 0, 14.128)
+
+[node name="Dolphin2" parent="Dolphins" instance=ExtResource("1_oy4up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6742, 0, -2.70247)
+
+[node name="Dolphin3" parent="Dolphins" instance=ExtResource("1_oy4up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.85718, 0, 4.0141)
+
+[node name="Dolphin4" parent="Dolphins" instance=ExtResource("1_oy4up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0694, 0, -14.7358)
+
+[node name="Dolphin5" parent="Dolphins" instance=ExtResource("1_oy4up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4332, 0, 5.31313)
+
+[node name="Dolphin6" parent="Dolphins" instance=ExtResource("1_oy4up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3328, 0, -3.60538)
+
+[node name="Dolphin7" parent="Dolphins" instance=ExtResource("1_oy4up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0097, 0, 10.6632)

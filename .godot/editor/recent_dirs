@@ -1,5 +1,6 @@
-res://Prefabs/Enviorment/Fauna/Seagull
+res://Prefabs/Enviorment/Fauna/Dolphin
 res://Prefabs/Enviorment/Fauna
+res://Prefabs/Enviorment/Fauna/Seagull
 res://Scripts/Island
 res://Prefabs/Islands
 res://Data/Player
@@ -19,7 +20,6 @@ res://Prefabs/Ships/Animations
 res://Scripts/User Interface
 res://Prefabs/Test
 res://Prefabs/Ships/Player
-res://Prefabs
 E:/Godot/Project/Pirate Game/Data/Player
 C:/Users/zKlau/AppData/Roaming/Godot/export_templates/4.1.1.stable
 E:/Godot/Project/Pirate Game
