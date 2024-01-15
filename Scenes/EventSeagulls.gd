@@ -1,5 +1,5 @@
 extends Node
-class_name EventSeagulls
+class_name Enviorment_event
 
 @export var scene : PackedScene
 @export var spawn_time_min : float = 120

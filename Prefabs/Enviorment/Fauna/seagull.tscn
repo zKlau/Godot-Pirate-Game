@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c66eybfy28pki"]
+[gd_scene load_steps=7 format=3 uid="uid://c66eybfy28pki"]
 
 [ext_resource type="PackedScene" uid="uid://cn1rxiptga0jo" path="res://Models/Enviorment/Fauna/Seagull.gltf" id="1_nvd2r"]
 [ext_resource type="Script" path="res://Prefabs/Enviorment/Fauna/seagull.gd" id="2_4pcso"]
 [ext_resource type="Animation" uid="uid://cijocmppc8pvr" path="res://Prefabs/Enviorment/Fauna/Seagull/left_wing_anim.res" id="3_f6sfu"]
 [ext_resource type="Animation" uid="uid://dq1ypwcdk3sog" path="res://Prefabs/Enviorment/Fauna/Seagull/right_wing_anim.res" id="4_037q7"]
+[ext_resource type="AudioStream" uid="uid://uofq8tl8i1tq" path="res://Assets/Audio/Sound Effects/Ambient/510917__lydmakeren__seagulls_short.wav" id="5_131xh"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h3mkk"]
 _data = {
@@ -46,3 +47,11 @@ libraries = {
 "": SubResource("AnimationLibrary_h3mkk")
 }
 speed_scale = 0.5
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="5"]
+stream = ExtResource("5_131xh")
+volume_db = -15.0
+max_db = 0.0
+pitch_scale = 0.95
+max_distance = 30.0
+bus = &"Sound Effects"

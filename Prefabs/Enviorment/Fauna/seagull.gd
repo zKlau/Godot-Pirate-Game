@@ -2,8 +2,12 @@ extends Node3D
 
 @onready var anim = $AnimationPlayer2
 @export_range(20,100) var speed = 20;
+@onready var audio = $AudioStreamPlayer3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var sound_chance = randi_range(1,10)
+	if sound_chance >= 5:
+		audio.play(randf_range(0,audio.stream.get_length()))
 	speed = randi_range(15,35)
 	anim.speed_scale = randf_range(0.5,2)
 	anim.play("Flying")
