@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=64 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -34,6 +34,8 @@
 [ext_resource type="Script" path="res://Scenes/EnemyShip.gd" id="26_43h36"]
 [ext_resource type="Script" path="res://Scenes/ShipBattleAI.gd" id="28_c7hhh"]
 [ext_resource type="PackedScene" uid="uid://daqm1dfkgqw4n" path="res://Prefabs/Islands/MainPort.tscn" id="32_7h6ax"]
+[ext_resource type="Script" path="res://Scenes/UITitles.gd" id="32_r0knk"]
+[ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="32_w7ekk"]
 [ext_resource type="PackedScene" uid="uid://brv8fncm45kf1" path="res://Prefabs/Enviorment/Fauna/CruisingEffects1.tscn" id="33_3qa84"]
 [ext_resource type="PackedScene" uid="uid://bdc5mb40j7upf" path="res://Prefabs/Enviorment/Fauna/CruisingEvent2.tscn" id="36_3u2f6"]
 
@@ -49,7 +51,6 @@ glow_enabled = true
 glow_intensity = 0.2
 fog_light_color = Color(0.568627, 0.603922, 0.658824, 1)
 fog_sun_scatter = 0.01
-volumetric_fog_density = 0.0
 adjustment_enabled = true
 adjustment_brightness = 0.9
 adjustment_saturation = 1.3
@@ -476,7 +477,7 @@ action_camera_left = NodePath("../Player/Action_Camera_Left")
 action_camera_right = NodePath("../Player/Action_Camera_Right")
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("ship", "combat")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8942, 0.411893, 7.6638)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.9661, 0.411893, 7.6638)
 script = ExtResource("5_nq3kf")
 ship = NodePath("Dutchman")
 player_data = ExtResource("11_hcc55")
@@ -658,6 +659,32 @@ texture_normal = ExtResource("9_i8g1a")
 texture_hover = ExtResource("10_a2kha")
 stretch_mode = 4
 
+[node name="Titles" type="Control" parent="UI" node_paths=PackedStringArray("enter_port")]
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("32_r0knk")
+enter_port = NodePath("Enter_port")
+
+[node name="Enter_port" type="RichTextLabel" parent="UI/Titles"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -264.0
+offset_right = 288.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("32_w7ekk")
+bbcode_enabled = true
+text = "[center]Press \"E\" to enter the port[/center]"
+
 [node name="DeepOcean" parent="." instance=ExtResource("17_7jk8s")]
 
 [node name="Dummy" type="CharacterBody3D" parent="." node_paths=PackedStringArray("ship", "combat")]
@@ -700,9 +727,6 @@ shape = SubResource("BoxShape3D_jc8rj")
 
 [node name="MainPort" parent="." instance=ExtResource("32_7h6ax")]
 transform = Transform3D(-0.342312, 0, 0.206936, 0, 0.4, 0, -0.206936, 0, -0.342312, -61.2225, -2, -52.5295)
-
-[node name="CruisingEvent2" parent="." instance=ExtResource("36_3u2f6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6637, 0.21288, 8.89253)
 
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
 [connection signal="pressed" from="Player/Dutchman/Ship Menu/Close_button" to="Player/Dutchman/Ship Menu" method="_on_close_button_pressed"]

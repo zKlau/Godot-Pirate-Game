@@ -3,8 +3,12 @@ extends Control
 var camera_r : bool = true
 @onready var anim : AnimationPlayer = $UI_Animations
 var menu_opened : bool = false
+
+@onready var titles = $Titles
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.ui = self;
 	pass # Replace with function body.
 
 

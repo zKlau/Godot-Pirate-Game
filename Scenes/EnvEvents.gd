@@ -8,6 +8,7 @@ var current_events
 var spawn_time : float
 var time : float
 func _init():
+	timer()
 	pass
 
 func timer():

@@ -23,10 +23,11 @@ func _process(delta):
 func _physics_process(delta):
 	time += delta
 	if time >= jump_anim_time:
-		anim.play("Jumping")
+		anim.play("Jumping_2")
 		time = 0;
 		jump_anim_time = randf_range(2,5)
-		
+	if global_position.distance_to(Global.player.global_position) >= Global.render_distance:
+		queue_free() 
 	translate(Vector3.FORWARD * speed * delta)
 	pass
 

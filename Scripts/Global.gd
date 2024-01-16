@@ -9,6 +9,8 @@ var player
 var ticks : int = 10
 var allow_ship_interaction : bool = true
 var ocean;
+var render_distance : float = 300
+var ui;
 # Called when the node enters the scene tree for the first time.
 
 

@@ -1,3 +1,6 @@
+RichTextLabel
+Control
+AnimationTree
 SubViewport
 Camera3D
 Node
@@ -5,11 +8,8 @@ AudioStreamPlayer3D
 Node3D
 AnimationPlayer
 GPUParticles3D
-AnimationTree
 CollisionShape3D
 Area3D
 StaticBody3D
 AudioStreamPlayer
 Path3D
-Timer
-CharacterBody3D
