@@ -9,8 +9,8 @@ const JUMP_VELOCITY = 4.5
 @export var combat : Ship_Combat
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var stop_movement : bool = false
 var player_at_sea : bool = true
+var stop_movement : bool = false;
 #@onready var ocean = $"../WaterPoint"
 func _ready():
 	Signals.connect("save_game",save_player_data)

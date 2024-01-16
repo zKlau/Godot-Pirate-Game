@@ -11,3 +11,5 @@ signal attack_button
 signal quit_game
 signal save_game
 signal load_game
+signal player_entered_port
+signal player_exited_port

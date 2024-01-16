@@ -1,4 +1,4 @@
-res://Prefabs/Enviorment/Fauna/Dolphin/dolphin.tscn
+res://Prefabs/Islands/MainPort.tscn
 res://addons/panku_console/res/panku_console_theme.tres
 res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
@@ -23,18 +23,16 @@ res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
-res://Prefabs/Enviorment/Fauna/Dolphin/dolphin.gd
-res://Scenes/World.tscn
-res://Scenes/deep_ocean.tscn
-res://Prefabs/Islands/MainPort.tscn
-res://Prefabs/Enviorment/Fauna/CruisingEffects1.tscn
-res://Prefabs/Enviorment/Fauna/seagull.tscn
-res://Prefabs/Enviorment/Fauna/CruisingEvent2.tscn
-res://Data/Settings/Settings.tres
-res://Scenes/EnvEvents.gd
-res://Scenes/Fauna.gd
-res://Scripts/Global.gd
 res://Prefabs/Islands/PlayerDetectionPort.gd
-res://Scripts/UI_match.gd
-res://Scenes/UITitles.gd
+res://Prefabs/Islands/Port.gd
+res://Scenes/World.tscn
 res://Prefabs/Ships/Placeholder/ship_dark.tscn
+res://Data/Settings/Settings.tres
+res://Scripts/PlayerBody.gd
+res://Scripts/Global.gd
+res://Scripts/Floating_Object.gd
+res://Scripts/Signals.gd
+res://Data/Player/Inventory.tres
+res://Data/Player/Player.tres
+res://Scripts/UI_match.gd
+res://Prefabs/User Interface/Ports/Bricker-Town-menu.tscn

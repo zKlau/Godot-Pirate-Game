@@ -1,5 +1,9 @@
-RichTextLabel
 Control
+CanvasLayer
+TextureRect
+ColorRect
+Marker3D
+RichTextLabel
 AnimationTree
 SubViewport
 Camera3D
@@ -8,8 +12,3 @@ AudioStreamPlayer3D
 Node3D
 AnimationPlayer
 GPUParticles3D
-CollisionShape3D
-Area3D
-StaticBody3D
-AudioStreamPlayer
-Path3D

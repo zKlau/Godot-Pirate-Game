@@ -5,7 +5,7 @@ var camera_r : bool = true
 var menu_opened : bool = false
 
 @onready var titles = $Titles
-
+@export var temp : Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.ui = self;

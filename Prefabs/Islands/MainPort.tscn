@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://daqm1dfkgqw4n"]
+[gd_scene load_steps=12 format=3 uid="uid://daqm1dfkgqw4n"]
 
 [ext_resource type="PackedScene" uid="uid://b82nljj51riig" path="res://Models/Islands/island test/test_island.gltf" id="1_kx3ad"]
+[ext_resource type="Script" path="res://Prefabs/Islands/Port.gd" id="1_w5ye2"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/mask.gdshader" id="2_6pqa8"]
 [ext_resource type="Script" path="res://Scripts/Island/PlayerIslandDetectionOcean.gd" id="3_dl6u0"]
 [ext_resource type="Script" path="res://Prefabs/Islands/PlayerDetectionPort.gd" id="3_kk733"]
+[ext_resource type="PackedScene" uid="uid://ckpl435inlh56" path="res://Prefabs/User Interface/Ports/Bricker-Town-menu.tscn" id="6_aev6t"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ilyf2"]
 top_radius = 190.0
@@ -24,8 +26,12 @@ radius = 700.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_rijkd"]
 radius = 100.0
 
-[node name="MainPort" type="Node3D"]
+[node name="MainPort" type="Node3D" node_paths=PackedStringArray("ship_point", "ship_camera")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+script = ExtResource("1_w5ye2")
+ship_point = NodePath("Ship_point")
+ship_camera = NodePath("Camera_point")
+ui_scene = ExtResource("6_aev6t")
 
 [node name="Mask" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.04466, 0, 0, 0, 1, 0, 0, 0, 0.970174, -22.5562, -11.0725, 41.1909)
@@ -76,17 +82,24 @@ script = ExtResource("3_dl6u0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionOcean"]
 shape = SubResource("SphereShape3D_u67io")
 
-[node name="PlayerDetectionPort" type="Area3D" parent="."]
+[node name="PlayerDetectionPort" type="Area3D" parent="." node_paths=PackedStringArray("parent")]
 collision_layer = 8
 collision_mask = 2
 monitorable = false
 script = ExtResource("3_kk733")
+parent = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionPort"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -292.965, 0, 12.6575)
 shape = SubResource("SphereShape3D_rijkd")
 
 [node name="test_island" parent="." instance=ExtResource("1_kx3ad")]
+
+[node name="Ship_point" type="Marker3D" parent="."]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -277.278, 0, 21.161)
+
+[node name="Camera_point" type="Node3D" parent="."]
+transform = Transform3D(-0.25038, 0, -0.968147, 0, 0.999999, 0, 0.968148, 0, -0.25038, -293.918, 14.855, 9.431)
 
 [connection signal="body_entered" from="PlayerDetectionOcean" to="PlayerDetectionOcean" method="_on_body_entered"]
 [connection signal="body_exited" from="PlayerDetectionOcean" to="PlayerDetectionOcean" method="_on_body_exited"]

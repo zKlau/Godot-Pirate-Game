@@ -669,7 +669,6 @@ texture_hover = ExtResource("10_a2kha")
 stretch_mode = 4
 
 [node name="Titles" type="Control" parent="UI" node_paths=PackedStringArray("enter_port")]
-z_index = -10
 custom_minimum_size = Vector2(1920, 1080)
 anchors_preset = 0
 offset_right = 1920.0

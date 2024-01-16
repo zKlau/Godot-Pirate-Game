@@ -11,6 +11,7 @@ var allow_ship_interaction : bool = true
 var ocean;
 var render_distance : float = 300
 var ui;
+var stop_movement : bool = false;
 # Called when the node enters the scene tree for the first time.
 
 
