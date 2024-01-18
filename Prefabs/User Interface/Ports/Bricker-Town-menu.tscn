@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckpl435inlh56"]
+[gd_scene load_steps=8 format=3 uid="uid://ckpl435inlh56"]
 
 [ext_resource type="Texture2D" uid="uid://b8sb3hd6h7k67" path="res://Assets/Textures/UI/game-menu.png" id="1_iopbf"]
 [ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="2_rdvds"]
 [ext_resource type="Texture2D" uid="uid://b7yogrr8jm8mx" path="res://Assets/Textures/UI/menu-section-dark.png" id="3_8shcb"]
+[ext_resource type="Texture2D" uid="uid://bkn6brd4hu2d8" path="res://Assets/Textures/UI/menu/buttons/shop/menu-section-dark-shop.png" id="3_ikwkh"]
+[ext_resource type="Texture2D" uid="uid://dn5iwr4v14kj5" path="res://Assets/Textures/UI/menu/buttons/shop/menu-section-dark-shop-hover.png" id="4_b6sbc"]
+[ext_resource type="Texture2D" uid="uid://bjjk4s5il8u1" path="res://Assets/Textures/UI/menu/buttons/Quests/menu-section-dark-quests.png" id="5_263m6"]
+[ext_resource type="Texture2D" uid="uid://cipvjujcfwtba" path="res://Assets/Textures/UI/menu/buttons/Quests/menu-section-dark-quests-hover.png" id="6_8tec3"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -35,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_iopbf")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Shop_text" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 140.0
 offset_top = 94.0
@@ -43,18 +47,20 @@ offset_right = 524.0
 offset_bottom = 134.0
 theme = ExtResource("2_rdvds")
 bbcode_enabled = true
-text = "[center]Town Information[/center]"
+text = "[center]Shop[/center]"
+scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Shop_button" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 140.0
 offset_top = 38.0
 offset_right = 397.0
 offset_bottom = 297.0
 scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("3_8shcb")
+texture_normal = ExtResource("3_ikwkh")
+texture_hover = ExtResource("4_b6sbc")
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+[node name="Quests_text" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 679.0
 offset_top = 101.0
@@ -62,51 +68,33 @@ offset_right = 1063.0
 offset_bottom = 141.0
 theme = ExtResource("2_rdvds")
 bbcode_enabled = true
-text = "[center]Town Information[/center]"
+text = "[center]Quests[/center]"
 
-[node name="TextureButton2" type="TextureButton" parent="."]
+[node name="Quests_button" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 679.0
 offset_top = 45.0
 offset_right = 936.0
 offset_bottom = 304.0
 scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("3_8shcb")
+texture_normal = ExtResource("5_263m6")
+texture_hover = ExtResource("6_8tec3")
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+[node name="Treasure_hunt_text" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 676.0
-offset_top = 420.0
-offset_right = 1060.0
-offset_bottom = 460.0
+offset_left = 405.0
+offset_top = 400.0
+offset_right = 789.0
+offset_bottom = 440.0
 theme = ExtResource("2_rdvds")
 bbcode_enabled = true
-text = "[center]Town Information[/center]"
+text = "[center]Treasure Hunt[/center]"
 
-[node name="TextureButton3" type="TextureButton" parent="."]
+[node name="Treasure_hunt_button" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 676.0
-offset_top = 364.0
-offset_right = 933.0
-offset_bottom = 623.0
-scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("3_8shcb")
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 138.0
-offset_top = 411.0
-offset_right = 522.0
-offset_bottom = 451.0
-theme = ExtResource("2_rdvds")
-bbcode_enabled = true
-text = "[center]Town Information[/center]"
-
-[node name="TextureButton4" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 138.0
-offset_top = 355.0
-offset_right = 395.0
-offset_bottom = 614.0
+offset_left = 405.0
+offset_top = 344.0
+offset_right = 662.0
+offset_bottom = 603.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("3_8shcb")
