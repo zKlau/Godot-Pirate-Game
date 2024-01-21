@@ -1,3 +1,4 @@
+res://Prefabs/User Interface/SHOP
 res://Prefabs/User Interface/Ports
 res://Prefabs/Enviorment/Fauna/Dolphin
 res://Prefabs/Enviorment/Fauna
@@ -19,7 +20,6 @@ res://Prefabs/Ships/Combat
 res://Prefabs/Particles
 res://Prefabs/Ships/Animations
 res://Scripts/User Interface
-res://Prefabs/Test
 E:/Godot/Project/Pirate Game/Data/Player
 C:/Users/zKlau/AppData/Roaming/Godot/export_templates/4.1.1.stable
 E:/Godot/Project/Pirate Game

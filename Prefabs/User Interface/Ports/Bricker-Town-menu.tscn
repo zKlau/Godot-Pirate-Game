@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckpl435inlh56"]
+[gd_scene load_steps=10 format=3 uid="uid://ckpl435inlh56"]
 
 [ext_resource type="Texture2D" uid="uid://b8sb3hd6h7k67" path="res://Assets/Textures/UI/game-menu.png" id="1_iopbf"]
 [ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="2_rdvds"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dn5iwr4v14kj5" path="res://Assets/Textures/UI/menu/buttons/shop/menu-section-dark-shop-hover.png" id="4_b6sbc"]
 [ext_resource type="Texture2D" uid="uid://bjjk4s5il8u1" path="res://Assets/Textures/UI/menu/buttons/Quests/menu-section-dark-quests.png" id="5_263m6"]
 [ext_resource type="Texture2D" uid="uid://cipvjujcfwtba" path="res://Assets/Textures/UI/menu/buttons/Quests/menu-section-dark-quests-hover.png" id="6_8tec3"]
+[ext_resource type="PackedScene" uid="uid://cvi4b3mgr3rra" path="res://Prefabs/User Interface/SHOP/item.tscn" id="8_vnt0p"]
+[ext_resource type="Script" path="res://Prefabs/User Interface/SHOP/shop_item.gd" id="9_y7un6"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -32,69 +34,99 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -687.0
-offset_top = -515.0
+offset_top = -550.0
 offset_right = 687.0
-offset_bottom = 515.0
+offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_iopbf")
 
-[node name="Shop_text" type="RichTextLabel" parent="."]
-layout_mode = 0
+[node name="Node" type="Node2D" parent="."]
+visible = false
+
+[node name="Shop_text" type="RichTextLabel" parent="Node"]
 offset_left = 140.0
-offset_top = 94.0
+offset_top = 59.0
 offset_right = 524.0
-offset_bottom = 134.0
+offset_bottom = 99.0
 theme = ExtResource("2_rdvds")
 bbcode_enabled = true
 text = "[center]Shop[/center]"
 scroll_active = false
 
-[node name="Shop_button" type="TextureButton" parent="."]
-layout_mode = 0
+[node name="Shop_button" type="TextureButton" parent="Node"]
 offset_left = 140.0
-offset_top = 38.0
-offset_right = 397.0
-offset_bottom = 297.0
+offset_top = 3.0
+offset_right = 400.0
+offset_bottom = 262.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("3_ikwkh")
 texture_hover = ExtResource("4_b6sbc")
 
-[node name="Quests_text" type="RichTextLabel" parent="."]
-layout_mode = 0
+[node name="Quests_text" type="RichTextLabel" parent="Node"]
 offset_left = 679.0
-offset_top = 101.0
+offset_top = 66.0
 offset_right = 1063.0
-offset_bottom = 141.0
+offset_bottom = 106.0
 theme = ExtResource("2_rdvds")
 bbcode_enabled = true
 text = "[center]Quests[/center]"
 
-[node name="Quests_button" type="TextureButton" parent="."]
-layout_mode = 0
+[node name="Quests_button" type="TextureButton" parent="Node"]
 offset_left = 679.0
-offset_top = 45.0
-offset_right = 936.0
-offset_bottom = 304.0
+offset_top = 10.0
+offset_right = 939.0
+offset_bottom = 269.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("5_263m6")
 texture_hover = ExtResource("6_8tec3")
 
-[node name="Treasure_hunt_text" type="RichTextLabel" parent="."]
-layout_mode = 0
+[node name="Treasure_hunt_text" type="RichTextLabel" parent="Node"]
 offset_left = 405.0
-offset_top = 400.0
+offset_top = 365.0
 offset_right = 789.0
-offset_bottom = 440.0
+offset_bottom = 405.0
 theme = ExtResource("2_rdvds")
 bbcode_enabled = true
 text = "[center]Treasure Hunt[/center]"
 
-[node name="Treasure_hunt_button" type="TextureButton" parent="."]
-layout_mode = 0
+[node name="Treasure_hunt_button" type="TextureButton" parent="Node"]
 offset_left = 405.0
-offset_top = 344.0
+offset_top = 309.0
 offset_right = 662.0
-offset_bottom = 603.0
+offset_bottom = 568.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("3_8shcb")
+
+[node name="Shop" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 52.0
+offset_right = 1090.0
+offset_bottom = 610.0
+columns = 2
+
+[node name="Item_1" parent="Shop" instance=ExtResource("8_vnt0p")]
+layout_mode = 2
+script = ExtResource("9_y7un6")
+
+[node name="Item_2" parent="Shop" instance=ExtResource("8_vnt0p")]
+layout_mode = 2
+
+[node name="Item_3" parent="Shop" instance=ExtResource("8_vnt0p")]
+layout_mode = 2
+
+[node name="Item_4" parent="Shop" instance=ExtResource("8_vnt0p")]
+layout_mode = 2
+
+[node name="Item_5" parent="Shop" instance=ExtResource("8_vnt0p")]
+layout_mode = 2
+
+[node name="Item_6" parent="Shop" instance=ExtResource("8_vnt0p")]
+layout_mode = 2
+
+[node name="Item_7" parent="Shop" instance=ExtResource("8_vnt0p")]
+layout_mode = 2
+
+[node name="Item_8" parent="Shop" instance=ExtResource("8_vnt0p")]
+layout_mode = 2

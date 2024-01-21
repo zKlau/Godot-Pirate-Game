@@ -1,3 +1,4 @@
+res://Scripts/Global.gd
 res://Prefabs/User Interface/Ports/Bricker-Town-menu.tscn
 res://addons/panku_console/res/panku_console_theme.tres
 res://Assets/water/Water2.gdshader
@@ -23,9 +24,5 @@ res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
-res://Scenes/World.tscn
-res://Prefabs/Islands/MainPort.tscn
-res://Prefabs/Ships/Placeholder/ship_dark.tscn
-res://Data/Player/Inventory.tres
-res://Data/Player/Player.tres
-res://Data/Settings/Settings.tres
+res://Prefabs/User Interface/SHOP/shop_item.gd
+res://Prefabs/User Interface/SHOP/item.tscn

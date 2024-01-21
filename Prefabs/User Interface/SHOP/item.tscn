@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvi4b3mgr3rra"]
+
+[ext_resource type="Texture2D" uid="uid://duloxtkkjthpc" path="res://Assets/Textures/UI/health-bar.png" id="1_2uoku"]
+[ext_resource type="Script" path="res://Prefabs/User Interface/SHOP/shop_item.gd" id="1_5vst6"]
+[ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="2_bo026"]
+
+[node name="Item_1" type="Control"]
+custom_minimum_size = Vector2(430, 130)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5vst6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 100.0
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 407.0
+offset_bottom = 107.0
+texture = ExtResource("1_2uoku")
+
+[node name="Price_bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 68.0
+offset_right = 386.0
+offset_bottom = 125.0
+texture = ExtResource("1_2uoku")
+
+[node name="Icon_bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -17.0
+offset_right = 142.0
+offset_bottom = 117.0
+texture = ExtResource("1_2uoku")
+
+[node name="Description" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 12.0
+offset_right = 385.0
+offset_bottom = 66.0
+theme = ExtResource("2_bo026")
+theme_override_font_sizes/normal_font_size = 18
+text = "text text text text text text text text text text text text text text text "
+scroll_active = false
