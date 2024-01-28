@@ -23,4 +23,4 @@ status_effect = SubResource("Resource_e8av6")
 description = "[i] A normal cannon ball [/i]
 - Level [b] [color=green] {level} [/color] [/b]
 - Damage -[b][color=red] {damage} [/color][/b]"
-amount = 100
+amount = 9210

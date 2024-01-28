@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvi4b3mgr3rra"]
+[gd_scene load_steps=6 format=3 uid="uid://cvi4b3mgr3rra"]
 
 [ext_resource type="Texture2D" uid="uid://duloxtkkjthpc" path="res://Assets/Textures/UI/health-bar.png" id="1_2uoku"]
 [ext_resource type="Script" path="res://Prefabs/User Interface/SHOP/shop_item.gd" id="1_5vst6"]
+[ext_resource type="Resource" uid="uid://cusa5dltqvrob" path="res://Data/Islands/Shops/BrickerTown/FireBall.tres" id="2_25xx1"]
 [ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="2_bo026"]
+[ext_resource type="Texture2D" uid="uid://d3utk1e2kn3ir" path="res://Assets/Textures/UI/button-ui-hover.png" id="3_2r00n"]
 
 [node name="Item_1" type="Control"]
 custom_minimum_size = Vector2(430, 130)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_5vst6")
+_item = ExtResource("2_25xx1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -24,14 +27,6 @@ offset_right = 407.0
 offset_bottom = 107.0
 texture = ExtResource("1_2uoku")
 
-[node name="Price_bg" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 179.0
-offset_top = 68.0
-offset_right = 386.0
-offset_bottom = 125.0
-texture = ExtResource("1_2uoku")
-
 [node name="Icon_bg" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 7.0
@@ -40,13 +35,58 @@ offset_right = 142.0
 offset_bottom = 117.0
 texture = ExtResource("1_2uoku")
 
+[node name="BuyButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 76.0
+offset_right = 383.0
+offset_bottom = 114.0
+texture_normal = ExtResource("1_2uoku")
+texture_hover = ExtResource("3_2r00n")
+stretch_mode = 0
+
+[node name="Icon" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = -3.0
+offset_right = 129.0
+offset_bottom = 103.0
+texture = ExtResource("1_2uoku")
+
+[node name="Price" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 86.0
+offset_right = 499.0
+offset_bottom = 120.0
+mouse_filter = 2
+theme = ExtResource("2_bo026")
+theme_override_font_sizes/normal_font_size = 18
+text = "1000 pearsl"
+scroll_active = false
+
+[node name="Name" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 12.0
+offset_right = 379.0
+offset_bottom = 31.0
+theme = ExtResource("2_bo026")
+theme_override_font_sizes/normal_font_size = 18
+text = "Name palceholder
+"
+scroll_active = false
+
 [node name="Description" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 153.0
-offset_top = 12.0
+offset_top = 36.0
 offset_right = 385.0
-offset_bottom = 66.0
+offset_bottom = 71.0
 theme = ExtResource("2_bo026")
 theme_override_font_sizes/normal_font_size = 18
 text = "text text text text text text text text text text text text text text text "
 scroll_active = false
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

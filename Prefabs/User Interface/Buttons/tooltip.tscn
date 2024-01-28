@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Prefabs/User Interface/Buttons/Description.gd" id="4_85he5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udqoq"]
-size = Vector2(30, 33)
+size = Vector2(128, 113)
 
 [sub_resource type="Theme" id="Theme_j4ey3"]
 

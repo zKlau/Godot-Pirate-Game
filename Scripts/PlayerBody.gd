@@ -91,6 +91,7 @@ func _physics_process(delta):
 		move_and_slide()
 	
 func save_player_data():
+	print("Saving Player's Data")
 	ResourceSaver.save(player_data,"res://Data/Player/Player.tres")
 	ResourceSaver.save(player_data.inventory,"res://Data/Player/Inventory.tres")
 	pass

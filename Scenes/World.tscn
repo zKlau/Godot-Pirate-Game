@@ -20,11 +20,11 @@
 [ext_resource type="Resource" uid="uid://clhgrg2apfnt" path="res://Data/Player/Player.tres" id="11_hcc55"]
 [ext_resource type="Script" path="res://Scenes/fps.gd" id="11_y117j"]
 [ext_resource type="Script" path="res://Scripts/Ship/Ship.gd" id="12_cqa17"]
-[ext_resource type="Resource" uid="uid://dkm3hykhrpanh" path="res://Data/Player/Cannonballs/Dutchman/CannonBall.tres" id="13_1cdl2"]
-[ext_resource type="Resource" uid="uid://3ceru85ohjau" path="res://Data/Player/Cannonballs/The Dutchman/SleepingBall.tres" id="13_ykvjw"]
-[ext_resource type="Resource" uid="uid://j4vhksgbxei" path="res://Data/Player/Cannonballs/The Dutchman/FireBall.tres" id="14_fpy0y"]
+[ext_resource type="Resource" uid="uid://dkm3hykhrpanh" path="res://Data/Player/Vessels/Dutchman/CannonBall.tres" id="13_1cdl2"]
+[ext_resource type="Resource" uid="uid://3ceru85ohjau" path="res://Data/Player/Vessels/The Dutchman/SleepingBall.tres" id="13_ykvjw"]
+[ext_resource type="Resource" uid="uid://j4vhksgbxei" path="res://Data/Player/Vessels/The Dutchman/FireBall.tres" id="14_fpy0y"]
 [ext_resource type="Script" path="res://Scenes/Player_ShipMenu.gd" id="15_kvw31"]
-[ext_resource type="Resource" uid="uid://bceloyubfx6rt" path="res://Data/Player/Cannonballs/The Dutchman/CannonBall.tres" id="15_pj6b4"]
+[ext_resource type="Resource" uid="uid://bceloyubfx6rt" path="res://Data/Player/Vessels/The Dutchman/CannonBall.tres" id="15_pj6b4"]
 [ext_resource type="PackedScene" uid="uid://c2gsd7h2ve7ly" path="res://Data/Player/Scenes/cannon_ball_ui.tscn" id="16_klcyr"]
 [ext_resource type="PackedScene" uid="uid://bpvbvy6vfe5mx" path="res://Scenes/deep_ocean.tscn" id="17_7jk8s"]
 [ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="17_mh6cu"]
@@ -653,6 +653,7 @@ libraries = {
 }
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("18_xjalu")]
+z_index = 1000
 layout_mode = 1
 offset_top = -1000.0
 offset_right = 1280.0

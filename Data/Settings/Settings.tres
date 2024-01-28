@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_t8jpb")
-master_volume = 0
+master_volume = -30
 effects_volume = 0
 music_volume = 0
 vsync = false

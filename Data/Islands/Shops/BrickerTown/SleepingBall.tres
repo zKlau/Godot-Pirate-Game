@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Shop_Item" load_steps=3 format=3 uid="uid://bdt1irdnlir05"]
+
+[ext_resource type="Texture2D" uid="uid://cpp6aimj6swou" path="res://Assets/Textures/UI/Ship/Combat/Abilities/sleeping-ball.png" id="1_rls2w"]
+[ext_resource type="Script" path="res://Data/Islands/Shops/shop_item.gd" id="2_4q2h3"]
+
+[resource]
+script = ExtResource("2_4q2h3")
+_name = "Sleeping Ball"
+_icon = ExtResource("1_rls2w")
+_description = "Put your enemies asleep."
+_price = 1
+_amount = 10
+_stock = 260
+_type = 0
+_method = 0

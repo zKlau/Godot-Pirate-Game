@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Shop_Item" load_steps=3 format=3 uid="uid://cusa5dltqvrob"]
+
+[ext_resource type="Texture2D" uid="uid://cq72osne7ueua" path="res://Assets/Textures/UI/Ship/Combat/Abilities/fire-ball.png" id="1_cb4tw"]
+[ext_resource type="Script" path="res://Data/Islands/Shops/shop_item.gd" id="1_u63ul"]
+
+[resource]
+script = ExtResource("1_u63ul")
+_name = "Fire Ball"
+_icon = ExtResource("1_cb4tw")
+_description = ""
+_price = 0
+_amount = 100
+_stock = -900
+_type = 0
+_method = 0

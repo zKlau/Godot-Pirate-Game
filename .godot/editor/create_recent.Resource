@@ -1,3 +1,4 @@
+Shop_Item
 ShipInventory
 Cannon_Balls_resource
 Settings

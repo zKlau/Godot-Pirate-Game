@@ -19,10 +19,18 @@ var max_speed : float = SPEED
 var right_cast : Ship_Casts
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Signals.connect("save_game",save_game)
 	right_cast = model.right_cast
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	pass
+
+
+func save_game():
+	print("Saving Ship's Inventory")
+	for i in _cannons:
+		ResourceSaver.save(i,"res://Data/Player/Vessels/"+_name+"/"+ i.name.replace(" ","") +".tres")
 	pass

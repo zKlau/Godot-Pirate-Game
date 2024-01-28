@@ -1,3 +1,5 @@
+res://Data/Islands/Shops/BrickerTown
+res://Data/Islands/Shops
 res://Prefabs/User Interface/SHOP
 res://Prefabs/User Interface/Ports
 res://Prefabs/Enviorment/Fauna/Dolphin
@@ -6,7 +8,6 @@ res://Prefabs/Enviorment/Fauna/Seagull
 res://Scripts/Island
 res://Prefabs/Islands
 res://Data/Player
-res://Data/Player/Cannonballs/Dutchman
 res://Data/Player/Scenes
 res://Scripts
 res://Scenes
@@ -19,7 +20,6 @@ res://Prefabs/User Interface/Buttons
 res://Prefabs/Ships/Combat
 res://Prefabs/Particles
 res://Prefabs/Ships/Animations
-res://Scripts/User Interface
 E:/Godot/Project/Pirate Game/Data/Player
 C:/Users/zKlau/AppData/Roaming/Godot/export_templates/4.1.1.stable
 E:/Godot/Project/Pirate Game

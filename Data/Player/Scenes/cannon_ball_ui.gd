@@ -24,8 +24,8 @@ func _process(delta):
 
 
 func _on_level_up_pressed():
-	print("res://Data/Player/Cannonballs/"+parent.ship._name+"/"+parent.ship._cannons[_id].name.replace(" ","")+".tres")
+	print("res://Data/Player/Vessels/"+parent.ship._name+"/"+parent.ship._cannons[_id].name.replace(" ","")+".tres")
 	parent.ship._cannons[_id].level += 1
-	ResourceSaver.save(parent.ship._cannons[_id],"res://Data/Player/Cannonballs/"+parent.ship._name+"/"+parent.ship._cannons[_id].name.replace(" ","")+".tres")
+	ResourceSaver.save(parent.ship._cannons[_id],"res://Data/Player/Vessels/"+parent.ship._name+"/"+parent.ship._cannons[_id].name.replace(" ","")+".tres")
 	$Level.text = str(parent.ship._cannons[_id].level)
 	pass # Replace with function body.

@@ -18,6 +18,7 @@ class_name Cannon_Balls_resource
 #@export var Sleeping_Gas_Ball : bool = false
 var balls = []
 func amount_changed():
+	Signals.emit_signal("save_game")
 	print("Value Changed")
 
 func interact():
