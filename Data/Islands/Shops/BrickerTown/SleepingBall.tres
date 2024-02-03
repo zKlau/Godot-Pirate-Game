@@ -10,6 +10,6 @@ _icon = ExtResource("1_rls2w")
 _description = "Put your enemies asleep."
 _price = 1
 _amount = 10
-_stock = 260
+_stock = 10
 _type = 0
 _method = 0

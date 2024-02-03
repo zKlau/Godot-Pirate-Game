@@ -11,6 +11,7 @@ class_name Ship
 
 @export var SPEED = 10.0
 var max_speed : float = SPEED
+var max_speed_default : float = SPEED
 @export var acceleration : float = 2
 @export var rotation_force : float = 50
 

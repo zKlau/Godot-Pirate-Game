@@ -1,3 +1,4 @@
+res://addons/godot_compass-main/addons/compass/entities
 res://Data/Islands/Shops/BrickerTown
 res://Data/Islands/Shops
 res://Prefabs/User Interface/SHOP
@@ -19,7 +20,6 @@ res://
 res://Prefabs/User Interface/Buttons
 res://Prefabs/Ships/Combat
 res://Prefabs/Particles
-res://Prefabs/Ships/Animations
 E:/Godot/Project/Pirate Game/Data/Player
 C:/Users/zKlau/AppData/Roaming/Godot/export_templates/4.1.1.stable
 E:/Godot/Project/Pirate Game

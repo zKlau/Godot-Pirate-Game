@@ -12,6 +12,7 @@ var ocean;
 var render_distance : float = 300
 var ui;
 var stop_movement : bool = false;
+var wind : int = 1
 # Called when the node enters the scene tree for the first time.
 
 

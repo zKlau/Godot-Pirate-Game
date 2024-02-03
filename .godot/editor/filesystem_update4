@@ -8,7 +8,6 @@ res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_fire.tres
 res://Scripts/Resources/Ship/Cannon_Balls/Walrus/Walrus_Heal.tres
 res://Prefabs/User Interface/Ship/option_button_ship_menu.tres
 res://Prefabs/User Interface/Buttons/ability_button.tres
-res://Data/Player/Player.tres
 res://Data/Player/Vessels/The Dutchman/SleepingBall.tres
 res://Data/Player/Vessels/The Dutchman/FireBall.tres
 res://addons/boujie_water_shader/shader/water.gdshader
@@ -29,12 +28,6 @@ res://Prefabs/Ships/Placeholder/ship_dark.tscn
 res://Prefabs/User Interface/Ports/Bricker-Town-menu.tscn
 res://Prefabs/User Interface/SHOP/item.tscn
 res://Data/Player/Scenes/cannon_ball_ui.tscn
-res://Data/Player/Inventory.tres
-res://Data/Player/Vessels/The Dutchman/CannonBall.tres
+res://addons/compass/entities/compassbar.tscn
 res://Data/Settings/Settings.tres
-res://Data/Islands/Shops/BrickerTown/SleepingBall.tres
-res://Prefabs/User Interface/Ports/Island_UI.gd
-res://Data/Player/Vessels/Dutchman/FireBall.tres
-res://Prefabs/User Interface/SHOP/shop_item.gd
-res://Data/Islands/Shops/BrickerTown/FireBall.tres
-res://Scripts/Resources/Ship/Cannon_balls.gd
+res://addons/compass/entities/compassbar.gd

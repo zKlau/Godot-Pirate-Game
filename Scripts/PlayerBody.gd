@@ -64,10 +64,27 @@ func _physics_process(delta):
 		
 		if ship.SPEED < ship.max_speed:
 			ship.SPEED += delta * ship.acceleration
+		else:
+			ship.SPEED -= delta * ship.acceleration
+		print(direction)		
+		# 0 0 -1 onrth
+		# -1 0 0  west
+		# 1 0 0 east
+		# 0 0 1 south
 		#if input_dir.x !=0:
 			#rotate_y(0.01)
 		
 		if direction:
+			if Global.wind == 1: # north
+				if direction == Vector3(0,0,1): # south
+					ship.max_speed = ship.max_speed_default *  0.8
+					print("Sud")
+				if direction == Vector3(-1,0,0) or direction == Vector3(1,0,0):
+					print("Parti")
+					ship.max_speed = ship.max_speed_default
+				if direction == Vector3(0,0,-1):
+					print("nord")
+					ship.max_speed = ship.max_speed_default * 1.2
 			velocity.x = direction.x * ship.SPEED
 			velocity.z = direction.z * ship.SPEED
 		else:

@@ -21,4 +21,4 @@ damage = 2
 coooldown = 50.0
 status_effect = SubResource("Resource_i53cp")
 description = ""
-amount = 3000
+amount = 3250

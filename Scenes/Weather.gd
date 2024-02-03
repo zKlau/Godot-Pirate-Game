@@ -6,6 +6,7 @@ var player
 @export var heavy_rain : bool = false
 @export var rain_weight : int = 4000
 @onready var env : Node = $".."
+@export var wind_timer : int = 160
 var time
 func _ready():
 	
@@ -31,6 +32,11 @@ func _process(delta):
 	pass
 
 
+func _wind():
+	if time >= wind_timer:
+		Global.wind = randi_range(1,4)
+		wind_timer *= randi_range(1.5,2.2)
+	pass
 func _on_rain_timer_timeout():
 	var clouds_cutoff = randf_range(0,1)
 	var clouds_weight = randf_range(0,1)

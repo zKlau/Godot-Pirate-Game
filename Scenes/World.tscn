@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=66 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -37,6 +37,8 @@
 [ext_resource type="Script" path="res://Scenes/UITitles.gd" id="32_r0knk"]
 [ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="32_w7ekk"]
 [ext_resource type="PackedScene" uid="uid://brv8fncm45kf1" path="res://Prefabs/Enviorment/Fauna/CruisingEffects1.tscn" id="33_3qa84"]
+[ext_resource type="PackedScene" uid="uid://cjpovgx86rfb0" path="res://addons/compass/entities/compassbar.tscn" id="34_a86tp"]
+[ext_resource type="Texture2D" uid="uid://cfyyl47a6amca" path="res://Assets/Textures/UI/menu/Compass/compass-arrow.png" id="35_u0tj1"]
 [ext_resource type="PackedScene" uid="uid://bdc5mb40j7upf" path="res://Prefabs/Enviorment/Fauna/CruisingEvent2.tscn" id="36_3u2f6"]
 
 [sub_resource type="Environment" id="Environment_xrhli"]
@@ -696,6 +698,23 @@ mouse_filter = 2
 theme = ExtResource("32_w7ekk")
 bbcode_enabled = true
 text = "[center]Press \"E\" to enter the port[/center]"
+
+[node name="Compassbar" parent="UI" node_paths=PackedStringArray("parent") instance=ExtResource("34_a86tp")]
+layout_mode = 0
+offset_left = 768.0
+offset_right = 1248.0
+offset_bottom = 40.0
+stretch_mode = 0
+parent = NodePath("../../Player")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Compassbar"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 40.0
+offset_right = 256.0
+offset_bottom = 80.0
+texture = ExtResource("35_u0tj1")
+stretch_mode = 4
 
 [node name="DeepOcean" parent="." instance=ExtResource("17_7jk8s")]
 
