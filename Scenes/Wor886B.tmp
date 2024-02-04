@@ -717,7 +717,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.314815
-anchor_top = -0.608466
+anchor_top = -0.608465
 anchor_right = -0.314815
 anchor_bottom = -0.608466
 offset_left = 224.0
@@ -728,15 +728,6 @@ scale = Vector2(0.91, 0.91)
 texture = ExtResource("35_u0tj1")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
-
-[node name="wind_direction" type="Label" parent="UI"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 1816.0
-offset_top = 488.0
-offset_right = 1908.0
-offset_bottom = 511.0
-text = "Wind: north"
 
 [node name="DeepOcean" parent="." instance=ExtResource("17_7jk8s")]
 

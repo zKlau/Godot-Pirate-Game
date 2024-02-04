@@ -12,7 +12,14 @@ var ocean;
 var render_distance : float = 300
 var ui;
 var stop_movement : bool = false;
+
+#WIND ZONE
 var wind : int = 1
+var north_wind : float = 1
+var east_wind : float = 1
+var west_wind : float = 1
+var south_wind : float = 1
+#END WIND ZONE
 # Called when the node enters the scene tree for the first time.
 
 

@@ -6,8 +6,10 @@
 
 [node name="Compass" type="Node3D"]
 script = ExtResource("1_3qhln")
+custom_container_resource = ExtResource("2_004jj")
+custom_needle_resource = ExtResource("3_tcrtv")
 
-[node name="Container" type="MeshInstance3D" parent="."]
+[node name="Container2" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_004jj")
 skeleton = NodePath("")
 
