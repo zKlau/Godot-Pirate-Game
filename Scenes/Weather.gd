@@ -34,39 +34,46 @@ func _process(delta):
 
 func _wind():
 	if time >= wind_timer:
-		Global.wind = randi_range(1,5)
-		wind_timer *= randi_range(1.5,2.2)
+		#wind_timer *= randi_range(1.5,2.2)
+		Global.wind = randi_range(1,8)
+		time = 0;
+		print(Global.wind)
 		match Global.wind:
 			1: # north
 				%wind_direction.text = "Wind: North"
+				Global.compass.change_texture("north-wind")
 				Global.north_wind = 1.2
 				Global.east_wind = 0.95
 				Global.west_wind = 0.95
 				Global.south_wind = 0.8
 			2: #south
 				%wind_direction.text = "Wind: South"
+				Global.compass.change_texture("south-wind")
 				Global.north_wind = 0.8
 				Global.east_wind = 0.95
 				Global.west_wind = 0.95
 				Global.south_wind = 1.2
 			3: #east
 				%wind_direction.text = "Wind: East"
+				Global.compass.change_texture("east-wind")
 				Global.north_wind = 0.95
 				Global.east_wind = 1.2
 				Global.west_wind = 0.8
 				Global.south_wind = 0.95
 			4: #west
 				%wind_direction.text = "Wind: West"
+				Global.compass.change_texture("west-wind")
 				Global.north_wind = 0.95
 				Global.east_wind = 0.8
 				Global.west_wind = 1.2
 				Global.south_wind = 0.95
-			5: # none
-					%wind_direction.text = "Wind: None"
-					Global.north_wind = 1
-					Global.east_wind = 1
-					Global.west_wind = 1
-					Global.south_wind = 1
+			5,6,7,8: # none
+				%wind_direction.text = "Wind: None"
+				Global.compass.change_texture("normal")
+				Global.north_wind = 1
+				Global.east_wind = 1
+				Global.west_wind = 1
+				Global.south_wind = 1
 			
 	
 	pass

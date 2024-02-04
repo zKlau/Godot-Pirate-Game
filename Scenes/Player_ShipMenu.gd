@@ -1,31 +1,39 @@
 extends Control
 
 @onready var _name = $Name
-@onready var ship = $".."
+#@onready var ship = $".."
 @export var cannonball_component : PackedScene
 @onready var anim = $UI_Animations
 var ship_menu_anim : bool = false
 # Called when the node enters the scene tree for the first time.
 func render_projectiles():
-	for i in ship._cannons:
+	for i in Global.player.ship._cannons:
 		var obj = cannonball_component.instantiate()
 		obj.set_name_(i.name)
 		obj.set_level(i.level)
 		obj.set_sprite(i.texture)
-		obj.set_id(ship._cannons.find(i))
+		obj.set_id(Global.player.ship._cannons.find(i))
 		$CannonBalls.add_child(obj)
 	pass
 
 func _ready():
-	render_projectiles()
+	#render_projectiles()
 	pass # Replace with function body.
 
 func menu():
 	if ship_menu_anim:
-			anim.play("Ship_menu_out")
-			ship_menu_anim = false
+		Global.ui.temp.remove_child(self)
+		Global.player.ship.add_child(self)
+		anim.play("Ship_menu_out")
+		ship_menu_anim = false
 	else:
+		Global.player.ship.remove_child(self)
+		Global.ui.temp.add_child(self)
 		anim.play("Ship_menu_in")
+		#owner = Global.player.ship
+		
+		
+		
 		ship_menu_anim = true
 			
 func _input(event):
@@ -35,7 +43,7 @@ func _input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Stats.text = $Stats.text.replace("{level}",str(ship._level)).replace("{max_health}",str(ship._maxHealth)).replace("{health}",str(ship._health)) 
+	$Stats.text = $Stats.text.replace("{level}",str(Global.player.ship._level)).replace("{max_health}",str(Global.player.ship._maxHealth)).replace("{health}",str(Global.player.ship._health)) 
 	#_name.text = ship._name + str(ship._level) + " Level " + str(ship._cannons[0].level)
 	pass
 

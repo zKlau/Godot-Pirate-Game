@@ -33,3 +33,7 @@ res://Data/Settings/Settings.tres
 res://Scripts/PlayerBody.gd
 res://Scenes/Weather.gd
 res://Scripts/Ship/Combat.gd
+res://addons/compass/entities/compassbar.gd
+res://addons/compass/entities/compassbar.tscn
+res://Scenes/Player_ShipMenu.gd
+res://Prefabs/User Interface/pause_menu.tscn

@@ -20,6 +20,8 @@ var east_wind : float = 1
 var west_wind : float = 1
 var south_wind : float = 1
 #END WIND ZONE
+
+var compass
 # Called when the node enters the scene tree for the first time.
 
 

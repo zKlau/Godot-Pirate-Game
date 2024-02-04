@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=67 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -37,6 +37,7 @@
 [ext_resource type="Script" path="res://Scenes/UITitles.gd" id="32_r0knk"]
 [ext_resource type="Theme" uid="uid://cc0a5aoiafsuy" path="res://Prefabs/User Interface/Ship/option_button_ship_menu.tres" id="32_w7ekk"]
 [ext_resource type="PackedScene" uid="uid://brv8fncm45kf1" path="res://Prefabs/Enviorment/Fauna/CruisingEffects1.tscn" id="33_3qa84"]
+[ext_resource type="Texture2D" uid="uid://cgqt1354nb2wx" path="res://addons/compass/resources/compass-textures/compass-rim.png" id="34_8xyqe"]
 [ext_resource type="PackedScene" uid="uid://cjpovgx86rfb0" path="res://addons/compass/entities/compassbar.tscn" id="34_a86tp"]
 [ext_resource type="Texture2D" uid="uid://cfyyl47a6amca" path="res://Assets/Textures/UI/menu/Compass/compass-arrow.png" id="35_u0tj1"]
 [ext_resource type="PackedScene" uid="uid://bdc5mb40j7upf" path="res://Prefabs/Enviorment/Fauna/CruisingEvent2.tscn" id="36_3u2f6"]
@@ -467,6 +468,8 @@ scene = ExtResource("33_3qa84")
 [node name="Dolphins" type="Node" parent="Environment/Fauna"]
 script = ExtResource("11_4jbxr")
 scene = ExtResource("36_3u2f6")
+spawn_time_min = 180.0
+spawn_time_max = 260.0
 
 [node name="PlayerCamera" type="Camera3D" parent="." node_paths=PackedStringArray("target_follow", "action_camera_left", "action_camera_right")]
 transform = Transform3D(1, 0, 0, 0, 0.970716, 0.240228, 0, -0.240228, 0.970716, -3.47421, 11.8905, 7.1916)
@@ -658,8 +661,8 @@ libraries = {
 z_index = 1000
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 1280.0
-offset_bottom = 280.0
+offset_right = 1860.0
+offset_bottom = -325.0
 
 [node name="Menu Button" type="TextureButton" parent="UI"]
 layout_mode = 0
@@ -699,36 +702,6 @@ theme = ExtResource("32_w7ekk")
 bbcode_enabled = true
 text = "[center]Press \"E\" to enter the port[/center]"
 
-[node name="Compassbar" parent="UI" node_paths=PackedStringArray("parent") instance=ExtResource("34_a86tp")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 21.6
-anchor_right = 26.136
-anchor_bottom = 0.378
-offset_right = 106.56
-offset_bottom = 8.88
-grow_horizontal = 2
-scale = Vector2(0.91, 0.91)
-stretch_mode = 0
-parent = NodePath("../../Player")
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect2" type="TextureRect" parent="UI/Compassbar"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.314815
-anchor_top = -0.608466
-anchor_right = -0.314815
-anchor_bottom = -0.608466
-offset_left = 224.0
-offset_top = 40.0
-offset_right = 256.0
-offset_bottom = 80.0
-scale = Vector2(0.91, 0.91)
-texture = ExtResource("35_u0tj1")
-stretch_mode = 4
-metadata/_edit_use_anchors_ = true
-
 [node name="wind_direction" type="Label" parent="UI"]
 unique_name_in_owner = true
 layout_mode = 0
@@ -737,6 +710,48 @@ offset_top = 488.0
 offset_right = 1908.0
 offset_bottom = 511.0
 text = "Wind: north"
+
+[node name="Compass" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 842.0
+offset_right = 1158.0
+offset_bottom = 56.0
+mouse_filter = 2
+texture = ExtResource("34_8xyqe")
+
+[node name="Compassbar" parent="UI/Compass" node_paths=PackedStringArray("parent") instance=ExtResource("34_a86tp")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 21.5684
+anchor_top = 1.25
+anchor_right = 22.1425
+anchor_bottom = 1.59143
+offset_left = -6801.6
+offset_top = -56.0
+offset_right = -6695.04
+offset_bottom = -47.12
+grow_horizontal = 2
+mouse_filter = 2
+stretch_mode = 0
+parent = NodePath("../../../Player")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Compass"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.334857
+anchor_top = -0.5822
+anchor_right = -0.331693
+anchor_bottom = -0.5822
+offset_left = 248.815
+offset_top = 70.6032
+offset_right = 280.815
+offset_bottom = 110.603
+scale = Vector2(0.91, 0.91)
+mouse_filter = 2
+texture = ExtResource("35_u0tj1")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="DeepOcean" parent="." instance=ExtResource("17_7jk8s")]
 

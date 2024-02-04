@@ -1,5 +1,8 @@
-Label
 TextureRect
+SubViewport
+CanvasLayer
+Camera3D
+Label
 TextureButton
 RichTextLabel
 GridContainer
@@ -9,7 +12,3 @@ Container
 Node2D
 Node
 BoxContainer
-Button
-CanvasLayer
-Marker3D
-AnimationTree

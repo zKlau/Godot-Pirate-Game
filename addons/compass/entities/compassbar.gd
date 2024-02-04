@@ -11,12 +11,15 @@ var mat = preload("res://addons/compass/resources/compassbar.material")
 var _tween: Tween
 
 
+
 func _init() -> void:
+	
 	"""Set up the CompassBar Textures in editor/runtime"""
 	set_texture(default_bar_sprite)
 
 
 func _ready() -> void:
+	Global.compass = self
 	if not parent:
 		print("WARNING: Parent(export property) is not set, CompassBar will not work.")
 		set_physics_process(false)
@@ -51,3 +54,15 @@ func _physics_process(delta) -> void:
 					material.set_shader_parameter(
 						"dir", lerp_angle(curr_val, -parent.get(parent_property_for_current_direction), _lerp_speed)
 					)
+func change_texture(tx):
+	match tx:
+		"north-wind":
+			set_texture(load("res://addons/compass/resources/compass-textures/compass-nwind.png"))
+		"south-wind":
+			set_texture(load("res://addons/compass/resources/compass-textures/compass-swind.png"))
+		"east-wind":
+			set_texture(load("res://addons/compass/resources/compass-textures/compass-ewind.png"))
+		"west-wind":
+			set_texture(load("res://addons/compass/resources/compass-textures/compass-wwind.png"))
+		"normal":
+			set_texture(load("res://addons/compass/resources/compassbar.png"))
