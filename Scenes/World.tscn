@@ -370,6 +370,7 @@ _data = {
 [node name="Environment" type="Node" parent="."]
 script = ExtResource("3_f88n7")
 day_time = 12.2553
+clouds_cutoff = 0.7
 sun_base_enegry = 1.0
 moon_base_enegry = 1.0
 
@@ -711,21 +712,36 @@ offset_right = 1908.0
 offset_bottom = 511.0
 text = "Wind: north"
 
-[node name="Compass" type="TextureRect" parent="UI"]
-layout_mode = 0
-offset_left = 842.0
-offset_right = 1158.0
-offset_bottom = 56.0
+[node name="Control" type="Control" parent="UI"]
+custom_minimum_size = Vector2(1920, 2.3)
+layout_mode = 1
+anchor_right = 48.0
+anchor_bottom = 1.976
+offset_right = -0.00012207
+offset_bottom = -79.04
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="Compass" type="TextureRect" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.0
+offset_right = 158.0
+offset_bottom = 48.0
+grow_horizontal = 2
 mouse_filter = 2
 texture = ExtResource("34_8xyqe")
+metadata/_edit_lock_ = true
 
-[node name="Compassbar" parent="UI/Compass" node_paths=PackedStringArray("parent") instance=ExtResource("34_a86tp")]
+[node name="Compassbar" parent="UI/Control/Compass" node_paths=PackedStringArray("parent") instance=ExtResource("34_a86tp")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 21.5684
-anchor_top = 1.25
+anchor_top = 1.39583
 anchor_right = 22.1425
-anchor_bottom = 1.59143
+anchor_bottom = 1.73726
 offset_left = -6801.6
 offset_top = -56.0
 offset_right = -6695.04
@@ -733,10 +749,11 @@ offset_bottom = -47.12
 grow_horizontal = 2
 mouse_filter = 2
 stretch_mode = 0
-parent = NodePath("../../../Player")
+parent = NodePath("../../../../Player")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="UI/Compass"]
+[node name="TextureRect2" type="TextureRect" parent="UI/Control/Compass"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.334857
@@ -752,6 +769,7 @@ mouse_filter = 2
 texture = ExtResource("35_u0tj1")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="DeepOcean" parent="." instance=ExtResource("17_7jk8s")]
 

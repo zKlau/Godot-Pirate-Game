@@ -1,4 +1,3 @@
-res://Scripts/Global.gd
 res://Scenes/World.tscn
 res://addons/panku_console/res/panku_console_theme.tres
 res://Assets/water/Water2.gdshader
@@ -29,11 +28,13 @@ res://Prefabs/Ships/Placeholder/ship_dark.tscn
 res://Prefabs/User Interface/Ports/Bricker-Town-menu.tscn
 res://Prefabs/User Interface/SHOP/item.tscn
 res://Data/Player/Scenes/cannon_ball_ui.tscn
-res://Data/Settings/Settings.tres
-res://Scripts/PlayerBody.gd
-res://Scenes/Weather.gd
-res://Scripts/Ship/Combat.gd
-res://addons/compass/entities/compassbar.gd
 res://addons/compass/entities/compassbar.tscn
-res://Scenes/Player_ShipMenu.gd
 res://Prefabs/User Interface/pause_menu.tscn
+res://Data/Settings/Settings.tres
+res://Data/Player/Inventory.tres
+res://Data/Player/Player.tres
+res://Data/Player/Vessels/The Dutchman/CannonBall.tres
+res://Scenes/EnvEvents.gd
+res://Data/Islands/Shops/BrickerTown/FireBall.tres
+res://Data/Islands/Shops/BrickerTown/SleepingBall.tres
+res://Scenes/Weather.gd

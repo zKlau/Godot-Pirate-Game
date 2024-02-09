@@ -8,12 +8,14 @@ var player
 @onready var env : Node = $".."
 @export var wind_timer : int = 160
 var time : float = 0;
+var delta : float;
 func _ready():
 	player = Global.player
 	pass
 	
 func _process(delta):
 	time += delta
+	delta = delta;
 	_wind()
 	if rain:
 		if !$"Rain/Light Rain".playing:
@@ -78,11 +80,13 @@ func _wind():
 	
 	pass
 func _on_rain_timer_timeout():
-	var clouds_cutoff = randf_range(0,1)
+	var clouds_cutoff = randf_range(0,0.7)
 	var clouds_weight = randf_range(0,1)
 	
-	env.clouds_cutoff = lerp(env.clouds_cutoff,clouds_cutoff,time*2)
-	env.clouds_weight = lerp(env.clouds_weight,clouds_weight,time*2)
+	print(clouds_cutoff," ",clouds_weight)
+	env.clouds_cutoff =clouds_cutoff #lerp(env.clouds_cutoff,clouds_cutoff,delta*2)
+	env.clouds_weight =clouds_weight #lerp(env.clouds_weight,clouds_weight,delta*2)
+	env._update_clouds()
 	if clouds_cutoff > 0.30:
 		rain = false
 		heavy_rain = false
