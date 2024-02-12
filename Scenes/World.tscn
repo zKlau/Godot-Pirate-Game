@@ -662,8 +662,8 @@ libraries = {
 z_index = 1000
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 1860.0
-offset_bottom = -325.0
+offset_right = 2020.0
+offset_bottom = -165.0
 
 [node name="Menu Button" type="TextureButton" parent="UI"]
 layout_mode = 0
@@ -692,16 +692,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -288.0
+offset_left = -941.0
 offset_top = -264.0
-offset_right = 288.0
+offset_right = 941.0
 offset_bottom = -208.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 theme = ExtResource("32_w7ekk")
 bbcode_enabled = true
-text = "[center]Press \"E\" to enter the port[/center]"
+text = "ENTER_PORT"
 
 [node name="wind_direction" type="Label" parent="UI"]
 unique_name_in_owner = true

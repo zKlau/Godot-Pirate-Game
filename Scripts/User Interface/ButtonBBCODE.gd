@@ -4,6 +4,7 @@ extends Button
 @export var default_text_color : Color
 @onready var rtl_text : String = $RichTextLabel.text
 func _ready():
+	rtl_text = tr($RichTextLabel.text)
 	pass
 
 func _set_text(txt):

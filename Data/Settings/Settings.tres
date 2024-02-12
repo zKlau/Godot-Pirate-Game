@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Settings" load_steps=2 format=3 uid="uid://dh6iovn1mgdk8"]
+[gd_resource type="Resource" script_class="Settings" load_steps=2 format=3 uid="uid://b5ckeai4xfs0t"]
 
 [ext_resource type="Script" path="res://Data/Settings/Settings.gd" id="1_t8jpb"]
 

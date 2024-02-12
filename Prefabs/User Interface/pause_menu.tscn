@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="2_vsc6g"]
 [ext_resource type="Script" path="res://Scripts/User Interface/ButtonBBCODE.gd" id="4_jjmgd"]
 [ext_resource type="Script" path="res://Prefabs/User Interface/Audio.gd" id="5_o2381"]
-[ext_resource type="Resource" uid="uid://dh6iovn1mgdk8" path="res://Data/Settings/Settings.tres" id="6_uwtpi"]
+[ext_resource type="Resource" uid="uid://b5ckeai4xfs0t" path="res://Data/Settings/Settings.tres" id="6_uwtpi"]
 [ext_resource type="Script" path="res://Prefabs/User Interface/Graphics.gd" id="7_hqku3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqe1c"]

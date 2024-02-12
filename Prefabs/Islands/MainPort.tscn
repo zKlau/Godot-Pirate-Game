@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://daqm1dfkgqw4n"]
+[gd_scene load_steps=18 format=3 uid="uid://daqm1dfkgqw4n"]
 
 [ext_resource type="PackedScene" uid="uid://b82nljj51riig" path="res://Models/Islands/island test/test_island.gltf" id="1_kx3ad"]
 [ext_resource type="Script" path="res://Prefabs/Islands/Port.gd" id="1_w5ye2"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://Scripts/Island/PlayerIslandDetectionOcean.gd" id="3_dl6u0"]
 [ext_resource type="Script" path="res://Prefabs/Islands/PlayerDetectionPort.gd" id="3_kk733"]
 [ext_resource type="PackedScene" uid="uid://ckpl435inlh56" path="res://Prefabs/User Interface/Ports/Bricker-Town-menu.tscn" id="6_aev6t"]
+[ext_resource type="Script" path="res://Prefabs/Islands/InteractionPoints.gd" id="7_aht4p"]
+[ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="8_0im5l"]
+[ext_resource type="Script" path="res://Prefabs/Islands/Localization.gd" id="9_4durx"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ilyf2"]
 top_radius = 190.0
@@ -26,11 +29,21 @@ radius = 700.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_rijkd"]
 radius = 100.0
 
-[node name="MainPort" type="Node3D" node_paths=PackedStringArray("ship_point", "ship_camera")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1f3m"]
+size = Vector3(10, 18.1333, 21.625)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_17bja"]
+size = Vector3(17.5752, 24.5505, 16.5127)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hpyix"]
+size = Vector3(12.9341, 13.6967, 11.7474)
+
+[node name="MainPort" type="Node3D" node_paths=PackedStringArray("ship_point", "ship_camera", "ship_camera_2")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 script = ExtResource("1_w5ye2")
 ship_point = NodePath("Ship_point")
 ship_camera = NodePath("Camera_point")
+ship_camera_2 = NodePath("Camera_point_2")
 ui_scene = ExtResource("6_aev6t")
 
 [node name="Mask" type="MeshInstance3D" parent="."]
@@ -48,6 +61,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_rq1xk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10000, 0)
 collision_layer = 17
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -90,7 +104,7 @@ script = ExtResource("3_kk733")
 parent = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionPort"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -292.965, 0, 12.6575)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -292.965, 10000, 12.658)
 shape = SubResource("SphereShape3D_rijkd")
 
 [node name="test_island" parent="." instance=ExtResource("1_kx3ad")]
@@ -99,9 +113,95 @@ shape = SubResource("SphereShape3D_rijkd")
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -277.278, 0, 21.161)
 
 [node name="Camera_point" type="Node3D" parent="."]
-transform = Transform3D(-0.25038, 0, -0.968147, 0, 0.999999, 0, 0.968148, 0, -0.25038, -293.918, 14.855, 9.431)
+transform = Transform3D(-0.0826167, 0, -0.996581, 0, 0.999999, 0, 0.996582, 0, -0.082617, -263.571, 21.3868, 2.08512)
+
+[node name="Camera_point_2" type="Node3D" parent="."]
+
+[node name="InteractionPoints" type="Node3D" parent="." node_paths=PackedStringArray("parent", "shop_text", "tavern_text", "kiosk_text")]
+script = ExtResource("7_aht4p")
+parent = NodePath("..")
+shop_text = NodePath("Shop/Visuals")
+tavern_text = NodePath("Tavern/Visuals")
+kiosk_text = NodePath("Kiosk/Visuals")
+
+[node name="Shop" type="Area3D" parent="InteractionPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.498, 5.83362, 29.2049)
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionPoints/Shop"]
+transform = Transform3D(0.999857, 0, -0.016894, 0, 1, 0, 0.016894, 0, 0.999857, 0, 11.2002, 8.40797)
+shape = SubResource("BoxShape3D_l1f3m")
+
+[node name="Visuals" type="Node3D" parent="InteractionPoints/Shop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.81691, 16.9659, 5.15595)
+visible = false
+
+[node name="Label3D" type="Label3D" parent="InteractionPoints/Shop/Visuals"]
+transform = Transform3D(-0.337046, 0, -0.941488, 0, 1, 0, 0.941488, 0, -0.337046, 0, 0, 0)
+billboard = 1
+double_sided = false
+no_depth_test = true
+outline_modulate = Color(0.415686, 0, 0, 1)
+text = "Shop"
+font = ExtResource("8_0im5l")
+font_size = 700
+outline_size = 127
+language = "ro"
+script = ExtResource("9_4durx")
+
+[node name="Tavern" type="Area3D" parent="InteractionPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.498, 5.83362, 8.36881)
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionPoints/Tavern"]
+transform = Transform3D(0.999857, 0, -0.016894, 0, 1, 0, 0.016894, 0, 0.999857, 4.2737, 14.4089, 10.6287)
+shape = SubResource("BoxShape3D_17bja")
+
+[node name="Visuals" type="Node3D" parent="InteractionPoints/Tavern"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58179, 19.0392, 9.97193)
+visible = false
+
+[node name="Label3D" type="Label3D" parent="InteractionPoints/Tavern/Visuals"]
+transform = Transform3D(-0.337046, 0, -0.941488, 0, 1, 0, 0.941488, 0, -0.337046, 0, 0, 0)
+billboard = 1
+double_sided = false
+no_depth_test = true
+outline_modulate = Color(0.415686, 0, 0, 1)
+text = "Tavern"
+font = ExtResource("8_0im5l")
+font_size = 700
+outline_size = 127
+
+[node name="Kiosk" type="Area3D" parent="InteractionPoints"]
+transform = Transform3D(0.930673, -1.59919e-08, -0.365852, 1.59919e-08, 1, -3.03037e-09, 0.365852, -3.03037e-09, 0.930673, -194.617, 5.83362, -20.0258)
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionPoints/Kiosk"]
+transform = Transform3D(0.999857, 2.36041e-13, -0.0168939, -2.37588e-13, 1, -8.95752e-14, 0.0168939, 9.35762e-14, 0.999857, 1.46393, 8.98194, 8.20721)
+shape = SubResource("BoxShape3D_hpyix")
+
+[node name="Visuals" type="Node3D" parent="InteractionPoints/Kiosk"]
+transform = Transform3D(1, 6.99441e-15, 5.96046e-08, -1.43219e-14, 0.999999, 7.54952e-15, -5.96046e-08, 4.88498e-15, 1, 0.373199, 15.6672, 8.46417)
+visible = false
+
+[node name="Label3D" type="Label3D" parent="InteractionPoints/Kiosk/Visuals"]
+transform = Transform3D(-0.337046, 3.44169e-15, -0.941488, 6.43929e-15, 1, 5.32907e-15, 0.941488, 2.44249e-15, -0.337046, 0, 0, 0)
+billboard = 1
+double_sided = false
+no_depth_test = true
+outline_modulate = Color(0.415686, 0, 0, 1)
+text = "Kiosk"
+font = ExtResource("8_0im5l")
+font_size = 700
+outline_size = 127
 
 [connection signal="body_entered" from="PlayerDetectionOcean" to="PlayerDetectionOcean" method="_on_body_entered"]
 [connection signal="body_exited" from="PlayerDetectionOcean" to="PlayerDetectionOcean" method="_on_body_exited"]
 [connection signal="body_entered" from="PlayerDetectionPort" to="PlayerDetectionPort" method="_on_body_entered"]
 [connection signal="body_exited" from="PlayerDetectionPort" to="PlayerDetectionPort" method="_on_body_exited"]
+[connection signal="mouse_entered" from="InteractionPoints/Shop" to="InteractionPoints" method="_on_shop_mouse_entered"]
+[connection signal="mouse_exited" from="InteractionPoints/Shop" to="InteractionPoints" method="_on_shop_mouse_exited"]
+[connection signal="mouse_entered" from="InteractionPoints/Tavern" to="InteractionPoints" method="_on_tavern_mouse_entered"]
+[connection signal="mouse_exited" from="InteractionPoints/Tavern" to="InteractionPoints" method="_on_tavern_mouse_exited"]
+[connection signal="mouse_entered" from="InteractionPoints/Kiosk" to="InteractionPoints" method="_on_kiosk_mouse_entered"]
+[connection signal="mouse_exited" from="InteractionPoints/Kiosk" to="InteractionPoints" method="_on_kiosk_mouse_exited"]
