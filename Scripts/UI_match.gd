@@ -18,6 +18,11 @@ func _process(delta):
 	#	$Current_Ship_Selected.text = str(%"MATCH GAME".player1_ships[%Player_attack_zone.current_ship]._name)
 	pass
 
+func temp_distroy_ui():
+	Global.ui.temp.visible = false;
+	
+	for i in temp.get_children():
+		i.queue_free()
 
 func _on_switch_camera_pressed():
 	if camera_r:

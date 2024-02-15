@@ -12,12 +12,14 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	Global.current_island = parent
 	Global.ui.titles.enter_port.visible = true
 	parent.entered = true
 	pass # Replace with function body.
 
 
 func _on_body_exited(body):
+	Global.current_island = null
 	Global.ui.titles.enter_port.visible = false
 	parent.entered = false
 	pass # Replace with function body.

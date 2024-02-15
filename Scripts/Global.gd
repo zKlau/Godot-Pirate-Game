@@ -13,6 +13,10 @@ var render_distance : float = 300
 var ui;
 var stop_movement : bool = false;
 
+
+var current_window
+var current_island
+
 #WIND ZONE
 var wind : int = 1
 var north_wind : float = 1

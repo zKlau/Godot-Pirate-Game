@@ -1,6 +1,6 @@
 key,en,es,ro
 Shop,Shop,Comercio,Magazin
-ENTER_PORT,[center]Press '"E'" to enter the port[/center],[center]Presione ""E"" para ingresar al puerto[/center],[center]Apasa ""E"" pentru a intra în port[/center]
+ENTER_PORT,"[center]Press ""E"" to enter the port[/center]","[center]Presione ""E"" para ingresar al puerto[/center]","[center]Apasa ""E"" pentru a intra în port[/center]"
 [center]Menu[/center],[center]Menu[/center],[center]Menú[/center],[center]Meniu[/center]
 [center]Map[/center],[center]Map[/center],[center]Mapa[/center],[center]Harta[/center]
 [center]Options[/center],[center]Options[/center],[center]Opciones[/center],[center]Opțiuni[/center]
@@ -11,3 +11,4 @@ ENTER_PORT,[center]Press '"E'" to enter the port[/center],[center]Presione ""E""
 [center]Back[/center],[center]Back[/center],[center]Atrás[/center],[center]Înapoi[/center]
 Tavern,Tavern,Taberna,Tavernă
 Kiosk,Kiosk,Quiosco,Chioșc
+Dockyard,Dockyard,Astillero,Dockyard

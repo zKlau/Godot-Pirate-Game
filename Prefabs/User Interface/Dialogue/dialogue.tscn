@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://7ts2wxea6ley"]
+
+[ext_resource type="Script" path="res://Scripts/User Interface/Dialogue/Dialogue.gd" id="1_y4in0"]
+[ext_resource type="Texture2D" uid="uid://b7yogrr8jm8mx" path="res://Assets/Textures/UI/menu-section-dark.png" id="2_bcuwh"]
+[ext_resource type="Texture2D" uid="uid://duloxtkkjthpc" path="res://Assets/Textures/UI/health-bar.png" id="3_layvr"]
+[ext_resource type="Theme" uid="uid://b2b7ngnvet3c" path="res://Prefabs/User Interface/menu_theme.tres" id="4_whtuq"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("1_y4in0")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = -434.0
+offset_right = 1398.0
+offset_bottom = 122.0
+texture = ExtResource("2_bcuwh")
+
+[node name="Name_background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 61.0
+offset_top = -348.0
+offset_right = 385.0
+offset_bottom = -240.0
+texture = ExtResource("3_layvr")
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = -248.0
+offset_right = 1336.0
+offset_bottom = -26.0
+theme = ExtResource("4_whtuq")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+[node name="Name" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = -326.0
+offset_right = 388.0
+offset_bottom = -255.0
+theme = ExtResource("4_whtuq")
+text = "Name name"

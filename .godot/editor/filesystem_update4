@@ -1,7 +1,4 @@
-res://Localization/Game localization - Translations.en.translation
-res://Localization/Game localization - Translations.es.translation
-res://Localization/Game localization - Translations.ro.translation
-res://Scenes/World.tscn
+res://Prefabs/User Interface/Ports/Bricker-Town-menu.tscn
 res://addons/panku_console/res/panku_console_theme.tres
 res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
@@ -18,6 +15,7 @@ res://Data/Player/Vessels/The Dutchman/SleepingBall.tres
 res://Data/Player/Vessels/The Dutchman/FireBall.tres
 res://addons/boujie_water_shader/shader/water.gdshader
 res://addons/boujie_water_shader/prefabs/deep_ocean_material.tres
+res://Prefabs/User Interface/menu_theme.tres
 res://Scripts/Shaders/fog.gdshader
 res://Scripts/Shaders/water.gdshader
 res://Scripts/Shaders/water2.gdshader
@@ -26,16 +24,20 @@ res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
+res://Prefabs/User Interface/Ports/Island_UI.gd
+res://Scenes/World.tscn
 res://Prefabs/Islands/MainPort.tscn
 res://Prefabs/Ships/Placeholder/ship_dark.tscn
-res://Prefabs/User Interface/Ports/Bricker-Town-menu.tscn
-res://Prefabs/User Interface/SHOP/item.tscn
-res://Data/Player/Scenes/cannon_ball_ui.tscn
-res://addons/compass/entities/compassbar.tscn
 res://Prefabs/User Interface/pause_menu.tscn
 res://Data/Settings/Settings.tres
-res://Prefabs/Islands/Port.gd
 res://Prefabs/Islands/InteractionPoints.gd
+res://Prefabs/Islands/Port.gd
+res://Scripts/Global.gd
+res://Scripts/UI_match.gd
 res://Data/Player/Inventory.tres
 res://Data/Player/Player.tres
 res://Data/Player/Vessels/The Dutchman/CannonBall.tres
+res://Localization/Game localization - Translations.en.translation
+res://Localization/Game localization - Translations.es.translation
+res://Localization/Game localization - Translations.ro.translation
+res://Scripts/User Interface/Dialogue/Dialogue.gd

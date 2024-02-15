@@ -1,3 +1,7 @@
+res://Prefabs/User Interface/Dialogue
+res://Scripts/User Interface/Dialogue
+res://Prefabs/User Interface
+res://Prefabs/User Interface/Buttons
 res://Scenes
 res://Localization
 res://Prefabs/Islands/BrickerIsland/Shop
@@ -16,10 +20,6 @@ res://Data/Player
 res://Data/Player/Scenes
 res://Scripts
 res://Scripts/Shaders
-res://Data/Settings
-res://Prefabs/User Interface
-res://Scripts/Resources
-res://
 E:/Godot/Project/Pirate Game/Data/Player
 C:/Users/zKlau/AppData/Roaming/Godot/export_templates/4.1.1.stable
 E:/Godot/Project/Pirate Game

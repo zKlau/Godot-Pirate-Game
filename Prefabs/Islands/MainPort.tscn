@@ -61,8 +61,8 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_rq1xk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10000, 0)
 collision_layer = 17
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("CylinderShape3D_8bms3")
@@ -104,7 +104,7 @@ script = ExtResource("3_kk733")
 parent = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionPort"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -292.965, 10000, 12.658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -292.965, 0, 12.658)
 shape = SubResource("SphereShape3D_rijkd")
 
 [node name="test_island" parent="." instance=ExtResource("1_kx3ad")]
@@ -116,13 +116,14 @@ transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -277.278
 transform = Transform3D(-0.0826167, 0, -0.996581, 0, 0.999999, 0, 0.996582, 0, -0.082617, -263.571, 21.3868, 2.08512)
 
 [node name="Camera_point_2" type="Node3D" parent="."]
+transform = Transform3D(-0.657862, 0, -0.753139, 0, 1, 0, 0.753139, 0, -0.657862, -285.297, 11.4407, -0.998044)
 
-[node name="InteractionPoints" type="Node3D" parent="." node_paths=PackedStringArray("parent", "shop_text", "tavern_text", "kiosk_text")]
+[node name="InteractionPoints" type="Node3D" parent="." node_paths=PackedStringArray("parent", "shop_text", "tavern_text", "dockyard_text")]
 script = ExtResource("7_aht4p")
 parent = NodePath("..")
 shop_text = NodePath("Shop/Visuals")
 tavern_text = NodePath("Tavern/Visuals")
-kiosk_text = NodePath("Kiosk/Visuals")
+dockyard_text = NodePath("Dockyard/Visuals")
 
 [node name="Shop" type="Area3D" parent="InteractionPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.498, 5.83362, 29.2049)
@@ -172,25 +173,25 @@ font = ExtResource("8_0im5l")
 font_size = 700
 outline_size = 127
 
-[node name="Kiosk" type="Area3D" parent="InteractionPoints"]
+[node name="Dockyard" type="Area3D" parent="InteractionPoints"]
 transform = Transform3D(0.930673, -1.59919e-08, -0.365852, 1.59919e-08, 1, -3.03037e-09, 0.365852, -3.03037e-09, 0.930673, -194.617, 5.83362, -20.0258)
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionPoints/Kiosk"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionPoints/Dockyard"]
 transform = Transform3D(0.999857, 2.36041e-13, -0.0168939, -2.37588e-13, 1, -8.95752e-14, 0.0168939, 9.35762e-14, 0.999857, 1.46393, 8.98194, 8.20721)
 shape = SubResource("BoxShape3D_hpyix")
 
-[node name="Visuals" type="Node3D" parent="InteractionPoints/Kiosk"]
+[node name="Visuals" type="Node3D" parent="InteractionPoints/Dockyard"]
 transform = Transform3D(1, 6.99441e-15, 5.96046e-08, -1.43219e-14, 0.999999, 7.54952e-15, -5.96046e-08, 4.88498e-15, 1, 0.373199, 15.6672, 8.46417)
 visible = false
 
-[node name="Label3D" type="Label3D" parent="InteractionPoints/Kiosk/Visuals"]
+[node name="Label3D" type="Label3D" parent="InteractionPoints/Dockyard/Visuals"]
 transform = Transform3D(-0.337046, 3.44169e-15, -0.941488, 6.43929e-15, 1, 5.32907e-15, 0.941488, 2.44249e-15, -0.337046, 0, 0, 0)
 billboard = 1
 double_sided = false
 no_depth_test = true
 outline_modulate = Color(0.415686, 0, 0, 1)
-text = "Kiosk"
+text = "Dockyard"
 font = ExtResource("8_0im5l")
 font_size = 700
 outline_size = 127
@@ -203,5 +204,5 @@ outline_size = 127
 [connection signal="mouse_exited" from="InteractionPoints/Shop" to="InteractionPoints" method="_on_shop_mouse_exited"]
 [connection signal="mouse_entered" from="InteractionPoints/Tavern" to="InteractionPoints" method="_on_tavern_mouse_entered"]
 [connection signal="mouse_exited" from="InteractionPoints/Tavern" to="InteractionPoints" method="_on_tavern_mouse_exited"]
-[connection signal="mouse_entered" from="InteractionPoints/Kiosk" to="InteractionPoints" method="_on_kiosk_mouse_entered"]
-[connection signal="mouse_exited" from="InteractionPoints/Kiosk" to="InteractionPoints" method="_on_kiosk_mouse_exited"]
+[connection signal="mouse_entered" from="InteractionPoints/Dockyard" to="InteractionPoints" method="_on_dockyard_mouse_entered"]
+[connection signal="mouse_exited" from="InteractionPoints/Dockyard" to="InteractionPoints" method="_on_dockyard_mouse_exited"]
