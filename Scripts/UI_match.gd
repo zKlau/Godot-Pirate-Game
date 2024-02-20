@@ -17,6 +17,17 @@ func _process(delta):
 	#if len(%"MATCH GAME".player1_ships) > 0:
 	#	$Current_Ship_Selected.text = str(%"MATCH GAME".player1_ships[%Player_attack_zone.current_ship]._name)
 	pass
+func show_temp_obj(obj):
+	Global.ui.temp.visible = true;
+	var x = obj.instantiate()
+	temp.add_child(x)
+	
+func show_temp_diag(obj):
+	Global.ui.temp.visible = true;
+	var x = obj.instantiate()
+	temp.add_child(x)
+	Global.current_dialogue = x;
+	
 
 func temp_distroy_ui():
 	Global.ui.temp.visible = false;

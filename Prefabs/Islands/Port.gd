@@ -25,6 +25,7 @@ func show_ui():
 	Global.current_window = obj;
 	Global.ui.temp.add_child(obj)
 	opened = true;
+	
 func show_ui_shop():
 	show_ui()
 	obj.enable_shop()
@@ -42,12 +43,12 @@ func destroy_ui():
 	print(obj)
 	if obj  != null:
 		obj.queue_free()
-	
+
 func change_camera_to_ship():
 	Global.player.global_position = Vector3(ship_point.global_position.x, Global.player.global_position.y, ship_point.global_position.z)
 	Global.player.rotation = ship_point.rotation
 	Global.camera.target_follow = ship_camera_2
-	
+
 func change_camera_to_island():
 	Global.player.global_position = Vector3(ship_point.global_position.x, Global.player.global_position.y, ship_point.global_position.z)
 	Global.player.rotation = ship_point.rotation

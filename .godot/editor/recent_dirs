@@ -1,3 +1,5 @@
+res://Scripts/Resources/User_Interface
+res://Scripts/Resources/Quests
 res://Prefabs/User Interface/Dialogue
 res://Scripts/User Interface/Dialogue
 res://Prefabs/User Interface
@@ -18,8 +20,6 @@ res://Scripts/Island
 res://Prefabs/Islands
 res://Data/Player
 res://Data/Player/Scenes
-res://Scripts
-res://Scripts/Shaders
 E:/Godot/Project/Pirate Game/Data/Player
 C:/Users/zKlau/AppData/Roaming/Godot/export_templates/4.1.1.stable
 E:/Godot/Project/Pirate Game

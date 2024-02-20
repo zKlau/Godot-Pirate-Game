@@ -16,6 +16,7 @@ var stop_movement : bool = false;
 
 var current_window
 var current_island
+var current_dialogue
 
 #WIND ZONE
 var wind : int = 1

@@ -4,11 +4,12 @@ extends Control
 
 @export var shop_items : Array[Shop_Item]
 @export var item_interface : PackedScene
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Signals.connect("save_game",save_game)
-	
-	
 	pass # Replace with function body.
 
 
@@ -39,3 +40,4 @@ func _on_options_back_pressed():
 	Global.current_island.opened = false;
 	Global.ui.temp_distroy_ui()
 	pass # Replace with function body.
+

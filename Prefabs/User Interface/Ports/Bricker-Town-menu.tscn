@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ckpl435inlh56"]
+[gd_scene load_steps=27 format=3 uid="uid://ckpl435inlh56"]
 
 [ext_resource type="Script" path="res://Prefabs/User Interface/Ports/Island_UI.gd" id="1_ihc8g"]
 [ext_resource type="Texture2D" uid="uid://b8sb3hd6h7k67" path="res://Assets/Textures/UI/game-menu.png" id="1_iopbf"]
@@ -7,14 +7,34 @@
 [ext_resource type="Texture2D" uid="uid://bkn6brd4hu2d8" path="res://Assets/Textures/UI/menu/buttons/shop/menu-section-dark-shop.png" id="3_ikwkh"]
 [ext_resource type="Texture2D" uid="uid://dn5iwr4v14kj5" path="res://Assets/Textures/UI/menu/buttons/shop/menu-section-dark-shop-hover.png" id="4_b6sbc"]
 [ext_resource type="Texture2D" uid="uid://bjjk4s5il8u1" path="res://Assets/Textures/UI/menu/buttons/Quests/menu-section-dark-quests.png" id="5_263m6"]
+[ext_resource type="Script" path="res://Scripts/Resources/User_Interface/Dialogue-resource.gd" id="5_lqejg"]
 [ext_resource type="Texture2D" uid="uid://cipvjujcfwtba" path="res://Assets/Textures/UI/menu/buttons/Quests/menu-section-dark-quests-hover.png" id="6_8tec3"]
 [ext_resource type="PackedScene" uid="uid://cvi4b3mgr3rra" path="res://Prefabs/User Interface/SHOP/item.tscn" id="8_vnt0p"]
 [ext_resource type="Resource" uid="uid://bdt1irdnlir05" path="res://Data/Islands/Shops/BrickerTown/SleepingBall.tres" id="9_e6fld"]
 [ext_resource type="Resource" uid="uid://cusa5dltqvrob" path="res://Data/Islands/Shops/BrickerTown/FireBall.tres" id="11_vffuu"]
 [ext_resource type="FontFile" uid="uid://b0qf45wixf6i3" path="res://Assets/Fonts/BirchLeaf.ttf" id="12_ml22i"]
+[ext_resource type="Script" path="res://Prefabs/User Interface/Ports/Tavern-Quests.gd" id="12_pr0bh"]
 [ext_resource type="Script" path="res://Scripts/User Interface/ButtonBBCODE.gd" id="13_nda1w"]
 [ext_resource type="Theme" uid="uid://b2b7ngnvet3c" path="res://Prefabs/User Interface/menu_theme.tres" id="14_sql6w"]
 [ext_resource type="Texture2D" uid="uid://duloxtkkjthpc" path="res://Assets/Textures/UI/health-bar.png" id="15_i5f02"]
+[ext_resource type="Script" path="res://Scripts/Resources/User_Interface/Dialogue-options.gd" id="15_it0r8"]
+[ext_resource type="Script" path="res://Prefabs/User Interface/Ports/Quest_ui.gd" id="16_mutrj"]
+[ext_resource type="Texture2D" uid="uid://cpav8p4gip0uk" path="res://addons/boujie_water_shader/shader/refraction.png" id="17_wadr3"]
+
+[sub_resource type="Resource" id="Resource_tooqh"]
+script = ExtResource("15_it0r8")
+text = "DIAG01_01"
+option = Array[String](["no", "yes"])
+
+[sub_resource type="Resource" id="Resource_qsa1w"]
+script = ExtResource("15_it0r8")
+text = "DIAG01_02"
+option = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_p7qor"]
+script = ExtResource("5_lqejg")
+_name = "Bricker Town"
+diag = Array[ExtResource("15_it0r8")]([SubResource("Resource_tooqh"), SubResource("Resource_qsa1w")])
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds7w7"]
 
@@ -132,6 +152,7 @@ scale = Vector2(1.2, 1.2)
 columns = 2
 
 [node name="Tavern" type="Node2D" parent="."]
+script = ExtResource("12_pr0bh")
 
 [node name="Title" type="RichTextLabel" parent="Tavern"]
 offset_left = 74.0
@@ -143,15 +164,18 @@ bbcode_enabled = true
 text = "[center]Tavern[/center]"
 scroll_active = false
 
-[node name="Container" type="Control" parent="Tavern"]
+[node name="Quest-big" type="Control" parent="Tavern"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 271.0
 offset_top = 151.0
-offset_right = 858.0
-offset_bottom = 476.0
+offset_right = 944.0
+offset_bottom = 556.0
+script = ExtResource("16_mutrj")
+dialogues = SubResource("Resource_p7qor")
+text_speed = 150.0
 
-[node name="Background" type="TextureRect" parent="Tavern/Container"]
+[node name="Background" type="TextureRect" parent="Tavern/Quest-big"]
 layout_mode = 2
 offset_left = -3.0
 offset_top = -185.0
@@ -159,7 +183,7 @@ offset_right = 674.0
 offset_bottom = 544.0
 texture = ExtResource("3_8shcb")
 
-[node name="Quest Title" type="RichTextLabel" parent="Tavern/Container"]
+[node name="Quest Title" type="RichTextLabel" parent="Tavern/Quest-big"]
 layout_mode = 2
 offset_left = 15.0
 offset_right = 268.0
@@ -168,7 +192,7 @@ theme = ExtResource("14_sql6w")
 theme_override_font_sizes/normal_font_size = 46
 text = "Quest:"
 
-[node name="Quest Name" type="RichTextLabel" parent="Tavern/Container"]
+[node name="Quest Name" type="RichTextLabel" parent="Tavern/Quest-big"]
 layout_mode = 2
 offset_left = 134.0
 offset_right = 679.0
@@ -176,7 +200,7 @@ offset_bottom = 71.0
 theme = ExtResource("14_sql6w")
 text = "The newcomer"
 
-[node name="Quest Description" type="RichTextLabel" parent="Tavern/Container"]
+[node name="Quest Description" type="RichTextLabel" parent="Tavern/Quest-big"]
 layout_mode = 2
 offset_left = 17.0
 offset_top = 74.0
@@ -186,21 +210,23 @@ theme = ExtResource("14_sql6w")
 theme_override_font_sizes/normal_font_size = 32
 text = "Talk to the first person you see and ask them about this place"
 
-[node name="TextureButton" type="TextureButton" parent="Tavern/Container"]
+[node name="Accept" type="TextureButton" parent="Tavern/Quest-big"]
 layout_mode = 0
 offset_left = 195.0
 offset_top = 278.0
 offset_right = 437.0
 offset_bottom = 377.0
 texture_normal = ExtResource("15_i5f02")
+texture_hover = ExtResource("17_wadr3")
 stretch_mode = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Tavern/Container/TextureButton"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Tavern/Quest-big/Accept"]
 layout_mode = 0
 offset_left = 34.0
 offset_top = 19.0
 offset_right = 215.0
 offset_bottom = 77.0
+mouse_filter = 2
 theme = ExtResource("14_sql6w")
 text = "ACCEPT"
 
@@ -231,6 +257,7 @@ text = "[center]Back[/center]"
 fit_content = true
 scroll_active = false
 
+[connection signal="pressed" from="Tavern/Quest-big/Accept" to="Tavern/Quest-big" method="_on_accept_pressed"]
 [connection signal="mouse_entered" from="Options_Back" to="Options_Back" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Options_Back" to="Options_Back" method="_on_mouse_exited"]
 [connection signal="pressed" from="Options_Back" to="." method="_on_options_back_pressed"]

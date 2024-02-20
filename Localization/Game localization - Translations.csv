@@ -12,3 +12,6 @@ ENTER_PORT,"[center]Press ""E"" to enter the port[/center]","[center]Presione ""
 Tavern,Tavern,Taberna,Tavernă
 Kiosk,Kiosk,Quiosco,Chioșc
 Dockyard,Dockyard,Astillero,Dockyard
+DIAG01_01,"Aye, you must be the new arrival. I wondered when were you gonna arive.",,
+DIAG01_02,I saw the light and waited for you since this island was the closest.,,
+DIAG01_01p,Where am I?|Who are you?|What happened?,,

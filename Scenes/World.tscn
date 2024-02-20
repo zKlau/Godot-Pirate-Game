@@ -662,8 +662,8 @@ libraries = {
 z_index = 1000
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 2100.0
-offset_bottom = -85.0
+offset_right = 2220.0
+offset_bottom = 35.0
 
 [node name="Menu Button" type="TextureButton" parent="UI"]
 layout_mode = 0
