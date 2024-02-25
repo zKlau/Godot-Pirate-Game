@@ -13,6 +13,7 @@ var player_at_sea : bool = true
 var stop_movement : bool = false;
 #@onready var ocean = $"../WaterPoint"
 func _ready():
+	load_data()
 	Signals.connect("save_game",save_player_data)
 	Global.player = self
 
@@ -22,6 +23,7 @@ func _input(event):
 			if event.is_action_pressed("attack"):
 				combat.attack(ship)
 				
+			
 func _physics_process(delta):
 	RenderingServer.global_shader_parameter_set("ocean_pos", self.position);
 	
@@ -76,16 +78,12 @@ func _physics_process(delta):
 			var ship_rot = rotation.y;
 			
 			if ship_rot < 0.75 and ship_rot > -0.75: # northj
-					print(ship_rot)
 					ship.max_speed = ship.max_speed_default * Global.north_wind
-					print("nord")
 			elif ship_rot < -0.75 and ship_rot > -2.3: #east
 				ship.max_speed = ship.max_speed_default * Global.east_wind
 			elif ship_rot < 2.4 and ship_rot > 0.75: # west
-				print("Parti")
 				ship.max_speed = ship.max_speed_default * Global.west_wind
 			else: #ship_rot > -2.3 and ship_rot < 2.4: #south
-				print("sud")
 				ship.max_speed = ship.max_speed_default * Global.south_wind
 				
 			velocity.x = direction.x * ship.SPEED
@@ -110,8 +108,13 @@ func _physics_process(delta):
 		
 		move_and_slide()
 	
+func load_data():
+	global_position = player_data.last_position
+	global_rotation = player_data.last_rotation 
 func save_player_data():
 	print("Saving Player's Data")
+	player_data.last_position = global_position
+	player_data.last_rotation = global_rotation
 	ResourceSaver.save(player_data,"res://Data/Player/Player.tres")
 	ResourceSaver.save(player_data.inventory,"res://Data/Player/Inventory.tres")
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://b5e3q10dja7qy"]
+[gd_scene load_steps=71 format=3 uid="uid://b5e3q10dja7qy"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_uo2xb"]
 [ext_resource type="Script" path="res://Scripts/Environment.gd" id="3_f88n7"]
@@ -41,6 +41,9 @@
 [ext_resource type="PackedScene" uid="uid://cjpovgx86rfb0" path="res://addons/compass/entities/compassbar.tscn" id="34_a86tp"]
 [ext_resource type="Texture2D" uid="uid://cfyyl47a6amca" path="res://Assets/Textures/UI/menu/Compass/compass-arrow.png" id="35_u0tj1"]
 [ext_resource type="PackedScene" uid="uid://bdc5mb40j7upf" path="res://Prefabs/Enviorment/Fauna/CruisingEvent2.tscn" id="36_3u2f6"]
+[ext_resource type="Script" path="res://Scripts/Quests/Quests_manager.gd" id="42_c3dcc"]
+[ext_resource type="Script" path="res://Scripts/Quests/Scripts/Quest_00.gd" id="43_jx7lr"]
+[ext_resource type="Resource" uid="uid://cafdoebdi7p0g" path="res://Data/Quests/Data/Quest_00.tres" id="44_8y2vr"]
 
 [sub_resource type="Environment" id="Environment_xrhli"]
 background_mode = 2
@@ -53,7 +56,8 @@ tonemap_white = 0.5
 glow_enabled = true
 glow_intensity = 0.2
 fog_light_color = Color(0.568627, 0.603922, 0.658824, 1)
-fog_sun_scatter = 0.01
+volumetric_fog_density = 0.0
+volumetric_fog_length = 1024.0
 adjustment_enabled = true
 adjustment_brightness = 0.9
 adjustment_saturation = 1.3
@@ -365,12 +369,16 @@ _data = {
 "RESET": SubResource("Animation_huobs")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4stig"]
+size = Vector3(800, 100, 10)
+
 [node name="World" type="Node3D"]
 
 [node name="Environment" type="Node" parent="."]
 script = ExtResource("3_f88n7")
 day_time = 12.2553
-clouds_cutoff = 0.7
+clouds_cutoff = 0.41
+clouds_weight = 0.21
 sun_base_enegry = 1.0
 moon_base_enegry = 1.0
 
@@ -645,6 +653,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="FPS" type="Label" parent="UI"]
+visible = false
 z_index = -1000
 layout_mode = 0
 offset_right = 40.0
@@ -662,8 +671,8 @@ libraries = {
 z_index = 1000
 layout_mode = 1
 offset_top = -1000.0
-offset_right = 2220.0
-offset_bottom = 35.0
+offset_right = 2460.0
+offset_bottom = 275.0
 
 [node name="Menu Button" type="TextureButton" parent="UI"]
 layout_mode = 0
@@ -705,6 +714,7 @@ text = "ENTER_PORT"
 
 [node name="wind_direction" type="Label" parent="UI"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 1816.0
 offset_top = 488.0
@@ -814,6 +824,58 @@ shape = SubResource("BoxShape3D_jc8rj")
 [node name="MainPort" parent="." instance=ExtResource("32_7h6ax")]
 transform = Transform3D(-0.342312, 0, 0.206936, 0, 0.4, 0, -0.206936, 0, -0.342312, -61.2225, -2, -52.5295)
 
+[node name="Quests" type="Node3D" parent="."]
+script = ExtResource("42_c3dcc")
+
+[node name="Quest_00" type="Node3D" parent="Quests"]
+script = ExtResource("43_jx7lr")
+points = ExtResource("44_8y2vr")
+
+[node name="Area 1" type="Area3D" parent="Quests/Quest_00"]
+transform = Transform3D(0.997676, 0, -0.0681372, 0, 1, 0, 0.0681372, 0, 0.997676, -471.73, 0, 216.64)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quests/Quest_00/Area 1"]
+transform = Transform3D(0.821677, 0, 0.569954, 0, 1, 0, -0.569954, 0, 0.821677, 0, 0, 0)
+shape = SubResource("BoxShape3D_4stig")
+
+[node name="Area 4" type="Area3D" parent="Quests/Quest_00"]
+transform = Transform3D(0.997676, 0, -0.0681372, 0, 1, 0, 0.0681372, 0, 0.997676, 374.157, 0, -325.256)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quests/Quest_00/Area 4"]
+transform = Transform3D(0.821677, 0, 0.569954, 0, 1, 0, -0.569954, 0, 0.821677, 0, 0, 0)
+shape = SubResource("BoxShape3D_4stig")
+
+[node name="Area 2" type="Area3D" parent="Quests/Quest_00"]
+transform = Transform3D(0.53621, 0, -0.844085, 0, 1, 0, 0.844085, 0, 0.53621, -385.924, 0, -196.405)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quests/Quest_00/Area 2"]
+transform = Transform3D(0.821677, 0, 0.569954, 0, 1, 0, -0.569954, 0, 0.821677, -115.234, 0, 47.5899)
+shape = SubResource("BoxShape3D_4stig")
+
+[node name="Area 3" type="Area3D" parent="Quests/Quest_00"]
+transform = Transform3D(0.53621, 0, -0.844085, 0, 1, 0, 0.844085, 0, 0.53621, 507.167, 0, 220.874)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quests/Quest_00/Area 3"]
+transform = Transform3D(0.821677, 0, 0.569954, 0, 1, 0, -0.569954, 0, 0.821677, -115.234, 0, 47.5899)
+shape = SubResource("BoxShape3D_4stig")
+
+[node name="Area 5" type="Area3D" parent="Quests/Quest_00"]
+transform = Transform3D(0.573576, 0, 0.819152, 0, 1, 0, -0.819152, 0, 0.573576, -7.98428, 0, -646.51)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quests/Quest_00/Area 5"]
+transform = Transform3D(0.821677, 0, 0.569954, 0, 1, 0, -0.569954, 0, 0.821677, -115.234, 0, 47.5899)
+shape = SubResource("BoxShape3D_4stig")
+
 [connection signal="timeout" from="Environment/Weather/Rain Timer" to="Environment/Weather" method="_on_rain_timer_timeout"]
 [connection signal="pressed" from="Player/Dutchman/Ship Menu/Close_button" to="Player/Dutchman/Ship Menu" method="_on_close_button_pressed"]
 [connection signal="pressed" from="UI/Menu Button" to="UI" method="_on_menu_button_pressed"]
+[connection signal="body_entered" from="Quests/Quest_00/Area 1" to="Quests/Quest_00" method="_on_area_1_body_entered"]
+[connection signal="body_entered" from="Quests/Quest_00/Area 4" to="Quests/Quest_00" method="_on_area_4_body_entered"]
+[connection signal="body_entered" from="Quests/Quest_00/Area 2" to="Quests/Quest_00" method="_on_area_2_body_entered"]
+[connection signal="body_entered" from="Quests/Quest_00/Area 3" to="Quests/Quest_00" method="_on_area_3_body_entered"]
+[connection signal="body_entered" from="Quests/Quest_00/Area 5" to="Quests/Quest_00" method="_on_area_5_body_entered"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmrjq5yqwsnup"]
+
+[ext_resource type="Texture2D" uid="uid://duloxtkkjthpc" path="res://Assets/Textures/UI/health-bar.png" id="1_l5w4l"]
+[ext_resource type="Script" path="res://Prefabs/User Interface/Dialogue/option_item.gd" id="1_mol7f"]
+[ext_resource type="Theme" uid="uid://b2b7ngnvet3c" path="res://Prefabs/User Interface/menu_theme.tres" id="2_lus4j"]
+[ext_resource type="Texture2D" uid="uid://b7yogrr8jm8mx" path="res://Assets/Textures/UI/menu-section-dark.png" id="4_rvwm0"]
+
+[node name="Option_item" type="Control"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mol7f")
+
+[node name="option_button" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 0
+offset_right = 493.0
+offset_bottom = 100.0
+texture_normal = ExtResource("1_l5w4l")
+texture_hover = ExtResource("4_rvwm0")
+stretch_mode = 0
+
+[node name="option_background" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+offset_top = -20.0
+offset_right = 450.0
+offset_bottom = 80.0
+texture = ExtResource("1_l5w4l")
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 19.0
+offset_right = 485.0
+offset_bottom = 83.0
+mouse_filter = 2
+theme = ExtResource("2_lus4j")
+text = "ERROR"
+scroll_active = false
+
+[connection signal="pressed" from="option_button" to="." method="_on_option_button_pressed"]

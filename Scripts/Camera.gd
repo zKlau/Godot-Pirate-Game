@@ -8,10 +8,18 @@ extends Camera3D
 @export var action_camera_right : Node3D
 var default_camera : Node3D
 var current_camera : int = 0
+
+var ssCount : int = 1;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	default_camera = target_follow
 	Global.camera = self
+	var dir = DirAccess.open("user://")
+	dir.make_dir("screenshots")
+	
+	dir = DirAccess.open("user://screenshots")
+	for n in dir.get_files():
+		ssCount += 1
 	pass # Replace with function body.
 
 
@@ -29,6 +37,8 @@ func _input(event):
 				target_follow = default_camera
 				current_camera = 0
 	'''
+	if event.is_action_pressed("Screenshot"):
+		screenshot()
 	if event.is_action_pressed("1"):
 		target_follow = default_camera
 		current_camera = 0
@@ -39,6 +49,14 @@ func _input(event):
 		target_follow = action_camera_right
 		current_camera = 1
 		
+func screenshot():
+	await RenderingServer.frame_post_draw
+	
+	var viewport = get_viewport()
+	var img = viewport.get_texture().get_image()
+	img.save_png("user://screenshots/screen"+str(ssCount)+".png")
+	
+	ssCount += 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if target_follow != null:

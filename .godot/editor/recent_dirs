@@ -1,6 +1,12 @@
+res://Prefabs/Quests
+res://Scripts/Quests/Scripts
+res://Scripts/Quests
+res://Prefabs/User Interface/Dialogue/Quests
+res://Data/Quests
+res://Prefabs/User Interface/Dialogue
+res://Assets/Itch.io page
 res://Scripts/Resources/User_Interface
 res://Scripts/Resources/Quests
-res://Prefabs/User Interface/Dialogue
 res://Scripts/User Interface/Dialogue
 res://Prefabs/User Interface
 res://Prefabs/User Interface/Buttons
@@ -14,12 +20,6 @@ res://Data/Islands/Shops
 res://Prefabs/User Interface/SHOP
 res://Prefabs/User Interface/Ports
 res://Prefabs/Enviorment/Fauna/Dolphin
-res://Prefabs/Enviorment/Fauna
-res://Prefabs/Enviorment/Fauna/Seagull
-res://Scripts/Island
-res://Prefabs/Islands
-res://Data/Player
-res://Data/Player/Scenes
 E:/Godot/Project/Pirate Game/Data/Player
 C:/Users/zKlau/AppData/Roaming/Godot/export_templates/4.1.1.stable
 E:/Godot/Project/Pirate Game

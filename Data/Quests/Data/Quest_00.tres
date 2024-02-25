@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Quest_00_Resource" load_steps=2 format=3 uid="uid://cafdoebdi7p0g"]
+
+[ext_resource type="Script" path="res://Scripts/Quests/Resources/Quest00_r.gd" id="1_7atqf"]
+
+[resource]
+script = ExtResource("1_7atqf")
+area1_completed = true
+area2_completed = false
+area3_completed = false
+area4_completed = false
+area5_completed = false

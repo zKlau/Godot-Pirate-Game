@@ -12,6 +12,11 @@ var experience_to_level : int = 4000
 @export var active_ships : Array[PackedScene]
 @export var inventory : ShipInventoryResource
 
+@export_category("Transform")
+@export var last_position : Vector3
+@export var last_rotation : Vector3
+
+
 func add_experience(exp):
 	experience += exp
 	while experience >= experience_to_level:

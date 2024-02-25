@@ -161,6 +161,7 @@ draw_pass_1 = SubResource("PlaneMesh_cig8h")
 
 [node name="Mask" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0113653, 1.48323, 0.00265337)
+visible = false
 mesh = SubResource("BoxMesh_vr6dn")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_fon3p")
@@ -180,6 +181,7 @@ shape = SubResource("BoxShape3D_5kqps")
 
 [node name="Area of Attack" type="Sprite3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, -4.69387e-07, -10, 0, 10, -4.69387e-07, 19.1196, 1.99637, -0.269734)
+visible = false
 transparency = 0.95
 cast_shadow = 0
 texture = ExtResource("7_8ijew")

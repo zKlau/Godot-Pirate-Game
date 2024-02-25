@@ -1,8 +1,6 @@
-res://Localization/Game localization - Translations.en.translation
-res://Localization/Game localization - Translations.es.translation
-res://Localization/Game localization - Translations.ro.translation
-res://Prefabs/User Interface/Ports/Bricker-Town-menu.tscn
+res://Scenes/World.tscn
 res://addons/panku_console/res/panku_console_theme.tres
+res://Prefabs/User Interface/menu_theme.tres
 res://Assets/water/Water2.gdshader
 res://Assets/water/Water.material
 res://Prefabs/User Interface/Buttons/ability_button.tres
@@ -18,7 +16,6 @@ res://Data/Player/Vessels/The Dutchman/SleepingBall.tres
 res://Data/Player/Vessels/The Dutchman/FireBall.tres
 res://addons/boujie_water_shader/shader/water.gdshader
 res://addons/boujie_water_shader/prefabs/deep_ocean_material.tres
-res://Prefabs/User Interface/menu_theme.tres
 res://Scripts/Shaders/fog.gdshader
 res://Scripts/Shaders/water.gdshader
 res://Scripts/Shaders/water2.gdshader
@@ -27,19 +24,17 @@ res://Scripts/Shaders/fog2.gdshader
 res://Prefabs/User Interface/tooltip.gdshader
 res://Scripts/Shaders/Sky.gdshader
 res://Scripts/Shaders/MainSky.gdshader
-res://Scenes/World.tscn
+res://Scripts/Quests/Scripts/Quest_00.gd
+res://Scripts/Quests/Resources/Quest00_r.gd
 res://Prefabs/Islands/MainPort.tscn
-res://Prefabs/Ships/Placeholder/ship_dark.tscn
+res://Prefabs/User Interface/Ports/Bricker-Town-menu.tscn
 res://Prefabs/User Interface/Dialogue/dialogue.tscn
-res://Prefabs/User Interface/SHOP/item.tscn
+res://Prefabs/Ships/Placeholder/ship_dark.tscn
 res://Data/Settings/Settings.tres
-res://Scripts/User Interface/Dialogue/Dialogue.gd
-res://Prefabs/User Interface/Ports/Quest_ui.gd
-res://Prefabs/User Interface/Ports/Island_UI.gd
-res://Data/Player/Inventory.tres
+res://Scripts/PlayerBody.gd
 res://Data/Player/Player.tres
+res://Data/Player/Player_data.gd
+res://Data/Player/Inventory.tres
 res://Data/Player/Vessels/The Dutchman/CannonBall.tres
-res://Scripts/Resources/User_Interface/Dialogue.tres
-res://Scripts/Resources/User_Interface/Dialogue-options.gd
-res://Scripts/Resources/User_Interface/Dialogue-resource.gd
-res://Scripts/Resources/User_Interface/Dialogue_options.tres
+res://Prefabs/Quests/Quest_00.tres
+res://Data/Quests/Data/Quest_00.tres

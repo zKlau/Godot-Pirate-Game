@@ -12,6 +12,19 @@ ENTER_PORT,"[center]Press ""E"" to enter the port[/center]","[center]Presione ""
 Tavern,Tavern,Taberna,Tavernă
 Kiosk,Kiosk,Quiosco,Chioșc
 Dockyard,Dockyard,Astillero,Dockyard
-DIAG01_01,"Aye, you must be the new arrival. I wondered when were you gonna arive.",,
-DIAG01_02,I saw the light and waited for you since this island was the closest.,,
-DIAG01_01p,Where am I?|Who are you?|What happened?,,
+DIAG01_01,"Ahoy, be ye the landlubber arriving' at last? I've been wondering' when your ship would finally drop anchor.",,"Ahoy, insfarsit ați sosit. Mă întrebam cand o sa ajungeți însfârșit."
+DIAG01_02,"I spied the beacon and stood watch for ye, seeing' as this island be the nearest refuge.",,"Am văzut lumina și am asteptat să veniți, având in vedere ca aceasta este singura insula din apropiere."
+DIAG01_03,It's been a while since I last see that.,,A trecut ceva timp de când am văzut aia.
+DIAG01_03p1,Where am I?,,Unde suntem?
+DIAG01_03p2,What happened?,,Ce s-a înâmplat?
+DIAG01_04,"Ye don't know? Must be a fresh captain, clueless 'bout the curse that hangs over the seas.",,Nu știi? Trebuie să fii un căpitan nou ca sa nu știi de blestem.
+DIAG01_05,"Ye've been cursed, lad, marked by The Dutchman. Ye must've brushed against its shadow. Before landin' here, did ye spy a storm conjurin' out of thin air?",,"Ai fost blestemat, băiete, blestemat de Olandez. Probabil ai intrat în umbra lui. Înainte de a ajunge aici ați vazut cumva că a inceput o furtună dintr-o dată?"
+DIAG01_05p1,I don't remember.,,Nu îmi amintesc.
+DIAG01_05p2,Might have.,,Poate.
+DIAG01_06,"We've been cursed too lad, cursed to sail the seas for eternity.",,"Și noi am vost blestemați băiete, blestemați sa navigam marea pentru eternitate."
+DIAG01_07,"Like ye, we all roused in this realm. And since we can't break free without shirkin' off The Dutchman, a feat near impossible, we agreed to forge our own society here, makin' existence a bit more bearable.",,"Ca și voi, ne-am trezit cu toții în acest tărâm. Și din moment ce nu ne putem elibera fără să distrugem Olandezul, o ispravă aproape imposibilă, am convenit să ne creăm propria societate aici, făcând existența noastra puțin mai suportabilă."
+DIAG01_07p1,Did you try stopping it?,,Ați incercat sa îl opriți?
+DIAG01_07p2,Nothing is impossible!,,Nimic nu este imposibil!
+DIAG01_08,"It be a futile endeavor, lad. We endeavored, yet met defeat, and in the fray, some among us joined The Dutchman's crew, forfeitin' what little remained of their souls for all eternity.",,"Este inutil. Am încercat dar am fost bătuți, iar in luptă unii dintre noi s-au alăturat echipakului Olandezului, pierzând ceea ce a mai rămas din sufletele lor pentru totdeauna."
+DIAG01_09,"We might make another attempt, but for that, we'd be needin' the finest captain to ever sail the seas.",,"S-ar putea să facem o altă încercare, dar pentru asta, am avea nevoie de cel mai bun căpitan care să navigheze vreodată pe mări."
+DIAG01_10,"Enough o' that, we've got all the time in the world to gab about it. Best tuck it away for later. Since ye be a stranger to these parts, why not wander and take a gander? After that, come seek me out once more.",,"Destul de asta, avem tot timpul din lume să vorbim despre asta. Cel mai bine este să-l lăsăm pentru mai târziu. Din moment ce sunteți străini în aceste părți, de ce să nu vă plimbați și să aruncați o privire? După aceea, veniți să mă cauți încă o dată."

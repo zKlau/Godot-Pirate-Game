@@ -2,6 +2,7 @@ extends Control
 
 @export var dialogues : Dialogue_Data
 @onready var dialogue_interface : PackedScene = preload("res://Prefabs/User Interface/Dialogue/dialogue.tscn")
+@export var quest : Quest_Data
 @export_range(100,500) var text_speed : float 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,4 +16,6 @@ func _on_accept_pressed():
 	Global.ui.temp_distroy_ui()
 	Global.ui.show_temp_diag(dialogue_interface)
 	Global.current_dialogue.display_text(dialogues, text_speed)
+	
+	Quests.add_quest(quest)
 	pass # Replace with function body.

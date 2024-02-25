@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="Dialogue_Data" load_steps=13 format=3 uid="uid://bjud6uovcqqsm"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/User_Interface/Dialogue-options.gd" id="1_tpbyd"]
+[ext_resource type="Script" path="res://Scripts/Resources/User_Interface/Dialogue-resource.gd" id="2_titr8"]
+
+[sub_resource type="Resource" id="Resource_tooqh"]
+script = ExtResource("1_tpbyd")
+text = "DIAG01_01"
+option = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_qsa1w"]
+script = ExtResource("1_tpbyd")
+text = "DIAG01_02"
+option = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_a2ccv"]
+script = ExtResource("1_tpbyd")
+text = "DIAG01_03"
+option = Array[String](["DIAG01_03p1", "DIAG01_03p2"])
+
+[sub_resource type="Resource" id="Resource_a7lan"]
+script = ExtResource("1_tpbyd")
+text = "DIAG01_04"
+option = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_er1vy"]
+script = ExtResource("1_tpbyd")
+text = "DIAG01_05"
+option = Array[String](["DIAG01_05p1", "DIAG01_05p2"])
+
+[sub_resource type="Resource" id="Resource_sxmvl"]
+script = ExtResource("1_tpbyd")
+text = "DIAG01_06"
+option = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_bq72x"]
+script = ExtResource("1_tpbyd")
+text = "DIAG01_07"
+option = Array[String](["DIAG01_07p1", "DIAG01_07p2"])
+
+[sub_resource type="Resource" id="Resource_4o155"]
+script = ExtResource("1_tpbyd")
+text = "DIAG01_08"
+option = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_c6clu"]
+script = ExtResource("1_tpbyd")
+text = "DIAG01_09"
+option = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_o8nqk"]
+script = ExtResource("1_tpbyd")
+text = "DIAG01_10"
+option = Array[String]([])
+
+[resource]
+script = ExtResource("2_titr8")
+_name = "Bricker's Mayor "
+diag = Array[ExtResource("1_tpbyd")]([SubResource("Resource_tooqh"), SubResource("Resource_qsa1w"), SubResource("Resource_a2ccv"), SubResource("Resource_a7lan"), SubResource("Resource_er1vy"), SubResource("Resource_sxmvl"), SubResource("Resource_bq72x"), SubResource("Resource_4o155"), SubResource("Resource_c6clu"), SubResource("Resource_o8nqk")])

@@ -1,6 +1,7 @@
+Quest_00_Resource
+Quest_Data
 Dialogue_options
 Dialogue_Data
-Quest_Data
 Shop_Item
 ShipInventory
 Cannon_Balls_resource
